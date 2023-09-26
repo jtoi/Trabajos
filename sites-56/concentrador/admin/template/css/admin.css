@@ -1,0 +1,879 @@
+/* CSS Document  */
+
+body {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+img,
+div,
+a,
+input {
+    behavior: url(../images/iepngfix.htc)
+}
+
+
+/* Login */
+
+#top {
+    background-color: #9A0000;
+    height: 33px;
+    width: 100%;
+}
+
+#main {
+    background: url(../images/fondo_degradado_gris.gif) top repeat-x;
+    width: 100%;
+}
+
+#borde {
+    width: 100%;
+    height: 36px;
+    background: url(../images/fondo_barra_horizontal.gif) repeat-x top;
+}
+
+.cuerpo {
+    font-size: 10px;
+}
+
+#inf {
+    width: 100%;
+    height: 170px;
+}
+
+#mainTop {
+    text-align: center;
+    margin-top: 53px;
+}
+
+#Cleft,
+#Cright,
+#Cmid {
+    float: left;
+}
+
+#Cleft {
+    /*background: url(../images/imagen.png) no-repeat 190px 41px;*/
+    height: 265px;
+    width: 49%;
+}
+
+#Cleft img {
+    margin: 41px 0 0 189px;
+}
+
+#Cmid {
+    width: 8px;
+    height: 190px;
+    margin-top: 60px;
+    background: url(../images/fondo_separador_puntos.gif) repeat-y 4px;
+    ;
+}
+
+#Cright {
+    width: 49%;
+    height: 265px;
+}
+
+#mainInf {
+    text-align: center;
+    color: #949494;
+    padding-top: 10px;
+    line-height: 33px;
+}
+
+#Cright table {
+    margin: 72px 0 0 22px;
+    font-size: 12px;
+    text-transform: lowercase;
+}
+
+#Cright table td:first-child {
+    width: 84px;
+}
+
+#Cright table td {
+    line-height: 40px;
+}
+
+.log_form {
+    border: 1px solid #9A0000;
+    height: 21px;
+    width: 181px;
+}
+
+#botonLog {
+    margin: 29px 0 0 87px;
+    background: url(../images/btn_entrar.png) no-repeat;
+    width: 106px;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+}
+
+#botonLog:hover {
+    background: url(../images/btn_entrar_over.png) no-repeat;
+}
+
+td.form_left {
+    padding-right: 10px;
+    text-align: right;
+    height: 35px;
+    color: #669ACC;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#infTop,
+#infInf {
+    width: 100%;
+    float: left;
+}
+
+#infTop1,
+#infTop2 {
+    float: left;
+    width: 49%
+}
+
+#infTop1 {
+    text-align: right;
+}
+
+#infTop1 img {
+    margin: 17px 22px 0;
+}
+
+#infTop2 img {
+    margin: 17px 0 0;
+}
+
+#infTop2 {
+    text-align: left;
+}
+
+#infTopC {
+    float: left;
+    width: 8px;
+    background: url(../images/fondo_separador_puntos.gif) repeat-y 4px;
+    height: 58px;
+    margin-top: 10px;
+}
+
+
+/* Interior */
+
+.inf {
+    background: url(../images/degrada2.png) repeat-x;
+    border-top: #679BCC solid 1px;
+    height: 6px;
+}
+
+td.form_center {
+    padding-right: 10px;
+    text-align: right;
+    height: 35px;
+}
+
+#princ {
+    background: url(../images/degrada.png) repeat-x;
+}
+
+#dqmbar div {
+    top: 1px !important;
+}
+
+.separamen {
+    width: 10px;
+}
+
+.login_tit {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    height: 25px;
+}
+
+td#semana {
+    border: 1px solid #DCDCDC;
+    width: 12%;
+}
+
+a.paglink {
+    color: #000000;
+    text-decoration: none;
+}
+
+.banner {
+    background: url(../images/banner.png) no-repeat left;
+    height: 73px;
+    cursor: pointer;
+}
+
+.menu {
+    height: 25px;
+    vertical-align: middle;
+}
+
+.menu_cent {
+    color: #888888;
+    font-size: 11px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.alerta {
+    color: Red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.title_pag {
+    font-size: 16px;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.encabezamiento,
+table#resultC thead tr,
+table#resultT thead tr {
+    background-color: #ffa82d;
+    height: 25px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.encabezamiento2,
+.encaSms {
+    background: url(../images/degrada4.png) top repeat-x;
+    font-weight: bold;
+    padding: 5px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.encabezamiento2 td {
+    text-align: center;
+}
+
+.celdas {
+    padding: 2px;
+}
+
+.celdaVal {
+    padding: 7px 4px;
+}
+
+.separador1,
+.separador2 {
+    background-color: #C9C9C9;
+    width: 1px;
+}
+
+.separa {
+    border-right: 1px #c9c9c9 solid;
+}
+
+.tab_ppal {
+    padding-bottom: 30px;
+}
+
+.title_tarea {
+    font-size: 12px;
+    font-weight: bold;
+    background: url(../images/degrada3.png) repeat-x top;
+    text-align: center;
+    /*height: 25px;*/
+}
+
+.sepr {
+    background-color: #B6B6B6;
+    width: 1px;
+}
+
+.total1 {
+    text-align: right;
+    font-size: 11px;
+}
+
+.total2 {
+    width: 500px;
+    text-align: left;
+}
+
+td.boton {
+    height: 25px;
+    text-align: center;
+    border-top: 1px solid #B6B6B6;
+}
+
+table.tab_tarea table {
+    border-left: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+}
+
+table.tab_tarea {
+    border-bottom: 1px solid #91A7B4;
+}
+
+table.tab_tarea1 {
+    border: 1px solid #ffffff;
+}
+
+td.derecha {
+    text-align: right;
+    padding: 3px 3px 3px 0px;
+    height: 30px;
+    /*width:50%;*/
+}
+
+td.izquierda {
+    text-align: left;
+    padding: 3px 0px 3px 3px;
+}
+
+.formul {
+    font: 10px Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.corto td {
+    padding: 10px;
+}
+
+.tablTit td {
+    /* 	font-size:110%; */
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #91A7B4;
+}
+
+.tablCont td {
+    padding: 0 7px 0 7px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+table.Info {
+    border-top: 1px solid #91A7B4;
+    border-bottom: 1px solid #91A7B4;
+}
+
+.conect {
+    font-weight: bold;
+}
+
+.conect2 {
+    margin-left: 10px;
+}
+
+
+/* IDIOMAS */
+
+td#idioma {
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.spanish {
+    background-color: #FFF3C6;
+}
+
+.english {
+    background-color: #BBC9FF;
+}
+
+.verde {
+    color: green;
+}
+
+.amarillo {
+    color: #FEC611;
+}
+
+.rojo {
+    color: red;
+}
+
+.verde,
+.rojo,
+.amarillo {
+    font-weight: bold;
+}
+
+
+/*Pagina de Pago*/
+
+#encabPago,
+#encabVou {
+    text-align: center;
+    background: url(../images/degrada.png) repeat-x top;
+}
+
+#encabVou {
+    width: 400px;
+}
+
+#encabVou h1 {
+    margin-top: 0px;
+}
+
+#logoPago,
+#logoVou {
+    min-height: 83px;
+}
+
+#cuerpoVou {
+    text-align: left;
+    padding: 20px 20px;
+}
+
+.cuerpoPago {
+    text-align: center;
+    min-height: 400px;
+    padding-top: 90px;
+}
+
+#piePago {
+    text-align: center;
+    margin-top: 20px;
+    color: #669ACC
+}
+
+.inf2 {
+    background: url(../images/degrada5.png) repeat-x;
+    border-bottom: #679BCC solid 1px;
+    height: 6px;
+}
+
+#noticiaA li {
+    margin-top: 7px;
+}
+
+#noticiaT {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+
+.dineroEnt {
+    font-weight: bold;
+    color: red;
+}
+
+#liveclock1 {
+    width: 200px;
+}
+
+#liveclock2 {
+    width: 200px;
+}
+
+
+/*Cambios de moneda*/
+
+#cambioEur {
+    left: 351px;
+    position: absolute;
+    top: 8px;
+    width: 190px;
+    font-size: 11px;
+    color: #888888;
+}
+
+.cambEur {
+    font-weight: bold;
+}
+
+
+/*Menu*/
+
+.aerial12 {
+    font-family: Verdana;
+    font-size: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #9A0000;
+    border-left: 1px solid #ffffff;
+    width: 150px;
+}
+
+.aerial12over {
+    font-family: Verdana;
+    font-size: 10px;
+    text-decoration: none;
+    color: #402903;
+    background-color: #FC7F7F;
+}
+
+#tabInf,
+#debD {
+    float: left;
+    width: 100%;
+}
+
+.tabTodo {
+    margin: 0 auto;
+}
+
+.title_tarea,
+.derecha1,
+.izquierda1,
+.lineaT,
+.title_pag1,
+.title_tarea2,
+.title_tarea1,
+.title_tarea3,
+.botForm,
+.textForm {
+    float: left;
+}
+
+.title_pag1 {
+    width: 100%;
+    font-size: 16px;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.derecha1,
+.izquierda1 {
+    padding: 3px 3px 3px 0px;
+    line-height: normal;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.derecha1 {
+    text-align: right;
+}
+
+.izquierda1 {
+    text-align: left;
+}
+
+.title_tarea1 {
+    background: url(../images/degrada3.png) repeat-x top;
+}
+
+.title_tarea2 {
+    background: url(../images/esqizq.png) left top no-repeat;
+}
+
+.title_tarea3 {
+    background: url("../images/esqder.png") no-repeat scroll right top transparent;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 23px;
+    text-align: center;
+    border-bottom: 1px solid #91A7B4;
+}
+
+.lineaT,
+.botForm,
+.textForm {
+    border-left: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+    padding: 3px 0;
+}
+
+.botForm,
+.textForm {
+    line-height: 35px;
+    font-size: 10px;
+    text-align: center;
+    /*border-bottom: 1px solid #91A7B4;*/
+}
+
+.textForm {
+    line-height: 21px;
+}
+
+.haslabel:hover {
+    text-decoration: underline;
+}
+
+.divCarga {
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#divFormHid {
+    display: none;
+    float: left;
+    width: 100%;
+}
+
+#onhideText {
+    border-left: 1px solid #91A7B4;
+    border-right: 1px solid #91A7B4;
+    float: left;
+    padding-top: 24px;
+}
+
+#onhideText span {
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.onhideTextShow {
+    color: red;
+    font-size: 10px;
+    text-align: right;
+    line-height: 18px !important;
+}
+
+.onshowTextShow {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.cierreTab {
+    border: 1px solid #888888;
+}
+
+.cierreTab td {
+    padding: 2px 5px;
+}
+
+.cierretop1 {
+    background-color: #B6B6B6;
+    line-height: 23px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.cierretop2 {
+    background-color: red;
+    color: #ffffff;
+    line-height: 23px;
+    font-weight: bold;
+}
+
+.cierretop2 td {
+    border-bottom: 1px solid #888888;
+    border-top: 1px solid #888888;
+    padding-left: 5px;
+}
+
+.cierretit .cierretd {
+    text-align: center;
+    padding: 3px;
+    background-color: #DCDCDC;
+}
+
+.cierretd {
+    border-width: 0 1px 1px 0px;
+    border-style: solid;
+    border-color: #888888;
+    padding: 3px;
+    text-align: right;
+}
+
+.cierrefdo td {
+    padding: 3px;
+    background-color: #DCDCDC;
+    text-align: right;
+}
+
+.cierreSepara {
+    width: 100%;
+    height: 30px;
+}
+
+.cierreEurosT {
+    background-color: #DCDCDC;
+    border-color: #888888;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}
+
+.title {
+    font-weight: bold;
+    width: 80px;
+}
+
+.cierreTotgen .cierreEurosT {
+    background-color: red;
+    color: #ffffff;
+}
+
+.cierreleft {
+    border-left: solid 1px #888888;
+}
+
+.cierreazul {
+    color: blue;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cierrearriba {
+    border-top: solid 1px #888888;
+}
+
+.cierrerojo {
+    color: #ffffff;
+    background-color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#menuDown {
+    height: 6px;
+    width: 100%;
+    border-top: solid 1px #FFC870;
+    float: left;
+}
+
+#menuDown img {
+    float: left;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+#MenuIntel {
+    display: none;
+}
+
+#imgMenUp {
+    display: none;
+}
+
+.menuImg {
+    cursor: pointer;
+    border: none;
+}
+
+#menuAlt {
+    position: absolute;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#cubreMenu {
+    position: relative;
+    z-index: 10;
+    border: 1px solid transparent;
+    height: 150px;
+}
+
+.imgMenDiv {
+    float: left;
+    width: 150px;
+    text-align: center;
+    padding: 3px;
+}
+
+.imgMenDiv a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+}
+
+#result .separa {
+    padding-left: 5px;
+}
+
+#sali {
+    float: left;
+    width: 100%;
+}
+
+.title,
+.elem {
+    width: 700px;
+    margin: 0 auto;
+}
+
+#sali {
+    text-align: center;
+}
+
+.title div,
+.elem div {
+    float: left;
+}
+
+.title div,
+.title {
+    line-height: 25px;
+}
+
+#encA,
+#encC {
+    width: 70px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.elem {
+    display: none;
+}
+
+#encC {
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#encB {
+    width: 400px;
+    text-align: center;
+}
+
+.elem div {
+    line-height: 22px;
+}
+
+.colA {
+    width: 100px;
+}
+
+.colB {
+    width: 120px;
+}
+
+.colC {
+    width: 400px;
+}
+
+.elem .colB {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.elem .colC {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#avanzaP,
+#retroP {
+    color: #ffffff;
+    text-decoration: none;
+    float: left;
+}
+
+.cambio {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.cambio a {
+    color: #222;
+}

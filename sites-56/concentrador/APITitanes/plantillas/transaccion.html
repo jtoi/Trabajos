@@ -1,0 +1,27 @@
+<label for="persona" class="form-label">Destinatario: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="cuenta" class="form-label">Cuenta destino: </label>
+<select id="cuenta" name="cuenta">
+    <option value=""></option>
+</select>
+
+<label for="monto" class="form-label">Monto:</label>
+<input type="text" class="form-control" id="monto" name="monto" />
+
+<label for="monedad" class="form-label">Moneda: </label>
+<select id="monedad" name="monedad">
+    <option value=""></option>
+</select>
+
+<label for="concepto" class="form-label">Concepto:</label>
+<input type="text" class="form-control" id="concepto" name="concepto" value="" />
+
+
+<input type="hidden" name="TpvOperationInfo" value="" />
+<input type="hidden" name="TransactionType" value="1" />
+<input type="hidden" name="PaymentInstrument" value="11" />
+
+<input class="" type="button" value="Enviar" onclick="envia()" />

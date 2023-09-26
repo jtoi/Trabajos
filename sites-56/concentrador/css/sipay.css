@@ -1,0 +1,81 @@
+
+* {
+    font-family: Arial,Verdana,Geneva,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#container {
+    margin: 5px auto;
+    width: 450px;
+}
+#cargando {
+    background-image: url("/static/images/trblock.gif");
+    background-repeat: repeat;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+#cargando #interno {
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 25px;
+    display: block;
+    margin: 15% auto;
+    padding: 10px;
+    text-align: center;
+    width: 500px;
+}
+#cargando #interno font {
+    color: #000000;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+}
+#cargando #interno p {
+    margin-top: 10px;
+}
+fieldset {
+    border: 2px solid red;
+    padding: 10px 25px;
+}
+legend {
+    background-color: #cccccc;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 0 10px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+	font-size: 13px;
+}
+select {
+    background-color: #ffffc0;
+    border: 1px solid black;
+    height: 20px;
+}
+input[type="text"] {
+    background-color: #ffffc0;
+    border: 1px solid black;
+    height: 20px;
+    width: 20em;
+}
+#CCVV {
+    width: auto;
+}
+input[type="button"], input[type="submit"] {
+    color: #000;
+	cursor: pointer;
+    display: block;
+	font-weight: bold;
+    margin: 15px 0;
+    padding: 5px;
+    width: 100px;
+}
+

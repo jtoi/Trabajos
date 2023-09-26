@@ -1,0 +1,156 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+
+<head>
+    <meta name="author" content="Julio Toirac (jtoirac@gmail.com)" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>FORMULARIO de INSCRIPCION de la ESCUELA de ATLETISMO de BILBAO</title>
+    <link rel="stylesheet" href="css/inscVerano_16.css" type="text/css" />
+    <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+
+    <script type="text/javascript" src="site/js/jquery.js"></script>
+    <script type="text/javascript" src="js/inscVerano_19.js"></script>
+</head>
+
+<body>
+    <div id="bolas"></div>
+    <div id="result"></div>
+    <div id="espera" style="display: none"><img src="images/ajax-loader.gif" width="48" height="48" /></div>
+    <form action="" method="post">
+        <div id="todo">
+            <div id="todo1">
+                <div>
+                    <div id="div1">
+                        <span class="intro">Datos del Alumno(a)</span>
+                        <div class="intern">
+                            <div class="intForm" id="indvDat">
+                                Nombre:* <input class="nom" type="text" id="nombre" value="" />&nbsp;&nbsp;&nbsp; Apellidos:* <input class="nom" type="text" id="ape" value="" /><br /><br /> Domicilio:* <input class="dir" type="text" id="direccion" value=""
+                                />&nbsp;&nbsp;&nbsp; C. Postal:* <input class="cp" maxlength="5" type="text" id="cp" value="" /><br /><br /> Localidad:* <input class="nom" type="text" id="loc" value="" /><br /><br /> Fecha de Nacimiento (dd/mm/yyyy):*
+                                <input class="cp" maxlength="10" type="text" id="fn" value="" />&nbsp;&nbsp;&nbsp; DNI: <input class="cp" type="text" id="dni" value="" /><br /><br />Colegio:*
+                                <input class="dir" type="text" maxlength="120" id="cole" value="" /><br /><br /> Tel&eacute;fono:* <input class="cp" type="text" id="tel" value="" />&nbsp;&nbsp;&nbsp; Correo:*
+                                <input class="nom" type="text" id="correo" value="" />
+                            </div>
+                        </div>
+                        <span class="oblig">* campos obligatorios</span>
+                    </div>
+                    <div id="div1">
+                        <span class="intro">Categor&iacute;a</span>
+                        <div class="intern">
+                            <div class="divid">
+                                <span class="avis"></span><br /><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria0" value="2003" />
+                                <label for="categoria0">2003</label><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria2" value="2008" />
+                                <label for="categoria2">2008</label>
+                            </div>
+                            <div class="divid">
+                                <span class="avis"></span><br /><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria3" value="2004" />
+                                <label for="categoria3">2004</label><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria4" value="2009" />
+                                <label for="categoria4">2009</label><br /><br />
+                            </div>
+                            <div class="divid">
+                                <span class="avis"></span><br /><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria5" value="2005" />
+                                <label for="categoria5">2005</label><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria6" value="2010" />
+                                <label for="categoria6">2010</label><br /><br />
+                            </div>
+                            <div class="divid">
+                                <span class="avis"></span><br /><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria7" value="2006" />
+                                <label for="categoria7">2006</label><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria8" value="2011" />
+                                <label for="categoria8">2011</label><br /><br />
+                            </div>
+                            <div class="divid">
+                                <span class="avis"></span><br /><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria9" value="2007" />
+                                <label for="categoria9">2007</label><br />
+                                <input type="radio" name="categoria" class="cate" id="categoria10" value="2012" />
+                                <label for="categoria10">2012</label><br /><br />
+                            </div>
+                            <span class="avis"></span><br /><br />
+                        </div>
+                    </div>
+                    <div id="div3">
+                        <span class="intro">Modalidad de Pago</span>
+                        <div class="intern">
+                            <div class="divid">
+                                <h4>Socio de Bilbao Kirolak o Atleta de la Escuela de Atletismo Bilbao</h4>
+                                <input type="radio" name="koro" class="kirol" id="nsocio" value="N" checked="true" /><label for="nsocio"> No </label><br />
+                                <label class="kirolak" id="kirolak0" for="ssocio">
+							<input type="radio" name="koro" class="kirol" id="ssocio" value="S" /> Si (poner en Observaciones el n&uacute;mero de carnet de abonado de Bilbao Kirolak)</label>&nbsp;&nbsp;&nbsp;
+                                <span class="kirolak" id="kirolak2">Carnet:* <input class="cp" maxlength="15" type="text" id="cnt" /></span><br /><br /><br /><br />
+                            </div>
+                            <div class="divid">
+                                <input type="hidden" id="precTot" value="" />
+                                <input type="checkbox" name="cuota" class="cota" id="cuota1" value="1" checked="checked" /><label for="cuota1"><span class="avis">Cuota semana 1</span> Del 24 de Junio al 28 de Junio </label><span id="precio1"></span><br
+                                />Este a&ntilde;o solo podemos hacer una semana de campus debido al cierre por obras del polideportivo de Zorroza los meses de julio y agosto.<br />
+                                <!--<input type="checkbox" name="cuota" class="cota" id="cuota2" value="2" /><label for="cuota2"><span class="avis">Cuota semana 2:</span> Del 02 de Julio al 06 de Julio </label><span id="precio2"></span><br />
+                                <input type="checkbox" name="cuota" class="cota" id="cuota3" value="3" /><label for="cuota3"><span class="avis">Cuota semana 3:</span> Del 09 de Julio al 13 de Julio </label><span id="precio3"></span><br />-->
+                                <span class="avis">Total a abonar: </span><span id="precio5"></span><br /><br />
+                            </div>
+                            <span class="nota">El importe a ingresar ser&aacute; la suma de las semanas seleccionadas. Ingreso en met&aacute;lico o mediante transferencia bancaria en el no. de cuenta de <strong>KUTXABANK</strong>, detallando la palabra <strong>CAMPUS</strong> y el nombre y apellidos del ni&ntilde;o o ni&ntilde;a. (No se dar&aacute; por confirmada la inscripci&oacute;n hasta que no est&eacute; realizado el ingreso)<br /><br />No.: ES67 2095 0212 01 9103156471</strong><br /><br /><br />
+				</div>
+				<span class="oblig">* campos obligatorios</span>
+                        </div>
+                        <div id="div4">
+                            <span class="intro">Observaciones</span>
+                            <div class="intern">
+                                <div class="divid">
+                                    <textarea id="obs" class="obs"></textarea><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="div5">
+                            <span class="intro">Permiso de Participaci&oacute;n y Declaraci&oacute;n</span>
+                            <div class="intern">
+                                <span class="nota"><br />
+						Declaro que mi hijo/a no padece ninguna enfermedad o patolog&iacute;a que le impida realizar la actividad de atletismo, otorgando mi autorizaci&oacute;n para que 
+						participe en las actividades l&uacute;dico-deportivas, inclu&iacute;dos los desplazamientos que estas generen, as&iacute; como del posible uso de su im&aacute;gen en 
+						el desarrollo de dichas actividades. Adem&aacute;s, me hago cargo de toda posible responsabilidad de cualquier tipo derivada de las consecuencias de conducta irregular o 
+						incumplimiento de las normas por parte de mi hijo/a en el transcurso de las actividades programadas por la escuela de atletismo de Bilbao.</span><br /><br />
+                                <div id="bilb">Bilbao, <span id="dia"></span> del mes de <span id="mes"></span> del <span id="ano"></span> </div><br /><br /> Nombre del Padre, Madre o Tutor:* <input class="nom" type="text" id="tutor" value="" />&nbsp;&nbsp;&nbsp;DNI:*
+                                <input class="cp" type="text" id="tdni" value="" /><br /><br /> Cualquier duda o consulta contactar al correo <a style="font-weight: bold" href="mailto:info@bilbaoatletismosantutxu.com">info@bilbaoatletismosantutxu.com</a><br
+                                /><br />
+                            </div>
+                        </div>
+                        <div class="div5">
+                            <span class="intro">Prestaciones de la Escuela de Atletismo de Bilbao</span>
+                            <div class="intern">
+                                <span class="nota"><br />
+						<ul>
+							<li>Entrada a vestuarios y pista de Atletismo del Polideportivo de Zorroza, en horarios de entrenamiento.</li>
+						</ul><br /><br />
+						<span style="font-weight: bold">Recomendaciones: </span>Asistir a las clases con ropa y calzado adecuado para la pr&aacute;ctica deportiva, adecuando esta a la climatolog&iacute;a del momento. Traer un hamaiketako
+                                ligero y una botella de agua para beber en las clases, la hidrataci&oacute;n durante estas es importante. Es aconsejable ducharse despu&eacute;s de la pr&aacute;ctica deportiva.<br /><br />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="div4">
+                        <span class="intro">Finalizar Inscripci&oacute;n</span>
+                        <div class="intern">
+                            <div class="intForm">
+                                <div class="largo"><input type="checkbox" id="acepto" />
+                                    <label for="acepto">He le&iacute;do y acepto las normas del Campus <!--las <a href="Confidencialidad de Datos y Privacidad.pdf" >condiciones legales</a> y el <a href="Reglamento.pdf">reglamento</a>-->
+								</label><br /></div>
+                                <div class="ultimo largo">
+                                    <input style="display: none" type="button" value="Enviar datos" id="envia" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="reset" type="reset" value="Borrar Todo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

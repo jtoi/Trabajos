@@ -1,0 +1,51 @@
+<label for="idpersona" class="form-label">Persona: </label>
+<select id="idpersona" name="idpersona">
+    <option value=""></option>
+</select>
+
+<label for="tipo" class="form-label">Tipo de Persona:</label>
+<select id="tipo" name="tipo">
+    <option></option>
+</select>
+
+<label for="nombre" class="form-label pfisica">Nombre *:</label>
+<input type="text" class="form-control pfisica" id="nombre" name="nombre" value="" />
+
+<label for="papellido" class="form-label pfisica">Primer Apellido *:</label>
+<input type="text" class="form-control pfisica" id="papellido" name="papellido" value="" />
+
+<label for="sapellido" class="form-label pfisica">Segundo Apellido *:</label>
+<input type="text" class="form-control pfisica" id="sapellido" name="sapellido" />
+
+<label for="comercialName" class="form-label plegal">Nombre Comercial *:</label>
+<input type="text" class="form-control plegal" id="comercialName" name="comercialName" />
+
+<label for="" class="form-label plegal">Denominaci&oacute;n Social *:</label>
+<input type="text" class="form-control plegal" id="dSocial" name="dSocial" />
+
+<label for="" class="form-label" id="lfnac">Fecha Nacimiento: </label>
+<input type="text" value="" required class="form-control" id="fecha" name="fecha" placeholder="dd-mm-yyyy" />
+
+
+<label for="" class="form-label">Actividad:</label>
+<select id="activ" name="activ">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label otract" id="lfnac">Especificar: </label>
+<input type="text" class="form-control otract" id="activExtr" name="activExtr" />
+
+<label for="" class="form-label">Pa&iacute;s de Origen:</label>
+<select id="paiso" name="paiso">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label">Es Persona Publica?:</label>
+<select id="persona" name="persona">
+    <option value="true">Si</option>
+    <option value="false" selected>No</option>
+</select>
+
+<input type="hidden" name="PersonProfile" id="PersonProfile" value="2" />
+
+<input type="button" value="Enviar" onclick="updateUser();" />

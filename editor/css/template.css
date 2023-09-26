@@ -1,0 +1,45 @@
+/* 
+    Document   : template
+    Created on : Jun 12, 2009, 10:09:16 PM
+    Author     : jtoirac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body, table {
+	font-size:10px;
+	font-family: "Arial", "sans-serif";
+}
+
+a {
+	font-size:10px;
+	line-height: 17px;
+}
+
+h4 {
+	font-size: 13px;
+}
+
+#imagenes {
+	text-align: center;
+}
+
+
+.contenido {
+	margin-left: 40px;
+}
+
+.cent {
+	display:block;
+	text-align:center;
+	width:100%;
+}

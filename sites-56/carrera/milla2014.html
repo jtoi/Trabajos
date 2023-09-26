@@ -1,0 +1,150 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<meta name="author" content="Julio Toirac (jtoirac@gmail.com)" />
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title>Inscripción de Atletas</title>
+		<link rel="stylesheet" href="css/layout_2.css" type="text/css" />
+		<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+
+		<script type="text/javascript" src="site/js/jquery.js"></script>
+		<script type="text/javascript" src="inscMilla2014.js"></script>
+	</head>
+	<body>
+		<div id="result"></div>
+		<div id="espera" style="display: none"><img src="images/ajax-loader.gif" width="48" height="48" /></div>
+		<form action="" method="post">
+			<div id="todo">
+				<div id="todo1">
+					<div id="div1">
+						<span class="intro">Prueba en la que desea participar</span>
+						<div class="intern">
+							<div class="divid">
+								<input type="radio" name="categoria" class="cate" id="categoria1" value="63" />
+								<label for="categoria1" >Txupete (<span class="edad6"></span> y posteriores)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria2" value="64" />
+								<label for="categoria2" >Pre-benjamin (<span class="edad8"></span> y <span class="edad7"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria8" value="65" />
+								<label for="categoria8" >Benjamin (<span class="edad10"></span> y <span class="edad9"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria3" value="66" />
+								<label for="categoria3" >Alevin (<span class="edad12"></span> y <span class="edad11"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria4" value="67" />
+								<label for="categoria4" >Infantil y Cadete (de <span class="edad15"></span> a <span class="edad13"></span>)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria9" value="68" />
+								<label for="categoria9" >Juvenil Junior (de <span class="edad19"></span> a <span class="edad16"></span>)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria5" value="69" />
+								<label for="categoria5" >Abierta (<span class="edad20"></span> y anteriores)</label><br />
+								<!--<input type="radio" name="categoria" class="cate" id="categoria10" value="10" />
+								<label for="categoria10" >Abierta Masc. (<span class="edad20"></span> y anteriores)</label><br />-->
+							</div>
+							<div class="divid">
+								<h4>con licencia federativa</h4>
+								<input type="radio" name="categoria" class="cate pas" id="categoria6" value="70" />
+								<label for="categoria6" >Veteranos / as Federados (de <span class="edad35"></span> y anteriores)</label><br />
+								<!--<input type="radio" name="categoria" class="cate pas" id="categoria7" value="7" />
+								<label for="categoria7" >Federadas en atletismo. (de <span class="edad17"></span> y anteriores)</label><br />-->
+								<!--<input type="radio" name="categoria" class="cate" id="categoria11" value="11" />
+								<label for="categoria11" >Federados/as Elite Masc. (de <span class="edad20"></span> y anteriores)</label><br />-->
+							</div>
+						</div>
+					</div>
+					<div id="div2">
+						<span class="intro">Datos personales</span>
+						<div class="intern">
+							<!--				<input type="radio" class="clsEqui" name="equipo" id="equipos" value="s" /><label for="equipos">Equipo</label><br />
+											<input type="radio" class="clsEqui" name="equipo" id="equipon" value="n" checked='checked' /><label for="equipon">Individual para formar equipo
+												<span style="font-size: 10px;">(El equipo lo designará la organización y se comunicará el día de retirar la dorsal).</span></label><br /> -->
+							<div class="intForm" id="equipDat">
+<!--								<div class="daGrp eq">
+									Nombre del Equipo:* <input class="nom" type="text" id="equipo" />
+								</div><br>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre1" />&nbsp;&nbsp;&nbsp;Año: <select id="ano1"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni1" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic1" /></span>
+									</div>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre2" />&nbsp;&nbsp;&nbsp;Año: <select id="ano2"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni2" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic2" /></span>
+									</div>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre3" />&nbsp;&nbsp;&nbsp;Año: <select id="ano3"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni3" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic3" /></span>
+									</div>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre4" />&nbsp;&nbsp;&nbsp;Año: <select id="ano4"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni4" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic4" /></span>
+									</div>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre5" />&nbsp;&nbsp;&nbsp;Año: <select id="ano5"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni5" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic5" /></span>
+									</div>
+									<div class="daGrp">
+										Nombre y Apellidos:* <input class="nom" type="text" id="nombre6" />&nbsp;&nbsp;&nbsp;Año: <select id="ano6"></select>&nbsp;&nbsp;&nbsp;
+										DNI: <input style="width: 80px" type="text" id="dni6" />
+										<span class="datGr">&nbsp;&nbsp;&nbsp;No. Licencia: <input style="width: 80px" type="text" id="lic6" /></span>
+									</div>-->
+							</div>
+							<div class="intForm" id="indvDat">
+								<div class="daGrp">
+									Nombre y Apellidos:* <input class="nom" type="text" id="nombre0" />&nbsp;&nbsp;&nbsp;
+									Fecha Nac.: <select id="dia0"></select> / <select id="mes0"></select> / <select id="ano0"></select>&nbsp;&nbsp;&nbsp;
+									Sexo: <select id="sex"><option value="">Seleccione</option><option value="M">Masculino</option><option value="F">Femenino</option></select><br /><br />
+									C. Postal:* <input style="width: 100px" maxlength="5" type="text" id="cp" />&nbsp;&nbsp;&nbsp;
+									Tel. Móvil:* <input style="width: 100px" type="text" id="movil" />&nbsp;&nbsp;&nbsp;
+									E-mail:* <input style="width: 100px" type="text" id="correo" /><br /><br />
+									Localidad / Club / Colegio:* <input style="width: 200" type="text" id="club" />&nbsp;&nbsp;&nbsp;
+									No. Licencia: <input style="width: 80px" type="text" id="lic0" />
+									<span class="datGr"><br /><br />
+									DNI: <input style="width: 80px" type="text" id="dni0" /></span>
+								</div>
+								<input type="hidden" id="fn" /> <!--<span style="font-size: 10px">(dd/mm/yyyy)</span>--> 
+							</div>
+							<hr /><!--
+							<div class="intForm">Contacto: *<br />
+								Nombre y Apellidos: <input type="text" name="tipo" id="nomm" class="nom" />&nbsp;&nbsp;&nbsp;
+								Tel. Móvil:* <input style="width: 100px" type="text" id="movil" />&nbsp;&nbsp;&nbsp;
+								E-mail:* <input style="width: 100px" type="text" id="correo" /><br /><br />
+							</div>
+							<div style="width: 200px;margin-right: 20px;"><br />Num.:*<br /><input style="width: 100%" type="text" id="numdni" /></div>
+							<hr />
+							<div style="width: 490px">Direcci�n:*<br /><input style="width: 100%" type="text" id="direccion" /></div>
+							<div style="width: 200px;margin-right: 20px;"><br />Localidad:*<br /><input style="width: 100%" type="text" id="localidad" /></div>
+							<div style="width: 490px;"><div style="width: 100px"><br />C. Postal:*<br /><input style="width: 100%" maxlength="5" type="text" id="cp" /></div></div><!--
+							<div style="width: 200px;margin-right: 20px;"><br />Provincia:*<br /><input style="width: 100%" type="text" id="provincia" /></div>
+							<div style="width: 100px"><br />Pa�s:*<br /><input style="width: 100%" type="text" id="pais" /></div>
+							<div style="width: 490px"><br />Nacionalidad:*<br /><input style="width: 100%" type="text" id="nacionalidad" /></div>
+							<hr />
+							<div style="width: 150px;margin-right: 20px;">Tel. Fijo<br /><input style="width: 100%" type="text" id="tel" /></div>
+							<div style="width: 320px"><br /><br /></div>
+							<div style="width: 490px"><br /<br /></div>-->
+						</div>
+					</div>
+					<span class="oblig">* campos obligatorios</span>
+				<div id="div4">
+					<span class="intro">Finalizar Inscripción</span>
+					<div class="intern">
+						<div class="intForm">
+							<div class="largo"><input type="checkbox" id="acepto" />
+								<label for="acepto" >He leído y acepto <!--las <a href="Confidencialidad de Datos y Privacidad.pdf" >condiciones legales</a> y--> el 
+									<a href="reglamento2014.pdf" target="_blank">reglamento</a></label><br />
+							</div>
+							<div class="ultimo largo">
+								<input style="display: none" type="button" value="Enviar datos" id="envia" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="reset" type="reset" value="Borrar Todo" />
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

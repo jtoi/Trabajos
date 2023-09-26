@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+
+</head>
+<body>
+<h3>Upload</h3>
+<form enctype="multipart/form-data" method="post" name="fileinfo">
+	<label>File to stash:</label> <input type="file" name="uploadFile1" required /><br>
+	<label>token:</label> <input type="text" name="token" required value="OUmrTXlggvSlnvH9vk7s3G4QaCDNq-R0lg5uGppR9MTWJ7N1FUwE1saLtZAn1NOMTwgEQLdljj3hYYjV5IMWKLOmzR3_IQuMJ9tRImg7ebhgTsl2tC5aZWeTHDSF7B3onlYg-zzmjfKQF4HJf3IjQWfmAWL6UVdcelHrFwaaeryyBq1M3z1UkYhmjpEWYGu7426rVtEWcmqR50TabZ-Hqp9sC0R-zmnOkUL5WV8FO1Q5BI4eBIlX6vJADz9WHd5vZDbNpn2-gI41eU39BaCN6wph7r2bxl2PaaCm_mdNyrnsyjsm-dLCQgDu6j-qrX_bIG2XsP4OAcu-nVPjAAjmXfNIibgTKfMbwAfEFdoXu90yQIVmG-1_JJOLoBiXO79q9cOjj2Scmx3o31M8h1FBP2NVXzxL4GVSwEuirlnLzILYH0K54FZK4O4kXpqYOE2VjZF3IYVVT4Rv7VtPlNIh4atlFt_Xervd_RVVQmDIrRh_-4prZWRL53Ge6WOHsfEhfgUZm0TugHNcxqNb2Caa1A" /><br>
+	<label>Cliente:</label> <input type="text" id="cliente" required value="256439" /><br>
+	<label>tipo:</label> <input type="text" id="tipo" required value="1" /><br>
+	<input type="submit" value="Subir" />
+</form>
+<div></div>
+</body>
+<script type="text/javascript">
+	var form = document.forms.namedItem("fileinfo");
+	var files;
+
+	$('form').on('submit', uploadFiles);
+
+	//Add events
+	$('input[type=file]').on('change', alert('hola'));
+
+	//Grab the files and set them to our variable
+	function prepareUpload(event) {
+		alert('lo coge');
+		files = event.target.files;
+	}
+
+	//Catch the form submit and upload the files
+	function uploadFiles(event) {
+		event.stopPropagation(); // Stop stuff happening
+		event.preventDefault(); // Totally stop stuff happening
+		var headers={};
+		var urlE = 'https://195.57.91.186:8555/APITest/Customer/'+$("#cliente").val()+'/Upload';
+
+		// START A LOADING SPINNER HERE
+
+		// Create a formdata object and add the files
+		var data = new FormData();
+		$.each(files, function(key, value) {
+			data.append(key, value);
+		});
+		data.append("uploadType", $("#tipo").val());
+		headers.Authorization='Bearer'+$("#token").val();
+
+		$.ajax({
+			url : urlE,
+			type : 'POST',
+			data : data,
+			cache : false,
+			dataType : 'json',
+			header : headers,
+			processData : false, // Don't process the files
+			contentType : false, // Set content type to false as jQuery will tell the server its a query string request
+			success : function(data, textStatus, jqXHR) {
+				if (typeof data.error === 'undefined') {
+					// Success so call function to process the form
+					submitForm(event, data);
+				} else {
+					// Handle errors here
+					console.log('ERRORS: ' + data.error);
+				}
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				// Handle errors here
+				console.log('ERROR: ' + textStatus);
+				// STOP LOADING SPINNER
+			}
+		}).done(function(data){
+			alert(data);
+		});
+	}
+</script>
+</html>

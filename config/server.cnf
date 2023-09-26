@@ -1,0 +1,40 @@
+[mysqld]
+# Set the character set and collation
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# Set the root password (change this to a strong, unique password)
+# This is an example password and should be changed
+MYSQL_ROOT_PASSWORD = your_root_password
+
+# Set the maximum allowed packet size for incoming queries
+max_allowed_packet = 256M
+
+# Set the maximum number of connections
+max_connections = 100
+
+# Enable query caching for improved performance
+query_cache_type = 1
+query_cache_limit = 2M
+query_cache_size = 64M
+
+# Set the key buffer size for MyISAM tables (if you're using them)
+key_buffer_size = 32M
+
+# Set the innodb buffer pool size for InnoDB tables
+innodb_buffer_pool_size = 256M
+
+# Set the location of the data directory
+datadir = /var/lib/mysql
+
+# Set the SQL mode (you can adjust this based on your needs)
+sql_mode = NO_ENGINE_SUBSTITUTION
+
+# Enable slow query log (optional, for performance tuning)
+# slow_query_log = 1
+# slow_query_log_file = /var/log/mysql/mysql-slow.log
+# long_query_time = 2
+
+# Bind MariaDB to all available network interfaces (be cautious)
+bind-address = 0.0.0.0
+

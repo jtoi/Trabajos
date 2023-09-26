@@ -1,0 +1,42 @@
+<label for="persona" class="form-label formul">Nombre o Apellidos: </label>
+<input type="text" name="nombre" id="nombre" class="form-control" size="40" />
+
+<label for="tipo" class="form-label">Tipo de Persona:</label>
+<select id="tipo" name="tipo">
+    <option value="&" selected="true">No se</option>
+    <option value="1">Physical</option>
+    <option value="2">Legal</option>
+</select>
+
+<label for="ben" class="form-label">Es Beneficiario?:</label>
+<select id="ben" name="ben">
+    <option value="&" selected="true">No se</option>
+    <option value="1">Si</option>
+    <option value="0">No</option>
+</select>
+
+<input type="hidden" id="code" />
+<input type="button" value="Buscar" class="formul" onclick="envia()" />
+
+<!-- <div style="width:500px"> -->
+    <div class="PerList"> 
+        <div>Total Personas: <span id="totPer">0</span></div>
+        <div>Total Clientes: <span id="totCli">0</span></div>
+        <div>Total Beneficiarios: <span id="totBen">0</span></div>
+    </div>
+<!-- </div> -->
+
+<!-- <div id="todo" style="display: ;"> -->
+    <table id="cont" style="margin-top:20px; width: fit-content;">
+        <thead>
+            <tr>
+                <th>Nombres y Apellidos</th>
+                <th>Tipo</th>
+                <th>Es Beneficiario</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+<!-- </div> -->

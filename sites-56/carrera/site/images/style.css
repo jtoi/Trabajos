@@ -1,0 +1,467 @@
+   
+/* default styles
+   -------------- */
+  
+body { 
+	padding: 0; 
+	margin: 0; 
+	font: 0.74em Arial, Helvetica, sans-serif; 
+	line-height: 1.5em;
+	background: #fff; 
+	color: #454545; 
+}
+
+a {
+	color: #4A8EBC; 
+	background: inherit;
+        text-decoration: none;
+}
+
+a:hover {
+	color: #C3593C;
+	background: inherit;	
+}
+
+a.title {
+	color: #FE6700;
+	background: #FFF;
+}
+
+h1 {
+	font: bold 2.8em "Trebuchet MS", Arial, Helvetica, sans-serif;
+	letter-spacing: -1px; 
+	padding: 2px 0 0 0px;
+	margin: 0;
+	color: #464548;
+	background: inherit;
+}
+
+h1 a, h2 a {
+	text-decoration: none;
+	color: #464548;
+	background: inherit;
+}
+
+h1 a:hover, h2 a:hover {
+	color: #C3593C;
+	background: #FFF;
+}
+
+h1 .red{
+	color: #C3593C;
+	background: inherit;
+}
+
+
+h2{ 
+	margin: 0 0 5px 0; 
+	padding: 0; 
+	font: bold 1.5em Arial, Helvetica, sans-serif;
+	letter-spacing: -1px;
+	color: #000; 
+	background: inherit;
+}
+
+h2.red {
+	margin: 0 0 5px 0;
+	padding: 0;
+	font: bold 1.5em Arial, Helvetica, sans-serif;
+	letter-spacing: -1px;
+	color: red;
+	background: inherit;
+}
+h2 .yellow{
+	color: #FFFCD1;
+	background: inherit;
+}
+
+p {	margin: 0 0 5px 0; }
+
+ul { 
+	margin: 0; 
+	padding : 0; 
+	list-style : none; 
+}
+
+.neg {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.cen {
+	text-align: center !important;
+}
+
+form { 
+	margin: 0; 
+}
+
+input.search { 
+	width: 145px; 
+	height: 22px;
+	border: none;
+	background: #fff url(input.gif) no-repeat;
+	padding: 5px 10px 0 25px;
+	color: #808080;
+}
+
+input.button {
+	border: 0;
+	height: 27px;
+	width: 76px;
+	background: #ABC43C url(button.gif) no-repeat;
+	color: #FFF;
+	font: bold 1.1em Arial, Helvetica, Sans-Serif;
+        cursor: pointer;
+}
+
+#loginbox{
+	margin:0 auto;
+	text-align: center; 
+	background: #ffffff url('loginbox.jpg') center top no-repeat ;
+	height:200px; 
+	padding:40px 5px 5px 4px;
+}
+
+#output{
+	text-align:center;
+	font-size:15px;
+	color:red;
+	margin-top: -45px;
+
+}
+
+#output h3{
+	text-align:center;
+	margin-left:0px;
+}
+
+/* layout
+   ------ */
+#logueduser{
+    text-align: right;
+    font-size: 11px;
+}
+
+.content { 
+	margin: 10px auto;
+	width: 960px; 
+}
+
+.content2 { 
+	margin: 0 auto;
+	width: 960px;
+        text-align: center;
+}
+
+.listop{
+    background: #c85e35;
+    text-align: left;
+}
+.lisbot{
+    background: #c85e35;
+    text-align: left;
+    /*height: 3px;*/
+    color:white;
+    text-align: center;
+    font-weight: bold;
+    padding-right: 4px;
+}
+
+.logo {
+
+	padding: 10px 0 11px 10px;
+        width:960px;
+        margin: 0 auto;
+}
+
+.header_right {
+	float: right;
+	width: 550px;
+	height: 72px;
+}
+
+.logo p {
+	font-size: 0.9em;
+	color: #808080;
+	padding: 0 0 0 7px;
+	background: inherit;
+}
+
+
+.top_info {
+	width: 540px;
+	margin: 12px 0 5px 0;
+	padding: 0 5px 5px 0;
+	text-align: right;
+	background: #FFF url(dot.gif) repeat-x bottom;
+	color: #444;
+}
+
+.search_field { 
+	text-align: right;
+position: relative;
+	width: 522px;
+	height: 38px;
+	background: #464548 url(searchbg.gif) no-repeat top right; 
+	color: #000;
+	clear: both;
+	padding: 10px 10px 0 0;
+        margin-left: 427px;
+        margin-top: -51px;
+}
+
+.grey {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #ccc;
+	background: inherit;
+	
+}
+.white {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #fff;
+	background: inherit;
+	
+}
+
+.search {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #FFF;
+	background: inherit;	
+}
+
+.newsletter {
+        text-align: center;
+	height: 33px;
+	padding: 15px 0 0 10px;
+	width: 415px;
+	background: #6E6E6E url(newsletterbg.gif) no-repeat;
+	color: #FFF;
+	margin: 0 0 3px 0;
+}
+
+.newsletter ul li{
+    display: inline;
+    margin: 0 3px;
+}
+.newsletter ul li a{
+    color:#fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.newsletter ul li a:hover{
+
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#thead li{
+    display: inline;
+}
+
+.subheader {
+	clear: both;
+	margin: 1px 0 0 0;
+	padding: 2px;
+	background: #f4f4f4;
+	color: #808080;
+	border-bottom: 1px solid #ccc;
+}
+
+.subheader td{
+    text-align: center;
+}
+
+.nombre {
+	text-align: left !important;
+	padding-left: 5px;
+}
+
+#lista{
+    text-align: left;
+    padding: 2px;
+    margin: 5px;
+    height:24px;
+    background-color: #cccccc;
+}
+
+.thumb p { margin: 0; padding: 3px; color: #FFF; background: #6e6e6e; }
+
+.detallest{
+	text-align:left;
+	background-color:#fff;
+	font-weight:bold;
+	padding:4px;
+	float:left;
+	width:502px;
+	margin:5px;
+	border:1px dashed #808080;
+
+}
+
+.detalles{
+	text-align:left;
+        font-weight:normal;
+        
+}
+
+.coments{
+    text-align:left;
+	background-color:#8E8E8E;
+	font-weight:bold;
+	padding:4px;
+        float:right;
+        margin:5px;
+        border:1px dashed #fff;
+        width: 410px;
+        color: white;
+}
+
+.close{
+    text-align: right;
+    display:block;
+    cursor: pointer;
+
+}
+.resp{
+    cursor: pointer;
+ 
+}
+#adc, #adr{
+    position: absolute;
+    top:95px;
+    padding: 5px;
+    margin-left:250px;
+    width: 450px;
+    height: 210px;
+    border: 1px solid #c85e35;
+    display: none;
+    background: #f4f4f4;
+    text-align: center;
+}
+	
+/* footer
+   ------ */
+
+.footer { 
+	clear: both; 
+        margin: 0 auto;
+	text-align: center;
+	line-height: 1.8em;
+	color: #808080;
+	background: #FFF url(dot.gif) repeat-x;
+	padding: 8px 0;
+        margin-top: 20px;
+        width: 70%;
+}
+
+.footer a {
+	color: #C3593C;
+	background: inherit;
+        
+}
+
+#example_length, #example_filter {
+	display: inline;
+}
+
+#example_filter {
+	margin-left: 260px;
+}
+
+.datosOc {
+/*	background-color: #fdd795;*/
+}
+
+.datosOc td {
+	text-align: left;
+}
+
+#example thead {
+	background-color: #C85E35;
+	color: #ffffff;
+}
+
+#example .sorting_asc {
+    background: url("sort_asc.png") no-repeat scroll right center transparent;
+}
+
+#example .sorting {
+    background: url("sort_both.png") no-repeat scroll right center transparent;
+}
+
+#example .sorting_desc {
+    background: url("sort_desc.png") no-repeat scroll right center transparent;
+}
+
+#example .even {
+	background-color: #FFEFDD;
+}
+
+#example .odd {
+	background-color: #FFDCB9;
+}
+
+#example tr.even td.sorting_1 {
+	background-color: #EDD4BA;
+}
+
+#example tr.odd td.sorting_1 {
+	background-color: #E3C6A8;
+}
+
+#example .even, #example .odd {
+	cursor: pointer;
+}
+
+#example tfoot tr, #example thead tr {
+	line-height: 24px;
+}
+
+#example thead tr {
+	cursor: pointer;
+}
+
+#example tfoot tr th, #example thead tr th {
+	border-left: solid 1px #ffffff;
+}
+
+#example tfoot tr th:first_child, #example thead tr th:first_child {
+	border-left: none;
+}
+
+#example tbody tr {
+	line-height: 20px;
+}
+
+.dataTables_info {
+	line-height: 26px;
+    margin-top: 5px;
+}
+
+#example_paginate span {
+	display: block;
+	float: left;
+}
+
+.paginate_button {
+	cursor: pointer;
+	width: 30px;
+	margin: 0 2px;
+}
+
+#example_paginate span span {
+	width: 10px;
+}
+
+.paginate_active {
+	font-weight: bold;
+}
+
+.clEven {
+	color: #ffffff;
+	margin-right: 200px;
+}

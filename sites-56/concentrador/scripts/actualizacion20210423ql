@@ -1,0 +1,15 @@
+INSERT INTO `tbl_cenAuto` (`nombre`, `urlPro`, `urlDes`, `tipo`, `fecha`, `datos`, `urlXml`) values ('SabadellMB', '', 'https://api.paycomet.com/gateway/ifr-bankstore', 'get', '1619200820', '{"MERCHANT_TERMINAL":";terminal;","MERCHANT_MERCHANTCODE":";idCom;","OPERATION":";tipoTrans;","MERCHANT_MERCHANTSIGNATURE":";Digest;","URLOK":";urlok;","URLKO":";urlko;","MERCHANT_AMOUNT":";importe;","MERCHANT_CURRENCY":";moneda;","MERCHANT_ORDER":";trans;","MERCHANT_PRODUCTDESCRIPTION":";producto;","LANGUAGE":";idioma;","3DSECURE":";segura;","id":";trans;"}', '');
+
+INSERT INTO `tbl_pasarela` (`nombre`, `tipo`, `cuenta`, `datos`, `fecha`, `activo`, `comercio`, `imagen`, `idcenauto`, `estado`, `secure`, `idbanco`, `devolucion`, `idempresa`, `LimMinOper`, `LimMaxOper`, `LimDiar`, `LimMens`, `LimAnual`, `LimOperIpDia`, `LimOperTarDia`, `LimOperDia`, `coefImporta`, `idagencia`, `amex`, `observacion`, `fechamod`, `usdxamex`, `pasarLim`) values ('Sabadell MB', 'P', '', 'pasoO@firmaF', '1619203318', '1', 'Cubashopping Center', '', '21', 'D', '0', '2', '0', '1', '0', '9500', '100000000', '100000000', '100000000', '1000', '20', '1000', '1.00', '10', '0', '', '1619203318', '0', '172');
+
+insert into tbl_colPasarMon (idpasarela, idmoneda, terminal, clave, comercio, fecha, datos, estado) values ('172', '978', '22555', 'nfsvt97pfrjx8ya4cmvq', 'hrw5826t', unix_timestamp(), '', '1');
+insert into tbl_colPasarMon (idpasarela, idmoneda, terminal, clave, comercio, fecha, datos, estado) values ('172', '840', '22555', 'nfsvt97pfrjx8ya4cmvq', 'hrw5826t', unix_timestamp(), '', '1');
+
+UPDATE `tbl_comercio` SET `pasarelaAlMom` = '12,138,111,68,129,153,98,145,146,76,144,45,125,85,67,99,46,126,84,103,23,123,100,88,32,41,102,52,154,77,147,133,155,151,50,139,137,80,89,90,161,162,95,120,116,118,51,127,97,93,160,113,58,128,59,122,140,71,72,141,13,1680,156,115,117,112,148,136,29,101,31,121,142,87,44,124,157,108,75,81,143,132,158,104,37,91,119,73,131,106,79,64,94,92,134,135,159,105,163,150,164,165,166,167,168,172' WHERE `id` = '1';
+
+INSERT INTO `tbl_rotComPas` (`idcom`, `idpasarela`, `horas`, `orden`, `fecha`, `activo`, `tipo`) values ('1', '172', '0', '49', '1619444271', '1', '0');
+
+insert into tbl_colTarjPasar (idTarj, idPasar) values (2,172);
+insert into tbl_colTarjPasar (idTarj, idPasar) values (3,172);
+
+select idbaticora, from_unixtime(fecha, '%d/%m/%Y') from tbl_baticora where fecha between 0 and unix_timestamp('2020-')

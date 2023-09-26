@@ -1,0 +1,3 @@
+function ejecc(comer, tipo) {
+	$("#" + comer).html('<form action="http//:192.168.0.1/concentrador/index.php" method="POST"><input type="hidden" name="comercio" value="122327460662" /><input type="hidden" name="transaccion" value="sdfasdfa" /><input type="hidden" name="importe" value="456" /><input type="hidden" name="moneda" value="840" /><input type="hidden" name="operacion" value="P" /><input type="hidden" name="firma" value="asdfas" /><input type="submit"></form>');
+}

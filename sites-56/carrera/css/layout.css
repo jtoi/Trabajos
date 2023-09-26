@@ -1,0 +1,131 @@
+/* 
+    Document   : layout
+    Created on : Feb 21, 2011, 7:09:32 AM
+    Author     : Julio Toirac <jtoirac@gmail.com>
+    Description:
+        Fichero de css de las inscripciones de atletas.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	background-color: #000000;
+	color: #b3b3b3;
+	padding: 0;
+	margin: 0;
+}
+
+a, a:visited {
+	color: #FD7A23;
+}
+
+label {
+	cursor: pointer;
+}
+
+#todo {
+	width: 660px;
+	margin: 0 auto;
+}
+
+#todo1 {
+	padding: 20px;
+	background-color: #ffffff;
+	float: left;
+}
+
+#todo1 div {
+	float: left
+}
+
+#div1, #div2, #div3, #div4 {
+	margin: 10px 0;
+	width: 100%;
+}
+
+.intern {
+	background-color: #323232;
+	-moz-border-radius: 6px 6px;
+	webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 5px 30px;
+	width: 600px;
+}
+
+#div1 .intern .divid {
+	width: 290px;
+}
+
+h4 {
+	color: #FD7A23;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.intro, .oblig {
+	color: #333333;
+    font-size: 10px;
+}
+
+.oblig {
+	font-style: italic;
+	display: block;
+	text-align: right;
+	width: 100%;
+}
+
+.intForm {
+	width: 500px;
+	margin-left: 51px;
+	padding: 20px 0;
+}
+
+.intForm hr {
+	display: block;
+    float: left;
+    margin: 23px 0;
+    width: 100%;
+}
+
+.largo {
+	width: 490px;
+	text-align: center;
+}
+
+.ultimo {
+	width: 490px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.ultimo input {
+	text-transform: uppercase;
+	color: #FD7A23;
+	border: 1px solid #FD7A23;
+	background-color: #323232;
+	cursor: pointer;
+}
+
+#espera {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background-color: #ffffff;
+	text-align: center;
+	-moz-border-radius: 6px 6px;
+	webkit-border-radius: 6;
+	border-radius: 6;
+}
+
+
+

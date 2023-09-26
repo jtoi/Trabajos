@@ -1,0 +1,20 @@
+body {
+  background: black;
+  color: white;
+  margin: float;
+  border: red solid;
+}
+
+header {
+  background: linear-gradient(black, transparent),
+    linear-gradient(indigo, blueviolet);
+}
+
+.container {
+  margin: 4px red;
+}
+
+h1 {
+  color: cyan;
+  display: flex;
+}

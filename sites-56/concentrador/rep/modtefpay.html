@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+	<head>
+		<title>Pasarela de pago</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<meta http-equiv='cache-control' content='no-cache'/>
+		<meta http-equiv='expires' content='0'/>
+		<meta http-equiv='pragma' content='no-cache'/>
+		<style type="text/css">
+			.centrado{padding:10px !important;color:#31708f;text-align:center;}
+			.arriba{height:75px;}
+			.centrado input{color:#1d1d1d}
+		</style>
+		<!--favicon-->
+		<link rel="shortcut icon"   type="image/x-icon" href="https://intepayments.tefpay.com/img/00999999999/favicon1.ico" />
+
+		<!-- Bootstrap core CSS -->
+		<link href="../admin/template/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
+		<!-- Custom styles for this template -->
+		<link href="../admin/template/css/sticky-footer-navbar.css" type="text/css" rel="stylesheet"/>
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="../js/jquery.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="https://intepayments.tefpay.com/js/html5shiv.min.js"></script>
+		<script src="https://intepayments.tefpay.com/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="navbar navbar-default navbar-fixed-top topbar">
+			<div class="container">
+				<div class="navbar-header">
+					<p class="navbar-brand text-nowrap">&nbsp;</p>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Begin page content -->
+		<div class="container">
+			<div class="row borders arriba">
+			</div>
+			<div class="row">
+
+				<!-- Columna dreta -->
+				<div class="col-md centrado">
+					{error}<br/><br/>Por favor, p&oacute;ngase en contacto con su Banco<br/><br/><br/><br/>
+					<input type="button" onclick="retorno.submit();" value="&nbsp;&nbsp;&nbsp;Continuar&nbsp;&nbsp;&nbsp;" />
+				</div>
+			</div>
+
+		</div> <!-- /container -->
+
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script type="text/javascript" src="../js/ie10-viewport-bug-workaround.js"></script>
+
+		<div>
+			<form id="retorno" action="{accion}" method="post">
+				{formulario}
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+Ficheros actualizados
+admin/adminis.func.php
+admin/lang/spanish.php
+admin/lang/italiano.php
+admin/lang/english.php
+include/mysqli.php
+admin/classes/class_tablaHtml.php
+admin/componente/core/pasarela.php
+

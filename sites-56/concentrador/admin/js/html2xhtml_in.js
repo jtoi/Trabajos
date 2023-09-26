@@ -1,0 +1,19 @@
+// JavaScript Document
+var Alt_bold = 'Bold'; 
+var Alt_italic = 'Italic'; 
+var Alt_underlined = 'Underline'; 
+var Alt_left = 'Align Left'; 
+var Alt_center = 'Center'; 
+var Alt_right = 'Align Right'; 
+var Alt_justify = 'Justify Full'; 
+var Alt_linea = 'Horizontal Rule'; 
+var Alt_ordenada = 'Ordered List'; 
+var Alt_nordenada = 'Unordered List'; 
+var Alt_outdent = 'Outdent'; 
+var Alt_indent = 'Indent'; 
+var Alt_tColor = 'Text Color'; 
+var Alt_bColor = 'Background Color'; 
+var Alt_link = 'Insert Link'; 
+var Alt_imagen = 'Add Image'; 
+var Alt_tabla = 'Insert Table'; 
+var Alt_source = 'View Source';

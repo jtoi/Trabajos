@@ -1,0 +1,38 @@
+<label for="persona" class="form-label">Cliente: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="cuentatipo" class="form-label">Tipo de cuenta: </label>
+<select id="cuentatipo" name="cuentatipo" class="">
+    <option value=""></option>
+</select>
+
+<label for="moneda" class="form-label">Moneda: </label>
+<select id="moneda" name="moneda" class="">
+    <option value=""></option>
+</select>
+
+<label for="cuentaform" class="form-label formato">Formato de la cuenta:</label>
+<select id="cuentaform" name="cuentaform" class="formato">
+    <option value=""></option>
+</select>
+
+<label for="pais" class="pais form-label">Pa&iacute;s de la cuenta:</label>
+<select id="pais" name="pais" class="pais">
+    <option value=""></option>
+</select>
+
+<label for="numero" class="form-label numcta">N&uacute;mero:</label>
+<input type="text" class="form-control numcta" id="numero" name="numero" />
+
+<label for="alias" class="form-label">Alias de la cuenta:</label>
+<input type="text" class="form-control" id="alias" name="alias" required value="" />
+
+<label for="" class="form-label">Cuenta por defecto?:</label>
+<select id="defecto" name="defecto" class="">
+    <option value="true">Si</option>
+    <option value="false">No</option>
+</select>
+
+<input class="" type="button" value="Enviar" onclick="envia()" />

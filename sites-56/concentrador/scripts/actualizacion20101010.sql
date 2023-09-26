@@ -1,0 +1,1 @@
+ALTER TABLE `tbl_comercio` ADD `url_llegada` VARCHAR( 200 ) NULL ;

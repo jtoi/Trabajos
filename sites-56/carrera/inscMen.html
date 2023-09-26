@@ -1,0 +1,152 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+    <meta name="author" content="Julio Toirac (jtoirac@gmail.com)" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>FORMULARIO de INSCRIPCION de la ESCUELA de ATLETISMO de BILBAO</title>
+	<link rel="stylesheet" href="css/inscMen.css" type="text/css" />
+	<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+
+	<script type="text/javascript" src="site/js/jquery.js"></script>
+	<script type="text/javascript" src="inscMen.js"></script>
+  </head>
+  <body>
+	  <div id="result"></div>
+	  <div id="espera" style="display: none"><img src="images/ajax-loader.gif" width="48" height="48" /></div>
+	  <form action="" method="post">
+<div id="todo">
+	<div id="todo1">
+		<div>
+			<div id="div1">
+				<span class="intro">Datos del Alumno(a)</span>
+				<div class="intern">
+					<div class="intForm" id="indvDat">
+							Nombre:* <input class="nom" type="text" id="nombre" value="" />&nbsp;&nbsp;&nbsp;
+							Apellidos:* <input class="nom" type="text" id="ape" value="" /><br /><br />
+							Domicilio:* <input class="dir" type="text" id="direccion" value="" />&nbsp;&nbsp;&nbsp;
+							C. Postal:* <input class="cp" maxlength="5" type="text" id="cp" value="" /><br /><br />
+							Localidad:* <input class="nom" type="text" id="loc" value="" /><br /><br />
+							Fecha de Nacimiento (dd/mm/yyyy):* <input class="cp" maxlength="10" type="text" id="fn" value="" />&nbsp;&nbsp;&nbsp;
+							DNI: <input class="cp" type="text" id="dni" value="" /><br /><br />
+							Colegio:* <input class="dir" type="text" maxlength="120" id="cole" value="" /><br /><br />
+							Tel&eacute;fono:* <input class="cp" type="text" id="tel" value="" />&nbsp;&nbsp;&nbsp;
+							Correo:* <input class="nom" type="text" id="correo" value="" />
+					</div>
+				</div>
+				<span class="oblig">* campos obligatorios</span>
+			</div>
+			<div id="div1">
+				<span class="intro">Categor&iacute;a</span>
+				<div class="intern">
+					<div class="divid">
+						<span class="avis">Lunes y Jueves de 18:00 a 19:30h:</span><br /><br />
+						<input type="radio" name="categoria" class="cate" id="categoria1" value="51" checked="checked" />
+							<label for="categoria1" >Pre-Benjamin (<span class="edad1"></span> y <span class="edad2"></span>)</label><br />
+						<input type="radio" name="categoria" class="cate" id="categoria2" value="52" />
+							<label for="categoria2" >Benjamin (<span class="edad5"></span> y <span class="edad6"></span>)</label>
+					</div>
+					<div class="divid">
+						<span class="avis">Martes y Viernes de 18:00 a 19:30h:</span><br /><br />
+						<input type="radio" name="categoria" class="cate" id="categoria3" value="53" />
+							<label for="categoria3" >Alevin (<span class="edad3"></span> y <span class="edad4"></span>)</label><br />
+						<input type="radio" name="categoria" class="cate" id="categoria4" value="54" />
+							<label for="categoria4" >Infantil (de <span class="edad7"></span> y <span class="edad8"></span>)</label><br />
+						<input type="radio" name="categoria" class="cate" id="categoria5" value="97" />
+							<label for="categoria5" >Cadete (de <span class="edad9"></span>)</label><br /><br />
+					</div>
+					<span class="avis">Hay flexibilidad en la elecci&oacute;n de los d&iacute;as, si necesita cambiarlos ponerlo en las observaciones	</span><br /><br />
+				</div>
+			</div>
+			<div id="div3">
+				<span class="intro">Modalidad de Pago</span>
+				<div class="intern">
+					<div class="divid">
+						<input type="radio" name="cuota" class="cota" id="cuota1" value="1" checked="checked" />
+							<label for="cuota1" >Cuota Trimestral</label><br /><br />
+							Si se realiza la inscripci&oacute;n una vez empezado el trimestre se abonar&aacute; la parte proporcional del mes en curso y los meses restantes de ese trimestre.<br /><br />
+						<span class="avis">Para los indecisos:</span><br />
+						<input type="radio" name="cuota" class="cota" id="cuota2" value="2" /><label for="cuota2" >Un mes de Pruebas</label><br />
+						<input type="radio" name="cuota" class="cota" id="cuota3" value="3" /><label for="cuota3" >Una semana de prueba sin compromiso (2 d&iacute;as de entrenamiento)</label><br /><br />
+					</div>
+					<div class="divid">
+						<h4>Socio de Bilbao Kirolak</h4>
+						<input type="radio" name="koro" class="kirol" id="nsocio" value="N" checked="checked" /><label for="nsocio" > No <span id="precio1"></span></label><br />
+						<label class="kirolak" id="kirolak1" for="ssocio" >
+							<input type="radio" name="koro" class="kirol" id="ssocio" value="S" /> Si <span id="precio2"></span></label>&nbsp;&nbsp;&nbsp;
+						<span class="kirolak" id="kirolak2">Carnet:* <input class="cp" maxlength="15" type="text" id="cnt" /></span><br /><br />
+					</div>
+					<span class="nota"> Ingreso en met&aacute;lico o mediante transferencia bancaria en el nº de cuenta de <strong>KUTXABANK</strong>, detallando el nombre y apellidos del ni&ntilde;o o 
+						ni&ntilde;a.<br /><br />
+							<strong>TITULAR: CLUB DE ATLETISMO SANTUTXU<br />
+							Nº: ES67 2095 0212 01 9103156471</strong><br /><br />
+							Para los siguientes ingresos realizar el pago antes del inicio del siguiente trimestre. No se reservar&aacute; la plaza sino esta abonada la cuota.
+							Una vez inscrito es necesario llevar 2 fotograf&iacute;as tama&ntilde;o carnet y la fotocopia de del DNI (esto s&oacute;lo obligatorio en categor&iacute;a Infantil nacidos el
+							2001 y 2002) y d&aacute;rselo a los entrenadores.</span><br /><br />
+				</div>
+				<span class="oblig">* campos obligatorios</span>
+			</div>
+			<div id="div4">
+				<span class="intro">Observaciones</span>
+				<div class="intern">
+					<div class="divid">
+						<textarea id="obs" class="obs" ></textarea><br /><br />
+					</div>
+				</div>
+			</div>
+			<div class="div5">
+				<span class="intro">Permiso de Participaci&oacute;n y Declaraci&oacute;n</span>
+				<div class="intern">
+					<span class="nota"><br />
+						Declaro que mi hijo/a no padece ninguna enfermedad o patolog&iacute;a que le impida realizar la actividad de atletismo, otorgando mi autorizaci&oacute;n para que 
+						participe en las actividades l&uacute;dico-deportivas, inclu&iacute;dos los desplazamientos que estas generen, y me doy por enterado de la obligatoriedad del uso de la 
+						uniformidad oficial, de la asistencia a las competiciones oficiales, actividades promocionales y estudio de salud, as&iacute; como del posible uso de su im&aacute;gen en 
+						el desarrollo de dichas actividades. Adem&aacute;s, me hago cargo de toda posible responsabilidad de cualquier tipo derivada de las consecuencias de conducta irregular o 
+						incumplimiento de las normas por parte de mi hijo/a en el transcurso de las actividades programadas por la escuela de atletismo de Bilbao.</span><br /><br />
+						<div id="bilb">Bilbao, a <span id="dia"></span> del mes de <span id="mes"></span> del <span id="ano"></span> </div><br /><br />
+						Nombre del Padre, Madre o Tutor:* <input class="nom" type="text" id="tutor" value="" />&nbsp;&nbsp;&nbsp;DNI:* <input class="cp" type="text" id="tdni" value="" /><br /><br />
+						Cualquier duda o consulta contactar al correo <a style="font-weight: bold" href="mailto:info@bilbaoatletismosantutxu.com" >info@bilbaoatletismosantutxu.com</a><br /><br />
+				</div>
+			</div>
+			<div class="div5">
+				<span class="intro">Prestaciones de la Escuela de Atletismo de Bilbao</span>
+				<div class="intern">
+					<span class="nota"><br />
+						<ul>
+							<li>Formaci&oacute;n del alumno como deportista y ense&ntilde;anza del programa de pruebas del Atletismo, dirigidas por personal especializado.</li>
+							<li>Entrada a vestuarios y pista de Atletismo del Polideportivo de Zorroza, en horarios de entrenamiento.</li>
+							<li>Licencia escolar deportiva.</li>
+							<li>Reconocimiento m&eacute;dico b&aacute;sico.</li>
+							<li>Material deportivo, ch&aacute;ndal, camiseta y pantal&oacute;n corto de competici&oacute;n. (Este material ser&aacute; siempre de la escuela y se ir&aacute; 
+									prestando y cambiando mientras el ni&ntilde;o permanezca en ella)</li>
+						</ul><br /><br />
+						Estas prestaciones s&oacute;lo se ser&aacute;n si el ni&ntilde;o/a est&aacute; inscrito en la escuela con continuidad, es decir la cuota del mes no da derecho a ellas.<br /><br />
+						<span style="font-weight: bold">Recomendaciones: </span>Asistir a las clases con ropa y calzado adecuado para la pr&aacute;ctica deportiva, adecuando est&aacute; a la 
+							climatolog&iacute;a del momento.  <br /><br />
+						Traer una botella de agua para beber en las clases, la hidrataci&oacute;n durante estas es importante. Es aconsejable ducharse despu&eacute;s de la 
+							pr&aacute;ctica deportiva.<br /><br />
+					</span>
+				</div>
+			</div>
+			</div>
+			<div id="div4">
+				<span class="intro">Finalizar Inscripci&oacute;n</span>
+				<div class="intern">
+					<div class="intForm">
+						<div class="largo"><input type="checkbox" id="acepto" />
+							<label for="acepto" >He le&iacute;do y acepto <!--las <a href="Confidencialidad de Datos y Privacidad.pdf" >condiciones legales</a> y--> el <a href="Reglamento.pdf">reglamento</a>
+								</label><br /></div>
+						<div class="ultimo largo">
+							<input style="display: none" type="button" value="Enviar datos" id="envia" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="reset" type="reset" value="Borrar Todo" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></form>
+  </body>
+</html>

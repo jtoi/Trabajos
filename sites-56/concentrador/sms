@@ -1,0 +1,84 @@
+    * Envío de mensaje
+
+      <?php
+
+      require "SMSSend.inc";
+
+      //Defino las propiedades
+      $testsms=new smsItem;
+      $testsms->setAccount("micuenta@micuenta.com");
+      $testsms->setPwd("mipwd");
+      $testsms->setTo("666666666");
+      $testsms->setText("Este es mi texto ");
+      $testsms->setFrom("mi remite");      // Parámetro opcional
+
+      //Recupero los valores establecidos
+      $Account = $testsms->getAccount();
+      $Pwd = $testsms->getPwd();
+      $To = $testsms->getTo();
+      $Text = $testsms->getText();
+      $Remite = $testsms->getFrom();
+
+      //Envío del mensaje
+      $resultado = $testsms->Send();
+
+      //Resultado de la operación
+      $getResult = $testsms->getResult();
+      $getDescription = $testsms->getDescription();
+      $getCredit = $testsms->getCredit();
+
+      print_r($resultado);
+      print_r("<BR>");
+      print_r($getResult);
+      print_r("<BR>");
+      print_r($getDescription);
+      print_r("<BR>");
+      print_r($getCredit);
+      print_r("<BR>");
+      ?>
+    * Programación de mensaje
+
+      <?php
+
+      require "SMSSend.inc";
+
+      //Defino las propiedades
+      $testsms=new smsItem;
+      $testsms->setAccount("micuenta@micuenta.com");
+      $testsms->setPwd("mipwd");
+      $testsms->setTo("666666666");
+      $testsms->setText("Este es mi texto ");
+      $testsms->setFrom("mi remite");      // Parámetro opcional
+      $testsms->setDescriptionEP ("Descripción del envío");
+      $testsms->setDateEP ("12/10/2005");
+      $testsms->setTimeEP ("10:25");
+      $testsms->setPeriodEP (periodSemanal);
+
+      //Recupero los valores establecidos
+      $Account = $testsms->getAccount();
+      $Pwd = $testsms->getPwd();
+      $To = $testsms->getTo();
+      $Text = $testsms->getText();
+      $Remite = $testsms->getFrom;
+      $DescriptionEP = $testsms->getDescriptionEP;
+      $DateEP = $testsms->getDateEP;
+      $TimeEP = $testsms->getTimeEP;
+      $PeriodEP = $testsms->getPeriodEP;
+
+      //Envío del mensaje
+      $resultado = $testsms->Program();
+
+      //Resultado de la operación
+      $getResult = $testsms->getResult();
+      $getDescription = $testsms->getDescription();
+      $getCredit = $testsms->getCredit();
+
+      print_r($resultado);
+      print_r("<BR>");
+      print_r($getResult);
+      print_r("<BR>");
+      print_r($getDescription);
+      print_r("<BR>");
+      print_r($getCredit);
+      print_r("<BR>");
+      ?>

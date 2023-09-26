@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- RSisSelFormaPago --><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="es"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="es"> <![endif]--><!--[if gt IE 8]><!--><html lang="es" class="no-js"><!--<![endif]--><head>
+		<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+			<meta charset="utf-8">
+				<meta content="text/html; charset=utf-8" http-equiv="content-type">
+					<meta content="width=device-width" name="viewport">
+						<meta content="" name="description">
+							<title>BBVA Virtual POS terminal</title>
+							<link type="text/css" href="/sis/estilos/0182resp.min.css" rel="stylesheet">
+								<script src="/sis/javascript/modernizr.js" type="text/javascript"></script><script src="/sis/javascript/jquery-1.9.1.min.js" type="text/javascript"></script><script src="/sis/javascript/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script><script src="/sis/javascript/0182resp.js" type="text/javascript"></script><script src="/sis/javascript/utilSis.js" type="text/javascript"></script><script src="/sis/javascript/xsl/RSisSelFormaPago.js" type="text/javascript"></script><script type="text/javascript">
+									function fijarLiterales() {
+
+										anadirLiteral("msg1", "The card is incorrect");
+
+										anadirLiteral("msg2", "The month is incorrect");
+
+										anadirLiteral("msg3", "The year is incorrect");
+
+										anadirLiteral("msg4a", "The Security Code must have ");
+
+										anadirLiteral("msg4b", " digits");
+
+									}
+								</script><script type="text/javascript">
+
+									var indicadorCVV2 = 4;
+									function inicializar() {
+										// Se fijan los datos para peticiones al SIS
+										fijarDatosSesion(';jsessionid=0000i76nauRhXB4VVba0x-GltUH:15denq2kv', '/sis');
+									}
+
+									function validar1() {
+										fProcesandoPeticion('S');
+										document.formModalidad.submit();
+									}
+
+									function validar()
+									{
+										var datosTarjeta = 0;
+
+										if (document.formTarjeta)
+										{
+											if (document.formTarjeta.Sis_Numero_Tarjeta.value.length != 0 ||
+													document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.value.length != 0 ||
+													document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.value.length != 0)
+												datosTarjeta = 1;
+										}
+
+										if (datosTarjeta == 0)
+										{
+											alert(getError("msg1"));
+											decideFoco();
+											return;
+										}
+
+										if (datosTarjeta == 1)
+											validaFormTarjeta();
+									}
+
+									function validaFormTarjeta()
+									{
+										if (validaPagoConTarjeta())
+										{
+											ocultaBoton();
+											fProcesandoPeticion('S');
+											document.formTarjeta.submit();
+										}
+									}
+
+									function validaPagoConTarjeta()
+									{ // Validaciones del número de tarjeta y de la fecha de caducicdad
+
+										var laTarjeta = document.formTarjeta.Sis_Numero_Tarjeta.value;
+										var mesCaduc = document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.value;
+										var yearCaduc = document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.value;
+
+										// Validamos que el número de tarjeta no esté vacío
+										if (laTarjeta == "")
+										{
+											alert(getError("msg1"));
+											document.formTarjeta.Sis_Numero_Tarjeta.focus();
+											return false;
+										}
+
+										// Para validar si es numérico, primero se sustituyen los blancos por # y luego se valida
+										laTarjeta = laTarjeta.replace(' ', '#');
+										if (isNaN(laTarjeta))
+										{
+											alert(getError("msg1"));
+											document.formTarjeta.Sis_Numero_Tarjeta.select();
+											document.formTarjeta.Sis_Numero_Tarjeta.focus();
+											return false;
+										}
+
+										// Se valida que la tarjeta no sea negativa
+										if (laTarjeta < 0)
+										{
+											alert(getError("msg1"));
+											document.formTarjeta.Sis_Numero_Tarjeta.select();
+											document.formTarjeta.Sis_Numero_Tarjeta.focus();
+											return false;
+										}
+
+										// Validamos que el mes de caducidad de la tarjeta no esté vacío
+										if (mesCaduc == "")
+										{
+											alert(getError("msg2"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.focus();
+											return false;
+										}
+
+										// Para validar si es numérico, primero se sustituyen los blancos por # y luego se valida
+										mesCaduc = mesCaduc.replace(' ', '#');
+										if (isNaN(mesCaduc))
+										{
+											alert(getError("msg2"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.select();
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.focus();
+											return false;
+										}
+
+										// Se valida que el mes de caducidad esté entre 1 y 12
+										if (!(mesCaduc >= 1 && mesCaduc <= 12))
+										{
+											alert(getError("msg2"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.select();
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.focus();
+											return false;
+										}
+
+										//Se le ponen dos digitos al mes si el usuario no los ha puesto
+										if (mesCaduc.length == 1)
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.value = "0" +
+													document.formTarjeta.Sis_Caducidad_Tarjeta_Mes.value;
+
+										// Validamos que el año de caducidad de la tarjeta no esté vacío
+										if (yearCaduc == "")
+										{
+											alert(getError("msg3"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.focus();
+											return false;
+										}
+
+										// Para validar si es numérico, primero se sustituyen los blancos por # y luego se valida
+										yearCaduc = yearCaduc.replace(' ', '#');
+										if (isNaN(yearCaduc))
+										{
+											alert(getError("msg3"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.select();
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.focus();
+											return false;
+										}
+
+										// Se valida que el año de caducidad no sea negativo
+										if (yearCaduc < 0)
+										{
+											alert(getError("msg3"));
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.select();
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.focus();
+											return false;
+										}
+
+										//Se le ponen dos digitos al año si el usuario no los ha puesto
+										if (yearCaduc.length == 1)
+											document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.value = "0" + document.formTarjeta.Sis_Caducidad_Tarjeta_Anno.value;
+
+
+
+										if (document.formTarjeta.Sis_Tarjeta_CVV2)
+										{
+											if (!validaCVV2(laTarjeta, document.formTarjeta.Sis_Tarjeta_CVV2))
+												return false;
+										}
+
+
+										return true;
+									}
+
+
+									function validaCVV2(tarjeta, campoCVV2)
+									{
+										var isAMEX = esAMEX(tarjeta);
+										var isDINERS = esDINERS(tarjeta);
+										var longitud = 3;
+										var isValidable = false;
+										var isJCB = esJCB(tarjeta);
+										isValidable = (isAMEX || isDINERS || isJCB || esMaster(tarjeta) || esVisa(tarjeta));
+										if (isAMEX) // Para AMEX son 4 posiciones en el CVV2
+											longitud = 4;
+
+										var cvv2 = trim(campoCVV2.value);
+
+										// Se valida el código de seguridad
+										if (isValidable)
+										{
+											if (indicadorCVV2 == 4 || cvv2 != "")
+											{
+												if (cvv2.length != longitud)
+												{
+													alert(getError("msg4a") + longitud + getError("msg4b"));
+													campoCVV2.select();
+													campoCVV2.focus();
+													return false;
+												}
+
+												cvv2 = cvv2.replace(' ', '#');
+												if (isNaN(cvv2))
+												{
+													alert(getError("msg4a") + longitud + getError("msg4b"));
+													campoCVV2.select();
+													campoCVV2.focus();
+													return false;
+												}
+												// Se valida que el código de seguridad no sea negativo
+												if (cvv2 < 0)
+												{
+													alert(getError("msg4a") + longitud + getError("msg4b"));
+													campoCVV2.select();
+													campoCVV2.focus();
+													return false;
+												}
+											}
+										}
+										else if (!isValidable && cvv2 != "")
+										{
+											alert(getError("msg4a") + longitud + getError("msg4b"));
+											campoCVV2.select();
+											campoCVV2.focus();
+											return false;
+										}
+
+										campoCVV2.value = cvv2;
+										return true;
+									}
+
+									function trim(cadena)
+									{
+										for (i = 0; i <= cadena.length; )
+										{
+											if (cadena.charAt(i) == " ")
+												cadena = cadena.substring(i + 1, cadena.length);
+											else
+												break;
+										}
+										for (i = cadena.length - 1; i >= 0; i = cadena.length - 1)
+										{
+											if (cadena.charAt(i) == " ")
+												cadena = cadena.substring(0, i);
+											else
+												break;
+										}
+										return cadena;
+									}
+
+									function esVisa(laTarjeta) // VISAs empiezan por 4
+									{
+										var tipoTarjeta = laTarjeta.substr(0, 1);
+										if (tipoTarjeta == 4)
+											return true;
+										else
+											return false;
+									}
+									function esMaster(laTarjeta) // MASTERs empiezan por 5 y 6
+									{
+										var tipoTarjeta = laTarjeta.substr(0, 1);
+										if (tipoTarjeta == 5 || tipoTarjeta == 6)
+											return true;
+										else
+											return false;
+									}
+									function esAMEX(laTarjeta) // AMEX son de 15 digitos y empiezan por 34 o 37
+									{
+										laTarjeta = trim(laTarjeta);
+										var tipoTarjeta = laTarjeta.substr(0, 2);
+										if ((tipoTarjeta == 34 || tipoTarjeta == 37) && laTarjeta.length == 15)
+											return true;
+										else
+											return false;
+									}
+									function esDINERS(laTarjeta) // DINERS son de 14 digitos y empiezan por 36
+									{
+										laTarjeta = trim(laTarjeta);
+										var tipoTarjeta = laTarjeta.substr(0, 2);
+										if (tipoTarjeta == 36 && laTarjeta.length == 14)
+											return true;
+										else
+											return false;
+									}
+									function esJCB(laTarjeta) // JCB son de 16 digitos y empiezan por 35
+									{
+										laTarjeta = trim(laTarjeta);
+										var tipoTarjeta = laTarjeta.substr(0, 2);
+										if (tipoTarjeta == 35 && laTarjeta.length == 16)
+											return true;
+										else
+											return false;
+									}
+
+
+									function ventanaInfoVisa1()
+									{
+										window.open("/sis/html/verifiedByVisa1.html", "Info", "width=500,height=500");
+									}
+								</script>
+								</head>
+								<body onload="fijarLiterales();
+										inicializar();" class="sis">
+									<div class="sis" id="layout">
+										<div role="banner" id="header">
+											<div class="branding">
+												<div class="logo">
+													<img height="115" width="187" src="/sis/graficos/logotipos/0182logoresp.png" alt="BBVA" title="BBVA"></div>
+												<h1>Virtual POS terminal</h1>
+											</div>
+											<div class="accepted-cards">
+												<ul>
+													<li class="maestro" title="Maestro">
+														Maestro
+													</li>
+													<li class="mastercard" title="MasterCard">
+														Mastercard
+													</li>
+													<li class="visa-electron" title="Visa Electron">
+														Visa Electr&oacute;n
+													</li>
+													<li class="visa" title="Visa">
+														Visa
+													</li>
+													<li class="american-express" title="AMEX">
+														American Express
+													</li>
+													<li class="dinners" title="Diners">
+														DINNERS
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div role="main" id="main">
+											<div class="content">
+												<div class="main section">
+													<div class="payment-with-card">
+														<h2>Payment by Credit Card</h2>
+														<form name="formTarjeta" id="formTarjeta" method="post" action="/sis/pagoTarjeta;jsessionid=0000i76nauRhXB4VVba0x-GltUH:15denq2kv">
+															<fieldset class="card-number">
+																<dl>
+																	<dt>
+																		<label for="Sis_Numero_Tarjeta">Card Number</label>
+																	</dt>
+																	<dd>
+																		<input autocomplete="off" name="Sis_Numero_Tarjeta" id="Sis_Numero_Tarjeta" maxlength="19" class="tooltip" type="text" title="No spaces or dashes">
+																	</dd>
+																</dl>
+															</fieldset>
+															<fieldset class="card-expiration">
+																<dl>
+																	<dt>Expiry Date</dt>
+																	<dd>
+																		<label class="month" for="Sis_Caducidad_Tarjeta_Mes">Month&nbsp;<input autocomplete="off" name="Sis_Caducidad_Tarjeta_Mes" id="Sis_Caducidad_Tarjeta_Mes" maxlength="2" size="2" type="text"></label><label class="year" for="Sis_Caducidad_Tarjeta_Anno">Year&nbsp;
+																			<input autocomplete="off" name="Sis_Caducidad_Tarjeta_Anno" id="Sis_Caducidad_Tarjeta_Anno" maxlength="2" size="2" class="tooltip" type="text" title="Last two digits"></label>
+																	</dd>
+																</dl>
+															</fieldset>
+															<fieldset class="card-cvv">
+																<dl>
+																	<dt class="card-cvv">
+																		<label for="Sis_Tarjeta_CVV2"><abbr title="Security Code">Security Code</abbr>&nbsp;</label>
+																	</dt>
+																	<dd class="card-cvv">
+																		<input autocomplete="off" name="Sis_Tarjeta_CVV2" id="Sis_Tarjeta_CVV2" maxlength="4" size="4" type="text">&nbsp;
+																			<a href="#" class="tooltip" title="This code corresponds to the last 3 digits on the back of your card.">
+																				Ayuda
+																			</a>
+																	</dd>
+																</dl>
+															</fieldset>
+															<fieldset class="submit">
+																<input name="boton" onClick="javascript:validar();" value="Pay" type="button">
+															</fieldset>
+														</form>
+													</div>
+													<div class="other-payment-options">
+														<h2>If you wish, you can also pay through:</h2>
+														<form name="formModalidad" id="formModalidad" method="post" action="/sis/formaPago;jsessionid=0000i76nauRhXB4VVba0x-GltUH:15denq2kv">
+															<fieldset class="options">
+																<ul>
+																	<li>
+																		<a href="O" title="Payment By IUPAY"><img src="/sis/graficos/logotipos/comunes/iupayBtnWhite.png" alt="Payment By IUPAY" title="Payment By IUPAY" data-id="iupay-field"></a>
+																	</li>
+																</ul>
+															</fieldset>
+															<fieldset class="submit">
+																<input disabled name="boton" onClick="javascript:validar1();" value="Pay" type="button">
+															</fieldset>
+														</form>
+													</div>
+												</div>
+												<div class="section">
+													<div class="purchase-info">
+														<h2>Purchase data</h2>
+														<dl>
+															<dt class="amount">Amount:</dt>
+															<dd class="amount">1,00&nbsp;Euros</dd>
+															<dt class="merchant">Merchant:</dt>
+															<dd class="merchant">TRAVELS AND DISCOVERY</dd>
+															<dt class="order-number tooltip" title="Order reference number:">Order reference number:</dt>
+															<dd class="order-number">280425213275</dd>
+															<dt class="date">Date:</dt>
+															<dd class="date">25/04/2014</dd>
+															<dt class="time">Time:</dt>
+															<dd class="time">21:32</dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="footer">
+											<ul class="services">
+												<li class="servired">
+													<span>Servired</span>
+												</li>
+												<li class="verified-by-visa">
+													<a class="popup" href="javascript:ventanaInfoVisa1();" title="Information about Verified by Visa">
+														Verified by Visa
+													</a>
+												</li>
+												<li class="mastercard-securecode">
+													<a class="popup" href="javascript:ventanaInfoMaster();" title="Information about MasterCard Secure Code">
+														MasterCard SecureCode
+													</a>
+												</li>
+												<li class="amex-safekey">
+													<span title="American Express SafeKey">
+														SafeKey AMEX
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</body>
+								</html><form id="frmOASYS" name="frmOASYS" method="get">
+									<noscript>
+										<tr>
+											<td class="tituloDetalle"></td>
+										</tr>
+										<tr>
+											<td class="tituloDetalle"></td>
+										</tr>
+										<tr>
+											<td class="tituloDetalle"><input value="" type="submit" class="buttonAccion"></td>
+										</tr>
+									</noscript>
+									<input name="dato" type="hidden">
+								</form>

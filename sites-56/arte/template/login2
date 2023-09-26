@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Julio Toirac<jtoirac@gmail.com>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Entrada</title>
+    <link rel="icon" href="favicon.ico">
+	<link href="template/css/bootstrap.min.css" rel="stylesheet">
+	<link href="template/css/login2.css" rel="stylesheet">
+	<script type="template/js/valglob.js"></script>
+	<script src="template/js/jquery.js"></script>
+    <script src="template/js/bootstrap.min.js"></script>
+</head>
+<body>   
+    
+    <!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+		<span id="respue_spam" class="label label-success"></span>
+			<form class="form-signin" method="POST">
+				<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+				<img id="profile-img" class="profile-img-card" src = 'images/noprofile.png' />
+				<p id="profile-name" class="profile-name-card"></p>
+				<span id="reauth-email" class="reauth-email"></span>
+				<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Correo" required autofocus>
+				<input type="hidden" id="hideemail" >
+				<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contrase&ntilde;a" required>
+				<div id="remember" class="checkbox">
+					<!--<label>
+						<input type="checkbox" value="remember-me"> Recordarme
+					</label>-->
+				</div>
+				<div id="notremember">
+					<label>
+						Entrar como otro usuario?
+					</label>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block btn-signin" id="entrada1" type="submit">Enviar</button>
+				<label id="olvContr" class="forgot-password">
+					Olvid&oacute; la contrase&ntilde;a?
+				</label>
+			</form>
+			<div id="renvctr">
+				<input type="email" id="inputEmailctr" name="email" class="form-control" placeholder="Correo" required autofocus>
+				<button class="btn btn-lg btn-primary btn-block btn-signin" id="entrada2" type="button" onClick="postData()">Enviar</button>
+			</div>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    
+    
+    <script src="template/js/HtmlCookie.js"></script>
+	<script src="template/js/login.js"></script>
+    <script src="template/js/login2.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<title>SIS Emulator Page</title>
+<link rel="stylesheet" href="../mult/TLPV_estile_int.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAJE="JavaScript">
+function validar()
+{
+ if(document.clave3dsecure.textfield.value.length>0)
+ {
+ 	document.clave3dsecure.submit();	
+ }
+ else
+ {
+ 	alert("Card number is not valid");
+ }
+}
+</SCRIPT>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="auto">
+<form name="clave3dsecure" action="TLPV_pub_SimuladorSIS_SOAP.jsp" method="post">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="2" nowrap height="52"><img src="../mult/TLPV_logotpvm_intg.gif" width="318" height="48" vspace="0" hspace="0" border="0"></td>
+    </tr>
+    <tr align="right"> 
+        
+        <td colspan="2" nowrap class="l2" height="22"> Friday, 14 February 2014 03:32
+      </td>
+    </tr>
+    <tr align="center"> 
+      <td colspan="2" nowrap class="boldaot">SIS-SMPA Emulator. User Authentication<br>
+      </td>
+    </tr>
+    <tr> 
+      <td width="4%" nowrap><img src="../mult/TLPV_cuadrado_int.gif" width="10" height="11">&nbsp;</td>
+      <td width="96%" class="boldaot">Password</td>
+    </tr>
+    <tr> 
+      <td valign="top"><img src="../mult/TLPV_pixtrans_int.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td>
+      <td valign="top" bgcolor="#000066"><img src="../mult/TLPV_pixtrans_int.gif" width="150" height="1" vspace="0" hspace="0" border="0"></td>
+    </tr>
+    <tr align="center"> 
+      <td colspan="2" valign="top"><br> <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="fh">
+          <tr align="center"> 
+            <td class="fh"> <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                <tr> 
+                  <td nowrap class="fh"> <table width="100%" border="0" cellpadding="1" cellspacing="3">
+                      <tr> 
+                        <td colspan="2" align="center" class="fh"><br> <br>
+                          3DSecure User Password:&nbsp; <input type="password" name="textfield" class="formulario"> 
+                          <br> <br> </td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+        <br> <table width="66" border="0" cellspacing="0" cellpadding="0" height="17">
+          <tr> 
+            <td width="66" background="../mult/TLPV_b_ac_int.gif" height="17" align="center" nowrap><img src="../mult/TLPV_pixtrans_int.gif" width="66" height="1"><br> 
+              <a href="#" class="lnkazul3" onClick="validar()">Ok</a></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+  <input type="hidden" name="entrada" value="&lt;DATOSENTRADA&gt;&lt;DS_VERSION&gt;1&#46;0182&lt;&#47;DS_VERSION&gt;&lt;DS_MERCHANT_AMOUNT&gt;300&lt;&#47;DS_MERCHANT_AMOUNT&gt;&lt;DS_MERCHANT_CURRENCY&gt;978&lt;&#47;DS_MERCHANT_CURRENCY&gt;&lt;DS_MERCHANT_ORDER&gt;030214143421&lt;&#47;DS_MERCHANT_ORDER&gt;&lt;DS_MERCHANT_MERCHANTCODE&gt;030433023&lt;&#47;DS_MERCHANT_MERCHANTCODE&gt;&lt;DS_MERCHANT_MERCHANTURL&gt;http&#58;&#47;&#47;89&#46;107&#46;176&#46;75&#47;TLPV2&#47;tlpv&#47;TLPV_pub_rpcrouter&lt;&#47;DS_MERCHANT_MERCHANTURL&gt;&lt;DS_MERCHANT_MERCHANTNAME&gt;AMF&lt;&#47;DS_MERCHANT_MERCHANTNAME&gt;&lt;DS_MERCHANT_CONSUMERLANGUAGE&gt;002&lt;&#47;DS_MERCHANT_CONSUMERLANGUAGE&gt;&lt;DS_MERCHANT_MERCHANTSIGNATURE&gt;E6AABE3B1932D4EFBE10FDB2530E00DDF64EF922&lt;&#47;DS_MERCHANT_MERCHANTSIGNATURE&gt;&lt;DS_MERCHANT_TERMINAL&gt;001&lt;&#47;DS_MERCHANT_TERMINAL&gt;&lt;DS_MERCHANT_TRANSACTIONTYPE&gt;0&lt;&#47;DS_MERCHANT_TRANSACTIONTYPE&gt;&lt;DS_MERCHANT_PAYMETHODS&gt;T&lt;&#47;DS_MERCHANT_PAYMETHODS&gt;&lt;DS_MERCHANT_PAN&gt;4548812908888885&lt;&#47;DS_MERCHANT_PAN&gt;&lt;DS_MERCHANT_EXPIRYDATE&gt;1412&lt;&#47;DS_MERCHANT_EXPIRYDATE&gt;&lt;DS_MERCHANT_MERCHANTDATA&gt;234623452343&lt;&#47;DS_MERCHANT_MERCHANTDATA&gt;&lt;DS_MERCHANT_CONCILIATION&gt;140214&lt;&#47;DS_MERCHANT_CONCILIATION&gt;&lt;DS_MERCHANT_SESSION&gt;465&lt;&#47;DS_MERCHANT_SESSION&gt;&lt;DS_MERCHANT_CIERS&gt;630002&lt;&#47;DS_MERCHANT_CIERS&gt;&lt;DS_MERCHANT_CVV2&gt;123&lt;&#47;DS_MERCHANT_CVV2&gt;&lt;DS_MERCHANT_TIME&gt;140214153232&lt;&#47;DS_MERCHANT_TIME&gt;&lt;DS_MERCHANT_URLOK&gt;https&#58;&#47;&#47;www&#46;concentradoramf&#46;com&#47;rep&#47;index&#46;php?resp&#61;030214143421&lt;&#47;DS_MERCHANT_URLOK&gt;&lt;DS_MERCHANT_URLKO&gt;https&#58;&#47;&#47;www&#46;concentradoramf&#46;com&#47;rep&#47;index&#46;php?resp&#61;030214143421&lt;&#47;DS_MERCHANT_URLKO&gt;&lt;&#47;DATOSENTRADA&gt;"/>
+  <input type="hidden" name="idioma" value="en"/>
+  <input type="hidden" name="pais" value="GB"/>
+</form>
+</body>
+
+</html><SCRIPT language="JavaScript">
+<!-- 
+document.cookie = "IV_JCT=%2FTLPV; path=/";
+//--> 
+</SCRIPT>

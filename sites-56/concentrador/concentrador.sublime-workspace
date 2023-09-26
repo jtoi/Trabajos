@@ -1,0 +1,565 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"to",
+				"todok"
+			],
+			[
+				"tim",
+				"time〔function〕"
+			],
+			[
+				"time",
+				"time()"
+			],
+			[
+				"thi",
+				"$this〔variable〕"
+			],
+			[
+				"da",
+				"datCom〔variable〕"
+			],
+			[
+				"load",
+				"loadResultArray"
+			],
+			[
+				"query",
+				"query($ql"
+			],
+			[
+				"quer",
+				"query($ql"
+			],
+			[
+				"arrP",
+				"$arrPas3d〔variable〕"
+			],
+			[
+				"rtrim",
+				"rtrim()"
+			],
+			[
+				"html",
+				"$html〔variable〕"
+			],
+			[
+				"inhid",
+				"inhide"
+			],
+			[
+				"inT",
+				"inTextb〔function〕"
+			],
+			[
+				"str",
+				"strTpv"
+			],
+			[
+				"pasa",
+				"pasarelas"
+			],
+			[
+				"tbl",
+				"tbl_pasarela"
+			],
+			[
+				"po",
+				"post〔function〕"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"num_ro",
+				"num_rows"
+			],
+			[
+				"tem",
+				"temp"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"if",
+				"ifelse\tif … else …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "admin/componente/comercio/ejec.php",
+			"settings":
+			{
+				"buffer_size": 83943,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/componente/comercio/comercio.php",
+			"settings":
+			{
+				"buffer_size": 32017,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 372.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <base>"
+			],
+			[
+				"PHP Code Sniffer: ",
+				"PHP Code Sniffer: Switch coding standard"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/julio/www/concentrador",
+		"/home/julio/www/concentrador/admin",
+		"/home/julio/www/concentrador/admin/componente",
+		"/home/julio/www/concentrador/admin/componente/comercio"
+	],
+	"file_history":
+	[
+		"/home/julio/www/concentrador/admin/componente/comercio/pago.php",
+		"/home/julio/www/concentrador/include/class.inicio.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/transfpon.php",
+		"/home/julio/www/concentrador/admin/componente/core/user.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/devolucion.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/solde.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/reporte.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/ejec.php",
+		"/home/julio/www/concentrador/concentrador.sublime-project",
+		"/home/julio/www/concentrador/actual/admin/ejec.php",
+		"/home/julio/www/carrera/inscEscuela17_18.html",
+		"/home/julio/www/carrera/site/inscEscuela17_18.php",
+		"/home/julio/www/carrera/inscEscuela15_16.php",
+		"/home/julio/www/voucher.html",
+		"/home/julio/www/carrera/site/cargar4.php",
+		"/home/julio/www/carrera/js/inscEscuela15_16.js",
+		"/home/julio/www/concentrador/ejec.php",
+		"/home/julio/www/editor/termino.html",
+		"/home/julio/www/concentrador/tls-check.php",
+		"/home/julio/www/concentrador/enviadata.php",
+		"/home/julio/www/editor/bookmark.html",
+		"/home/julio/www/externo/entra.php",
+		"/home/julio/www/concentrador/admin/index.php",
+		"/home/julio/www/concentrador/actual/include/class.inicio.php",
+		"/home/julio/www/concentrador/admin/componente/ticket/ticketin.php",
+		"/home/julio/www/concentrador/index.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/cliente.php",
+		"/home/julio/www/concentrador/rep/llegada.php",
+		"/home/julio/www/concentrador/admin/componente/comercio/comercio.php",
+		"/home/julio/www/concentrador/configuration.php",
+		"/home/julio/www/concentrador/actual/include/adminis.func.php",
+		"/home/julio/www/externo/class/paytpv_bankstore.php",
+		"/home/julio/www/concentrador/admin/adminis.func.php",
+		"/home/julio/www/adminer/adminer.php",
+		"/home/julio/www/concentrador/cron.php",
+		"/home/julio/www/concentrador/include/mysqli.php",
+		"/home/julio/www/concentrador/scripts/actualizacion20170515.sql",
+		"/home/julio/www/concentrador/sincraca.php",
+		"/home/julio/www/concentrador/admin/template/css/admin.css",
+		"/home/julio/www/concentrador/admin/componente/core/tripa.html",
+		"/home/julio/www/concentrador/js/floatDiv.js",
+		"/home/julio/.config/sublime-text-3/Packages/Compare Side-By-Side/SBSCompare.sublime-settings",
+		"/home/julio/www/concentrador/js/jquery-ui-1121/jquery-ui.js",
+		"/home/julio/www/concentrador/todoamf_db.sql",
+		"/home/julio/www/concentrador/scripts/actualizacion20170512.sql",
+		"/home/julio/.config/sublime-text-3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/home/julio/.config/sublime-text-3/Packages/User/Xdebug.sublime-settings",
+		"/home/julio/www/concentrador/scripts/actualizacion20140228.sql",
+		"/home/julio/.config/sublime-text-3/Packages/SublimePHPIntel/SublimePHPIntel.sublime-settings",
+		"/home/julio/.config/sublime-text-3/Packages/All Autocomplete/All Autocomplete.sublime-settings",
+		"/home/julio/.config/sublime-text-3/Packages/User/Side Bar.sublime-settings",
+		"/home/julio/.config/sublime-text-3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/home/julio/.config/sublime-text-3/Packages/CodeFormatter/README.md"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"/home/julio/www/concentrador/",
+			"/home/julio/www/concentrador/admin"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pasarela2",
+			"send_m",
+			"_LAB_DEVCLI",
+			"exit",
+			"comerc'",
+			"enviadata",
+			"todo",
+			"corCreo",
+			"sms",
+			"idm",
+			"arrpasar",
+			"$this->log = ",
+			"function damepais",
+			"pais",
+			"$this->log =",
+			"$correo->todo",
+			"from tbl_rotComPas",
+			"end from tbl_rotComPas",
+			"orden+1 end from tbl_rotComPas",
+			"//",
+			"https:",
+			"entrega",
+			"correo",
+			"arrpasar",
+			"$this->arrpasar",
+			"arrpasar",
+			"arrpasar()",
+			"arrapasar",
+			"arrpasar(",
+			"medio",
+			"$html->medio",
+			"name=\"pago",
+			"name='pago",
+			"ponetarjeta",
+			"function",
+			"falla por pasarela inválida",
+			"transitaran",
+			"la para poner las",
+			"modifica la",
+			"$restpasa",
+			"function",
+			"cubana",
+			"function",
+			"solde.php",
+			"solde",
+			"Anulación de la orden",
+			"Anulaci",
+			"Anulación de la orden",
+			"$esta",
+			"function datATitanes",
+			"javascript"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "admin/componente/comercio/ejec.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 83943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								83455,
+								83455
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1018.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "admin/componente/comercio/comercio.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32017,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22410,
+								22410
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6725.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "concentrador.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"admin/componente/comercio/comercio.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"17":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"21":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"22":
+				{
+					"group": 0,
+					"index": 5
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 290.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

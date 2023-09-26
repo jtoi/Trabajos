@@ -1,0 +1,273 @@
+@CHARSET "UTF-8";
+body{margin: 0;font-family: sans-serif;text-shadow: 3px 3px 3px #0f0f0f;color: white;font-size: 14px;}
+#hora{font-size: 11em;
+    position: absolute;
+    text-align: center;
+    width: 100%;}
+#fecha{font-size: 2.5em;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+#timesss, #poblacion {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+#poblacion {
+	background-color:rgba(0, 0, 0, 0.3);
+}
+#hora, #fecha{
+	cursor: default;
+}
+#enlace{
+	position: absolute;
+	top: 20px;
+	left: 30px;
+	cursor: pointer;
+}
+#bip{
+	position: absolute;
+	top: 45px;
+	left: 30px;
+	cursor: pointer;
+}
+#bip2{
+	position: absolute;
+	top: 70px;
+	left: 30px;
+	cursor: pointer;
+}
+#ip{
+	position: absolute;
+	top: 70px;
+	left: 30px;
+	cursor: pointer;
+	font-family: sans-serif;text-shadow: 3px 3px 3px #0f0f0f;color: white;font-size: 10px
+}
+#fecs{
+	position: absolute;
+	top: 80px;
+	left: 30px;
+	cursor: pointer;
+	font-family: sans-serif;text-shadow: 3px 3px 3px #0f0f0f;color: white;font-size: 10px
+}
+#quer{
+	position: absolute;
+	top:10px;
+	background-color:rgba(0, 0, 0, 0.3);
+	padding: 10px;
+	display: none;
+}
+#enlaces{
+	display: none;
+	background-color:rgba(0, 0, 0, 0.8);
+	color:#ccc;
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	overflow: auto;
+}
+#enlaces h3{
+	display: block;
+	width: 100%;
+	text-align: center;
+	float: left;
+	margin-top: 30px;
+}
+#enlaces li{
+	display: block;
+	width: 275px;
+	float: left;
+	list-style-image: none;
+	margin: 5px 0 5px 40px;
+}
+#enlaces a{
+	text-decoration: none;
+	color:#ccc;
+}
+#enlaces ul{
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 7px 0;
+	float: left;
+}
+#masEnl{
+	display: block;
+	float:right;
+	font-size: 0.8em;
+	margin:10px 10px 0 0;
+	cursor: pointer;
+}
+#adenla{
+	display: none;
+	background-color:rgba(0, 0, 0, 0.8);
+	left: 40px;
+	padding: 13px 24px;
+	position: absolute;
+	top: 45px;
+}
+#adenla input, #adenla select{
+	background-color: rgba(0, 0, 0, 0.8);
+	border: medium none;
+	color: white;
+	font-size: 12px;
+	margin: 5px;
+	padding: 5px;
+}
+#envurl{
+	cursor: pointer;
+}
+#adenla select {
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+	background-repeat: no-repeat;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+}
+#adenla select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	width: 183px;
+}
+#busc{
+	margin-left: 60px !important;
+	background: transparent url('../images/lupa.png') 0 -4px no-repeat;
+	border: none;
+	color: white;
+}
+#buscip{
+	margin-left: 60px !important;
+	background: transparent url('../images/lupa.png') 0 -4px no-repeat;
+	border: none;
+	color: white;
+}
+#covf{
+	margin-left: 19px !important;
+	background: transparent url('../images/lupa.png') 0 -4px no-repeat;
+	border: none;
+	color: white;
+}
+#frasediv{
+	position: absolute;
+	width: 100%;
+	cursor: default;
+}
+#frasediv span{
+	display: block;
+	text-align: center;
+}
+#frautor{
+	font-style: italic;
+	font-size: 0.7em;
+}
+#meteo{
+	position: absolute;
+	top: 20px;
+	clear: both;
+	text-align: center;
+	display: none;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 5px 0;
+}
+#cambioT{
+	position: absolute;
+	top: 155px;
+	clear: both;
+	text-align: center;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 5px 0;
+	font-size: 0.7em;
+}
+#meteo span{
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+.methor{
+	font-style: italic;
+	font-size: 0.8em;
+}
+#metval span{
+	float: left;
+	font-size: 0.6em;
+	margin: 0 0 12px 15px;
+	display: block;
+	width: 28px;
+}
+#metval2 span{
+	float: left;
+	font-size: 0.6em;
+	margin: 0 0 12px 15px;
+	display: block;
+	width: 55px;
+}
+#meteoflot{
+	width: 370px;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.85);
+	display: none;
+}
+#meteoflot1{
+	margin: 10px;
+	text-align: center;
+}
+#meteoflot1 .mas{
+	float: left;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+#meteoflot1 img{
+	width: 170px !important;
+	height: 170px;
+	margin-left: 80px;
+}
+#metval .metdvi{
+	width: 20px;
+	height: 20px;
+}
+.metdvi{
+	height: 23px;
+}
+#metval, #metval2{
+	width: 100%;
+	float: left;
+}
+.valsmet{
+	font-size: 0.8em !important;
+	width: 53px;
+}
+#meteoflot2{
+	font-size: 0.9em;
+	padding: 0 0 15px 15px;
+	height: 350px;
+	overflow: auto;
+	width: 100%;
+	float: left;
+}
+.mete3{
+	float:left;
+	width: 160px;
+}
+.lines{
+	width: 100%;
+	float: left;
+}
+.lines .mete3:first-child{
+	width: 170px !important;
+}
+.mete3 span{
+	display: block;
+	float: left;
+	width: 100%;
+}
+#meteoflot2 hr{
+	display: block;
+	float: left;
+	width: 93%;
+	border: 1px solid white;
+	border-bottom: 0px;
+}

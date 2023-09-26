@@ -1,0 +1,26 @@
+<label for="persona" class="form-label">Persona: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="alias" class="form-label">Alias: </label>
+<select id="alias" name="alias">
+    <option value="">Seleccione..</option>
+</select>
+
+<label for="contacto" class="form-label">Contacto:</label>
+<input type="text" class="form-control" id="contacto" name="contacto" required value="" />
+
+<!-- <label for="alias" class="form-label">Alias de Contacto:</label>
+<input type="text" class="form-control" id="alias" name="alias" required value="" /> -->
+
+<label for="" class="form-label">Por defecto?:</label>
+<select id="defecto" name="defecto">
+    <option value="true">Si</option>
+    <option value="false">No</option>
+</select>
+
+<input type="hidden" id="idtitanes" />
+<input type="hidden" id="ContactMethodTypeId" />
+<input type="hidden" id="ContactMethodAlias" />
+<input type="button" value="Enviar" onclick="envia()" />

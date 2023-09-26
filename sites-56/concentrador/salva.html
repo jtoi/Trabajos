@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Panel de Administraci&oacute;n</title>
+<link rel="stylesheet" href="admin/template/css/estilo.min_201208110709.css" type="text/css" />
+<style type="text/css">#EDTod{display:none;}</style>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/globalfunc-spanish.mod.min_201208101748.js"></script>
+<script type="text/javascript" src="js/jquery_002_003_menu.min_201208111328.js"></script>
+<script type="text/javascript" src="js/datepicker_spanish.js"></script>
+
+<script language="javascript">
+	function redirect(url){
+		window.open(url, '_self');
+		return false;
+	}
+	function showId(id)
+	{
+		var obj = document.getElementById(id);
+		obj.style.display = 'block';
+		return false;
+	}
+	function hideId(id)
+	{
+		var obj = document.getElementById(id);
+		obj.style.display = 'none';
+		return false;
+	}
+
+$(document).ready(function(){
+	$("#noscript").hide();
+	$('#fecha1').DatePicker({
+		format:'d/m/Y',
+		date: $('#fecha1').val(),
+		current: $('#fecha1').val(),
+		starts: 1,
+		position: 'right',
+		onBeforeShow: function(){
+			$('#fecha1').DatePickerSetDate($('#fecha1').val(), true);
+		},
+		onChange: function(formated, dates){
+			$('#fecha1').val(formated);
+			//$('#fecha1').DatePickerHide();
+		}
+	});
+
+	$('#fecha2').DatePicker({
+		format:'d/m/Y',
+		date: $('#fecha2').val(),
+		current: $('#fecha2').val(),
+		starts: 7,
+		position: 'right',
+		onBeforeShow: function(){
+			$('#fecha2').DatePickerSetDate($('#fecha2').val(), true);
+		},
+		onChange: function(formated, dates){
+			$('#fecha2').val(formated);
+			//$('#fecha2').DatePickerHide();
+		}
+	});
+	
+	$("textarea").each(function(){
+		if ($(this).val().length == 6) 
+		$(this).val('');
+	});
+	
+	if(!$(".datepicker")) {
+		$('#fecha1').attr("readonly", false);
+		$('#fecha2').attr("readonly", false);
+	}
+    
+    $("#monLi").click(function(e){
+        $("#divTasa").toggle();
+        e.stopPropagation();
+    });
+    $("body").click(function(){$("#divTasa").hide();});
+
+});
+
+</script>
+</head>
+<body>
+	<div id="noscript" style="font-size: 14px;text-align: center;color:black;">Si al terminar de cargar la página no desaparece este cartel<br>Su navegador no tiene habilitado Javascript le sugiero que no siga adelante hasta que lo habilite.</div>
+<table id="princ" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="4" onclick="window.open('index.php?componente=comercio&pag=inicio','_self')" class="banner">&nbsp;</td>
+
+  </tr>
+  <tr>
+    <td class="separamen"></td>
+    <td class="menu">
+		<div id="cambioEur">
+			<table cellpadding="0" cellspacing="0" width="700">
+				<tr>
+					<td class="cambEur">1 Euro a:</td>
+					<td>
+                        <span id="monLi">Ver tasas de cambio</span>
+                        <div id="divTasa">
+						ARS - 10.2308<br>BRL - 3.8764<br>CAD - 1.4694<br>CHF - 1.0998<br>CLP - 764.4243<br>COP - 3,316.1907<br>GBP - 0.7248<br>INR - 72.2584<br>JPY - 137.4600<br>MXN - 18.2060<br>PEN - 3.6126<br>TRY - 3.2489<br>USD - 1.1260<br>VEF - 7.0320<br>                        </div>
+					</td>
+					<td>
+						<span id="liveclock1"><strong>Hora de España:</strong> 20:39:03</span><br />
+						<span id="liveclock2"><strong>Hora de Cuba:</strong> 14:39:03</span>
+					</td>
+					<td>
+						 <strong>Usuario:</strong> Jotate					</td>
+				</tr>
+			</table>
+		</div>
+	</td>
+	<td class="menu_cente">
+		<div id="menu">
+		<ul class="menu">
+		<li><a href='#' class='parent'><span>Administraci&oacute;n</span></a><div><ul><li><a href='index.php?componente=core&pag=personal' class=''><span>Datos Personales</span></a><li><a href='index.php?componente=core&pag=grupo' class=''><span>Grupos</span></a><li><a href='index.php?componente=core&pag=accesos' class=''><span>Accesos</span></a><li><a href='index.php?componente=core&pag=user' class=''><span>Usuarios</span></a><li><a href='index.php?componente=core&pag=baticora' class=''><span>Bit&aacute;cora</span></a><li><a href='index.php?componente=core&pag=logout' class=''><span>Salir</span></a></ul></div><li><a href='#' class='parent'><span>Comercio</span></a><div><ul><li><a href='index.php?componente=comercio&pag=comercio' class=''><span>Configuraci&oacute;n</span></a><li><a href='index.php?componente=comercio&pag=palabra' class=''><span>Desc. Palabra secr.</span></a><li><a href='index.php?componente=comercio&pag=comprueba' class=''><span>Comprobaci&oacute;n firma</span></a><li><a href='index.php?componente=comercio&pag=documentos' class=''><span>Documentaci&oacute;n</span></a><li><a href='index.php?componente=comercio&pag=pago' class=''><span>Pago en línea</span></a><li><a href='index.php?componente=comercio&pag=transferencia' class=''><span>Transferencias</span></a><li><a href='index.php?componente=comercio&pag=vercierre' class=''><span>Ver Cierres</span></a><li><a href='index.php?componente=comercio&pag=avisos' class=''><span>Avisos de Transferencias</span></a><li><a href='index.php?componente=comercio&pag=voucher' class=''><span>Personalización Voucher</span></a><li><a href='index.php?componente=comercio&pag=idioma' class=''><span>Idiomas</span></a></ul></div><li><a href='#' class='parent'><span>Configuraci&oacute;n</span></a><div><ul><li><a href='index.php?componente=comercio&pag=setup' class=''><span>Configuraci&oacute;n</span></a><li><a href='index.php?componente=comercio&pag=mensaje' class=''><span>Mensajes</span></a><li><a href='index.php?componente=comercio&pag=cambio' class=''><span>Tasas de cambio</span></a><li><a href='index.php?componente=comercio&pag=instrsf' class=''><span>Inserta Transferencia</span></a><li><a href='index.php?componente=comercio&pag=cambiocuc' class=''><span>Cambio del CUC</span></a><li><a href='index.php?componente=comercio&pag=pasar' class=''><span>Comercio - TPV</span></a></ul></div><li><a href='#' class='parent'><span>Reportes</span></a><div><ul><li><a href='index.php?componente=comercio&pag=reporte' class=''><span>Transacciones</span></a><li><a href='index.php?componente=comercio&pag=consolidado' class=''><span>Consolidado</span></a><li><a href='index.php?componente=comercio&pag=comparacion' class=''><span>Comparaci&oacute;n</span></a><li><a href='index.php?componente=comercio&pag=cliente' class=''><span>Clientes</span></a><li><a href='index.php?componente=comercio&pag=pagocom' class=''><span>Pago a Comercios</span></a><li><a href='index.php?componente=comercio&pag=ipden' class=''><span>IPs Bloqueadas</span></a><li><a href='index.php?componente=comercio&pag=cierrever' class=''><span>Cierres</span></a><li><a href='index.php?componente=core&pag=sms' class=''><span>Control SMS</span></a><li><a href='index.php?componente=comercio&pag=informcsv' class=''><span>Cambia CSV</span></a><li><a href='index.php?componente=comercio&pag=comptrans' class=''><span>Compara transc / Bancos</span></a><li><a href='index.php?componente=comercio&pag=cierrepon' class=''><span>Poner Cierre</span></a><li><a href='index.php?componente=comercio&pag=analisis' class=''><span>An&aacute;lisis de TPVs</span></a><li><a href='index.php?componente=comercio&pag=sincBanco' class=''><span>Sincr. Bancos</span></a><li><a href='index.php?componente=comercio&pag=datos' class=''><span>Datos Varios</span></a></ul></div><li><a href='#' class='parent'><span>Central de Venta</span></a><div><ul><li><a href='index.php?componente=reserva&pag=tempor' class=''><span>Temporadas</span></a><li><a href='index.php?componente=reserva&pag=caract' class=''><span>Característica</span></a><li><a href='index.php?componente=reserva&pag=prod' class=''><span>Producto</span></a><li><a href='index.php?componente=reserva&pag=cant' class=''><span>Cantidad</span></a><li><a href='index.php?componente=reserva&pag=precio' class=''><span>Precio</span></a><li><a href='index.php?componente=reserva&pag=venta' class=''><span>Bur&oacute; de Ventas</span></a></ul></div><li><a href='#' class='parent'><span>Tickets</span></a><div><ul><li><a href='index.php?componente=ticket&pag=ticketin' class=''><span>Poner Ticket</span></a><li><a href='index.php?componente=ticket&pag=ticketview' class=''><span>Ver Tickets</span></a></ul></div>		
+		</ul></div>
+	</td>
+	<td height="24" width="50">
+        <span onclick="window.open('index.php?componente=core&pag=logout', '_self')" class="css_log-out"></span></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="inf"></td>
+  </tr>
+</table>
+    <div id="alerti" style="display: none"></div>
+<div id="todoDiv">
+
+<script type="text/javascript" src="js/jquery.tooltip.js">
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#moncuc").blur(function(){calcCUC();});
+// 		$(document).tooltip();
+$("#importe").prop('readonly', false);		
+		$("#div_tiempo").hide();
+		$(".pago").click(function(){
+			if($(this).val() == 'S') $("#div_tiempo").hide();
+			else $("#div_tiempo").show();
+		});
+
+
+		function verifica() {
+			if (
+					(checkField (document.forms[0].nombre, isAlphanumeric, ''))&&
+					(checkField (document.forms[0].email, isEmail, ''))&&
+					(checkField (document.forms[0].tiempo, isInteger, ''))&&
+					(checkField (document.forms[0].importe, isMoney, ''))&&
+					(checkField (document.forms[0].servicio, isAlphanumeric, '')) &&
+					(CompareField(document.forms[0].valCom,document.forms[0].importe,'mayor','El valor de la transacción debe ser menor de 5 000.00'))&&
+					(checkField (document.forms[0].moncuc, isMoney, 'true'))&&
+					(checkField (document.forms[0].trans, isUrl, 'true'))
+				) {
+				
+			}
+			return false;
+		}
+
+		$(function() {
+			$('textarea').supertextarea({maxw: 280, maxh: 100, minw: 130, minh: 20, dsrm: {use: false}, tabr: {use: false}, maxl: 1000});
+		});
+	    
+		function calcCUC(){
+			var dato = jQuery.parseJSON('[["ARS","0.0000"],["BRL","0.0000"],["CAD","0.0000"],["CHF","0.0000"],["CLP","0.0000"],["COP","0.0000"],["EUR","0.8919"],["GBP","0.0000"],["INR","0.0000"],["JPY","0.0000"],["MXN","0.0000"],["PEN","0.0000"],["TRY","0.0000"],["USD","1.0000"],["VEF","0.0000"]]');
+			var mon = $("#moneda option:selected").text();
+			if (!$.isNumeric($("#moncuc").val())) alert('Debe entrar un número en el campo de importe.');
+			else {
+				for (var i=0;i<dato.length;i++){
+					var mnd = dato[i];
+					if (mnd.indexOf(mon) == 0) {
+						$("#importe").val(($("#moncuc").val() * mnd[1]).toFixed(2)).prop('readonly', true);
+					}
+				}
+				if ($("#importe").val() == 0 && $("#importe").val() > 0) alert("No tiene habilitado el cambio para esa moneda, cambie la moneda para poder enviar el pago.");
+			}
+		}
+	});
+
+</script><style>.derecha2{float:left;height:23px;border-left:1px solid #e0e0e0;border-top:1px solid #e0e0e0;text-align:right;
+							font-weight:bold;padding:5px 5px 0 0;background-color:#fcfcfa;}.lineaT, .lineaT1{float:left;width:100%;margin-bottom:20px;}
+							.formun {width:100%;border:0px none;height:25px;}.izquierda {float:left;border-top:1px solid #B5B5B5;
+							border-right:1px solid #B5B5B5;border-left:1px solid #B5B5B5;text-align:left;font-weight:bold;background-color:#FCFCFA;
+							height:27px;}.lineaT,.lineaT1 {float:left;width:100%;margin-bottom:20px;}</style><div style="margin-bottom:30px; width:100%; float:left;"><div style="width:1024px" class="tabTodo">
+					<div class="title_pag1">Pago en línea</div><form action="" method="post" enctype="multipart/form-data" name="admin_form_1342" onsubmit="return(verifica());"><input type="hidden" value="47,1,2,3,44,45,42,4,5,6,7,48,8,9,43,46,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,40,41,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,96,97,98,99,100,101,102,106,107,108,109,110,112,113,114,115,116,117,118,119,120,38,39,49,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140" name="comer"	id="comer"  /><input type="hidden" value="true" name="inserta"	id="inserta"  /><input type="hidden" value="5000" name="valCom"	id="valCom"  /><div class="title_tarea1"><div class="title_tarea22">
+					<span class="title_tarea2"></span><span style="width:1006px" class="title_tarea3">Realizar Pago</span><span class="title_tarea4"></span><div style="width:1026px" class="title_tarea33"><div class="lineaS"><div style="width:140px" class="derecha2">Nombre y Apellidos:</div><div class="izquierda" style="width:300px"><input maxlength="150" class="formun" type="text" value="" name="nombre" width="300" id="nombre"  /></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Correo:</div><div class="izquierda" style="width:300px"><input maxlength="150" class="formun" type="text" value="" name="email" width="300" id="email"  /></div></div><div class="lineaS"><div style="width:140px" class="derecha2">No. Transacci&oacute;n:</div><div class="izquierda" style="width:120px"><input maxlength="19" class="formun" type="text" value="" name="trans" width="300" id="trans"  /> <img src="template/images/help.png" class="imghelp" width="13" height="13" 
+												title=" Si la deja en blanco el sistema la genera" ></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Servicio:</div><div class="izquierda" style="width:120px">
+						<textarea cols="" rows="7" class="formun" type="text" name="servicio" id="servicio"  /></textarea></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Idioma:</div><div class="izquierda" ><input type="radio" id="0_idioma"  checked  name="idioma" class="idioma" value="en" />
+					<label for="0_idioma" >Inglés</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="1_idioma"  name="idioma" class="idioma" value="es" />
+					<label for="1_idioma" >Español</label>&nbsp;&nbsp;&nbsp;&nbsp;</div></div><div class="lineaS"><div style="width:140px" class="derecha2">Tarjeta para el pago:</div><div class="izquierda" ><input type="radio" id="0_amex"  checked  name="amex" class="amex" value="0" />
+					<label for="0_amex" >Visa, Mastercard, Otras</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="1_amex"  name="amex" class="amex" value="1" />
+					<label for="1_amex" >American Express</label>&nbsp;&nbsp;&nbsp;&nbsp;</div></div><div class="lineaS"><div style="width:140px" class="derecha2">Pasarela:</div><div class="izquierda" ><select class="formun" name="pasarela" id="pasarela" ><option value="37">Tefpay</option>
+<option value="39">Sipay</option>
+<option value="13">Santander 3D</option>
+<option value="44">Sabadell3</option>
+<option value="31">Sabadell2 3D</option>
+<option value="29">Sabadell Plus 3D DCC</option>
+<option value="40">Pagantis</option>
+<option value="51">LabKutxa 3D</option>
+<option value="56">La Caixa3</option>
+<option value="38">La Caixa2 3D</option>
+<option value="42">IDirect</option>
+<option value="50">Ibercaja 3D</option>
+<option value="24">CXp 3D</option>
+<option value="36">CX2 3D</option>
+<option value="21">CX 3D</option>
+<option value="20">CX</option>
+<option value="43">Bpa 3D</option>
+<option value="1">BBVA</option>
+<option value="52">Bankia6</option>
+<option value="41">Bankia5 3D</option>
+<option value="32">Bankia4 3D</option>
+<option value="23">Bankia3 3D DCC</option>
+<option value="46">BancaSabadell 3D</option>
+<option value="45">AndBank 3D</option>
+<option value="53">Abanca2</option>
+<option value="12">Abanca 3D</option>
+</select></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Monto CUC:</div><div class="izquierda" style="width:120px"><input maxlength="19" class="formun" type="text" value="" name="moncuc" width="300" id="moncuc"  /> <img src="template/images/help.png" class="imghelp" width="13" height="13" 
+												title=" Monto en CUC a convertir" ></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Moneda:</div><div class="izquierda" ><select class="formun" name="moneda" id="moneda" ></select></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Importe:</div><div class="izquierda" style="width:120px"><input maxlength="19" class="formun" type="text" value="" name="importe" width="300" id="importe"  /></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Forma de Pago:</div><div class="izquierda" ><input type="radio" id="0_pago"  checked  name="pago" class="pago" value="S" />
+					<label for="0_pago" >Al momento</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="1_pago"  name="pago" class="pago" value="N" />
+					<label for="1_pago" >Diferido</label>&nbsp;&nbsp;&nbsp;&nbsp;</div></div><div class="lineaS"><div style="width:140px" class="derecha2">Invitación Activa por:</div><div class="izquierda" style="width:120px"><input maxlength="2" class="formun" type="text" value="3" name="tiempo" width="300" id="tiempo"  /> <img src="template/images/help.png" class="imghelp" width="13" height="13" 
+												title=" días, solo para pagos diferidos" ></div></div><div class="lineaS"><div style="width:140px" class="derecha2">Comercio:</div><div class="izquierda" ><select class="formun" name="comercio" id="comercio" ><option value="34">ADASTravel</option>
+<option value="29">Aero Caribbean Back Office</option>
+<option value="17">AeroCaribbean</option>
+<option value="129">Aerocaribbean Rampa</option>
+<option value="93">Amistur</option>
+<option value="131">AVC</option>
+<option value="134">AVC Suc Habana</option>
+<option value="68">AVC-BuroHCohiba</option>
+<option value="136">AVC-BuroMelia Habana</option>
+<option value="135">AVC-BuroParque Centrl</option>
+<option value="51">AVC-Cruceros</option>
+<option value="66">AVC-Eventos</option>
+<option value="67">AVC-Incentivos</option>
+<option value="62">AVC-MercadoI</option>
+<option value="63">AVC-MercadoII</option>
+<option value="64">AVC-MercadoIII</option>
+<option value="65">AVC-MercadoIV</option>
+<option value="69">AVC-MercadoV</option>
+<option value="120">Bufete Internacional</option>
+<option value="3">Caribbean Select Travel Ltd</option>
+<option value="11">CaribbeanDivingCenter</option>
+<option value="123">Caribean Travel Web</option>
+<option value="118">CIGB</option>
+<option value="18">CT Tours Travels</option>
+<option value="60">Cubana CR</option>
+<option value="24">Cubana de Aviación</option>
+<option value="57">Cubana Madrid</option>
+<option value="59">Cubana Paris</option>
+<option value="92">Cubatur VO</option>
+<option value="140">Cubatur-BuroMTC</option>
+<option value="139">Cubatur-BuroNacional</option>
+<option value="137">ECASA</option>
+<option value="37">ERGOS Continental S.A.</option>
+<option value="112">Escenarte</option>
+<option value="121">Felti Datys</option>
+<option value="70">FELTI-Desoft</option>
+<option value="39">FX Fondos AG</option>
+<option value="133">Galerias Genesis</option>
+<option value="128">Gaviota Hoteles</option>
+<option value="130">Gaviota Prueba</option>
+<option value="74">Gaviota Tours</option>
+<option value="97">GaviotaCKB</option>
+<option value="101">GaviotaCTC</option>
+<option value="109">GaviotaGPP</option>
+<option value="94">GaviotaMLG</option>
+<option value="100">GaviotaPC</option>
+<option value="99">GaviotaPCSM</option>
+<option value="108">GaviotaPCV</option>
+<option value="96">GaviotaQAH</option>
+<option value="107">GaviotaVCS</option>
+<option value="102">GaviotaVGB</option>
+<option value="110">GaviotaVGS</option>
+<option value="98">GaviotaVLB</option>
+<option value="106">GaviotaVPM</option>
+<option value="16">GESVIATUR (TopCuba)</option>
+<option value="50">Gira Consulting</option>
+<option value="117">GrandSlam</option>
+<option value="132">Grup Gaviota</option>
+<option value="56">Hotel Nacional de Cuba</option>
+<option value="116">Hotel Saratoga</option>
+<option value="28">Island Universal Tour</option>
+<option value="90">IZ- CASA MATRIZ</option>
+<option value="75">IZ-AVCalzadaK</option>
+<option value="88">IZ-AVCAM</option>
+<option value="89">IZ-AVGranma</option>
+<option value="84">IZ-AVSSP</option>
+<option value="77">IZ-HColina</option>
+<option value="73">IZ-Hcolon</option>
+<option value="82">IZ-Hdelfines</option>
+<option value="83">IZ-HDosMares</option>
+<option value="87">IZ-HGHotel</option>
+<option value="81">IZ-Hherradura</option>
+<option value="76">IZ-HPaseoHab</option>
+<option value="86">IZ-Hplaza</option>
+<option value="80">IZ-Hpullman</option>
+<option value="85">IZ-HRijo</option>
+<option value="79">IZ-Terrazas</option>
+<option value="78">IZ-Vpanam</option>
+<option value="125">IZAVStgo</option>
+<option value="127">La Acacia</option>
+<option value="7">La Coronación</option>
+<option value="58">Latitud Cuba</option>
+<option value="4">Mall Cubano</option>
+<option value="122">MallCubano Digital</option>
+<option value="53">Oceancard de México</option>
+<option value="23">Outdoor</option>
+<option value="52">Palco Agencia Aduanal y Transitaria</option>
+<option value="61">Palco Rancho_Finca</option>
+<option value="20">Palco Ventas Int.</option>
+<option value="25">Prensa Latina</option>
+<option value="113">Promociones Caribe</option>
+<option value="1">Prueba</option>
+<option value="114">Prueba Aerocaribbean</option>
+<option value="119">prueba Caribbean Select</option>
+<option value="115">Prueba Cubana</option>
+<option value="91">pruebaGC</option>
+<option value="72">pruebaHN</option>
+<option value="126">pruebaSTG</option>
+<option value="41">Ruth Casa Editorial</option>
+<option value="71">Ruth_prueba</option>
+<option value="8">Servicios Global</option>
+<option value="138">Servicios Tikal</option>
+<option value="22">SG / RRsol</option>
+<option value="21">SG2</option>
+<option value="35">SMC</option>
+<option value="38">Soy Cubano</option>
+<option value="47">Tienda AMF Espa</option>
+<option value="26">Transnico International</option>
+<option value="32">Travelnet</option>
+<option value="46">Travels & Discovery</option>
+<option value="13">Travelwelcome Ltd</option>
+<option value="124">Tropical Natur</option>
+<option value="31">Tropical Paradise</option>
+</select></div></div><div class="botForm" style="width:1024px"><input class="formul" id="enviaForm" name="enviar" type="submit" value="Enviar" />
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="reset" type="reset" id="reset" class="formul cancel" value="Cancelar" /></div></div></div></div></form></div></div>
+<script type="text/javascript" src="js/jquery.myfun_c00cc3a629e84ef270c28b0d705a1ce1.js"></script>
+<script type="text/javascript" >
+$(document).ready(function(){
+	busca();
+	$("#pasarela").change(function(){busca()});
+// 	$(".amex").click(function(){
+// 		if ($(this).val() == 1) {
+//			alert ('La selecci\u00f3n del pago con American Express implica que este s\u00f3lo se realice por pasarela Segura, por lo que deber\u00e1 chequear en la p\u00e1gina de inicio del Administrador de Comercios, que la tarjeta haya sido emitida en alguno de los pa\u00edses adscritos al programa de seguridad SafeKey.');
+// 		}
+// 	});
+	
+	function busca() {
+		$(".title_tarea1").esperaDiv('muestra');
+		$("#moneda").get(0).options.length = 0;
+		$.post('componente/comercio/ejec.php',{
+				fun:'instpago',
+				pas:$("#pasarela").val()
+			},function(data){
+				var datos = eval('(' + data + ')');
+				$(".title_tarea1").esperaDiv('cierra');
+				$("#enviaForm").show();
+				if (datos.error.length > 0) alert(datos.error);
+				if (datos.sale) {
+					if (datos.sale.length > 0) {
+						var options = $("#moneda");
+						$.each(datos.sale, function(index,vale) {
+							options.append($("<option />").val(vale.idmoneda).text(vale.moneda));
+						});
+					}
+				}
+		});
+	}
+})
+</script>
+</div>
+</body>
+</html>

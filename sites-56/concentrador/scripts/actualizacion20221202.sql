@@ -1,0 +1,3 @@
+UPDATE tbl_cenAuto
+SET datos = '{"Ds_Merchant_MerchantCode":";idCom;","Ds_Merchant_TransactionType":";tipoTrans;","Ds_Merchant_MerchantSignature":";Digest;","Ds_Merchant_Url":";urlcomercio;","Ds_Merchant_UrlOK":";urlok;","Ds_Merchant_UrlKO":";urlko;","Ds_Merchant_Amount":";importe;","Ds_Merchant_Currency":";moneda;","Ds_Merchant_MatchingData":";trans;","Ds_Merchant_Description":";producto;","Ds_Merchant_Lang":";idioma;","Ds_Merchant_Terminal":";terminal;","Ds_Merchant_TerminalAuth":";terminalAuth;","Ds_Merchant_ReceiveCurrency":";receiveCurrency;"}'
+WHERE tbl_cenAuto.id = 13;

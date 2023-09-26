@@ -1,0 +1,23 @@
+/* 
+    Document   : es
+    Created on : May 19, 2011, 6:50:02 PM
+    Author     : jtoirac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.masca {
+	background: url("../images/menes.gif") no-repeat scroll -10px 3px #1F578E;
+	display: inline-block;
+}
+
+.fema {
+	background: url("../images/mujeres.gif") no-repeat scroll 10px 3px #05A7C1;
+	display: inline-block;
+}

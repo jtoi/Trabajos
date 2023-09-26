@@ -1,0 +1,8 @@
+Id,Atleta Nombre y Apellidos,Repres. Nombre y Apellidos,Año Nac.,Tel.,Correo,Licencia no.,Categoría,DNI,Equipo
+1,ATLETA1 ,REPRES1,1924,mov1,correo1,lic1,VETERANOS FEDERADOS,dni1,equipo1
+2,ATLETA2 ,REPRES1,1925,mov1,correo1,lic2,VETERANOS FEDERADOS,dni2,equipo1
+3,ATLETA3 ,REPRES1,1926,mov1,correo1,lic3,VETERANOS FEDERADOS,dni3,equipo1
+4,INDIV1 ,REPRESINDIV1,1923,movind1,correoindv1,lic_ind 1,FEDERADA ELITE FEM.,dni_ind1,
+5,SDFG ,SDFG,2003,sdfg,jtoirac@gmail.com,,BENJAM?N,asdfg,
+6,RETYWER ,RETYWER,2003,wertewr,jtoirac@gmail.com,,BENJAM?N,ertwer,
+7,TERTYERT ,TERTYERT,2003,trywrt,jtoirac@gmail.com,,BENJAM?N,ertyert,

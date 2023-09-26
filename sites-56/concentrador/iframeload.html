@@ -1,0 +1,268 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PAYTPV - The safest and easiest way to pay on Internet</title>
+<style type="text/css">
+body {
+	font-family:"Lucida Sans", "Trebuchet MS", Tahoma;
+	font-size:11px;
+}
+br {
+	clear:both;
+}
+.lblusrfrm {
+		float: left;
+	width: 135px;
+	text-align:right;
+	padding-right:5px;
+	font-size:11px;
+	height:19px;
+	padding-top:6px;
+	vertical-align:top;
+}
+.inputbox_user {
+	border:1px solid #7E7E7E;
+	font-size:11px;
+	float:left;
+	background:#FFFFFF;
+	width:200px;
+	vertical-align:middle;
+	margin-top:6px;
+}
+#izq {
+		width:100%;
+	height: 184px;
+	float:left;
+	position:relative;
+	text-align:left;
+	}
+#der {
+		width:100%;
+		clear:both;
+		position:relative;
+	text-align:left;
+	padding-left:5px;
+	color:#000000;
+}
+.lowlow {
+	font-size: 9px;
+	margin-top:9px;
+	float:left;
+	margin-left:5px;
+}
+.boton {
+	background-color: #DDDDDD;
+	color: #000000;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	border-bottom: 1px solid #b8b8b8;
+	border-right: 1px solid #b8b8b8;
+	font-weight:bold;
+	margin-top:10px;
+	cursor:pointer;
+	width:121px;
+	height:23px;
+	padding:10px 0px 0px 0px;
+}
+.importe {
+	font-weight: bold;
+}
+.bigger {
+	font-size: 18px;
+}
+.badfield
+{
+	border:1px solid #ffffff;
+	font-style:italic;
+	background:#FFA;
+}
+</style>
+<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/md5.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/standard.js"></script>
+<script language="javascript" type="text/javascript">
+// <!--
+$(document).ready(function () {
+	$("#btnforg").one('click', function (event) {  
+		event.preventDefault();
+    $(this).prop('disabled', true);
+   	CheckForm();
+	});
+	
+	/**inicio modificacion a paytpv*/
+// 	var cadena = '%B5478240000648968&CARNEROS SOBRINO-ALEJANDRO&1711201114740000000240933648968_ñ5478240000648968¡17112011147493300409_ñ015478240000648968¡0009781006000601001833019673930000017110¡018212500200015255700001¡¡1¡0012120000000000_';
+// // 	var cadena = '%B9204959875704845^TOIRAC ABELENDA\JULIO^1610521?;9204959875704845=161052115791863120?';
+// // 	var cadena = '%B9202959870975616&TOIRAC ABELENDAçJULIO    &1610521_ñ9202959870975616¡161052115098253120_';
+// 	var str = array = tar = usr = mes = ano = sep = '';
+// 	if (cadena.indexOf('&') > 0) {
+// 		str = '&'; sep = 'ç';
+// 	} else {
+// 		str = '^'; sep = "\\";
+// 	}
+// 	cadena = cadena.replace('%B','');
+// 	array = cadena.split(str);
+// 	tar = array[0];
+// 	usr = array[1].replace(sep, ', ');
+// 	ano = array[2].substring(0,2);
+// 	mes = array[2].substring(2,4);
+// 	$("#innerpreview_middle input:eq(0)").val(usr);$("#innerpreview_middle input:eq(1)").val(tar);$("#innerpreview_middle select:eq(0)").val(mes);$("#innerpreview_middle select:eq(1)").val(ano);
+	/**fin modificacion a paytpv*/
+});
+
+function activate_click()
+{
+	$("#btnforg").one('click', function (event) {
+		CheckForm();
+	});
+}
+
+
+function getCookie(c_name)
+{
+	if (document.cookie.length>0)
+	{
+		c_start = document.cookie.indexOf(c_name + "=");
+		if (c_start != -1)
+		{
+			c_start = c_start + c_name.length + 1;
+			c_end = document.cookie.indexOf(";", c_start);
+			if (c_end == -1) c_end = document.cookie.length;
+			return unescape(document.cookie.substring(c_start, c_end));
+		}
+	}
+
+	return "";
+}
+
+function Verify(name, len) {
+	try {
+		var obj = document.getElementById(name);
+		if(obj.value == "" || obj.value == "Incomplete")
+		{
+			obj.style.border = "1px solid #d99785";
+			obj.value = "Incomplete";
+			return 0;
+		}
+	
+		if(obj.value.length < len)
+		{
+			obj.style.border = "1px solid #d99785";
+			obj.onclick = '';
+	//		obj.value = "Insufficient field length";
+			return 0;
+		}
+	
+		obj.style.border = "1px solid #e0e0e0";
+		return 1;
+	}
+	catch(err) {
+  	alert ("No es posible verificar la informaci�n");
+		return false;
+  }
+}
+
+function CheckForm() {
+	if (Verify("zd59353ef79f6c2b07d7b004f90a4608c_Nombre") + Verify("zd59353ef79f6c2b07d7b004f90a4608c_PAN", 15) + Verify("zd59353ef79f6c2b07d7b004f90a4608c_CVC2", 3) != 3)
+	{
+		activate_click();
+		return false;
+	}
+
+		$("#btnforg").hide('fast',function() {
+			$('#clockwait').show();
+		});
+
+		document.formulario.submit();
+
+
+	return false;
+}
+
+function change_lang(idm)
+{
+	document.getElementById("chgidm_LANGUAGE").value = ''+idm;
+	document.cchhgidmform.submit();
+}
+
+// -->
+</script>
+</head>
+<body style="text-align:center;background-color:#fff;">
+
+<form name="formulario" action="ifgateway.php" method="post">
+<!--<div style="background-color:#; text-align:center; padding-bottom:20px;">-->
+<!--<div id="showmemoney" style="color:#FFFFFF; text-align:left; margin-bottom:10px; padding-left:5px;">Tama�o del cuadro: Ancho: 400 pixels</div>-->
+<!--	<div id="calculator">	-->
+	<div id="innerpreview_top" style="width: 400px; margin:0 auto; height:10px; background-color:#fff"> <img id="retr1" src="../../gateway/img/bl01.png" alt="" style="float:left;" height="10" width="10"> <img id="retr2" src="../../gateway/img/bl02.png" alt="" style="float:right;" height="10" width="10"> </div>
+	<div id="innerpreview_middle" style="width: 380px; margin:0 auto; background-color:#fff; color:#000000; padding-bottom:10px; padding-right:10px; padding-left:10px;">
+						<br>
+		
+		<br><div class="importe" align="center">Total:<br><span class="bigger">6,00 EUR</span></div><br>		<div id="izq">
+			<div style="text-align:left;">
+				<label class="lblusrfrm">Cardholder: </label>
+				<input class="inputbox_user" maxlength="50" id="zd59353ef79f6c2b07d7b004f90a4608c_Nombre" name="zd59353ef79f6c2b07d7b004f90a4608c_Nombre" value="" onclick="this.value='';" type="text">
+				<br>
+				<label class="lblusrfrm">Card Number: </label>
+				<input class="inputbox_user" maxlength="16" id="zd59353ef79f6c2b07d7b004f90a4608c_PAN" name="zd59353ef79f6c2b07d7b004f90a4608c_PAN" value="" onclick="this.value='';" type="text">
+				<br>
+				<label class="lblusrfrm">Expiration Date: </label>
+				<div style="margin-top:6px; float:left;">Month: </div><select id="zd59353ef79f6c2b07d7b004f90a4608c_mm" name="zd59353ef79f6c2b07d7b004f90a4608c_mm" class="inputbox_user" style="width:50px; margin-left:4px;">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+				</select> <div style="margin-top:6px; float:left; margin-left:4px;">Year: </div>
+	               <select name="zd59353ef79f6c2b07d7b004f90a4608c_yy" class="inputbox_user" style="width:80px;">
+                      <option value="15">2015</option><option value="16">2016</option><option value="17">2017</option><option value="18">2018</option><option value="19">2019</option><option value="20">2020</option><option value="21">2021</option><option value="22">2022</option><option value="23">2023</option><option value="24">2024</option><option value="25">2025</option><option value="26">2026</option><option value="27">2027</option><option value="28">2028</option><option value="29">2029</option><option value="30">2030</option><option value="31">2031</option><option value="32">2032</option><option value="33">2033</option><option value="34">2034</option>                </select>
+
+				<br>
+				<label class="lblusrfrm">CVV2 Code: </label>
+				<input class="inputbox_user" maxlength="4" id="zd59353ef79f6c2b07d7b004f90a4608c_CVC2" name="zd59353ef79f6c2b07d7b004f90a4608c_CVC2" value="" style="width:50px;" onclick="this.value='';" type="text"><img src="../../gateway/img/cvv2.png" alt="CVV2" title="CVV2" style="margin-top:6px; margin-left:5px; float:left;" height="21" width="34"><div class="lowlow">(The 3 last numbers)</div>
+				<br>
+
+
+				<input name="token" value="y631p5tkhgwvnqj8x92r" type="hidden">
+
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_ACCOUNT" value="g4fhcw8t" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_USERCODE" value="gDp0rFNXPs3fYydQT6zn" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_TERMINAL" value="2707" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_OPERATION" value="1" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_REFERENCE" value="150812142576" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_AMOUNT" value="600" type="hidden">
+        
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_CURRENCY" value="EUR" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_SIGNATURE" value="d8520f827b2bc35d4bf27610a766ac80" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_CONCEPT" value="" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_URLOK" value="https://www.administracomercios.com/rep/index.php?resp=150812142576" type="hidden">
+				<input name="zd59353ef79f6c2b07d7b004f90a4608c_URLKO" value="https://www.administracomercios.com/rep/index.php?resp=150812142576" type="hidden">
+
+				<div style="margin-bottom:10px;" align="center">
+        	<img src="../img/clockpayblue.gif" alt="Espere..." id="clockwait" style="display:none; margin-top:5px;" height="30" width="41">
+					<div class="boton" id="btnforg">Accept payment</div>
+        </div>
+
+			</div>
+		</div>
+		
+		<div id="der">
+						<br>
+			For security reasons on credit card transactions we have recorded your IP:<br><br><div align="center"><b>Security Control: 190.15.147.50</b></div>
+			
+		</div>
+		<br>
+	</div>
+	<div id="innerpreview_bottom" style="width: 400px; margin:0 auto; height:10px; background-color:#fff"> <img id="retr3" src="../../gateway/img/bl03.png" style="float:left;" alt="" height="10" width="10"> <img id="retr4" src="../../gateway/img/bl04.png" style="float:right;" alt="" height="10" width="10"> </div>
+<img src="../../gateway/img/stdfooter.png" alt="PAYTPV" title="PAYTPV">
+<!--	</div>-->
+<!--</div>-->
+</form>
+
+
+<div data-url="https://www.paytpv.com/gateway/ifgateway.php?ACCOUNT=g4fhcw8t&amp;USERCODE=gDp0rFNXPs3fYydQT6zn&amp;TERMINAL=2707&amp;REFERENCE=150812142576&amp;AMOUNT=600&amp;CURRENCY=EUR&amp;OPERATION=1&amp;URLOK=https://www.administracomercios.com/rep/index.php?resp=150812142576&amp;est=ok&amp;URLKO=https://www.administracomercios.com/rep/index.php?resp=150812142576&amp;est=ko&amp;SIGNATURE=d8520f827b2bc35d4bf27610a766ac80&amp;LANGUAGE=en" style="display:none;" id="link64_adl_tabid">864</div></body>

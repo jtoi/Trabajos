@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+<div id="avisoIn"></div>
+<script language='javascript'>
+	$("#avisoIn").html('<iframe id="ifrm" name="ifrm" title="titulo" src="http://localhost/concentrador/iframeload.html?ACCOUNT=g4fhcw8t&USERCODE=gDp0rFNXPs3fYydQT6zn&TERMINAL=2707&REFERENCE=150817192753&AMOUNT=7700&CURRENCY=EUR&OPERATION=1&URLOK=http://localhost/concentrador/rep/index.php?resp=150817192753&est=ok&URLKO=http://localhost/concentrador/rep/index.php?resp=150817192753&est=ko&SIGNATURE=7f15152e613a5bcbc1052cff036f2682&LANGUAGE=es" width="400" height="374" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style="border: 1px solid #000000; padding:0; margin:0" '+
+			'onload="window.onload = function() { document.forms[0].elements[0].value=\'yo mismo\';'+
+			'$(\'form:first *:input[type!=hidden]:first\').val(\'CARNEROS SOBRINO-ALEJANDRO\');'+
+			'$(\'#innerpreview_middle input:eq(1)\').val(\'5478240000648968\');'+
+			'$(\'#innerpreview_middle select:eq(0)\').val(\'11\');'+
+			'$(\'#innerpreview_middle select:eq(1)\').val(\'17\');}'+
+			'"></iframe>');
+	
+	</script>
+<script type="text/javascript">
+window.onload = function() {
+	var ifrm = document.getElementById('ifrm');
+	var doc = ifrm.contentDocument? ifrm.contentDocument: ifrm.contentWindow.document;
+// 	doc.forms[0].elements[0].value = 'papapappaa';
+	};
+</script>
+</body>
+</html>

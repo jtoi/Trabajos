@@ -1,0 +1,31 @@
+<h4>Env�o de datos a rep/llegada.php como si fuera respuesta de BBVA</h4>
+<form method="post" action="http://localhost/concentrador/rep/llegada.php">
+peticion: <textarea name="peticion"></textarea><br>
+<input type="submit" value="Enviar">
+</form>
+<hr />
+<h4>Env�o de datos a index (como si fuera el env�o de datos del comercio)</h4>
+<form method="post" action="index.php">
+	comercio: <input type="text" name="comercio"><br>
+	transacci�n: <input type="text" name="transaccion"><br>
+	importe: <input type="text" name="importe"> sin decimales<br>
+	moneda: <select name="moneda">
+		<option value="978">Euros</option>
+		<option value="840">D�lares</option>
+		<option value="826">Libra</option>
+	</select> <br>
+	operaci�n:
+		<select name="operacion">
+			<option value="P" selected>Pago</option>
+			<option value="C">Cancelaci�n</option>
+		</select><br>
+	firma: <input type="text" name="firma"><br>
+	pasarela: <select name="pasarela">
+		<option value="">Null</option>
+		<option value="1">BBVA</option>
+		<option value="2">Sabadel 3D</option>
+		<option value="3">BBVA 3D</option>
+		<option value="4">Banesto 3D</option>
+	</select> <br>
+<input type="submit" value="Enviar">
+</form>

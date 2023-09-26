@@ -1,0 +1,2 @@
+insert into concentramf_db.tbl_setup values (null, 'clientePerm', '', 'idcimex separados por comas de los Clientes de fincimex a los que les está permitido operaciones por encima de 3000 en el trimestre actual', 14);
+insert into concentramf_db.tbl_setup values (null, 'benefPerm', '', 'idcimex separados por comas de los Beneficiarios de fincimex a los que les está permitido operaciones por encima de 3000 en el trimestre actual', 14);

@@ -1,0 +1,15 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>home.png</title>
+<style type="text/css"><!-- body { margin:0px; padding:0px; } --></style><script type="text/javascript">
+function resizeWindow() {
+    window.moveTo(0, 0);
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('disp_image').style.display = 'block';
+    var iWidth = document.images[0].width - window.innerWidth;
+    var iHeight = document.images[0].height - window.innerHeight;
+    window.resizeBy(iWidth, iHeight);
+    self.focus(); 
+}
+</script></head><body onload="resizeWindow();"><span id="splash" style="color: gray; font-family: sans-serif; padding: 2px; display: none;">Leyendo...</span><img id="disp_image" style="display: block;" src="home.png_files/view.png"></body></html>

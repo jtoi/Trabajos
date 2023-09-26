@@ -1,0 +1,19 @@
+// JavaScript Document
+var Alt_bold = 'Negrita'; 
+var Alt_italic = 'It&aacute;lica'; 
+var Alt_underlined = 'Subrayada'; 
+var Alt_left = 'Alineada a la izquierda'; 
+var Alt_center = 'Centrada'; 
+var Alt_right = 'Alineada a la derecha'; 
+var Alt_justify = 'Justificada'; 
+var Alt_linea = 'Línea horizontal'; 
+var Alt_ordenada = 'Lista ordenada'; 
+var Alt_nordenada = 'Lista no ordenada'; 
+var Alt_outdent = 'Incrementar sangr&iacute;a'; 
+var Alt_indent = 'Disminuir sangr&iacute;a'; 
+var Alt_tColor = 'Color del texto'; 
+var Alt_bColor = 'Color de fondo'; 
+var Alt_link = 'Insertar enlace'; 
+var Alt_imagen = 'Insertar imagen'; 
+var Alt_tabla = 'Insertar tabla'; 
+var Alt_source = 'Ver c&oacute;digo';

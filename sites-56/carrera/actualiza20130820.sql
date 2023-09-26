@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS equipo (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(200) NOT NULL,
+  fecha int(11) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+ALTER TABLE participantes ADD idequipo INT NOT NULL;

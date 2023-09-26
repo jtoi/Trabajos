@@ -1,0 +1,1 @@
+<?php defined( '_VALID_ENTRADA' ) or die( 'Restricted access' ); ?>

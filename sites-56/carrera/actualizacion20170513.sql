@@ -1,0 +1,1 @@
+INSERT INTO `evento` (`nmombre`) VALUES ('XVII Reunión Internacional Villa de Bilbao 2017');

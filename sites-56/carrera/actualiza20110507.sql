@@ -1,0 +1,1 @@
+INSERT INTO prueba (id, idevento, sexo, nombre, corto) VALUES (NULL, '2', 'M', '1000m Alevin', ''), (NULL, '2', 'F', '1000m Alevin', ''), (NULL, '2', 'M', '600m Infantil y Cadete', ''), (NULL, '2', 'F', '600m Infantil y Cadete', '');

@@ -1,0 +1,15 @@
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap" async defer></script>
+<br />
+<div class="container">
+	<div class="row">
+		<input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+            <div id="map"></div>
+            <ul id="geoData">
+                <li>Full Address: <span id="location"></span></li>
+                <li>Postal Code: <span id="postal_code"></span></li>
+                <li>Country: <span id="country"></span></li>
+                <li>Latitude: <span id="lat"></span></li>
+                <li>Longitude: <span id="lon"></span></li>
+            </ul>
+	</div>
+</div>

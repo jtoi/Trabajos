@@ -1,0 +1,71 @@
+<label for="tipo" class="form-label">Tipo de Persona:</label>
+<select id="tipo" name="tipo">
+    <option value="1" selected="true">Physical</option>
+    <option value="2">Legal</option>
+</select>
+
+<label for="nombre" class="form-label pfisica">Nombre *:</label>
+<input type="text" class="form-control pfisica" id="nombre" name="nombre" />
+
+<label for="papellido" class="form-label pfisica">Primer Apellido *:</label>
+<input type="text" class="form-control pfisica" id="papellido" name="papellido" />
+
+<label for="sapellido" class="form-label pfisica">Segundo Apellido:</label>
+<input type="text" class="form-control pfisica" id="sapellido" name="sapellido" />
+
+<label for="comercialName" class="form-label plegal">Nombre Comercial *:</label>
+<input type="text" class="form-control plegal" id="comercialName" name="comercialName" />
+
+<label for="" class="form-label plegal">Denominaci&oacute;n Social *:</label>
+<input type="text" class="form-control plegal" id="dSocial" name="dSocial" />
+
+<label for="" class="form-label" id="lfnac">Fecha Nacimiento *: </label>
+<input type="text" class="form-control" id="fecha" name="fecha" placeholder="dd-mm-yyyy" />
+
+<label for="documento" class="form-label">N&uacute;mero de Documento *:</label>
+<input type="text" class="form-control" id="documento" name="documento" />
+
+<label for="" class="form-label">Tipo de documento:</label>
+<select id="tdoc" name="tdoc">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label">Pa&iacute;s de Expedici&oacute;n:</label>
+<select id="paise" name="paise">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label">Actividad:</label>
+<select id="activ" name="activ">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label" id="lactivExtr">Especificar: </label>
+<input type="text" class="form-control" id="activExtr" name="activExtr" />
+
+<label for="" class="form-label">Pa&iacute;s de Origen:</label>
+<select id="paiso" name="paiso">
+    <option value=""></option>
+</select>
+
+<label for="" class="form-label">Es Persona Publica?:</label>
+<select name="persona" id="persona">
+    <option value="true">Si</option>
+    <option value="false" selected="true">No</option>
+</select>
+
+<label for="" class="form-label sexo">Sexo:</label>
+<select name="sexo" id="sexo" class="sexo">
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+</select>
+
+<label for="" class="form-label">Es Persona de Negocios?:</label>
+<select name="negocio" id="negocio">
+    <option value="1">Si</option>
+    <option value="0" selected="true">No</option>
+</select>
+
+
+<input type="hidden" name="PersonProfile" id="PersonProfile" value="2" />
+<input type="button" value="Enviar" onclick="insertUser(2);" /> 

@@ -1,0 +1,1 @@
+INSERT INTO cevento (id, nmombre) VALUES (NULL, 'Milla Femenina 2015');

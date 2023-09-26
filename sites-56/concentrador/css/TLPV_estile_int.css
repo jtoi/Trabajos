@@ -1,0 +1,136 @@
+a {
+font-family: Arial, Helvetica,sans-serif; font-size: 8pt; color:#333366; text-decoration: none, font-weight: normal
+}
+a:link { 
+color: #333366; text-decoration: none;font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+a:hover {
+font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #333366; text-decoration: none: normal
+}
+
+a.lnkazul3:hover { 
+color: #236BBF; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+a.lnkazul3 { 
+color: #333366; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+a.lnkbl:hover { 
+color: #ffffff; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+a.lnkbl { 
+color: #ffffff; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+.a.menu1 {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #8F4708; text-decoration: none}
+.a.menu1:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #FF8400; text-decoration: none}
+
+.a.menu2 { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal; color: #8F4708; text-decoration: none }
+.a.menu2:hover { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal; color: #FF8400; text-decoration: none }
+.a.menu2:active {font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #FF8400; text-decoration: none }
+
+.fecha {
+font-SIZE: 9pt; COLOR: #122857; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold
+}
+
+
+BODY {
+	SCROLLBAR-FACE-COLOR: #FDEFDF; SCROLLBAR-HIGHLIGHT-COLOR: #FF8400;
+	SCROLLBAR-SHADOW-COLOR: #FDEFDF; SCROLLBAR-3DLIGHT-COLOR: #FF8400;
+	SCROLLBAR-ARROW-COLOR: #8F4708; SCROLLBAR-TRACK-COLOR:  #8F4708; SCROLLBAR-DARKSHADOW-COLOR:#8F4708;
+}
+
+a.cpy {
+	font-SIZE: 8pt; COLOR: #003366; font-FAMILY: arial, helvetica; TEXT-DECORATION: none; font-weight: normal
+}
+a.cpy:hover {
+	font-SIZE: 8pt; COLOR: #236BBF; font-FAMILY: arial, helvetica; TEXT-DECORATION: none; font-weight: normal
+}
+.l0 { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #FFFFFF; text-decoration: none; background-color: #18305A}
+.l2 { 
+	font-family: Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; color: #003366; text-decoration: none; background-color: #FFFFFF
+}
+.l1 {
+font-family: Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; color: #003366; text-decoration: none; background-color: #FDEFDF}
+.l3 { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #FFFFFF; text-decoration: none; background-color: #ff8400}
+.l4 { font-family: Arial, Helvetica, sans-serif; background-color: #FFF0DB}
+.l5 { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #FFFFFF; text-decoration: none; background-color: #1F328E}
+
+.l2p { 
+	font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: normal; color: #003366; text-decoration: none; background-color: #FFFFFF
+}
+.l1p {
+font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: normal; color: #003366; text-decoration: none; background-color: #FDEFDF}
+
+.Formulario { 
+font-family: Arial, Helvetica, sans-serif; font-size: 7pt; color: #22356f
+}
+.Formulario300 { 
+font-family: Arial, Helvetica, sans-serif; font-size: 7pt; color: #22356f; width: 250px
+}
+.Formulario2 { 
+font-family: Arial, Helvetica, sans-serif; font-size: 7pt; color: #22356f
+}
+.boldb { font-SIZE: 9pt; COLOR: #FFFFFF; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold}
+.bolda { font-SIZE: 11pt; COLOR: #9CC7F2; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold }
+.normalb { font-SIZE: 9pt; COLOR: #FFFFFF; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: normal}
+.boldao { font-SIZE: 9pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold }
+.boldaot { font-SIZE: 10pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold }
+.normala { font-SIZE: 8pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: normal }
+.peqa { font-SIZE: 1pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: normal }
+.boldae { font-SIZE: 11pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold }
+.f1 { font-SIZE: 8pt; COLOR: #38516A; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none }
+.f2 { font-SIZE: 9pt; COLOR: #38516A; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold}
+.fh {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; color: #18305A; background-color: #EFEFF0}
+.fh2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; color: #18305A}
+
+.botontpv {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #ff8400;
+	background-color: #FDEFDF;
+		border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: 1;
+	border-right-style: 1;
+	border-bottom-style: 1;
+	border-left-style: 1;
+	border-top-color: #ff8400;
+	border-right-color: #ff8400;
+	border-bottom-color: #ff8400;
+	border-left-color: #ff8400;
+}
+
+.devtotal { font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: normal; color: #FF3300 }
+
+.devparcial { font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: normal; color: #FF3300 }
+
+a.devtotal:visited { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.devtotal:hover { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.devtotal { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+
+a.devparcial:visited { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.devparcial:hover { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.devparcial { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+
+a.sindev:visited { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.sindev:hover { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}
+a.sindev { 
+text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-weight: normal
+}

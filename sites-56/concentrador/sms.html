@@ -1,0 +1,158 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Envío de SMS</title>
+<style>
+	body {
+		font-family: arial, sans-serif;
+		font-size: 10px;
+	}
+	#main {
+		width: 550px;
+		margin: 0 auto;
+	}
+	.men {
+		display: block;
+		float: left;
+		width: 135px;
+		margin: 5px 0;
+		cursor: pointer;
+		font-size: 11px;
+		font-weight: bold;
+		text-align: center;
+		border-left: 1px solid #000000;
+	}
+	.men:first-child {
+		border-left: none;
+	}
+	.men:hover {
+		text-decoration: underline;
+	}
+	.menu {
+		width: 100%;
+		float: left;
+	}
+	.divis {
+		margin: 10px 0;
+	}
+	.error {
+		color: red;
+	}
+	.data {
+		color: green;
+	}
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		hideall();
+		$(".men").click(function(){
+			hideall();
+		});
+		$("#envMen").click(function(){
+			$("#menDiv").show();
+		});
+		$("#envCon").click(function(){
+			$("#conDiv").show();
+			$("#con").val('1');
+		});
+		$("#verMen").click(function(){
+			$("#envDiv").show();
+		});
+		$("#envSal").click(function(){
+			$("#sald").val('1');
+			$("#salDiv").show();
+		});
+		
+		$("#ver").click(function(){
+			$.post('sms.php',{
+				cuenta:$(".cuenta:checked").val(),
+				ver:'Enviar',
+				mens:$("#mens").val(),
+				telf:$("#telf").val(),
+				sald:$("#sald").val(),
+				periodo:$("#periodo").val(),
+				con:$("#con").val()
+			},function(data){
+				if($.isEmptyObject(data) === false) {
+					if (data != 'null') {
+						var datos = eval('(' + data + ')');
+						if (datos.error) alert(datos.error);
+						if (datos.respEnv) {
+							$("#datos").html(datos.respEnv);
+						}
+					} else alert('No se ha procesado nada');
+				}
+			});
+		});
+	});
+	function hideall(){
+		$(".divis").hide();
+		$("#cons").val('');
+		$("#mens").val('');	
+		$("#sald").val('');	
+		$("#con").val('');
+		$("#periodo").val('');
+		$(":checkbox").attr('checked',false);
+	}
+</script>
+</head>
+<body>
+	<div id="main">
+		<form name="form1" method="post" action="" >
+			<label><input type="radio" class="cuenta" value="1" checked="checked" name="cuenta" id="amf"> Concentrador</label><br>
+			<label><input type="radio" class="cuenta" value="2" name="cuenta" id="fin"> Fincimex</label><br>
+			<div class="menu">
+				<span class="men" id="envMen">Enviar Mensajes</span>
+				<span class="men" id="envSal">Ver Saldo en la cuenta</span>
+				<span class="men" id="envCon">Ver Contactos</span>
+				<span class="men" id="verMen">Ver Mensajes Enviados</span>
+			</div>
+
+			<div id="menDiv" class="divis" style="display:block;">
+				Mensaje:<br /><textarea name="mens" id="mens" style="width:300px;height:100px;" ></textarea><br /><br />
+				Para:
+				<select id="telf" name="telf[]" multiple="true" size="4">
+					<option selected="true" value=""></option>
+					<option value="005352643646">Luis Mourelos</option>
+					<option value="005352738723">Julio Toirac</option>
+					<option value="005352682730">María Isabel</option>
+					<option value="005352933606">Kadir</option>
+					<option value="0034625464791">Alex allá</option>
+					<option value="005352762769">Alex acá</option>
+					<option value="0034609904568">Mario allá</option>
+				</select><br /><br />
+				<fieldset name="clubfields" disabled>
+					<legend> <label>
+					<input type=checkbox name=prog onchange="form.clubfields.disabled = !checked">
+					Programar SMS
+					</label> </legend>
+					<label>Fecha Inicio: <input type="date" name="fechaIn" ></label><br />
+					<label>Fecha Fin: <input type="tel" autocomplete ></label><br />
+					<keygen name="key">
+				</fielset>
+			</div>
+			<div id="conDiv" class="divis" style="display:none;">
+				<label><input type="checkbox" value="1" name="contac" id="con"> Solicitud de Contactos</label><br />
+			</div>
+			<div id="salDiv" class="divis" style="display:none;">
+				<label><input type="checkbox" value="1" name="sald" id="sald" /> Consulta de Saldo</label><br />
+			</div>
+			<div id="envDiv" class="divis" style="display:none;">
+				Para:
+				<select id="periodo" name="periodo">
+					<option selected="true" value=""></option>
+					<option value="D">Día</option>
+					<option value="S">Semana actual</option>
+					<option value="M">Mes actual</option>
+					<option value="T">Todo</option>
+				</select><br />
+			</div>
+			<input type="button" id="ver" value="Enviar" name="ver" />	
+		</form>
+		<div id="datos">
+			
+		</div>
+	</div>
+</body>
+</html>

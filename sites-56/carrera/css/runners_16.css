@@ -1,0 +1,247 @@
+/* 
+    Document   : layout
+    Created on : Feb 21, 2011, 7:09:32 AM
+    Author     : Julio Toirac <jtoirac@gmail.com>
+    Description:
+        Fichero de css de las inscripciones de atletas.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	background-color: #000;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+a, a:visited {
+	color: #FD7A23;
+}
+
+label {
+	cursor: pointer;
+/* 	font-size: 10px; */
+}
+
+#bolas{
+    background: url('../images/B.png');
+    width: 122px;
+    height: 156px;
+    position: absolute;
+    left: 1119px;
+}
+
+#todo {
+	width: 716px;
+	margin: 0 auto;
+}
+
+.lugar {
+	font-weight: bold;
+	margin: 3px 0 10px;
+	display: block;
+}
+
+#todo1 {
+	padding: 20px;
+	background-color: #ffffff;
+	float: left;
+/*     margin-top: 40px; */
+/*     border: 1px solid #000000; */
+/*     -moz-border-radius: 6px; */
+/* 	webkit-border-radius: 6px; */
+/* 	border-radius: 6px; */
+/*     -moz-box-shadow: 8px -8px 5px #888; */
+/*     -webkit-box-shadow: 8px -8px 5px #888; */
+/*     box-shadow: 8px -8px 5px #888; */
+}
+
+#todo1 div {
+	float: left
+}
+#tope{
+	background: rgba(0, 0, 0, 0) url("../images/top2.jpg") no-repeat 0 0;
+    height: 166px;
+    width: 761px;
+}
+#fdo{
+	background: rgba(0, 0, 0, 0) url("../images/pie.jpg") no-repeat scroll center top;
+    float: left;
+    height: 83px;
+    padding-bottom: 87px;
+    width: 761px;
+}
+#div1, #div2, #div3, #div4 {
+	margin: 10px 0;
+	width: 100%;
+}
+
+.imgsello{
+	display: block;
+    float: right;
+}
+
+.intern {
+	
+	-moz-border-radius: 6px;
+	webkit-border-radius: 6px;
+	border-radius: 6px;
+    padding: 5px 13px;
+    width: 695px;
+    background:#e62e28 url(../images/sello5.png) no-repeat right bottom;
+}
+
+.datGr{
+	display: none;
+}
+
+#div1 .intern .divid {
+	width: 685px;
+}
+.dividi{
+	padding-left:40px;
+}
+
+.daGrp{
+	padding: 5px 0;
+	clear: both;
+}
+
+#espmto{
+	display: block;
+	margin-bottom: 7px;
+}
+
+.kirolak{
+	display: block;
+	float: left;
+}
+#kirolak1{
+	width: 140px;
+}
+#kirolak2{
+	width: 200px;
+	display: none;
+}
+.div5{
+	margin: 10px 0;
+}
+.nota{
+	font-size: 10px;
+}
+
+.divid{
+	width: 665px;
+}
+.obs{
+	width: 685px;
+	height: 63px;
+	margin-top: 17px;
+}
+
+.eq{
+	margin-bottom: 15px;
+}
+
+#equipDat{
+	display: none;
+}
+.corr{
+	margin-left:95px; 
+}
+.nom{
+	width: 240px;
+}
+
+.dir{
+	width:415px;
+}
+
+.cp{
+	width: 80px;
+}
+.avisa{
+/* 	font-size: 10px; */
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 12px;
+    margin: 0;
+/*     text-align: center; */
+    text-transform: uppercase;
+}
+
+#bilb{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.intro, .oblig {
+	color: #333333;
+/*     font-size: 10px; */
+    font-weight: bold;
+}
+
+.oblig {
+	font-style: italic;
+	display: block;
+	text-align: right;
+	width: 100%;
+	float: left;
+}
+
+.intForm {
+/* 	font-size: 10px; */
+    padding: 20px 0;
+    width: 652px;
+}
+
+.intForm hr {
+	display: block;
+    float: left;
+    margin: 23px 0;
+    width: 100%;
+}
+
+.largo {
+	width: 690px;
+	text-align: center;
+}
+
+.ultimo {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.ultimo input {
+	text-transform: uppercase;
+	color: #FD7A23;
+	border: 1px solid #FD7A23;
+	background-color: #323232;
+	cursor: pointer;
+}
+
+#espera {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background-color: #ffffff;
+	text-align: center;
+	-moz-border-radius: 6px 6px;
+	webkit-border-radius: 6;
+	border-radius: 6;
+}
+
+
+

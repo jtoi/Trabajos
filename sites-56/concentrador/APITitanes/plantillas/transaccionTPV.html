@@ -1,0 +1,53 @@
+<label for="persona" class="form-label">Destinatario: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="cuenta" class="form-label">Cuenta destino: </label>
+<select id="cuenta" name="cuenta">
+    <option value=""></option>
+</select>
+
+<label for="monto" class="form-label">Monto a acreditar en la cta. destino:</label>
+<input type="text" class="form-control" id="monto" name="monto" />
+
+<label for="monedad" class="form-label">Moneda cta. destino: </label>
+<select id="monedad" name="monedad">
+    <option value=""></option>
+</select>
+
+<label for="refTPV" class="form-label">Número de la operación en el TPV:</label>
+<input type="text" class="form-control" id="refTPV" name="refTPV" />
+
+<label for="refBnc" class="form-label">Autorizo del banco para esta operación:</label>
+<input type="text" class="form-control" id="refBnc" name="refBnc" />
+
+<label for="moneda" class="form-label">Moneda operación: </label>
+<select id="moneda" name="moneda">
+    <option value=""></option>
+</select>
+
+<label for="montod" class="form-label">Monto original:</label>
+<input type="text" class="form-control" id="montod" name="montod" />
+
+<label for="tasa" class="form-label">Tasa:</label>
+<input type="text" class="form-control" id="tasa" name="tasa" />
+
+
+<label for="concepto" class="form-label">Concepto:</label>
+<input type="text" class="form-control" id="concepto" name="concepto" value="" />
+
+
+<p style="grid-column: 1/3;">Según Titanes, estos dos valores a continuación se deben informar previamente a ellos antes del paso a producción</p>
+<label for="tpvId" class="form-label">tpvId:</label>
+<input type="text" class="form-control" id="tpvId" name="tpvId" value="test_titnsmnytrans86282" />
+
+
+<label for="tpvPSP" class="form-label">tpvPSP:</label>
+<input type="text" class="form-control" id="tpvPSP" name="tpvPSP" value="TRUSTPAYMENTS" />
+
+
+<input type="hidden" name="TransactionType" value="1" />
+<input type="hidden" name="PaymentInstrument" value="11" />
+
+<input class="" type="button" value="Enviar" onclick="envia()" />

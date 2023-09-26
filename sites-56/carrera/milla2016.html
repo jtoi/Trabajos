@@ -1,0 +1,112 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<meta name="author" content="Julio Toirac (jtoirac@gmail.com)" />
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title>Inscripción de Atletas</title>
+		<link rel="stylesheet" href="css/milla15.css" type="text/css" />
+		<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+
+		<script type="text/javascript" src="site/js/jquery.js"></script>
+		<script type="text/javascript" src="js/inscMilla2015.js"></script>
+	</head>
+	<body>
+      <div id="bolas"></div>
+		<div id="result"></div>
+		<div id="espera" style="display: none"><img src="images/ajax-loader.gif" width="48" height="48" /></div>
+		<form action="" method="post">
+			<div id="todo">
+				<div id="todo1">
+					<div id="div1">
+						<span class="intro">Prueba en la que desea participar</span> 
+						<div class="intern">
+							<div class="divid">
+								<input type="radio" name="categoria" class="cate" id="categoria1" value="63" />
+								<label for="categoria1" >Txupete (<span class="edad6"></span> y posteriores)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria2" value="64" />
+								<label for="categoria2" >Pre-benjamin (<span class="edad8"></span> y <span class="edad7"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria8" value="65" />
+								<label for="categoria8" >Benjamin (<span class="edad10"></span> y <span class="edad9"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria3" value="66" />
+								<label for="categoria3" >Alevin (<span class="edad12"></span> y <span class="edad11"></span> )</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria4" value="67" />
+								<label for="categoria4" >Infantil y Cadete (de <span class="edad15"></span> a <span class="edad13"></span>)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria9" value="68" />
+								<label for="categoria9" >Juvenil Junior (de <span class="edad19"></span> a <span class="edad16"></span>)</label><br />
+								<input type="radio" name="categoria" class="cate" id="categoria5" value="69" />
+								<label for="categoria5" >Abierta (<span class="edad20"></span> y anteriores)</label><br />
+								<!--<input type="radio" name="categoria" class="cate" id="categoria10" value="10" />
+								<label for="categoria10" >Abierta Masc. (<span class="edad20"></span> y anteriores)</label><br />-->
+							</div>
+							<div class="divid">
+								<h4>con licencia federativa</h4>
+								<input type="radio" name="categoria" class="cate pas" id="categoria6" value="70" />
+								<label for="categoria6" >Veteranos / as Federados (35 años o más)</label><br />
+								<!--<input type="radio" name="categoria" class="cate pas" id="categoria7" value="7" />
+								<label for="categoria7" >Federadas en atletismo. (de <span class="edad17"></span> y anteriores)</label><br />-->
+								<!--<input type="radio" name="categoria" class="cate" id="categoria11" value="11" />
+								<label for="categoria11" >Federados/as Elite Masc. (de <span class="edad20"></span> y anteriores)</label><br />-->
+							</div>
+						</div>
+					</div>
+					<div id="div2">
+						<span class="intro">Datos personales</span>
+						<div class="intern">
+							<div class="intForm" id="indvDat">
+								<div class="daGrp">
+									Nombre y Apellidos:* <input class="nom" type="text" id="nombre0" />&nbsp;&nbsp;&nbsp;
+									Fecha Nac.: <select id="dia0"></select> / <select id="mes0"></select> / <select id="ano0"></select>&nbsp;&nbsp;&nbsp;
+									Sexo: <select id="sex"><option value="">Seleccione</option><option value="M">Masculino</option>
+									<option value="F">Femenino</option></select><br /><br />
+									C. Postal:* <input style="width: 100px" maxlength="5" type="text" id="cp" />&nbsp;&nbsp;&nbsp;
+									Tel. Móvil:* <input style="width: 100px" type="text" id="movil" />&nbsp;&nbsp;&nbsp;
+									E-mail:* <input style="width: 100px" type="text" id="correo" /><br /><br />
+									<span class="datGr">
+									DNI:* <input style="width: 80px" type="text" id="dni0" /></span>
+								</div>
+								<input type="hidden" id="fn" /> <!--<span style="font-size: 10px">(dd/mm/yyyy)</span>--> 
+							</div>
+							<hr />
+						</div>
+					</div>
+					<span class="oblig">* campos obligatorios</span>
+				<div id="div2">
+						<span class="intro">Datos deportivos</span>
+						<div class="intern">
+							<div class="intForm" id="indvDat">
+								<div class="daGrp">
+									Titular del Carnet Corredor Plus (en vigor el día de la prueba): <input class="nom" type="text" id="corrplus" /><br /><br />
+									Atleta con Licencia RFEA o Fed. Vasca: <input style="width: 100px" maxlength="5" type="text" id="lic0" /><br /><br />
+									Sin Carnet Corredor Plus, ni Licencia RFEA, ni Vasca: <br /><br />
+									Club/Colegio o Localidad:* <input style="width: 100px" type="text" id="club" />&nbsp;&nbsp;&nbsp;
+<!-- 									Colegio/Localidad: <input style="width: 100px" type="text" id="colegio" /><br /><br /> -->
+								</div>
+							</div>
+							<hr />
+						</div>
+					</div>
+					<!-- <span class="oblig">* campos obligatorios</span> -->
+				<div id="div4">
+					<span class="intro">Finalizar Inscripción</span>
+					<div class="intern">
+						<div class="intForm">
+							<div class="largo"><input type="checkbox" id="acepto" />
+								<label for="acepto" >He leído y acepto el 
+									<a href="reglamento_milla2016.pdf" target="_blank">reglamento</a></label><br />
+							</div>
+							<div class="ultimo largo">
+								<input style="display: none" type="button" value="Enviar datos" id="envia" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input id="reset" type="reset" value="Borrar Todo" />
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

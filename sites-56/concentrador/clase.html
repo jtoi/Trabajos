@@ -1,0 +1,142 @@
+<style>
+    #encabVou {
+        text-align: center;
+    }
+    
+    #encabVou {
+        width: 550px;
+        float: left;
+    }
+    
+    #encabVou h1 {
+        margin: 0px;
+    }
+    
+    #logoVou {
+        background: url(https://www.administracomercios.com/admin/template/images/degrada.png) repeat-x top;
+        min-height: 83px;
+        float: left;
+        width: 100%;
+    }
+    
+    #logoVou img {
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .inf2 {
+        background: url(https://www.administracomercios.com/admin/template/images/degrada5.png) repeat-x;
+        border-bottom: #679BCC solid 1px;
+        height: 6px;
+        float: left;
+        width: 100%;
+    }
+    
+    .inf {
+        background: url(https://www.administracomercios.com/admin/template/images/degrada2.png) repeat-x;
+        border-top: #679BCC solid 1px;
+        height: 6px;
+        float: left;
+        width: 100%;
+    }
+    
+    body {
+        font-size: 11px;
+        font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    
+    .enca {
+        float: right;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .lef {
+        text-align: left;
+    }
+    
+    .rig {
+        text-align: right;
+    }
+    
+    .vende {
+        text-transform: uppercase;
+    }
+    
+    .bol {
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
+    .top {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    .med1 {
+        float: left;
+        width: 65%;
+    }
+    
+    .med2 {
+        float: left;
+        width: 35%;
+        font-weight: bold;
+    }
+    
+    .desc {
+        text-align: left;
+    }
+    
+    .nos {
+        font-weight: bold;
+    }
+</style>
+<div id="encabVou">
+    <div class="inf"></div>
+    <div id="logoVou">
+        <img src="https://www.administracomercios.com/admin/template/images/banner2.png" />
+    </div>
+    <h1>Voucher</h1>
+    <div class="enca rig">
+        {FECHA}<br />Transazione Nr. {TRANSACCION}
+    </div>
+    <div class="enca lef">
+        Stimato(a): {CLIENTE} <br /> Avete effettuato un pagamento di {IMPORTE} a <span class="vende">{COMERCIO}</span> attraverso <span class="nos">{COMTPV}</span>
+    </div>
+    <div class="enca lef infoV">
+        <span class="bol">Informazioni del Venditore</span><br />
+        <span class="vende">{COMERCIO}</span><br /> {DATACOMERCIO}
+    </div><br /><br />
+    <div class="enca lef">
+        Questo importo verr&agrave; addebitato sulla vs carta come pagamento a <span class="nos">{COMTPV}</span><br /><br />
+    </div>
+    <div class="enca">
+        <!-- <div class="med1 top">Descrizione</div> -->
+        <div class="med2 top">Ammontare:</div>
+        <!-- <div class="med1 desc">{DESCRIPCION}</div> -->
+        <div class="med2">{IMPORTE}</div>
+    </div><br /><br />
+    <div class="enca lef">
+        <span class="bol">Nr. Transazione: {TRANSACCION} <br />
+			No. Operazione: {OPERACION} <br />
+			Riferimento Bancario: {AUTORIZO}</span>
+    </div><br /><br />
+    <div class="enca lef">
+        Il numero di transazione &egrave; il numero con il quale il vs pagamento &egrave; stato confermato da <span class="nos">{COMTPV}</span></br>
+        Il numero di operazione &egrave; il numero usato da <span class="vende">{COMERCIO}</span> per registrare il vs pagamento nel suo sistema. <br /> Il numero di riferimento bancario &egrave; quello di registrazione del vostro istituto bancario.<br
+        /><br /> Salvate questo Voucher per eventuali contestazioni.
+    </div><br><br>
+    <div class="enca lef">
+        <p>Per la vostra sicurezza le informazioni personali fornite per inviare il pagamento, non sono salvate nei nostri sistemi o base dati. Solo registriamo la transazione con i dati in chiaro.</p>
+        <p>Questo messaggio &egrave; generato automaticamente. Non rispondere.</p>
+    </div>
+    Copyright &copy; {COMTPV}, {ANO}<br /><br />
+    <div class="enca lef">
+        <p>AVVISO LEGALE - Questa e-mail &egrave; riservata e per l&#39;uso esclusivo della persona cui &egrave; indirizzata. Se non siete il destinatario designato e ricevete questo messaggio per errore, per favore informate immediatamente il mittente e
+            cancellatelo dal vs sistema.</p>
+    </div>
+    <div class="inf2"></div>
+</div>

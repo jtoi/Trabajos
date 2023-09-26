@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query xmlns:yahoo="http://www.yahooapis.com/v1/base.rng"
+    yahoo:count="31" yahoo:created="2015-04-07T16:08:58Z" yahoo:lang="en-US">
+    <diagnostics>
+        <url execution-start-time="0" execution-stop-time="73" execution-time="73"><![CDATA[http://www.datatables.org/ecb/eurofx.daily.xml]]></url>
+        <publiclyCallable>true</publiclyCallable>
+        <url execution-start-time="75" execution-stop-time="324" execution-time="249"><![CDATA[http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml]]></url>
+        <user-time>325</user-time>
+        <service-time>322</service-time>
+        <build-version>0.2.75</build-version>
+    </diagnostics> 
+    <results>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="USD" rate="1.0847"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="JPY" rate="130.33"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="BGN" rate="1.9558"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="CZK" rate="27.455"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="DKK" rate="7.4714"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="GBP" rate="0.72860"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="HUF" rate="299.08"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="PLN" rate="4.0578"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="RON" rate="4.4165"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="SEK" rate="9.3740"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="CHF" rate="1.0438"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="NOK" rate="8.7300"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="HRK" rate="7.6190"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="RUB" rate="59.8265"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="TRY" rate="2.8079"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="AUD" rate="1.4192"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="BRL" rate="3.3979"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="CAD" rate="1.3563"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="CNY" rate="6.7241"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="HKD" rate="8.4086"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="IDR" rate="14091.77"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="ILS" rate="4.2670"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="INR" rate="67.5980"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="KRW" rate="1183.28"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="MXN" rate="16.1919"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="MYR" rate="3.9527"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="NZD" rate="1.4423"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="PHP" rate="48.300"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="SGD" rate="1.4724"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="THB" rate="35.335"/>
+        <Cube xmlns="http://www.ecb.int/vocabulary/2002-08-01/eurofxref"
+            currency="ZAR" rate="12.8345"/>
+    </results>
+</query>
+ 
+

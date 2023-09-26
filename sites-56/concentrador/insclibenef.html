@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Clientes y beneficiarios en AIS</title>
+</head>
+<body>
+<h3>Inscripción de Clientes</h3>
+<form action="https://www.administracomercios.com/datInscr.php" method="post">
+<!--<form action="http://localhost/concentrador/datInscr2.php" method="post">-->
+<label>Identificador en Cimex: </label><input type="text" name="Id" value="" /><br>
+<label>Nombre: </label><input type="text" name="Nombre" value="" /><br>
+<label>P. Apellido: </label><input type="text" name="Apellido1" value="" /><br>
+<label>S. Apellido: </label><input type="text" name="Apellido2" value="" /><br>
+<label>Pasaporte: </label><input type="text" name="DocumentNumber" value="" /><br>
+<label>Fecha Exp pasaporte: </label><input type="text" name="DocumentExpirationDate" value="" /><br>
+<label>Correo: </label><input type="text" name="Email" value="" /><br>
+<label>Teléfono: </label><input type="text" name="PhoneNumber" value="" /><br>
+<label>País: </label><input type="text" name="Country" value="" /><br>
+<label>Provincia: </label><input type="text" name="Province" value="" /><br>
+<label>Ciudad: </label><input type="text" name="City" value="" /><br>
+<label>Dirección: </label><input type="text" name="Address" value="" /><br>
+<label>C.P.: </label><input type="text" name="PostalCode" value="" maxlength="5" /><br>
+<label>País de Nac: </label><input type="text" name="CountryOfBirth" value="" /><br>
+<label>Fecha Nac: </label><input type="text" name="DateOfBirth" value="" /><br>
+<label>Sexo: </label><input type="text" name="Gender" value="" /><br>
+<label>Profesion: </label><input type="text" name="Profesion" value="" /><br>
+<label>Salario Mensual: </label><input type="text" name="MonthSalary" value="" /><br>
+<label>Código del usuario: </label><input type="text" name="UsuarioCode" value="" /><br>
+<label for="insert1">Insertar Cliente nuevo: <input type="checkbox" id="insert1" value="1" name="insert"> </label>
+<input type="submit" value="Enviar Cliente">
+</form><br><br><br>
+
+<h3>Inscripción de Beneficiarios</h3>
+<form action="https://www.administracomercios.com/datInscr.php" method="post">
+<!--<form action="http://localhost/concentrador/datInscr2.php" method="post">-->
+<label>Identificador en Cimex: </label><input type="text" name="Id" value="" /><br>
+<label>Identificad Cliente: </label><input type="text" name="IdCliente" value="" /><br>
+<label>Nombre: </label><input type="text" name="Nombre" value="" /><br>
+<label>P. Apellido: </label><input type="text" name="Apellido1" value="" /><br>
+<label>S. Apellido: </label><input type="text" name="Apellido2" value="" /><br>
+<label>Teléfono: </label><input type="text" name="Phone" value="" /><br>
+<label>Dirección: </label><input type="text" name="Address" value="" /><br>
+<label>Ciudad: </label><input type="text" name="City" value="" /><br>
+<label>C.I.: </label><input type="text" name="CI" value="" maxlength="11" /><br>
+<label>Relación: </label><input type="text" name="Relation" value="" /><br>
+<label>Razón: </label><input type="text" name="Reason" value="" /><br>
+<label for="insert2">Insertar Beneficiario nuevo: <input type="checkbox" id="insert2" value="1" name="insert"> </label>
+<input type="submit" value="Enviar Beneficiario">
+</form><br><br><br>
+
+<h3>Pago</h3>
+<!--<form action="https://www.administracomercios.com/index.php" method="post">-->
+<form action="http://localhost/concentrador/datInscr2.php" method="post">
+<label>Comercio: </label><input type="text" name="comercio" value="" /><br>
+<label>Transacción: </label><input type="text" name="transaccion" value="" /><br>
+<label>Importe: </label><input type="text" name="importe" value="" /><br>
+<label>Moneda: </label><input type="text" name="moneda" value="" /><br>
+<label>Operación: </label><input type="text" name="operacion" value="" /><br>
+<label>Idioma: </label><input type="text" name="idioma" value="" /><br>
+<label>Cliente: </label><input type="text" name="IdCustomer" value="" /><br>
+<label>Beneficiario: </label><input type="text" name="IdBeneficiary" value="" /><br>
+<label>Cantidad a enviar: </label><input type="text" name="AmountToSend" value="" /><br>
+<label>Cantidad a recibir: </label><input type="text" name="AmountToReceive" value="" /><br>
+<label>Cargo: </label><input type="text" name="Charge" value="" /><br>
+<label>Razón: </label><input type="text" name="Reason" value="" /><br>
+<label>Pasarela: </label><input type="text" name="pasarela" value="" /><br>
+<label>Firma: </label><input type="text" name="firma" value="" /><br>
+<input type="submit" value="Enviar Pago">
+</form><br><br><br>
+</body>
+</html>

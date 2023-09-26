@@ -1,0 +1,12 @@
+<FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+	#Header unset Cache-Control
+</FilesMatch>
+
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^section/([^/]+)$ /section.php?id=$1 [L]
+
+RewriteRule ^artista/inicio/([^/]+)$ /artista/inicio.php?id=$1 [L]

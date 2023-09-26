@@ -1,0 +1,81 @@
+:root {
+    --background-color: currentColor;
+    --text-color: currentColor;
+    --border-color: currentColor;
+}
+.sp-menu-badge-right,
+.et-portfolio .sppb-row,
+.et-contact-form-title h4,
+#sp-bottom .sp-module .sp-module-title:before,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:after {
+    background-color: var(--background-color);
+}
+.et-title h4,
+.et-logo h2,
+.et-blog div.k2ItemsBlock ul li a,
+#sp-top2 ul li span,
+#et-slider .et-slider-color,
+.et-intro-item .sppb-icon i,
+.et-about-item .sppb-icon i,
+.et-service-item .sppb-icon i,
+.et-contact-item .sppb-icon i,
+.et-contact-item h2,
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item > a:hover,
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li:hover > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
+.creativecontactform_wrapper input.creativecontactform_send,
+.et-contact-form h4 {
+	color: var(--text-color);
+}
+#et-slider .tp-button,
+#et-increase-icon-2 i,
+.et-process​-item .sppb-img-container,
+#et-slider a.slider-btn-1:hover,
+.btn-primary, .sppb-btn-primary {
+	border-color: var(--border-color)!important;
+}
+.et-logo h2,
+#et-studie-botto-2 h5,
+#et-studie-botto-2 i,
+#et-studie-bottom-icon-2 i,
+.et-feature-left-content h4,
+#sp-footer a, #sp-bottom a,
+.et-title-center h4,
+.et-feature-video a span:hover,
+#et-pricing .qx-pricing-table .single-table:nth-child(2) .title,
+.et-success-item.item-2 h3,
+#et-increase-icon-2 i,
+#et-feature a.sppb-btn-custom:hover,
+#et-testimonial .tp-caption.large_bold_black_testiminial,
+#et-testimonial .large_bold_black_testiminial,
+.et-feature-item .sppb-icon i,
+.et-slider-content h4 {
+  color: var(--text-color)!important;
+}
+div.creative_select_option:hover,
+.sp-menu-badge-right,
+#et-about .sppb-btn-custom,
+#et-request,
+#et-studie-botto-2 h5::before,
+.our-history-slider .owl-item.active .item:before,
+.our-history-slider .item > p:before,
+#et-partner .sppb-btn-custom,
+.et-process-item .sppb-img-container:hover,
+#et-slider a.slider-btn-2:hover,
+.btn-primary, .sppb-btn-primary,
+.creativecontactform_wrapper input.creativecontactform_send {
+	background-color: var(--background-color)!important;
+}
+#sp-top-bar,
+div.itemCommentsForm form input#submitCommentButton,
+.et-team-item .sppb-img-container:hover img,
+.et-feature-sub-left,
+.et-contact-form button,
+.et-process-item .sppb-img-container:hover {
+	background: var(--background-color)!important;
+}
+.et-process​-item .sppb-img-container:hover,
+.et-process​-item h3.sppb-addon-title {
+  background: var(--background-color)!important;
+}

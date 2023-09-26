@@ -1,0 +1,12 @@
+﻿insert into evento values (null,'8va. Milla Internacional 2013');
+insert into prueba (idevento, nombre, corto) values (3,'Txupete','Txupete');
+insert into prueba (idevento, nombre, corto) values (3,'Pre-Benjamín','Pre-Benjamín');
+insert into prueba (idevento, nombre, corto) values (3,'Benjamín','Benjamín');
+insert into prueba (idevento, nombre, corto) values (3,'Alevin','Alevin');
+insert into prueba (idevento, nombre, corto) values (3,'Infantil y Cadete','Infantil y Cadete');
+insert into prueba (idevento, nombre, corto) values (3,'Juvenil Junior','Juvenil Junior');
+insert into prueba (idevento, nombre, corto) values (3,'Abierta Fem','Abierta Fem');
+insert into prueba (idevento, nombre, corto) values (3,'Abierta Masc','Abierta Masc');
+insert into prueba (idevento, nombre, corto) values (3,'Veteranos Federados','Veteranos Federados');
+insert into prueba (idevento, nombre, corto) values (3,'Veteranos Elite Fem.','Veteranos Elite Fem.');
+insert into prueba (idevento, nombre, corto) values (3,'Veteranos Elite Masc.','Veteranos Elite Masc.');

@@ -1,0 +1,197 @@
+<?php
+
+define( '_VALID_ENTRADA', 1 );
+require_once( '../configuration.php' );
+require_once( '../include/database.php' );
+$database = &new database($host, $user, $pass, $db, $table_prefix);
+require_once( '../include/ps_database.php' );
+require_once( '../include/sendmail.php' );
+require_once( '../include/hoteles.func.php' );
+$temp = new ps_DB;
+
+$d = $_REQUEST;
+$cookie = $d['resp'];
+$sabad = $d['est'];
+$arrayTo = array();
+if (isset($d['pszPurchorderNum'])) $cookie = $d['pszPurchorderNum'];
+
+if ($sabad == 'ok') {
+//    $query = "update tbl_transacciones set ";
+}
+
+$query = sprintf("select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod, valor, moneda, t.estado, c.nombre, c.url, t.tipoEntorno,
+				t.valor/100, t.tpv
+			from tbl_transacciones t, tbl_comercio c
+			where t.idcomercio = c.idcomercio
+				and idtransaccion = %s",
+			quote_smart($cookie));
+$temp->query($query);
+$valores = $temp->loadRow();
+//echo "query=".$query;
+$correo =  "<br>$query";
+
+$correo .=  "<br>".$valores[1];
+
+if (count($valores) > 0) {
+ 	$correo .=  "<br>SIIIIIIIIIIIIIII<br>";
+ 	$correo .=  $firma."<br>cookies= ".$cookie."<br>";
+
+    $query = "select * from tbl_reserva where id_comercio = '".$valores[1]."' and codigo = '".$valores[2]."'";
+    $temp->query($query);
+ //   echo $query;
+    $pago = $temp->loadRow();
+	$correo .=  "<br>$query<br><br>";
+
+	$query = "update tbl_reserva set id_transaccion = '".$valores[0]."', bankId = '".$valores[3]."', fechaPagada = ".$valores[5].",
+					estado = '".$valores[8]."', est_comer = '".$valores[11]."', valor = ".$valores[12]."
+				where codigo = '".$valores[2]."' and id_comercio = ".$valores[1];
+	$temp->query($query);
+	$correo .=  "<br>$query<br><br>";
+
+	if (count($pago) == 0) { //no hay pago online
+
+        $firma = convierte($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+$correo .=  "firma={$valores[1]}, {$valores[2]}, {$valores[6]}, {$valores[7]}, {$valores[8]}, {$valores[0]}, ".date('d/m/y h:i:s', $valores[5])."<br>";
+        $cadena = "<form id=\"envia\" action=\"".$valores[10]."\" method=\"post\">
+                    <input type=\"hidden\" name=\"comercio\" value=\"".$valores[1]."\">
+                    <input type=\"hidden\" name=\"transaccion\" value=\"".$valores[2]."\">
+                    <input type=\"hidden\" name=\"importe\" value=\"".$valores[6]."\">
+                    <input type=\"hidden\" name=\"moneda\" value=\"".$valores[7]."\">
+                    <input type=\"hidden\" name=\"resultado\" value=\"".$valores[8]."\">
+                    <input type=\"hidden\" name=\"codigo\" value=\"".$valores[0]."\">
+					<input type=\"hidden\" name=\"idioma\" value=\"".$valores[4]."\">
+                    <input type=\"hidden\" name=\"fecha\" value=\"".date('d/m/y h:i:s', $valores[5])."\">
+                    <input type=\"hidden\" name=\"firma\" value=\"$firma\">
+                </form>";
+        $cadena .= '<script>document.writeln("<div style=\"margin:"+
+                   window.innerHeight/2
+                   +"px 0 0 "+
+                   ((window.innerWidth)-400)/2
+                   +"px; width:400px; text-align:center;\">"
+                   )</script>
+                   Gracias por usar nuestra Pasarela...<br>Thanks for using our Point of Sale...';
+        $cadena .= "<script language=\"JavaScript\">
+                    document.forms[0].submit();
+                </script>";
+		echo $cadena;
+	$correo .= $cadena;
+    } else { //hay pago online
+		
+$correo .=  "valor=".$pago[18]."<br>" ;
+
+        if ($valores[8] == 'A') {
+            if ($pago[18] == 'N') { //no es pago al momento
+                echo "<script language=\"JavaScript\">
+                       window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_self');
+                    </script>";
+            } else { //es pago al momento
+				if ($valores[13] != 1) {
+					echo "<script language=\"JavaScript\">
+						window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+						window.open('"._ESTA_URL."/admin/index.php?componente=comercio&pag=cliente', '_self');
+						</script>";
+				} else {
+					echo "<script language=\"JavaScript\">
+						window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+						window.open('https://tpvv.concentradoramf.com', '_self');
+						</script>";
+				}
+            }
+        } else {
+            if ($pago[18] == 'N') {  //no es pago al momento
+				$q = "select nombre, datos from tbl_comercio where idcomercio = ".$valores[1];
+				$temp->query($q);
+				$comNom = $temp->f('nombre');
+				$comDat = $temp->f('datos');
+				?>
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+				<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+				<title><?php echo $titulo ?></title>
+				<link href="../admin/template/css/admin.css" rel="stylesheet" type="text/css" />
+				<link href="../template/css/calendar.css" rel="stylesheet" type="text/css" />
+				</head>
+				<body>
+					<div id="encabPago">
+						<div id="logoPago"><img src="../admin/template/images/banner2.png" /> </div>
+						<div class="inf"></div>
+					</div>
+					<div id="cuerpoPago">
+						El pago realizado ha reportado un error. Contacte su proveedor en:<br />
+						The Payment was reported as null. Contact your provider at:<br /><br />
+						<?php echo $comNom; ?><br />
+						<?php echo $comDat; ?>
+					</div>
+
+						<div class="inf2"></div>
+						Copyright &copy; Travels & Discovery, <?php echo date('Y', time()); ?><br /><br />
+					</div>
+				</body>
+				</html>
+			<?php
+            } else { //es pago al momento
+                echo "<script language=\"JavaScript\">
+                       window.open('"._ESTA_URL."/admin/index.php?componente=comercio&pag=cliente', '_self');
+                    </script>";
+            }
+        }
+
+    }
+
+	switch ($valores[8]) {
+		case 'P':
+			$estaT = 'En Proceso';
+			break;
+		case 'A':
+			$estaT = 'Aceptada';
+			break;
+		case 'D':
+			$estaT = 'Denegada';
+			break;
+		case 'N':
+			$estaT = 'No Procesada';
+			break;
+		case 'B':
+			$estaT = 'Anulada';
+			break;
+		case 'V':
+			$estaT = 'Devuelta';
+			break;
+	}
+
+	$query = "select moneda from tbl_moneda where idmoneda = {$valores[7]}";
+	$temp->query($query);
+	$mon = $temp->f('moneda');
+
+	$from = 'reservas@amfglobalitems.com';
+//			$from = $temp->f('email');
+
+
+}
+
+correoAMi($subject,$correo);
+
+//$headers = 'From:koldo@amfglobalitems.com' . "\r<br>\n" .
+//	 'Reply-To: jotate@amfglobalitems.com' . "\r<br>\n" .
+//	 'X-Mailer: PHP/' . phpversion();
+//$to      = 'jotate@amfglobalitems.com';
+//$subject = 'Recepción de transacciones Resultado del banco front ';
+
+//$query = "insert into tbl_traza (titulo, traza, fecha) values ('$subject', '".htmlentities($correoMi, ENT_QUOTES)."', '".date('d/m/Y H:i:s')."')";
+//$correo .= "\n$query";
+//mail($to, $subject, $correo, $headers);
+//$temp->query($query);
+
+
+//echo $valores[18];
+
+if (_MOS_CONFIG_DEBUG) {
+	echo "<hr /><br>Datos:<br>";
+	echo $database->_ticker . ' queries executed<br>';
+ 	foreach ($database->_log as $k=>$sql) {
+ 		echo $k+1 . "\n" . $sql . '<hr />';
+	}
+}
+
+?>

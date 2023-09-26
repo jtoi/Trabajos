@@ -1,0 +1,259 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+    <meta name="author" content="Julio Toirac (jtoirac@gmail.com)" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>FORMULARIO de INSCRIPCION de la ESCUELA de ATLETISMO de BILBAO</title>
+	<link rel="stylesheet" href="css/runners_16.css" type="text/css" />
+	<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+
+	<script type="text/javascript" src="site/js/jquery.js"></script>
+	<script type="text/javascript" src="js/runners_16.js"></script>
+  </head>
+  <body>
+	  <div id="result"></div>
+	  <div id="espera" style="display: none"><img src="images/ajax-loader.gif" width="48" height="48" /></div>
+	  <form action="" method="post">
+<div id="todo">
+	<div id="tope">&nbsp;</div>
+	<div id="todo1">
+		<div>
+			<div id="div1">
+				<!-- <span class="lugar">Lugar: POLIDEPORTIVO DE ZORROZA</span>-->
+				<span class="intro">1. Datos personales</span>
+				<div class="intern">
+					<div class="intForm" id="indvDat">
+							<span class="avisa">Nombre:*</span> <input class="nom" type="text" id="nombre" value="" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="avisa">Apellidos:*</span> <input class="nom" type="text" id="ape" value="" /><br /><br />
+							<span class="avisa">Fecha de Nacimiento (dd/mm/yyyy):*</span> <input class="cp" maxlength="10" type="text" id="fn" value="" />
+							<span class="avisa corr">Sexo:</span> <input class="sex" type="radio" name="sexo" value="M" id="sexom"  />
+								<label for="sexom">Masculino</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input class="sex" type="radio" name="sexo" value="F" id="sexof" checked="checked"  /> <label for="sexof">Femenino</label><br /><br />
+							<span class="avisa">Altura:*</span> <input class="cp" type="text" maxlength="3" id="altura" value="" /> cm
+							<span class="avisa corr">Peso:*</span> <input class="cp" type="text" maxlength="3" id="peso" value="" /> kg
+							<span class="avisa corr">DNI:</span> <input class="cp" type="text" id="dni" value="" /><br /><br />
+							<span class="avisa">Localidad:*</span> <input class="nom" type="text" id="loc" value="" />
+							<span class="avisa corr">C. Postal:*</span> <input class="cp" maxlength="5" type="text" id="cp" value="" /><br /><br />
+							<span class="avisa">Tel&eacute;fono:*</span> <input class="cp" type="text" id="tel" value="" />
+							<span class="avisa corr">Correo:*</span> <input class="nom" type="text" id="correo" value="" />
+					</div>
+				</div>
+				<span class="oblig">* campos obligatorios</span>
+			</div>
+			<div id="div1">
+				<span class="intro">2. D&iacute;as de entrenamiento</span>
+				<div class="intern" style="height: 200px;">
+						<img class="imgsello" alt="" src="images/sello3png">
+					<span class="avisa"><label for="lmv"><input type="radio" name="dias" class="dias" id="lmv" value="lmv" checked="checked" /> 
+						2.1. Lunes, Mi&eacute;rcoles y Viernes</label> </span><br />
+					<div class="divid dividi" id="hora1">
+						<span class="avisa">Seleccionar horario:</span> 
+						<input type="radio" name="horario1" class="cate corr" id="lmv1" value="lmv1" checked="checked" />
+							<label for="lmv1" >De 18:30 a 19:30h</label>
+						<input type="radio" name="horario1" class="cate corr" id="lmv2" value="lmv2" />
+							<label for="lmv2" >De 19:30 a 20:30h</label><br /><br />
+					</div>
+					<span class="avisa"><label for="odh"><input type="radio" name="dias" class="dias" id="odh" value="odh" /> 
+						2.2. Otros días y Horarios</label> </span><br />
+					<div class="divid dividi" id="hora2" style="display: none;">
+						<input type="checkbox" name="odh1" class="cate" id="odh1" value="odh1" checked="checked" /> <label for="odh1">Ma&ntilde;anas</label>
+						<input type="checkbox" name="odh2" class="cate corr" id="odh2" value="odh2" /> <label for="odh2">Mediod&iacute;as</label>
+						<input type="checkbox" name="odh3" class="cate corr" id="odh3" value="odh3" /> <label for="odh3">Tardes</label>
+						<br /><br />
+						<input type="checkbox" name="odh4" class="cate" id="odh4" value="odh4" /> <label for="odh4">Martes / Jueves / S&aacute;bado</label>
+						<input type="checkbox" name="odh5" class="cate corr" id="odh5" value="odh5" checked="checked" />
+						<label for="odh5">Lunes / Mi&eacute;rcoles / Viernes</label><br /><br />
+					</div>
+				</div>
+				<span class="oblig">Los grupos se irán completado según orden de inscripción, demanda de los alumnos inscritos y preferencias en los horarios.</span>
+			</div>
+			<div id="div3">
+				<span class="intro">3. Datos Deportivos</span>
+				<div class="intern">
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.1 ¿Corres habitualmente?:*</span> 
+							<input type="radio" name="datoa" class="kirol core" id="datoa1" value="S" checked="checked" /> <label for="datoa1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datoa" class="kirol core" id="datoa2" value="N" /> <label for="datoa2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.2 ¿Cu&aacute;ntos minutos?:<span class="aster1">*</span></span>
+							<input type="text" name="datob" class="cp" id="datob" maxlength="3" />
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.3 ¿Qué ritmo de media carrera sueles llevar?:<span class="aster1">*</span></span>
+							<select id="ritmo" name="ritmo">
+								<option value="3:40">3:40</option>
+								<option value="4:00">4:00</option>
+								<option value="4:20">4:20</option>
+								<option value="4:40">4:40</option>
+								<option value="5:00">5:00</option>
+								<option value="5:20">5:20</option>
+								<option value="5:40">5:40</option>
+								<option value="6:00">6:00</option>
+								<option value="6:20">6:20</option>
+								<option value="6:40">6:40</option>
+							</select> min/km
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.4 ¿Has entrenado previamente con un Plan organizado?:<span class="aster1">*</span></span>
+							<input type="radio" name="datob" class="kirol" id="datob1" value="S" /> <label for="datob1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datob" class="kirol" id="datob2" value="N" checked="checked" /> <label for="datob2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.5 ¿Has realizado trabajo de fuerza específica para la carrera?:<span class="aster1">*</span></span>
+							<input type="radio" name="datoc" class="kirol" id="datoc1" value="S" /> <label for="datoc1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datoc" class="kirol" id="datoc2" value="N" checked="checked" /> <label for="datoc2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.6 ¿Has realizado test de aptitud m&eacute;dico?:<span class="aster1">*</span></span>
+							<input type="radio" name="datod" class="kirol" id="datod1" value="S" /> <label for="datod1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datod" class="kirol" id="datod2" value="N" checked="checked" /> <label for="datod2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.7 ¿Has realizado prueba de esfuerzo m&eacute;dico?:<span class="aster1">*</span></span>
+							<input type="radio" name="datodd" class="kirol" id="datodd1" value="S" /> <label for="datodd1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datodd" class="kirol" id="datodd2" value="N" checked="checked" /> <label for="datodd2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.8 ¿Participas habitualmente en carreras?:<span class="aster1">*</span></span>
+							<input type="radio" name="datoe" class="kirol" id="datoe1" value="S" /> <label for="datoe1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datoe" class="kirol" id="datoe2" value="N" checked="checked" /> <label for="datoe2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.9 ¿Sobre qué distancia?:<span class="aster1">*</span></span>
+							<input type="radio" name="datof" class="kirol" id="datof1" value="5Km" checked="checked" /> <label for="datof1" > 5Km </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datof" class="kirol" id="datof2" value="10Km" /> <label for="datof2" > 10Km </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datof" class="kirol" id="datof3" value="15Km" /> <label for="datof3" > 15Km </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datof" class="kirol" id="datof4" value="media Maratón" /> <label for="datof4" > &frac12; Marat&oacute;n </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datof" class="kirol" id="datof5" value="Maratón" /> <label for="datof5" > Marat&oacute;n </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.10 ¿En qué marca?:<span class="aster1">*</span></span>
+							<input type="text" name="datog" class="kirol" id="datog" value="" maxlength="7" /> (0:00:00)
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.11 ¿Tienes o has tenido lesiones?:*</span> 
+							<input type="radio" name="datoh" class="kirol lesi" id="datoh1" value="S" /> <label for="datoh1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datoh" class="kirol lesi" id="datoh2" value="N" checked="checked" /> <label for="datoh2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi" id="less">
+						<span style="font-weight: bold; margin-right: 30px">3.11.1 ¿Cuál?:*</span> 
+							<input type="text" name="datoi" class="kirol" id="datoi" value="" />
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.12 ¿Tienes pulsímetro?:*</span> 
+							<input type="radio" name="datoj" class="kirol" id="datoj1" value="S" /> <label for="datoj1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datoj" class="kirol" id="datoj2" value="N" checked="checked" /> <label for="datoj2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.13 ¿Te gustaría tener un plan más personalizado?:*</span> 
+							<input type="radio" name="datok" class="kirol" id="datok1" value="S" checked="checked" /> <label for="datok1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datok" class="kirol" id="datok2" value="N" /> <label for="datok2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.14 ¿Te gustaría entrenar más días?:*</span> 
+							<input type="radio" name="datol" class="kirol" id="datol1" value="S" /> <label for="datol1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datol" class="kirol" id="datol2" value="N" checked="checked" /> <label for="datol2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.15 ¿Te gustaría participar en carreras?:*</span> 
+							<input type="radio" name="datom" class="kirol" id="datom1" value="S" checked="checked" /> <label for="datom1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datom" class="kirol" id="datom2" value="N" /> <label for="datom2" > No </label>
+							<br /><br />
+					</div>
+					<div class="divid dividi">
+						<span style="font-weight: bold; margin-right: 30px">3.16 ¿Te gustaría ir a competiciones fuera de nuestra ciudad?:*</span> 
+							<input type="radio" name="datos" class="kiron" id="datos1" value="S" /> <label for="datos1" > Si </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="datos" class="kiron" id="datos2" value="N" checked="checked" /> <label for="datos2" > No </label>
+							<br /><br />
+					</div>
+				</div>
+				<span class="oblig">* campos obligatorios</span>
+			</div>
+			<div id="div4">
+				<span class="intro">4. Datos de abono</span>
+				<div class="intern">
+					<div class="divid">
+						<h4>1.1- Matrícula: 20 &euro; que cubre:</h4>
+						<span class="notas">1.1.1 <b>Seguro de accidentes personal</b> durante todo 1 año.</span><br />
+						<span class="notas">1.1.2 <b>Camiseta técnica de manga corta</b> de entrenamiento (marca deportiva KON).</span>
+						<br /><br />
+						<h4>1.2- Cuota Mensual</h4>
+						<input type="radio" name="koro" class="kirol pasta" id="nsocio" value="N" checked="checked" /><label for="nsocio" > No </label>
+						&nbsp;&nbsp;&nbsp;(36 &euro;)<br />
+						<label class="kirolak" id="kirolak1" for="ssocio" >
+							<input type="radio" name="koro" class="kirol pasta" id="ssocio" value="S" /> Si &nbsp;&nbsp;&nbsp;(30 &euro;)</label>
+						<span class="kirolak" id="kirolak2">Carnet:* <input class="cp" maxlength="15" type="text" id="cnt" /></span><br /><br />
+						<span class="notas">
+						La primera mensualidad junto con la matricula (20,00 euros) será mediante ingreso o 
+						transferencia bancaria en cuenta, poniendo el nombre y apellido del runner en el concepto.<br /><br />
+						KUTXABANK<br />
+						TITULAR:        CLUB DE ATLETISMO SANTUTXU<br />
+						Nº:                  ES72 2095 0158 3091 1643 1431<br /><br />
+
+						Para los siguientes meses se domiciliará el cargo por el banco. Por lo que es obligatorio mandar 
+						por mail una foto del nº de cuenta donde aparezca el titular y los 20 dígitos para domiciliar la 
+						cuota al correo: <a href="mailto:info@bilbaorunners.com">info@bilbaorunners.com</a><br /><br />
+						
+						No se reservará la plaza sino esta abonada la cuota.</span>
+						<br /><br />
+					</div>
+				</div>
+			</div>
+			</div>
+			<div id="div4">
+				<span class="intro">5. Finalizar Inscripci&oacute;n</span>
+				<div class="intern">
+					<div class="intForm">
+						<div class="largo"><input type="checkbox" id="acepto" />
+							<label for="acepto" >He le&iacute;do y acepto <!--las <a href="Confidencialidad de Datos y Privacidad.pdf" >condiciones legales</a> y--> el <a href="Reglamento.pdf">reglamento</a>
+								</label><br /></div>
+						<div class="ultimo largo">
+							<input style="display: none" type="button" value="Enviar datos" id="envia" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="reset" type="reset" value="Borrar Todo" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fdo">&nbsp;</div>
+	</div>
+</form>
+  </body>
+</html>

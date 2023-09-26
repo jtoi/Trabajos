@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<style>
+	#encabVou {text-align: center;}
+	#encabVou {width: 550px;float: left;}
+	#encabVou h1 {margin: 0px;}
+	#logoVou {background: url(https://www.administracomercios.com/admin/template/images/degrada.png) repeat-x top;min-height: 83px;float: left;width: 100%;}
+	#logoVou img {margin: 0 auto;display: block;}
+	.inf2 {background:url(https://www.administracomercios.com/admin/template/images/degrada5.png) repeat-x;border-bottom:#679BCC solid 1px;height:6px;float: left;width: 100%;}
+	.inf {background:url(https://www.administracomercios.com/admin/template/images/degrada2.png) repeat-x;border-top:#679BCC solid 1px;height:6px;float: left;width: 100%;}
+	body {font-size: 11px;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;margin-left: 0px;margin-top: 0px;}
+	.enca {float: right;width: 100%;margin: 10px 0;}
+	.lef {text-align: left;}
+	.rig {text-align: right;}
+	.vende {text-transform: uppercase;}
+	.bol {font-weight: bold;font-size: 12px;}
+	.top {margin-bottom: 5px;text-align: center;}
+	.med1 {float: left;width: 65%;}
+	.med2 {float: left;width: 35%;}
+	.desc {text-align: left;}
+	.nos{font-weight: bold;}
+	</style>
+</head>
+<body>
+	<div id="encabVou">
+		<div class="inf"></div>
+		<div id="logoVou">
+			<img src="https://www.administracomercios.com/admin/template/images/banner2.png" />
+		</div>
+		<h1>Voucher</h1>
+		<div class="enca rig">
+			{FECHA}<br />Transaction No. {TRANSACCION}
+		</div>
+		<div class="enca lef">
+			Dear(a): {CLIENTE} <br />
+			You have made a payment of {IMPORTE} to <span class="vende">{COMERCIO}</span> through <span class="nos">{COMTPV}</span>
+		</div>
+		<div class="enca lef infoV">
+			<span class="bol">Seller Information</span><br />
+			<span class="vende">{COMERCIO}</span><br />
+			{DATACOMERCIO}
+		</div>
+		<div class="enca lef">
+			This charge will appear on your card as payment to <span class="nos">{COMTPV}</span>
+		</div>
+		<div class="enca">
+			<div class="med1 top">Description</div>
+			<div class="med2 top">Amount</div>
+			<div class="med1 desc">{DESCRIPCION}</div>
+			<div class="med2">{IMPORTE}</div>
+		</div>
+		<div class="enca lef">
+			<span class="bol">No. Transaction: {TRANSACCION} <br /> 
+			No. Operation: {OPERACION} <br />
+			Bank reference: {AUTORIZO}</span>
+		</div>
+		<div class="enca lef">
+			The transaction number is the number with which your payment has been confirmed by <span class="nos">{COMTPV}</span></br>
+			The operation number is the number <span class="vende">{COMERCIO}</span> uses to register your payment in its system. <br />
+			The bank reference is the transaction&DiacriticalAcute;s code in this entity<br /><br />
+			Keep this voucher, you may be required if claims.
+		</div><br><br>
+		<div class="enca lef">
+			<p>For your own safety, the personal information needed to send the payment notification is not stored in our databases. 
+			Only recorded the transaction with all its data.</p>
+			<p>This message is automatically generated, dont reply</p>
+		</div>
+		Copyright &copy; {COMTPV}, {ANO}<br /><br />
+		<div class="enca lef">
+			<p>LEGAL NOTICE - This email is confidential and for the exclusive use of the person (s) to whom it is addressed. 
+				If you are not the designated recipient and you receive this message in error, please notify the sender immediately and delete it from your system.</p>
+		</div>
+		<div class="inf2"></div>
+	</div>
+</body>
+</html>

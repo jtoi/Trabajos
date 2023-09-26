@@ -1,0 +1,191 @@
+body {
+    color: #373932;
+    font-family: Tahoma,Arial,Helvetica,Sans-Serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+	background: #549D94 url(../images/bacgAll.jpg) top repeat-x;
+    margin: 0 auto;
+    padding: 0;
+}
+
+a {
+	color: #ffffff;
+}
+
+#todo, #top, #med, #inf, #pie, #dentro, .separ, #mainInf, .log, .infCl {
+	float: left;
+	width: 100%;
+}
+
+#cli, #med1, #med2, .der, .izq, .cadAn {
+	float: left;
+}
+
+#ppal {
+	width: 890px;
+	margin: 0 auto;
+}
+
+#dentro {
+	border: 2px solid #1a2049;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+#todo {
+	padding-top: 34px;
+}
+
+
+#cli {
+	cursor: pointer;
+	margin: 28px 0 0 60px;
+	height: 90px;
+    width: 245px;
+}
+
+#top {
+	background: url(../images/bactop.jpg) center no-repeat;
+	height: 150px;
+	border-radius: 15px 15px 0 0;
+	-moz-border-radius: 15px 15px 0 0;
+	-webkit-border-radius: 15px 15px 0 0;
+}
+
+.separ {
+	height: 3px;
+}
+
+#sep1 {
+	background: url(../images/separa.gif) center repeat-x;
+}
+
+#sep2 {
+	background: url(../images/separa2.gif) center repeat-x;
+}
+
+#med {
+	background: url(../images/bacmed.jpg) center no-repeat;
+	height: 240px;
+}
+
+#med1 {
+	margin: 20px 10px 0 182px;
+    width: 237px;
+}
+
+#med1 h1 {
+	font-size: 24px;
+	color: #990000;
+	font-family: Tahoma;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+#med1 h2 {
+	color: #000000;
+    font-family: Tahoma;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: right;
+	font-weight: normal;
+}
+
+#med2 {
+	margin: 78px 0 0 25px;
+    width: 300px;
+}
+
+.log_form {
+	border: #9A0000 solid 1px;
+    height: 21px;
+    width: 181px;
+}
+
+.log {
+	margin-bottom: 20px;
+}
+
+.izq {
+	color: #990000;
+    float: left;
+    font-family: Tahoma;
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: right;
+    width: 110px;
+}
+
+.der {
+	width: 70px;
+	margin: 0 0 0 5px;
+}
+
+#botonLog, #botlg {
+	background: url("../images/entra.jpg") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    margin: 4px 0 0 201px;
+    width: 106px;
+}
+
+#inf {
+	background: url(../images/bacinf.jpg) repeat-x top;
+	height: 254px;
+	border-radius: 0 0 15px 15px;
+	-moz-border-radius: 0 0 15px 15px;
+	-webkit-border-radius: 0 0 15px 15px;
+}
+
+#mainInf {
+	font-size: 10px;
+	letter-spacing: normal;
+	color: #CCCCCC;
+	text-align: center;
+	margin: 10px;
+}
+
+.Cl1 {
+	margin: 35px 0 0 0;
+}
+
+.cadAn {
+	padding: 3px 3px 3px 3px;
+	background-color: #ffffff;
+	margin: 0 10px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.cadAn:first-child {
+	margin-left: 64px;
+}
+
+.var {
+	padding: 3px 16px !important;
+}
+
+.infCl {
+	text-align: center;
+	margin: 45px 0 0;
+}
+
+div.ol {
+	margin-left:5px;
+    text-align:right;
+    width:100%;
+}
+
+div.ol span {
+    color:#990000;
+    font-size:0.8em;
+	text-decoration: underline;
+	cursor: pointer;
+}

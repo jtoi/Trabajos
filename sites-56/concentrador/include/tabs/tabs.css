@@ -1,0 +1,35 @@
+#tabulador {
+	position: relative;
+	top: 1px;
+}
+
+a, a:hover, a:visited {
+	text-decoration: none;
+	color: Black;
+}
+
+.tabs, .tabs_hover, .tabs_active {
+	/*cursor: url(mouse.gif);*/
+	cursor: pointer;
+	height: 25px;
+	text-align: center;
+	width: 70px;
+}
+
+.tabs {
+	background: url(tab.png) no-repeat left;
+}
+
+.tabs_hover {
+	background: url(tab_hover.png) no-repeat left;
+}
+
+.tabs_active {
+	background: url(tab_active.png) no-repeat left;
+	width: 74px;
+	z-index: 3;
+	font-weight: bold;
+}
+
+
+

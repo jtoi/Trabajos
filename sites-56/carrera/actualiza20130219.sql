@@ -1,0 +1,12 @@
+ALTER TABLE `participantes` ADD `fechaInsc` INT NULL DEFAULT NULL;
+update participantes set idevento = 1 where id < 1697 and idevento = 3;
+update participantes set idprueba = 24 where idprueba = 20 and idevento = 3;
+update participantes set idprueba = 25 where idprueba = 21 and idevento = 3;
+update participantes set idprueba = 26 where idprueba = 22 and idevento = 3;
+update participantes set idprueba = 28 where idprueba = 24 and idevento = 3;
+update participantes set idprueba = 29 where idprueba = 25 and idevento = 3;
+update participantes set idprueba = 30 where idprueba = 26 and idevento = 3;
+update participantes set idprueba = 31 where idprueba = 27 and idevento = 3;
+update participantes set idprueba = 32 where idprueba = 28 and idevento = 3;
+update participantes set idprueba = 33 where idprueba = 29 and idevento = 3;
+update participantes set idprueba = 34 where idprueba = 30 and idevento = 3;

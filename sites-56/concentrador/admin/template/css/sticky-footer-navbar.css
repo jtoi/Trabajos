@@ -1,0 +1,366 @@
+/* grid.css BOOTSRAP
+-------------------------------------------------- */
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+[class*="col-"] {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+  background-color: rgb(235, 235, 235);
+  border: 1px solid #D5D1D1;
+}
+
+.modelcol {
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+/* Sticky footer styles BOOTSRAP
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS BOOTSRAP
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 14px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+code {
+  font-size: 80%;
+}
+
+
+/*-------------------------------------------------- */
+/*CSS PERSONALITZAT*/
+/*-------------------------------------------------- */
+
+.navbar-default .navbar-nav > li > a{
+  color: #FFF;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+nav.navbar.navbar-default.navbar-fixed-top{ background-color:#0068C7; border-color: #080808;}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{color: #333;background-color: #FFF;}
+.btn-primary {
+  color: #FFF;
+  background-color: #0068C7;
+  border-color: #005099;
+}
+
+p.navbar-brand{
+  color: #FFF !important;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  margin-right: 40px;
+  margin-bottom: 0px;
+}
+
+div.page-header{
+  margin-top: 5px;
+  border-bottom: medium none;
+  margin-bottom: 5px;
+}
+
+img.client-logo{
+   width:;
+   height:75px;
+ }
+
+img.tefpay-logo{
+  float:right;
+  width:148px;
+  height:75px;
+}
+
+img.logo{
+  display: block;
+  width: auto;
+  height:75px;
+}
+
+div.col-md-5,div.col-md-7{
+  text-align:center;
+}
+
+.fa-shopping-cart, .fa-university, .fa-credit-card, .fa-cart-plus{
+  color:#0068C7;
+  text-shadow: 1px 1px 1px #002D66;
+}
+
+.fa-info-circle{
+  color:#0068C7;  
+}
+
+.btn-primary:hover {
+  color: #FFF;
+  background-color: rgba(0, 104, 199, 0.75);
+  border-color: #005099;
+}
+input {
+  padding: 5px;
+  margin: 0px 5px 0px 5px;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #FFF;
+}
+.navbar-default .navbar-toggle {
+  border-color: #FFF;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: #003C74;
+}
+
+hr{
+  border-color:#D5D1D1;
+}
+hr.hr20 {
+  margin-top:20px;
+  margin-bottom:20px;
+}
+hr.hr15 {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+hr.hr1520{
+  margin-top:15px;
+  margin-bottom:20px;
+}
+
+hr.hr0{
+  margin-top:1px;
+  margin-bottom:1px;
+}
+
+p.carro{
+  vertical-align: 8px;
+  margin-left: 10px;
+  display: inline;
+  font-size: 18px;
+}
+
+p.pedido{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+strong.codigo-pedido{
+  font-size: 18px;
+}
+
+b.importe{
+  font-size:25px;
+}
+
+div.derecha {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p.completa{
+  vertical-align: 8px;
+  margin-left: 10px;
+  display: inline;
+  font-size: 18px;
+}
+
+.ssl {
+  width:82%;
+  max-width:200px;
+}
+
+p.finalizar{
+  margin-bottom:5px;
+}
+
+footer { 
+  border-top: 1px solid #D5D1D1;
+}
+
+/*-------------------------------------------------- */
+/* Especific Transferencia */
+
+p.importe{
+  margin-top: 20px;
+}
+
+label.nom{
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-align: left;
+  width: 475px;
+}
+
+label.nums{
+  margin-bottom: 20px;
+  text-align: left;
+  width: 475px;
+}
+
+label.concepto{
+  margin-bottom: 5px;
+  text-align: left;
+  width: 475px;
+}
+
+
+/*-------------------------------------------------- */
+/* Especific Tarjeta */
+
+p.importe{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+img.tarjeta{
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+}
+
+div.verified {
+  display: inline;
+  width: 350px;
+}
+img.verified{
+  width:150px;
+  display: inline-block;
+  vertical-align: inherit;
+}
+p.verified{
+  width: 280px;
+  font-size: 10px;
+  color: #999;
+  text-align: justify;
+  display: inline-block;
+  margin-left:5px;
+  margin-bottom:0px;
+}
+
+label.tarjeta{
+  margin-bottom: 15px;
+  text-align: left;
+  width: 475px;
+}
+input.nom{
+  width: 324px;
+}
+label.standard{
+  margin-bottom: 15px;
+  text-align: left;
+  width: 475px;
+}
+.borders div{
+  border:0;
+  margin-top: 0px;
+}
+
+input.num{
+  width:180px;
+  margin-left: 22px;
+}
+
+fieldset.date{
+  display: inline;
+  margin: 5px;
+}
+
+span.bocadillo {
+    cursor: pointer;
+}
+span.bocadillo span {
+    display: none;
+}
+span.bocadillo:hover span { 
+  text-align: justify;
+  display:block;
+  width:190px;
+  font-size:11px;
+  color:#333333;
+  background-color:#E1E1E1;
+  border:solid 1px #CCCCCC;
+  position:absolute;
+  padding:10px;
+  text-shadow:#FFFFFF 1px 1px 0px;
+  border-radius:4px; -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  margin:0px 0px 0px -50px;
+  box-shadow:0px 0px 10px #FFFFFF;
+  -moz-box-shadow:0px 0px 10px #FFFFFF;
+  -webkit-box-shadow:0px 0px 10px #FFFFFF;
+  line-height:15px;
+}
+
+.topbar {
+  overflow: auto;
+  background-color:#0068C7;
+  border-color: #080808;
+}
+
+.footerbar {
+  border-top: 1px solid #D5D1D1;
+}
+
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+select.form-control {
+  margin-right: -5px;
+}
+
+.img-valign {
+  vertical-align: middle;
+  margin-bottom: 0em;
+}
+
+.responsive-width {
+  white-space: normal;
+}
+
+.panel-footer{
+  height:auto;
+}

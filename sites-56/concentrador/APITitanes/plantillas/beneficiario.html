@@ -1,0 +1,33 @@
+<label for="tipo" class="form-label">Tipo de Persona:</label>
+<select id="tipo" name="tipo">
+    <option value="Physical" selected="true">Physical</option>
+    <option value="Legal">Legal</option>
+</select>
+
+<label for="nombre" class="form-label pfisica">Nombre:</label>
+<input type="text" class="form-control pfisica" id="nombre" name="nombre" value="" />
+
+<label for="papellido" class="form-label pfisica">Primer Apellido:</label>
+<input type="text" class="form-control pfisica" id="papellido" name="papellido" value="" />
+
+<label for="sapellido" class="form-label pfisica">Segundo Apellido:</label>
+<input type="text" class="form-control pfisica" id="sapellido" name="sapellido" value="" />
+
+<label for="" class="form-label plegal">Denominaci&oacute;n Social:</label>
+<input type="text" class="form-control plegal" id="dSocial" name="dSocial" />
+
+<label for="comercialName" class="form-label plegal">Nombre Comercial:</label>
+<input type="text" class="form-control plegal" id="comercialName" name="comercialName" />
+
+<label for="persona" class="form-label">Persona relacionada: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="" trel class="form-label">Tipo de relaci&oacute;n:</label>
+<select id="trel" name="trel">
+    <option value=""></option>
+</select>
+
+<input type="hidden" name="PersonProfile" id="PersonProfile" value="1" />
+<input type="button" value="Enviar" onclick="insertUser(1)" />

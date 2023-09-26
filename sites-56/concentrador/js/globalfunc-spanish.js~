@@ -1,0 +1,13 @@
+// JavaScript Document
+var mMessage = "Campo Requerido"
+var pPrompt = "Error: ";
+var pDate = "Fecha inválida"
+var pAlphanumeric = "Ha escrito caractéres que no son válidos";
+var pAlphabetic   = "Cadena inválida";
+var pInteger = "Número inválido";
+var pNumber = "Número inválido";
+var pPhoneNumber = "Escriba un número de teléfono válido";
+var pEmail = "Escriba un email válido";
+var pName = "Sólo caracteres, números o espacio en blanco";
+var pBlanco = "No se permite esta entrada sin dato.";
+var pMoney = "Debe entrar un valor correspondiente a dinero. \n Revise que sólo tenga dos puntos decimales";

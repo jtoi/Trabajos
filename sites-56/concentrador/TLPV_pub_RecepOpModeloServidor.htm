@@ -1,0 +1,602 @@
+<html>
+<head>
+<title>Server Model Payment Process</title>
+<script language="JavaScript">
+var imageURL = "../mult/TLPV_enviarpago_en_GB.gif";
+
+if (document.images)
+{
+     var enviarpago = new Image();
+     enviarpago.src = "../mult/TLPV_enviarpago_en_GB.gif";
+
+     var enviando = new Image();
+     enviando.src = "../mult/TLPV_enviando_en_GB.gif";
+
+	 var logoComercio = new Image();
+     logoComercio.src = "../mult/TLPV_pixtrans_exp.gif";
+}
+
+function changeImage() {
+     if (document.images)
+	 {
+          imageURL = "../mult/TLPV_enviando_en_GB.gif";
+         document.enviar.src = imageURL;
+     }
+}
+
+function fecha() {
+		meses = new Array ("January","February","March","April","May","June","July","August","September","October","November","December");
+		data = new Date();
+		index = data.getMonth();
+		diasemana=new Array ("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
+		day = new Date();
+		indexday =  data.getDay();
+		if (indexday == 0) {indexday = 7;}
+		anno = data.getYear();
+			if ( anno < 1900) {	anno = 1900 + anno;	}
+
+		document.write( diasemana[indexday-1]+ ","  + ' '+data.getDate()+ " of " + meses[index] + ", " + anno + " &nbsp;");
+
+}
+
+function luhnCheck(str)
+{
+  var result = true;
+
+  var sum = 0;
+  var mul = 1;
+  var strLen = str.length;
+
+  for (i = 0; i < strLen; i++)
+  {
+    var digit = str.substring(strLen-i-1,strLen-i);
+    var tproduct = parseInt(digit ,10)*mul;
+    if (tproduct >= 10)
+      sum += (tproduct % 10) + 1;
+    else
+      sum += tproduct;
+    if (mul == 1)
+      mul++;
+    else
+      mul--;
+  }
+  if ((sum % 10) != 0)
+    result = false;
+
+  return result;
+}
+
+//LNA 21/05/2004: Funcion para validar el tamaño minimo y maximo que debe tener una tarjeta,
+//debe estar entre 13 y 19
+function isSizeCardOk(card){
+
+	if ((card.length <= 19) && (card.length >= 13)){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+//EAG 15/12/2004: Funcion para validar el tamaño minimo y maximo que debe tener el CVV2/CVC2/CID,
+//debe ser 3 para Visa/MasterCard y 4 para AMEX
+function isSizeCVV2Ok(card){
+	var esAmex = document.forms[0].numtarjeta.value.substring(0,2)=="37";
+	if (!esAmex && card.length == 3){
+		return true;
+	}
+	if (esAmex && card.length == 4){
+		return true;
+	}
+	return false;
+}
+
+// ----------------------- aceptar() ---------------------------------------
+function aceptar(){
+
+
+    //se comprueba que los campos vienen correctamente rellenados
+
+  var checkOK = "1234567890";
+  var allValid = true;
+
+  quitar_espacios2()
+
+
+  if(document.forms[0].numtarjeta.value == "") {
+       alert("You must provide a valid card number");
+	   allValid = false;
+	   return;
+  }
+
+  //LNA 21/05/2004: Se añade la validación del tamaño de la tarjeta
+
+  if (!isSizeCardOk(document.forms[0].numtarjeta.value)) {
+  	alert("You must provide a valid card number");
+
+  	allValid = false;
+  	return;
+  }
+
+
+  //EAG 14/12/2004: Se añade la validación del tamaño del CVV2/CVC2/CID
+  if (document.forms[0].cvv2 != 'undefined' && !isSizeCVV2Ok(document.forms[0].cvv2.value)) {
+  	alert("You must provide a valid CVV2/CVC2 number");
+
+  	allValid = false;
+  	return;
+  }
+
+
+  if (!luhnCheck(document.forms[0].numtarjeta.value)) {
+  	alert("You must provide a valid card number");
+  	allValid = false;
+  	return;
+  }
+
+  fecha = new Date();
+  if ((document.forms[0].aniocad.value < fecha.getFullYear()) || (document.forms[0].mescad.value < 1) ) {
+    allValid = false;
+    alert('Card Expiration Date incorrect');
+    return;
+  }
+  if (document.forms[0].aniocad.value > fecha.getFullYear()) {
+    allValid = true;
+  } else {
+    if ((document.forms[0].aniocad.value == fecha.getFullYear()) && (document.forms[0].mescad.value*1 <= fecha.getMonth())) {
+      allValid = false;
+      alert('Card Expiration Date incorrect');
+      return;
+    }
+  }
+
+
+
+  if (allValid) {
+    document.form1.accion.value="HACER_PAGO_PAGO3D";
+	srcImage = document.enviar.src;
+
+	if (srcImage.indexOf("enviando_en_GB.gif") == "-1") {
+		document.form1.submit();
+	}
+
+  }
+  changeImage();
+}
+// abrir ventana CVV2
+function abrircvv2() {
+	var pag = "TLPV_pub_cvv2-cvc2.jsp?pais="+'GB'+"&idioma="+'en';
+	window.open(pag,'miwin','width=450,height=350,top=100,left=210');
+}
+
+function abrir_info_3dSecure() {
+	var pag = "TLPV_pub_info_3dSecure.jsp?pais="+'GB'+"&idioma="+'en';
+	window.open(pag,'miwin','width=470,height=570,top=80,left=210');
+}
+
+
+// Pago por referencia
+function mobipay() {
+	f = document.form1
+	f.accion.value = "HACER_PAGO_PAGOREF"
+	f.submit()
+}
+
+function quitar_espacios(e) {
+	var keynum
+	var keychar
+	var numcheck
+	if(window.event) // IE
+	{
+		keynum = e.keyCode
+	}
+	else if(e.which) // Netscape/Firefox/Opera
+	{
+		keynum = e.which
+	}
+	keychar = String.fromCharCode(keynum)
+	numcheck = /\d/
+	return numcheck.test(keychar)
+}
+
+
+function quitar_espacios2() {
+	var aux_str = document.forms[0].numtarjeta.value;
+	var iaux = aux_str.indexOf(" ");
+	
+	while (iaux!=-1)
+	{
+		aux_str = aux_str.substring(0,iaux) + aux_str.substring(iaux+1,aux_str.length);
+		iaux = aux_str.indexOf(" ");
+	} 
+	document.forms[0].numtarjeta.value = aux_str;
+}
+
+function mano() {
+	document.all("enviar").style.cursor = 'hand';
+}
+function abrirSeguro() {
+	var pag = "TLPV_pub_infosegBBVA.jsp?pais="+'GB'+"&idioma="+'en';
+	window.open(pag,'miwin','width=390,height=400,top=100,left=210,scrollbars=yes');
+}
+// Para ocultar el codigo fuente. Deshabilitamos el boton derecho
+function right(e) {
+        if (navigator.appName == 'Netscape' &&  (e.which == 3 || e.which == 2))
+                return false;
+        else
+                if (navigator.appName == 'Microsoft Internet Explorer' &&
+                        (event.button == 2 || event.button == 3)) {
+                        alert("Action not allowed");
+                        return false;
+                }
+
+        return true;
+}
+
+document.onmousedown=right;
+document.onmouseup=right;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=right;
+window.onmouseup=right;
+
+</script>
+<link rel="stylesheet" href="../mult/TLPV_estile_B9550206800002 .css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<form name=form1 method="post" action="https://w3.grupobbva.com/TLPV/tlpv/TLPV_pub_RecepOpModeloServidor">
+  <table width="100%" border="0" cellpadding="1" cellspacing="1">
+    <tr valign="bottom">
+      <td width="50%" nowrap>
+        <!-- Logo TPV - BBVA opcional -->
+        
+        <img src="../mult/TLPV_logotpvm_intg.gif" width="318" height="48" vspace="0" hspace="0" border="0">        
+        
+        <img src="../mult/TLPV_enpruebas_en_GB.gif" width="175" height="48" vspace="0" hspace="0" border="0">
+		
+      </td>
+      <td align="right">
+        
+        <img name=logoComercio src="../mult/TLPV_pixtrans_exp.gif" vspace="0" hspace="0" border="0">
+        
+      </td>
+    </tr>
+    <tr align="right">
+      <td colspan="2" class="l3p"> <table width="90%"  border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="99%" valign="bottom"><img src="../mult/TLPV_pixtrans_exp.gif" width="1" height="1"></td>
+            <td width="1%" align="right" nowrap class="l3p">&nbsp;&nbsp;<script>fecha();</script></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2" class="peqa"><table width="90%"  border="0" cellpadding="1" cellspacing="0" class="l3">
+          <tr>
+            <td><table width="100%"  border="0" cellpadding="2" cellspacing="0" class="l2">
+                <tr>
+                  <td colspan="3" class="fh">
+                   &nbsp;&nbsp;<img src="../mult/TLPV_flech.gif" width="9" height="7" vspace="0" hspace="0">
+                   <b>&nbsp;Payment Form:</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="l2" width="25%">&nbsp; &nbsp; Merchant:</td>
+                  <td class="l2" colspan="2" width="77%" >&nbsp; &nbsp;AMF</td>
+                </tr>
+                <tr>
+                  <td class="l2" nowrap>&nbsp; &nbsp;&nbsp;Transaction Num.:</td>
+                  <td class="l2" colspan="2" >&nbsp; &nbsp;030214143421
+                  </td>
+                </tr>
+                <tr>
+                  <td height="22" class="l2">&nbsp; &nbsp;&nbsp;Amount: </td>
+                  <td class="l2" colspan="2">&nbsp; &nbsp;3.00 &euro;
+                  </td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+
+    <tr align="center">
+      <td colspan="2" class="peqa"><table width="90%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+           
+            <td><table width="100%" height="174" border="0" align="left" cellpadding="1" cellspacing="0" class="l3">
+                <tr>
+                  <td valign="top"> <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="1" class="l2">
+                      <tr>
+                        <td width="50%" valign="top"> <table width="100%"  border="0" cellpadding="3" cellspacing="0" class="l2">
+                            <tr>
+                              <td colspan="2" class="fh"><b>&nbsp;&nbsp;<img src="../mult/TLPV_flech.gif" width="9" height="7" vspace="0" hspace="0">
+                               &nbsp;Enter your data:</b>
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td width="40%" nowrap  class="l2">&nbsp; &nbsp;&nbsp;Card Number (without spaces):</td>
+                              <td width="60%" nowrap class="l2" > <input name="numtarjeta" type="text" class="Formulario"  value="" size="25" maxlength="19" onChange="quitar_espacios2()" onKeypress="return quitar_espacios(event)" autocomplete="OFF">
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td height="28" nowrap class="l2">&nbsp; &nbsp;&nbsp;Expiration Date (of the card): &nbsp;</td>
+                              <td class="l2" nowrap> Month:
+                                <select name="mescad" class="Formulario">
+								<option value="  " selected >  </option>
+                                
+                                 <option value="01" >01</option>
+                                
+                                 <option value="02" >02</option>
+                                
+                                 <option value="03" >03</option>
+                                
+                                 <option value="04" >04</option>
+                                
+                                 <option value="05" >05</option>
+                                
+                                 <option value="06" >06</option>
+                                
+                                 <option value="07" >07</option>
+                                
+                                 <option value="08" >08</option>
+                                
+                                 <option value="09" >09</option>
+                                
+                                 <option value="10" >10</option>
+                                
+                                 <option value="11" >11</option>
+                                
+                                 <option value="12" >12</option>
+                                
+                                </select>
+
+								&nbsp;&nbsp; Year:
+								<select name="aniocad" class="Formulario">
+								<option value="  " selected >  </option>
+                                
+                                 <option value="2014" >14</option>
+                                
+                                 <option value="2015" >15</option>
+                                
+                                 <option value="2016" >16</option>
+                                
+                                 <option value="2017" >17</option>
+                                
+                                 <option value="2018" >18</option>
+                                
+                                 <option value="2019" >19</option>
+                                
+                                 <option value="2020" >20</option>
+                                
+                                 <option value="2021" >21</option>
+                                
+                                 <option value="2022" >22</option>
+                                
+                                 <option value="2023" >23</option>
+                                
+                                 <option value="2024" >24</option>
+                                
+                                 <option value="2025" >25</option>
+                                
+                                 <option value="2026" >26</option>
+                                
+                                 <option value="2027" >27</option>
+                                
+                                 <option value="2028" >28</option>
+                                
+                                 <option value="2029" >29</option>
+                                
+                                 <option value="2030" >30</option>
+                                
+                                 <option value="2031" >31</option>
+                                
+                                 <option value="2032" >32</option>
+                                
+                                 <option value="2033" >33</option>
+                                
+                                 <option value="2034" >34</option>
+                                
+                                 <option value="2035" >35</option>
+                                
+                                 <option value="2036" >36</option>
+                                
+                                 <option value="2037" >37</option>
+                                
+                                 <option value="2038" >38</option>
+                                
+                                 <option value="2039" >39</option>
+                                
+                                 <option value="2040" >40</option>
+                                
+                                 <option value="2041" >41</option>
+                                
+                                 <option value="2042" >42</option>
+                                
+                                 <option value="2043" >43</option>
+                                
+                                 <option value="2044" >44</option>
+                                
+                                 <option value="2045" >45</option>
+                                
+                                 <option value="2046" >46</option>
+                                
+                                 <option value="2047" >47</option>
+                                
+                                 <option value="2048" >48</option>
+                                
+                                 <option value="2049" >49</option>
+                                
+                                 <option value="2050" >50</option>
+                                
+                                 <option value="2051" >51</option>
+                                
+                                 <option value="2052" >52</option>
+                                
+                                 <option value="2053" >53</option>
+                                
+                                 <option value="2054" >54</option>
+                                
+                                 <option value="2055" >55</option>
+                                
+                                 <option value="2056" >56</option>
+                                
+                                 <option value="2057" >57</option>
+                                
+                                 <option value="2058" >58</option>
+                                
+                                 <option value="2059" >59</option>
+                                
+                                 <option value="2060" >60</option>
+                                
+                                 <option value="2061" >61</option>
+                                
+                                 <option value="2062" >62</option>
+                                
+                                 <option value="2063" >63</option>
+                                
+                                 <option value="2064" >64</option>
+                                
+                                </select>
+
+
+                              </td>
+                            </tr>
+                            
+                            
+							<tr align="center">
+								
+									  <td width="40%" align="left" nowrap class="l2">&nbsp;&nbsp;&nbsp;CVV2/CVC2: &nbsp;&nbsp;&nbsp;<a href="javascript:abrircvv2();">What is CVV2?</a></td>
+									  <td width="60%" align="left" nowrap class="l2"><input name="cvv2" type="text" class="Formulario"  value="" size="5" maxlength="4" autocomplete="OFF" S>&nbsp;&nbsp;</td>
+									
+                            </tr>
+                            <tr align="center">
+							  <td nowrap class="l2" >&nbsp;</td>
+                              <td nowrap align="left" class="l2">
+							   <!-- Espacio para enviar datos -->
+								<img name="enviar" src="../mult/TLPV_enviarpago_en_GB.gif" onclick="aceptar()" onmouseover="mano()"  width="115" height="18" border="0">
+				  <!-- fin Espacio para enviar datos --></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" valign="top" nowrap class="l2">
+                                <table width="1%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                                  <tr>
+
+                                    <td>
+									  <a href="javascript:abrir_info_3dSecure();">
+										 <img src="../mult/TLPV_verifiedTranspa.gif" width="89" height="51" border="0">
+									  </a>
+								    </td>
+									 <td>
+									  <a href="javascript:abrir_info_3dSecure();">
+										 <img src="../mult/TLPV_masterseTranspa.gif" width="89" height="51" border="0">
+									  </a>
+								    </td>
+
+
+								   <td><img src="../mult/TLPV_pixtrans_exp.gif" width="1" height="47"></td>
+
+
+								   <td><img src="../mult/TLPV_pixtrans_exp.gif" width="1" height="44"></td>
+
+
+                                  </tr>
+							    </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="3" nowrap class="l2"> </td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+              
+				<!-- Espacio reservado para el pago por referencia -->
+               
+            <td width="50%" valign="top">
+
+				<table width="99%" height="174" border="0" align="right" cellpadding="1" cellspacing="0" class="l3">
+                <tr>
+                  <td valign="top">
+					<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="1" class="l2">
+
+					  <tr>
+                        <td width="50%" align="center" valign="top" class="l2">
+
+                          <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+
+                          <table width="90%" border="0" cellpadding="0" cellspacing="1" class="l2">
+                            <tr>
+                              <td  height="69" align="right" class="boldao">if you want to use<br> payment by reference<br> click in the mobipay logo </td>
+                              <td width="92" align="right" class="l2"> <a href="javascript:mobipay();"><img src="../mult/TLPV_mobipayTranspa.gif"  width="90" height="60" border="0"></a>
+                            </td>
+                            </tr>
+                          </table>
+
+                          <br>&nbsp;<br>&nbsp;<br>&nbsp;<br></td>
+
+                      </tr>
+                    </table>
+				  </td>
+         
+                 <!-- Espacio reservado para el pago por referencia -->
+                </tr>
+              </table>
+             </td>
+          </tr>
+         </table>
+         </td>
+         </tr>
+          <tr>
+		   <td colspan="2">
+
+             &nbsp;
+
+		   </td>
+          </tr>
+  </table>
+
+  <br>
+  <input type="hidden" name="peticion" value="&lt;tpv&gt;&lt;oppago&gt;&lt;idterminal&gt;999999&lt;&#47;idterminal&gt;&lt;idcomercio&gt;B9550206800002&lt;&#47;idcomercio&gt;&lt;idtransaccion&gt;030214143421&lt;&#47;idtransaccion&gt;&lt;moneda&gt;978&lt;&#47;moneda&gt;&lt;importe&gt;3&#46;00&lt;&#47;importe&gt;&lt;urlcomercio&gt;https&#58;&#47;&#47;www&#46;concentradoramf&#46;com&#47;rep&#47;llegada&#46;php&lt;&#47;urlcomercio&gt;&lt;idioma&gt;en&lt;&#47;idioma&gt;&lt;pais&gt;GB&lt;&#47;pais&gt;&lt;urlredir&gt;https&#58;&#47;&#47;www&#46;concentradoramf&#46;com&#47;rep&#47;index&#46;php?resp&#61;030214143421&lt;&#47;urlredir&gt;&lt;localizador&gt;234623452343&lt;&#47;localizador&gt;&lt;firma&gt;81FDEC6BA7BBCB43ADBD8909FA7FE1C27288E4A1&lt;&#47;firma&gt;&lt;&#47;oppago&gt;&lt;&#47;tpv&gt;">
+<input type="hidden" name="accion" value="">
+<input type="hidden" name="canal" value="1">
+<input type="hidden" name="soporte" value="1">
+
+<script>
+	// Comprueba la anchura y la altura de la imagen del logo del comercio
+	varImg = document.form1.logoComercio
+	anchoAnt = varImg.width
+	altoAnt = varImg.height
+	if (altoAnt > 60)
+	{
+		varImg.height = 60
+		anchoAnt = ( 60 * anchoAnt ) / altoAnt
+		varImg.width = anchoAnt
+		if (anchoAnt > 200)
+		{
+			varImg.width = 200
+			altoAnt = ( 200 * 60) / anchoAnt
+			varImg.height = altoAnt
+			anchoAnt = 200
+		}
+	}
+	if (anchoAnt > 200)
+	{
+		varImg.width = 200
+		altoAnt = ( 200 * altoAnt) / anchoAnt
+		varImg.height = altoAnt
+		if (altoAnt > 60)
+		{
+			varImg.height = 60
+			varImg.width = ( 200 * 60) / altoAnt
+		}
+	}
+</script>
+</form>
+</body>
+</html><SCRIPT language="JavaScript">
+<!-- 
+document.cookie = "IV_JCT=%2FTLPV; path=/";
+//--> 
+</SCRIPT>

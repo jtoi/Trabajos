@@ -1,0 +1,29 @@
+<label for="persona" class="form-label">Cliente: </label>
+<select id="persona" name="persona">
+    <option value=""></option>
+</select>
+
+<label for="cuenta" class="form-label">Cuenta: </label>
+<select id="cuenta" name="cuenta">
+    <option value="">Seleccione Cliente..</option>
+</select>
+
+<label for="cuentatipo" class="form-label">Tipo de cuenta: </label>
+<select id="cuentatipo" name="cuentatipo">
+    <option value=""></option>
+</select>
+
+<label for="numero" class="form-label">N&uacute;mero:</label>
+<input type="text" class="form-control" id="numero" readonly name="numero" />
+
+<label for="alias" class="form-label">Alias de la cuenta:</label>
+<input type="text" class="form-control" id="alias" name="alias" />
+
+<label for="" class="form-label">Cuenta por defecto?:</label>
+<select id="defecto" name="defecto">
+    <option value="true">Si</option>
+    <option value="false">No</option>
+</select>
+
+<input type="hidden" id="idtitanes" />
+<input type="button" value="Enviar" onclick="envia()" />

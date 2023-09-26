@@ -1,0 +1,1 @@
+INSERT INTO evento (id , nmombre) VALUES (NULL , '1ra Milla Marina Femenina');

@@ -1,0 +1,1547 @@
+body {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    margin-top: 0
+}
+
+a,
+div,
+img,
+input {
+    behavior: url(../images/iepngfix.htc)
+}
+
+#top {
+    background-color: #9a0000;
+    height: 33px;
+    width: 100%
+}
+
+.brrfl {
+    background: url('../images/borra.gif');
+    display: block;
+    width: 15px;
+    cursor: pointer;
+    height: 15px;
+    float: left;
+    border: 0px;
+}
+
+.dicborr {
+    float: left;
+}
+
+.mond {
+    margin: 4px 0;
+    display: block;
+    text-transform: capitalize;
+    font-weight: 700
+}
+
+.monhab {
+    float: left;
+    margin: 0 auto
+}
+
+.monhab:last-child {
+    float: left;
+    margin: 0 auto;
+    padding-left: 22px
+}
+
+#main {
+    background: url(../images/fondo_degradado_gris.gif) top repeat-x;
+    width: 100%
+}
+
+#borde {
+    width: 100%;
+    height: 36px;
+    background: url(../images/fondo_barra_horizontal.gif) repeat-x top
+}
+
+#inf {
+    width: 100%;
+    height: 170px
+}
+
+#mainTop {
+    text-align: center;
+    margin-top: 53px
+}
+
+#Cleft,
+#Cmid,
+#Cright {
+    float: left
+}
+
+#Cleft {
+    height: 265px;
+    width: 49%
+}
+
+#Cleft img {
+    margin: 41px 0 0 189px
+}
+
+#Cmid {
+    width: 8px;
+    height: 190px;
+    margin-top: 60px;
+    background: url(../images/fondo_separador_puntos.gif) repeat-y 4px
+}
+
+#Cright {
+    width: 49%;
+    height: 265px
+}
+
+#mainInf {
+    text-align: center;
+    color: #949494;
+    padding-top: 10px;
+    line-height: 33px
+}
+
+#Cright table {
+    margin: 72px 0 0 22px;
+    font-size: 12px;
+    text-transform: lowercase
+}
+
+#Cright table td:first-child {
+    width: 84px
+}
+
+#Cright table td {
+    line-height: 40px
+}
+
+.log_form {
+    border: 1px solid #9a0000;
+    height: 21px;
+    width: 181px
+}
+
+#botonLog {
+    margin: 29px 0 0 87px;
+    background: url(../images/btn_entrar.png) no-repeat;
+    width: 106px;
+    height: 30px;
+    display: block;
+    cursor: pointer
+}
+
+#botonLog:hover {
+    background: url(../images/btn_entrar_over.png) no-repeat
+}
+
+td.form_left {
+    padding-right: 10px;
+    text-align: right;
+    height: 35px;
+    color: #669acc;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.borraTR {
+    font-size: 10px!important;
+    color: red;
+    cursor: pointer
+}
+
+#infInf,
+#infTop {
+    width: 100%;
+    float: left
+}
+
+#infTop1,
+#infTop2 {
+    float: left;
+    width: 49%
+}
+
+#infTop1 {
+    text-align: right
+}
+
+#infTop1 img {
+    margin: 17px 22px 0
+}
+
+#infTop2 img {
+    margin: 17px 0 0
+}
+
+#infTop2 {
+    text-align: left
+}
+
+#infTopC {
+    float: left;
+    width: 8px;
+    background: url(../images/fondo_separador_puntos.gif) repeat-y 4px;
+    height: 58px;
+    margin-top: 10px
+}
+
+.inf {
+    background: url(../images/degrada2.png) repeat-x;
+    border-top: #679bcc solid 1px;
+    height: 6px
+}
+
+td.form_center {
+    padding-right: 10px;
+    text-align: right;
+    height: 35px
+}
+
+#princ {
+    background: url(../images/degrada.png) repeat-x
+}
+
+#dqmbar div {
+    top: 1px!important
+}
+
+.separamen {
+    width: 10px
+}
+
+.login_tit {
+    font-size: 12px;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+    height: 25px
+}
+
+td#semana {
+    border: 1px solid #dcdcdc;
+    width: 12%
+}
+
+a.paglink {
+    color: #000;
+    text-decoration: none
+}
+
+.banner {
+    background: url(../images/banner.jpg) no-repeat left;
+    height: 73px;
+    cursor: pointer
+}
+
+.menu {
+    height: 25px;
+    vertical-align: middle
+}
+
+.menu_cent {
+    color: #888;
+    font-size: 11px;
+    text-align: left;
+    padding-left: 20px
+}
+
+.alerta {
+    color: Red;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.title_pag {
+    font-size: 16px;
+    font-variant: small-caps;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center
+}
+
+.encabezamiento,
+table#resultC thead tr,
+table#resultT thead tr,
+table#resultF thead tr {
+    background-color: #ffa82d;
+    height: 25px;
+    color: #fff
+}
+
+.encaSms,
+.encabezamiento2 {
+    background: url(../images/degrada4.png) top repeat-x;
+    font-weight: 700;
+    padding: 5px;
+    height: 20px
+}
+
+.encabezamiento2 td {
+    text-align: center
+}
+
+.celdas {
+    padding: 2px
+}
+
+.celdaVal {
+    padding: 7px 4px
+}
+
+.separador1,
+.separador2 {
+    background-color: #c9c9c9;
+    width: 1px
+}
+
+.separa {
+    border-right: 1px #c9c9c9 solid;
+    padding: 4px 7px;
+}
+
+.valtd {
+    float: left;
+    width: 85%;
+    font-size: 12px;
+}
+
+.spmtt {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.spmtd {
+    font-weight: bold;
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.vall {
+    float: left;
+    width: 370px;
+}
+
+.vald {
+    float: left;
+    width: 370px;
+}
+
+.desplC {
+    cursor: pointer;
+}
+
+.desplA {
+    display: none;
+}
+
+.tab_ppal {
+    padding-bottom: 30px;
+}
+
+.title_tarea {
+    font-size: 12px;
+    font-weight: 700;
+    background: url(../images/degrada3.png) repeat-x top;
+    text-align: center
+}
+
+.sepr {
+    background-color: #b6b6b6;
+    width: 1px
+}
+
+.total1 {
+    text-align: right;
+    font-size: 11px
+}
+
+.total2 {
+    width: 1060px;
+    text-align: left
+}
+
+td.boton {
+    height: 25px;
+    text-align: center;
+    border-top: 1px solid #b6b6b6
+}
+
+table.tab_tarea table {
+    border-left: 1px solid #91a7b4;
+    border-right: 1px solid #91a7b4
+}
+
+table.tab_tarea {
+    border-bottom: 1px solid #91a7b4
+}
+
+table.tab_tarea1 {
+    border: 1px solid #fff
+}
+
+td.derecha {
+    text-align: right;
+    padding: 3px 3px 3px 0;
+    height: 30px
+}
+
+td.izquierda {
+    text-align: left;
+    padding: 3px 0 3px 3px
+}
+
+.formul {
+    font: 10px Verdana, Geneva, Arial, Helvetica, sans-serif
+}
+
+.corto td {
+    padding: 10px
+}
+
+.tablTit td {
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid #91a7b4
+}
+
+.tablCont td {
+    padding: 0 7px 0 7px;
+    height: 25px;
+    vertical-align: middle
+}
+
+table.Info {
+    border-top: 1px solid #91a7b4;
+    border-bottom: 1px solid #91a7b4
+}
+
+.conect {
+    font-weight: 700
+}
+
+.conect2 {
+    margin-left: 10px
+}
+
+td#idioma {
+    vertical-align: middle;
+    padding: 5px
+}
+
+.spanish {
+    background-color: #fff3c6
+}
+
+.english {
+    background-color: #bbc9ff
+}
+
+.verde {
+    color: green
+}
+
+.amarillo {
+    color: #fec611
+}
+
+.rojo {
+    color: red
+}
+
+.amarillo,
+.rojo,
+.verde {
+    font-weight: 700
+}
+
+#encabPago,
+#encabVou {
+    text-align: center;
+    background: url(../images/degrada.png) repeat-x top
+}
+
+#encabVou {
+    width: 400px
+}
+
+#encabVou h1 {
+    margin-top: 0
+}
+
+#logoPago,
+#logoVou {
+    min-height: 83px
+}
+
+#cuerpoVou {
+    text-align: left;
+    padding: 20px 20px
+}
+
+.cuerpoPago {
+    text-align: center;
+    min-height: 400px;
+    padding-top: 90px
+}
+
+#piePago {
+    text-align: center;
+    margin-top: 20px;
+    color: #669acc
+}
+
+.inf2 {
+    background: url(../images/degrada5.png) repeat-x;
+    border-bottom: #679bcc solid 1px;
+    height: 6px
+}
+
+#noticiaA li {
+    margin-top: 27px
+}
+
+#noticiaT {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 700;
+    color: green
+}
+
+.dineroEnt {
+    font-weight: 700;
+    color: red
+}
+
+#liveclock1 {
+    width: 200px
+}
+
+#liveclock2 {
+    width: 200px
+}
+
+#cambioEur {
+    left: 351px;
+    position: absolute;
+    top: 8px;
+    width: 190px;
+    font-size: 11px;
+    color: #888
+}
+
+.cambEur {
+    font-weight: 700
+}
+
+.aerial12 {
+    font-family: Verdana;
+    font-size: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #9a0000;
+    border-left: 1px solid #fff;
+    width: 150px
+}
+
+.aerial12over {
+    font-family: Verdana;
+    font-size: 10px;
+    text-decoration: none;
+    color: #402903;
+    background-color: #fc7f7f
+}
+
+#debD,
+#tabInf {
+    float: left;
+    width: 100%
+}
+
+.tabTodo {
+    margin: 0 auto
+}
+
+.botForm,
+.derecha1,
+.izquierda1,
+.lineaT,
+.textForm,
+.title_pag1,
+.title_tarea,
+.title_tarea1,
+.title_tarea2,
+.title_tarea3,
+.title_tarea33,
+.title_tarea4 {
+    float: left;
+    display: block
+}
+
+.title_pag1 {
+    width: 100%;
+    font-size: 16px;
+    font-variant: small-caps;
+    font-weight: 700;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center
+}
+
+.derecha1,
+.izquierda1 {
+    padding: 3px 3px 3px 0;
+    line-height: normal;
+    font-size: 10px;
+    font-weight: 400
+}
+
+.derecha1 {
+    text-align: right
+}
+
+.izquierda1 {
+    text-align: left
+}
+
+.title_tarea1 {
+    background: url(../images/degrada3.png) repeat-x top
+}
+
+.title_tarea2 {
+    background: url(../../images/iconosA201208112100.gif) no-repeat scroll -172px -1px transparent;
+    float: left;
+    height: 23px;
+    width: 9px
+}
+
+.title_tarea4 {
+    background: url(../../images/iconosA201208112100.gif) no-repeat scroll -177px -1px transparent;
+    float: left;
+    height: 23px;
+    width: 11px
+}
+
+.title_tarea3,
+.title_tarea33 {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 23px;
+    text-align: center
+}
+
+.title_tarea33 {
+    border-bottom: 1px solid #91a7b4
+}
+
+.botForm,
+.lineaT,
+.textForm {
+    border-left: 1px solid #91a7b4;
+    border-right: 1px solid #91a7b4;
+    padding: 3px 0
+}
+
+.botForm,
+.textForm {
+    line-height: 35px;
+    font-size: 10px;
+    text-align: center
+}
+
+.textForm {
+    line-height: 21px
+}
+
+.haslabel:hover {
+    text-decoration: underline
+}
+
+.divCarga {
+    float: left;
+    margin: 0 auto;
+    width: 100%
+}
+
+#divFormHid {
+    display: none;
+    float: left;
+    width: 100%
+}
+
+#onhideText {
+    border-left: 1px solid #91a7b4;
+    border-right: 1px solid #91a7b4;
+    float: left;
+    padding-top: 24px
+}
+
+#onhideText span {
+    cursor: pointer;
+    font-weight: 400
+}
+
+.onhideTextShow {
+    color: red;
+    font-size: 10px;
+    text-align: right;
+    line-height: 18px!important
+}
+
+.onshowTextShow {
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px
+}
+
+.cierreTab {
+    border: 1px solid #888
+}
+
+.cierreTab td {
+    padding: 2px 5px
+}
+
+.cierretop1 {
+    background-color: #b6b6b6;
+    line-height: 23px;
+    font-weight: 700;
+    padding-left: 5px
+}
+
+.cierretop2 {
+    background-color: red;
+    color: #fff;
+    line-height: 23px;
+    font-weight: 700
+}
+
+.cierretop2 td {
+    border-bottom: 1px solid #888;
+    border-top: 1px solid #888;
+    padding-left: 5px
+}
+
+.cierretit .cierretd {
+    text-align: center;
+    padding: 3px;
+    background-color: #dcdcdc
+}
+
+.cierretd {
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #888;
+    padding: 3px;
+    text-align: right
+}
+
+.cierrefdo td {
+    padding: 3px;
+    background-color: #dcdcdc;
+    text-align: right
+}
+
+.cierreSepara {
+    width: 100%;
+    height: 30px
+}
+
+.cierreEurosT {
+    background-color: #dcdcdc;
+    border-color: #888;
+    border-style: solid;
+    border-width: 0 1px 1px
+}
+
+.title {
+    font-weight: 700;
+    width: 80px
+}
+
+.cierreTotgen .cierreEurosT {
+    background-color: red;
+    color: #fff
+}
+
+.cierreleft {
+    border-left: solid 1px #888
+}
+
+.cierreazul {
+    color: #00f;
+    text-transform: uppercase;
+    text-align: center
+}
+
+.cierrearriba {
+    border-top: solid 1px #888
+}
+
+.cierrerojo {
+    color: #fff;
+    background-color: red;
+    text-transform: uppercase;
+    font-weight: 700
+}
+
+#menuDown {
+    height: 6px;
+    width: 100%;
+    border-top: solid 1px #ffc870;
+    float: left
+}
+
+#menuDown img {
+    float: left;
+    cursor: pointer;
+    margin-left: 100px
+}
+
+#MenuIntel {
+    display: none
+}
+
+#imgMenUp {
+    display: none
+}
+
+.menuImg {
+    cursor: pointer;
+    border: none
+}
+
+#menuAlt {
+    position: absolute;
+    width: 100%;
+    background-color: #fff
+}
+
+#cubreMenu {
+    position: relative;
+    z-index: 10;
+    border: 1px solid transparent;
+    height: 150px
+}
+
+.imgMenDiv {
+    float: left;
+    width: 150px;
+    text-align: center;
+    padding: 3px
+}
+
+.imgMenDiv a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000
+}
+
+#result .separa {
+    padding-left: 5px
+}
+
+#sali {
+    float: left;
+    width: 100%
+}
+
+.elem,
+.title {
+    width: 700px;
+    margin: 0 auto
+}
+
+#sali {
+    text-align: center
+}
+
+.elem div,
+.title div {
+    float: left
+}
+
+.title,
+.title div {
+    line-height: 25px
+}
+
+#encA,
+#encC {
+    width: 70px;
+    padding-left: 10px;
+    text-align: left
+}
+
+.elem {
+    display: none
+}
+
+#encC {
+    float: right;
+    text-align: right;
+    padding-right: 10px
+}
+
+#encB {
+    width: 400px;
+    text-align: center
+}
+
+.elem div {
+    line-height: 22px
+}
+
+.colA {
+    width: 100px
+}
+
+.colB {
+    width: 120px
+}
+
+.colC {
+    width: 400px
+}
+
+.elem .colB {
+    text-align: left;
+    padding-left: 20px
+}
+
+.elem .colC {
+    text-align: left;
+    padding-left: 20px
+}
+
+#avanzaP,
+#retroP {
+    color: #fff;
+    text-decoration: none;
+    float: left
+}
+
+.cambio {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center
+}
+
+.cambio a {
+    color: #222
+}
+
+div#menu {
+    height: 25px;
+    padding-left: 14px;
+    background: url(../images/left.png) no-repeat;
+    width: auto
+}
+
+div#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left
+}
+
+div#menu ul.menu {
+    padding-right: 14px;
+    background: url(../images/right201208121101.gif) no-repeat right top
+}
+
+div#menu li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+    z-index: 9;
+    width: auto
+}
+
+div#menu ul ul li {
+    z-index: 9
+}
+
+div#menu li div {
+    list-style: none;
+    float: left;
+    position: absolute;
+    z-index: 11;
+    top: 25px;
+    left: -13px;
+    visibility: hidden;
+    width: 194px;
+    margin: 0 0 0 -4px;
+    padding: 0;
+    background: url(../images/subsubmenu-top.png) no-repeat 0 0
+}
+
+div#menu ul ul {
+    z-index: 12;
+    padding: 0 4px 10px 4px;
+    background: url(../images/submenu-bottom.gif) no-repeat 0 bottom;
+    background-color: #e6c387!important;
+    margin: 10px 0 0 0
+}
+
+div#menu li:hover>div {
+    visibility: visible
+}
+
+div#menu a {
+    position: relative;
+    z-index: 10;
+    height: 24px;
+    display: block;
+    float: left;
+    line-height: 50px;
+    text-decoration: none;
+    margin-top: 1px;
+    white-space: nowrap;
+    width: auto;
+    padding-right: 5px;
+    text-align: center
+}
+
+div#menu span {
+    margin-top: 2px;
+    padding-left: 15px;
+    color: #fff;
+    font: bold 12px/23px Arial, Helvetica;
+    background: 0 0;
+    display: block;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 95% 0;
+    text-align: center
+}
+
+div#menu a {
+    padding: 0 10px 0 0;
+    line-height: 24px;
+    height: 25px;
+    margin-right: 5px;
+    background: 0 0
+}
+
+div#menu a:hover {
+    background: url(../images/selected.png) repeat-x right -1px;
+    color: #000
+}
+
+div#menu li.current a,
+div#menu ul.menu>li:hover>a {
+    color: #000;
+    background: url(../images/selected.png) repeat-x right -1px
+}
+
+div#menu ul.menu>li:hover>a span {
+    color: #000
+}
+
+div#menu li.last {
+    background: 0 0
+}
+
+div#menu ul ul li {
+    background: 0 0;
+    padding: 0
+}
+
+div#menu ul ul a {
+    padding: 0;
+    height: auto;
+    float: none;
+    display: block;
+    line-height: 25px;
+    z-index: -1;
+    padding-left: 5px;
+    white-space: normal;
+    width: 164px;
+    margin: 0 8px;
+    text-transform: none;
+    border-top: 1px solid #e6c387;
+    border-bottom: 1px solid #ffa82d
+}
+
+div#menu ul ul a span {
+    font-weight: 400;
+    padding: 0 5px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #000
+}
+
+div#menu li.current ul a,
+div#menu li.current ul a span {
+    background: 0 0
+}
+
+div#menu ul ul a:hover {
+    background: 0 0;
+    background-color: #ffa82d
+}
+
+div#menu ul ul a:hover span {
+    background: 0 0;
+    color: #fff
+}
+
+div#menu ul ul a.parent {
+    background: url(../images/submenu-pointer.png) no-repeat right bottom
+}
+
+div#menu ul ul a.parent span {
+    background: 0 0
+}
+
+div#menu ul ul a.parent:hover {
+    background: url(../images/submenu-pointer.png) no-repeat right bottom;
+    background-color: #ffa82d;
+    color: #fff
+}
+
+div#menu ul ul a.parent:hover span {
+    background: 0 0
+}
+
+div#menu ul ul span {
+    margin-top: 0;
+    text-align: left
+}
+
+div#menu ul ul li.last {
+    background: 0 0
+}
+
+div#menu ul ul li {
+    width: 100%
+}
+
+div#menu ul ul div {
+    width: 194px;
+    padding: 0;
+    margin: -25px 0 0 192px!important;
+    margin-left: 192px
+}
+
+div#menu ul ul ul {
+    padding: 10px 4px 0 4px
+}
+
+div#menu ul ul div li {
+    position: relative;
+    top: -10px
+}
+
+div#menu li.back {
+    background: url(../images/selected.png) repeat-x 0 0;
+    width: 5px;
+    height: 51px;
+    z-index: 8;
+    position: absolute;
+    padding: 0;
+    margin: 0
+}
+
+div#menu li.back .left {
+    padding: 0;
+    width: auto;
+    background: url(../images/selected.png) repeat-x right 0;
+    height: 51px;
+    margin: 0 0 0 5px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    visibility: visible
+}
+
+div.datepicker {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 196px;
+    height: 147px;
+    position: absolute;
+    cursor: default;
+    top: 0;
+    left: 0;
+    display: none
+}
+
+.datepickerContainer {
+    background: #121212;
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.datepickerBorderT {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    right: 10px;
+    height: 10px;
+    background: url(../images/datepicker_t.png)
+}
+
+.datepickerBorderB {
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    right: 10px;
+    height: 10px;
+    background: url(../images/datepicker_b.png)
+}
+
+.datepickerBorderL {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    top: 10px;
+    width: 10px;
+    background: url(../images/datepicker_l.png)
+}
+
+.datepickerBorderR {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    top: 10px;
+    width: 10px;
+    background: url(../images/datepicker_r.png)
+}
+
+.datepickerBorderTL {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: url(../images/datepicker_tl.png)
+}
+
+.datepickerBorderTR {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: url(../images/datepicker_tr.png)
+}
+
+.datepickerBorderBL {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: url(../images/datepicker_bl.png)
+}
+
+.datepickerBorderBR {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: url(../images/datepicker_br.png)
+}
+
+.datepickerHidden {
+    display: none
+}
+
+div.datepicker table {
+    border-collapse: collapse
+}
+
+div.datepicker a {
+    color: #eee;
+    text-decoration: none;
+    cursor: default;
+    outline: 0
+}
+
+div.datepicker table td {
+    text-align: right;
+    padding: 1px;
+    margin: 0
+}
+
+div.datepicker th {
+    text-align: center;
+    color: #999;
+    font-weight: 400
+}
+
+div.datepicker tbody th {
+    text-align: left
+}
+
+div.datepicker tbody a {
+    display: block
+}
+
+.datepickerDays a {
+    width: 20px;
+    line-height: 16px;
+    height: 16px;
+    padding-right: 2px
+}
+
+.datepickerMonths a,
+.datepickerYears a {
+    width: 44px;
+    line-height: 36px;
+    height: 36px;
+    text-align: center
+}
+
+td.datepickerNotInMonth a {
+    color: #666
+}
+
+tbody.datepickerDays td.datepickerSelected {
+    background: #aaa
+}
+
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
+    background: #44484b
+}
+
+tbody.datepickerMonths td.datepickerSelected,
+tbody.datepickerYears td.datepickerSelected {
+    background: #17384d
+}
+
+div.datepicker a:hover {
+    color: #88c5eb
+}
+
+div.datepicker td.datepickerNotInMonth a:hover {
+    color: #999
+}
+
+div.datepicker tbody th {
+    text-align: left
+}
+
+.datepickerSpace div {
+    width: 20px
+}
+
+.datepickerGoNext a,
+.datepickerGoPrev a,
+.datepickerMonth a {
+    text-align: center;
+    height: 20px;
+    line-height: 20px
+}
+
+.datepickerGoNext a {
+    float: right;
+    width: 20px
+}
+
+.datepickerGoPrev a {
+    float: left;
+    width: 20px
+}
+
+table.datepickerViewDays tbody.datepickerMonths,
+table.datepickerViewDays tbody.datepickerYears {
+    display: none
+}
+
+table.datepickerViewMonths tbody.datepickerDays,
+table.datepickerViewMonths tbody.datepickerYears,
+table.datepickerViewMonths tr.datepickerDoW {
+    display: none
+}
+
+table.datepickerViewYears tbody.datepickerDays,
+table.datepickerViewYears tbody.datepickerMonths,
+table.datepickerViewYears tr.datepickerDoW {
+    display: none
+}
+
+td.datepickerDisabled a,
+td.datepickerDisabled.datepickerNotInMonth a {
+    color: #333
+}
+
+td.datepickerDisabled a:hover {
+    color: #333
+}
+
+td.datepickerSpecial a {
+    background: #700
+}
+
+td.datepickerSpecial.datepickerSelected a {
+    background: #a00
+}
+
+.css_transf {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -95px -7px transparent;
+    height: 20px;
+    width: 20px;
+    display: block;
+    cursor: pointer
+}
+
+.css_reload {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -47px -7px transparent;
+    height: 20px;
+    width: 20px;
+    display: block;
+    cursor: pointer
+}
+
+.css_edit {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -113px -7px transparent;
+    height: 20px;
+    width: 20px;
+    display: block;
+    cursor: pointer
+}
+
+.css_dollar3 {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -77px -7px transparent;
+    height: 20px;
+    width: 20px;
+    display: block;
+    cursor: pointer
+}
+
+.css_borra {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -64px -7px transparent;
+    height: 20px;
+    width: 16px;
+    display: block;
+    cursor: pointer
+}
+
+.css_cambia {background:url("../../images/iconosA201208112100.gif") no-repeat -3px -1px transparent;height:20px;width:20px;display:block;cursor:pointer;}
+
+.css_document-print {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -25px -2px transparent;
+    height: 22px;
+    width: 22px;
+    display: block;
+    float: left;
+    margin: 0 2px
+}
+
+.css_x-office-document {
+    background: url(../../images/iconosA201208112100.gif) no-repeat -1px -1px transparent;
+    height: 22px;
+    width: 22px;
+    display: block;
+    float: left;
+    margin: 0 2px
+}
+
+.css_down {
+    background: url(../../images/iconosA201208112100.gif) no-repeat scroll -126px -1px transparent;
+    display: block;
+    height: 9px;
+    width: 9px;
+    float: right
+}
+
+.css_up {
+    background: url(../../images/iconosA201208112100.gif) no-repeat scroll -110px -1px transparent;
+    display: block;
+    height: 9px;
+    width: 9px;
+    float: right
+}
+
+.css_log-out {
+    background: url(../../images/iconosA201208112100.gif) no-repeat scroll -146px -1px transparent;
+    display: block;
+    float: left;
+    height: 22px;
+    width: 25px;
+    cursor: pointer
+}
+
+.divTasa {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #666;
+    margin-top: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    width: 110px;
+    z-index: 10
+}
+
+.divTasaG {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #666;
+    margin-top: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    width: 220px;
+    z-index: 10
+}
+
+#monLi {
+    text-decoration: underline;
+    cursor: pointer
+}
+
+#secur {
+    margin: 10px 0;
+    display: block;
+    font-size: 12px
+}
+
+.secur1 {
+    color: #00f;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.secur2 {
+    color: red;
+    text-decoration: none;
+}
+
+#tbEntr th {
+    font-weight: 700;
+    width: 20%;
+    margin: 4px 0
+}
+
+#tbEntr td {
+    margin: 4px 0
+}
+
+#tbEntr tr {
+    height: 20px;
+    cursor: pointer
+}
+
+.nmark {
+    color: currentColor
+}
+
+.mark {
+    color: red
+}

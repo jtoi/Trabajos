@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Inscripci&oacute;n de Personas</title>
+    <link rel='stylesheet' href='plantillas/css/style.css'>
+    <script src='js/script.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+</head>
+
+<body>
+    <div class="menuContainer">
+
+        <nav id='menu'>
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <ul>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}persona'>Persona</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}persona'>Create Persons</a></li>
+                        <li><a href='{{estaUrl}}relacion'>Create Relation</a></li>
+                        <li><a href='{{estaUrl}}uprel'>Update Relation</a></li>
+                        <li><a href='{{estaUrl}}pupdate'>Person Update</a></li>
+                        <li><a href='{{estaUrl}}perver'>Ver Personas</a></li>
+                        <li><a href='{{estaUrl}}persummary'>Data Summary</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}document'>Documento</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}document'>Upload</a></li>
+                        <li><a href='{{estaUrl}}docupdate'>Update</a></li>
+                        <li><a href='{{estaUrl}}docfalta'>Missing Document</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}direccion'>Direcci&oacute;n</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}direccion'>Create</a></li>
+                        <li><a href='{{estaUrl}}direcupdate'>Update</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}contact'>Contacto</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}contact'>Create</a></li>
+                        <li><a href='{{estaUrl}}conupdate'>Update</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}beneficiario'>Beneficiario</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}beneficiario'>Create</a></li>
+                        <li><a href='{{estaUrl}}documentb'>Document Upload</a></li>
+                        <li><a href='{{estaUrl}}contact'>Create Contact</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}cuenta'>Cuenta</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}cuenta'>Create</a></li>
+                        <li><a href='{{estaUrl}}ctaupdate'>Update</a></li>
+                        <li><a href='{{estaUrl}}ctabalance'>Balance</a></li>
+                    </ul>
+                </li>
+                <li><a class='dropdown-arrow'
+                        href='{{estaUrl}}transaccionTPV'>Transacci&oacute;n</a>
+                    <ul class='sub-menus'>
+                        <li><a href='{{estaUrl}}transaccionTPV'>Transacci&oacute;n con TPV</a></li>
+                        <li><a href='{{estaUrl}}transaccion'>Transacci&oacute;n sin TPV</a></li>
+                        <li><a href='{{estaUrl}}transferencia'>Transacci&oacute;n con transferencia</a></li>
+                        <li><a href='{{estaUrl}}payout'>PayOut</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <dialog data-modal id="espera">
+        <div><img src="circlesWait.gif" /></div>
+    </dialog>
+
+
+    <div class="titulo">
+        <h2>{{titulo}}</h2>
+    </div>
+    <div id="main">
+        <form class="formAll" id="formulario">
+            {{contenido}}
+        </form>
+    </div>
+
+</body>
+
+<script src="js/funciones.js"></script>
+<script src="js/{{script}}.js"></script>
+
+</html>

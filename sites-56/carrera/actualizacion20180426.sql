@@ -1,0 +1,1 @@
+insert into evento (nmombre) values ('	V Campus de Verano');

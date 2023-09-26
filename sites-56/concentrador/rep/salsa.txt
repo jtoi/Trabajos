@@ -1,0 +1,8 @@
+INICIO
+<tpv><respago><idterminal>999999</idterminal><idcomercio>B9550206800002</idcomercio><nombrecomercio>AMF</nombrecomercio><idtransaccion>130518154743</idtransaccion><moneda>840</moneda><importe>10.59</importe><fechahora>18-05-2009 15:47:59</fechahora><estado>4</estado><coderror>002</coderror><deserror>IdTransaccion repetido. (03010000017)</deserror><codautorizacion>-</codautorizacion><firma>75A77BE4C9E631326424D148420CDF207A77D669</firma></respago></tpv>
+query= select c.estado from tbl_comercio c, tbl_transacciones t where c.idcomercio = t.idcomercio and idtransaccion = 130518154743 
+03FAC27A9046DBC2A967
+firma=75A77BE4C9E631326424D148420CDF207A77D669
+comprueba=75A77BE4C9E631326424D148420CDF207A77D669
+
+update #__transacciones set  estado = 'N' where idtransaccion = '130518154743'

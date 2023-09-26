@@ -1,0 +1,1 @@
+INSERT INTO prueba (id, idevento, sexo, nombre, corto) VALUES (NULL, '6', 'M', 'Cadete', null);

@@ -1,0 +1,13 @@
+Procedimiento para el cambio de la rotación de pasarelas de Cubana
+
+Los euros se cambian en la función cambPasporMon de class.inicio.php y la rotación de las divisas en la tabla tbl_rotComPas
+
+Se quita Banca March de la rotación de Euros y Divisas de Cubana, correo del 15/6/17
+
+Se quita Ibercaja de la rotación de Cubana, correo del 5/9/18
+
+Se pone Xilema correo 5/11/18
+
+Se saca Bankia5 de la rotación 15/11/18
+
+Se vuelve a poner a Ibercaja 19/2/19

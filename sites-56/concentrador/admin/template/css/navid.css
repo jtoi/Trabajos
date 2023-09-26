@@ -1,0 +1,25 @@
+/* 
+    Document   : navid
+    Created on : Dec 9, 2012, 5:45:19 PM
+    Author     : Julio Toirac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#gorro {
+	position: relative;
+	width: 84px;
+	height: 94px;
+	background: url(../images/gorro02.png) no-repeat center;
+	left:27px;
+}
+#bolas {
+	background: url("../images/bolas.png") no-repeat scroll center center transparent;
+    height: 160px;
+    left: 1px;
+    position: relative;
+    top: -8px;
+    width: 214px;
+}
+
+

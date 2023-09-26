@@ -1,0 +1,205 @@
+/* 
+    Document   : villa
+    Created on : May 14, 2011, 11:53:52 AM
+    Author     : jtoirac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	padding: 0;
+	margin: 0;
+}
+
+a, a:visited {
+	color: #3a6f87;
+}
+
+img {
+	border: none;
+}
+
+label {
+	cursor: pointer;
+}
+
+#todo {
+	width: 660px;
+	margin: 0 auto;
+}
+
+#todo1 {
+	padding: 20px;
+	background-color: #ffffff;
+	float: left;
+}
+
+#todo1 div {
+	float: left
+}
+
+#banner {
+	width: 100%;
+	text-align: center;
+}
+
+#div0 {
+	text-align: right;
+}
+
+.demo {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 10px;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.uno {
+	line-height: 25px;
+	border-width: 1px 0;
+	border-color: black;
+	border-style: solid;
+	font-size: 1.1em;
+}
+
+#div0 a {
+	display: table-cell;
+	margin: 0 5px;
+	float: right;
+}
+
+#div1, #div2, #div3, #div4, #div0 {
+	margin: 10px 0;
+	width: 100%;
+}
+
+.intern {
+	background-color: #68c7f3;
+	-moz-border-radius: 6px 6px;
+	webkit-border-radius: 6px;
+	border-radius: 6px;
+	padding: 5px 30px;
+	width: 600px;
+}
+
+#div1 .intern .divid {
+	width: 280px;
+}
+
+h4 {
+	color: #FD7A23;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.intro, .oblig {
+	color: #808080;
+    font-size: 14px;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.oblig {
+	display: block;
+	text-align: right;
+	width: 100%;
+	font-size: 0.8em;
+	float: right;
+}
+
+.intForm {
+	width: 500px;
+	margin-left: 51px;
+	padding: 20px 0;
+}
+
+.intForm hr {
+	display: block;
+    float: left;
+    margin: 23px 0;
+    width: 100%;
+}
+
+.largo {
+	width: 490px;
+	text-align: center;
+}
+
+.ultimo {
+	width: 490px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.ultimo input {
+	text-transform: uppercase;
+	color: #9DD8F4;
+	border: 1px solid #9DD8F4;
+	background-color: #3a6f87;
+	cursor: pointer;
+}
+
+.prueba {
+	display: block;
+	float: left;
+	text-align: center;
+	width: 120px;
+	font-variant: small-caps;
+}
+
+.catG {
+	display: inline-block;
+	width: 120px;
+}
+
+.catG1 {
+	display: inline-block;
+	width: 240px;
+}
+
+.divid {
+    width: 300px;
+    height: 215px;
+	z-index: 30;
+}
+
+.masc {
+	background-color: #3a6f87;
+    color: #FFFFFF;
+}
+
+.fem {
+	background-color: #9dd8f4;
+}
+
+ul.img li {
+	display: inline-block;
+	position: absolute; 
+}
+
+#imgMasc {
+	left: 28.5%;
+	z-index: 0;
+}
+
+#imgFem {
+	left: 67.8%;
+	z-index: 0;
+}
+
+

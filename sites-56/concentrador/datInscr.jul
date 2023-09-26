@@ -1,0 +1,559 @@
+<?php
+ini_set('display_errors', 0);
+//error_reporting(0);
+header("Cache-Control: no-cache");
+header("Pragma: no-cache");
+
+define('_VALID_ENTRADA', 1);
+if (!session_start()) session_start();
+require_once( 'admin/classes/entrada.php' );
+require_once( 'configuration.php' );
+include 'include/mysqli.php';
+require_once( 'include/correo.php' );
+require_once( 'include/hoteles.func.php' );
+require_once( 'admin/adminis.func.php' );
+require_once( 'include/class.inscTitanes.php' );
+
+$temp = new ps_DB;
+$correo = new correo;
+$ent = new entrada;
+$tit = new insTit();
+
+$q = "select estado from tbl_pasarela where idPasarela = 37";
+$temp->query($q);
+$estado = $temp->f('estado');
+if ($estado == 'P') {
+	$url = "https://secure02.tefpay.com/paywebv1.4.15/INPUT.php";
+	$idcom = '003277589'; 
+} else {
+	$url = "https://intesecure02.tefpay.com/paywebv1.4.15.1/INPUT.php";
+	$idcom = 'V99008980';
+}
+
+/*********************************************/
+if (stripos(_ESTA_URL, 'localhost') > 0) {
+// CLIENTE
+// $q = "select (idcimex+1) id from tbl_aisCliente order by idcimex desc limit 0,1";
+// $temp->query($q);  
+// $_REQUEST['Id'] = $temp->f('id');
+//$_REQUEST['Id'] = '1664';
+//$_REQUEST['Nombre'] = 'Jose';
+//$_REQUEST['Apellido1'] = 'Elcorrobarrutia';
+//$_REQUEST['Apellido2'] = '';
+//$_REQUEST['DocumentNumber'] = '116037648';
+//$_REQUEST['DocumentExpirationDate'] = '16/08/21';
+//$_REQUEST['Email'] = 'jolevq@gmail.com';
+//$_REQUEST['PhoneNumber'] = '51992774277';
+//$_REQUEST['Country'] = 'PE';
+//$_REQUEST['Province'] = 'Lima';
+//$_REQUEST['City'] = 'Lima';
+//$_REQUEST['Address'] = 'Calle Victor Alzamora 347 Dpto 504';
+//$_REQUEST['PostalCode'] = 'Lima34';
+//$_REQUEST['CountryOfBirth'] = 'PE';
+//$_REQUEST['DateOfBirth'] = '16/05/80';
+//$_REQUEST['Gender'] = '0';
+//$_REQUEST['Profesion'] = 'Ingeniero';
+//$_REQUEST['MonthSalary'] = '1000';
+//$_REQUEST['UsuarioCode'] = 'jolevq';
+// $salidaCurl = 'xml version="1.0" encoding="UTF-8"
+// <response><Ds_Message>Error de proceso</Ds_Message><Ds_Merchant_ClientId>453452f</Ds_Merchant_ClientId><Ds_Bank>0
+// </Ds_Bank><Ds_Date>160113170406</Ds_Date><Ds_AuthorisationCode>0</Ds_AuthorisationCode><Ds_PanMask>0</Ds_PanMask><Ds_Merchant_TransactionType>0
+// </Ds_Merchant_TransactionType><Ds_Amount>0</Ds_Amount><Ds_Code>207</Ds_Code><Ds_Merchant_Guarantees>0</Ds_Merchant_Guarantees>
+// <Ds_Merchant_MerchantCode>V99008980</Ds_Merchant_MerchantCode><Ds_Signature>5f8248588cc3d240fb9af902096805444319dfcb</Ds_Signature></response>';
+
+// BENEFICIARIO
+// $q = "select (idcimex+1) id from tbl_aisBeneficiario order by idcimex desc limit 0,1";
+// $temp->query($q); 
+// $_REQUEST['Id'] = $temp->f('id');
+// $_REQUEST['Id'] = '428';
+// $_REQUEST['IdCliente'] = '934';
+// $_REQUEST['Nombre'] = 'Dariel';
+// $_REQUEST['Apellido1'] = 'Gutierrez';
+// $_REQUEST['Apellido2'] = '';
+// $_REQUEST['Phone'] = '005354634838';
+// $_REQUEST['Address'] = 'Suarez entre vive y esperanza';
+// $_REQUEST['City'] = 'Alquizar';
+// $_REQUEST['CI'] = '51500090014';
+// $_REQUEST['Relation'] = '2';
+// $_REQUEST['Reason'] = '3';
+// $salidaCurl = 'xml version="1.0" encoding="UTF-8"
+// <response><Ds_Message>Error de proceso</Ds_Message><Ds_Merchant_BeneficiaryId>34f23</Ds_Merchant_BeneficiaryId><Ds_Bank>0</Ds_Bank>
+// <Ds_Date>160113170406</Ds_Date><Ds_AuthorisationCode>0</Ds_AuthorisationCode><Ds_PanMask>0</Ds_PanMask><Ds_Merchant_TransactionType>0
+// </Ds_Merchant_TransactionType><Ds_Amount>0</Ds_Amount><Ds_Code>207</Ds_Code><Ds_Merchant_Guarantees>0</Ds_Merchant_Guarantees>
+// <Ds_Merchant_MerchantCode>V99008980</Ds_Merchant_MerchantCode><Ds_Signature>5f8248588cc3d240fb9af902096805444319dfcb</Ds_Signature></response>';
+}
+
+/*********************************************/
+
+$d=$_REQUEST;
+global $correoMi;
+$correoMi = $sale = $salidaCurl = '';
+$cliente = false;
+
+$correoMi .= "DIR IP - ". $_SERVER['REMOTE_ADDR'] . "<br>\n";
+foreach ($d as $value => $item) {
+	if (mb_detect_encoding($item) == 'UTF-8') $d[$value] = mb_convert_encoding($item, "UTF-8");
+	else $d[$value] = utf8_encode($item);
+	$correoMi .= $value . "=" . $item . ", enc=".mb_detect_encoding($item)."<br>\n";
+}
+$correo->todo(13, "Entrada inscripción Cliente o Beneficiario AIS", $correoMi);
+
+//$correo->todo(48, 'Insertando usuarios en Ais datos de entrada', $correoMi);
+
+if (!isset($d['Id'])) muestraError ("No se envian datos", $correoMi);
+//datos comunes
+if (!($id = $ent->isReal($d['Id'], 12))) muestraError ("falla por Id", $correoMi);
+if (!($nombre = ucwords(strtolower($ent->isAlfabeto($d['Nombre'], 50))))) muestraError ("falla por Nombre", $correoMi);
+if (!($ape1 = ucwords(strtolower($ent->isAlfabeto($d['Apellido1'],50))))) muestraError ("falla por Apellido1", $correoMi);
+//if (!($ape2 = ucwords(strtolower($d['Apellido2'])))) muestraError ("falla por Apellido2", $correoMi);
+$d['Address'] = substr(str_replace("\"", "/", $d['Address']), 0,69);
+$correoMi .= $d['Address']."<br>";
+if (!($dir = substr($ent->isDeHtml($d['Address'], 100), 0, 69))) muestraError ("falla por Address", $correoMi);
+$ciudad = utf8_decode($d['City']);
+$nombre = utf8_decode($nombre);
+$ape1 = utf8_decode($ape1);
+$ape2 = utf8_decode($ape2);
+$dir = utf8_decode($dir);
+
+$data = array(
+			"Ds_Merchant_TransactionType"=>'45',
+			"Ds_Merchant_MerchantCode"=> $idcom
+		);
+
+if (!isset($d['IdCliente'])) {//Es un Cliente
+	$correoMi .= "Cliente\n<br>";
+	if (!($telf = $ent->isAlfanumerico($d['PhoneNumber'], 15))) muestraError ("falla por Phone", $correoMi);
+	if (!($numid = $ent->isAlfanumerico($d['DocumentNumber'], 21))) muestraError ("falla por DocumentNumber", $correoMi);
+	if (!($fechaDoc = to_unix($ent->isDate($d['DocumentExpirationDate'])))) muestraError ("falla por DocumentExpirationDate", $correoMi);
+	if ($fechaDoc < (time()+60*60*24*2)) muestraError ("falla por fecha errónea en DocumentExpirationDate", $correoMi);
+	if (!($email = strtolower($ent->isCorreo($d['Email'], 60)))) muestraError ("falla por Email", $correoMi);
+	if (!($pais = $ent->isAlfabeto($d['Country'], 2))) muestraError ("falla por Country", $correoMi);
+// 	if (!($prov = $ent->isAlfanumerico($d['Province'], 50))) muestraError ("falla por Province", $correoMi);
+// 	$po = $d['PostalCode'];
+	if ($d['PostalCode'] == '0') $po = '0';
+	else if (stripos($d['PostalCode'], '--') > -1) $po = '0';
+	else if (!($po = $ent->isAlfanumerico($d['PostalCode'], 11))) muestraError ("falla por PostalCode", $correoMi);
+	if (!($paisNac = $ent->isAlfabeto($d['CountryOfBirth'], 2))) muestraError ("falla por CountryOfBirth", $correoMi);
+	$arrFec = explode("/", $d['DateOfBirth']);
+	if (!is_array($arrFec)) muestraError ("falla por DateOfBirth", $correoMi);
+	if (strlen($arrFec[2]) == 2) {
+		if ($arrFec[2]+16 > date('y')) $d['DateOfBirth'] = $arrFec[0]."/".$arrFec[1]."/19".$arrFec[2];
+		else $d['DateOfBirth'] = $arrFec[0]."/".$arrFec[1]."/20".$arrFec[2];
+	} else $d['DateOfBirth'] = $arrFec[0]."/".$arrFec[1]."/".$arrFec[2];
+	if (!($fechaNac = to_unix($ent->isDate($d['DateOfBirth'])))) muestraError ("falla por DateOfBirth", $correoMi);
+	if (!($sex = $ent->isReal('1'.$d['Gender'], 2))) muestraError ("falla por Gender", $correoMi);
+// 	$sex = substr($sex, 1);
+	if ($sex == '10') $sex = 1; //si viene masc 0 lo paso a 1
+	if ($sex == '11') $sex = 2; //si viene fem 1 lo paso a 2
+	if (!($prof = $ent->isAlfanumerico(str_replace(" ", "_", $d['Profesion']), 50))) muestraError ("falla por Profesion", $correoMi);
+//	if (!($sal = $ent->isNumero($d['MonthSalary'], 50))) muestraError ("falla por Salario mensual", $correoMi);
+	if (!($usur = $d['UsuarioCode'])) muestraError ("falla por Código de usuario", $correoMi);
+	$cliente = true;
+
+	$paise = pais($pais);
+	$paisNace = pais($paisNac);
+	$prof = utf8_decode($prof);
+	$prov = utf8_decode($prov);
+	$titSub = false;
+	
+	
+	//verifico que el cliente existe o no para saber si es una actualización o inscripción nueva
+	$q = "select id, idtitanes from tbl_aisCliente where idcimex = $id";
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	$idcli = $temp->f('id');
+	$idtit =  $temp->f('idtitanes');
+	
+	if ($temp->num_rows() == 0){ 
+		//Parece que el cliente es nuevo porque el id de cimex no lo tengo verifico que los datos no se repitan
+		$q = "select id, idcimex, idtitanes from tbl_aisCliente where paisResidencia = '$paise' and numDocumento = '$numid'";
+		$temp->query($q);
+		if ($temp->num_rows()) {
+			// los datos se repiten es un cliente que ya existe pero que viene con un id nuevo
+			$idTit = $temp->f('idtitanes');
+			$pase = false;
+			$titSub = true;
+			$q = "update tbl_aisCliente set idcimex = '$id', usuario = '$usur', fecha = '".time()."', subfichero = 1 
+					where id = ".$temp->f('id');
+		} else {
+			//Verifico el teléfono y nombre
+			$q = "select id, idcimex, idtitanes from tbl_aisCliente where telf1 = '$telf' and nombre = '$nombre'";
+			$temp->query($q);
+			$can = $temp->num_rows();
+			$idTit = $temp->f('idtitanes');
+			$idn = $temp->f('id');
+
+			//Verifico nombre y apellido
+//			$temp->query("select id, idcimex, idtitanes from tbl_aisCliente where lower(nombre) = lower('$nombre') and lower(papellido) = lower('$ape1')");
+//			if ($can == 0) {
+//				$can = $temp->num_rows();
+//				$idTit = $temp->f('idtitanes');
+//				$idn = $temp->f('id');
+//			}
+
+			//Verifico correo
+			$temp->query("select id, idcimex, idtitanes from tbl_aisCliente where correo = '$email'");
+			if ($can == 0) {
+				$can = $temp->num_rows();
+				$idTit = $temp->f('idtitanes');
+				$idn = $temp->f('id');
+			}
+
+			if ($can > 0) {
+				// los datos se repiten es un cliente que ya existe pero que viene con un id nuevo
+				$pase = false;
+				$titSub = true;
+				$q = "update tbl_aisCliente set idcimex = '$id', usuario = '$usur', fecha = '".time()."', subfichero = 1 
+						where id = ".$idn;
+			} else {
+				// no se repiten los datos el cliente es efectivamente nuevo lo inserto
+				$idTit = 0;
+				$q = "insert into tbl_aisCliente (idcimex, nombre, papellido, sapellido, fnacimiento, numDocumento, fechaDocumento, correo, 
+							telf1, paisResidencia, provincia, ciudad, direccion, CP, paisNacimiento, sexo, ocupacion, 
+							fecha, fechaAltaCimex, usuario) 
+						values ('$id', '$nombre', '$ape1', '$ape2', '$fechaNac', '$numid', '$fechaDoc', '$email', 
+							'$telf', '$paise', '$prov', '$ciudad', '$dir', '$po', '$paisNace', '$sex', '$prof',
+							'".time()."', '".time()."','$usur')";
+				$pase = true;
+			}
+		}
+	} else {
+		$idTit = $temp->f('idtitanes');
+		if ($idTit == '')
+			$idTit = 0;
+		$q = "select usuario from tbl_aisCliente where idcimex = '".$id."'";
+		$temp->query($q);
+		$usur = $temp->f('usuario');
+		$q = "update tbl_aisCliente set nombre = '$nombre', papellido = '$ape1', sapellido = '$ape2', numDocumento = '$numid', 
+					fechaDocumento = '$fechaDoc', correo = '$email', telf1 = '$telf', paisResidencia = '$paise', provincia = '$prov',
+					ciudad = '$ciudad', direccion = '$dir', CP = '$po', sexo = '$sex', ocupacion = '$prof', 
+					paisNacimiento = '$paisNace', fecha = '".time()."', fnacimiento = '".$fechaNac."',
+					subfichero = 1
+				where idcimex = '$id'";
+		$pase = false;
+	}
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	if ($temp->getErrorMsg()) {
+		$correoMi .= "Error insertando Cliente- ".$temp->getErrorMsg();
+		muestraError ("Error insertando Cliente AIS", $correoMi);
+	}
+	
+	if ($pase) $idcli = $temp->last_insert_id(); //si se inscribió un benef nuevo saco el id
+
+	$resident 	= 'False';
+	if ($pais == 'ES') $resident = 'True';
+
+// 	$Ds_Merchant_ClientPhoneNumber2;
+// 	$Ds_Merchant_ClientDocName;
+
+	$data = array_merge($data, array(
+// 			"Ds_Merchant_ClientId"=>0,
+			"Ds_Merchant_ClientId"				=>$idTit,
+			"Ds_Merchant_ClientName"			=>$nombre,
+			"Ds_Merchant_ClientLastName1"		=>$ape1,
+			"Ds_Merchant_ClientLastName2"		=>$ape2,
+			"Ds_Merchant_ClientTypeDoc"			=>2,
+			"Ds_Merchant_ClientDocNumber"		=>$numid,
+			"Ds_Merchant_ClientDocExpiration"	=>date('Y-m-d',$fechaDoc),
+			"Ds_Merchant_ClientDocCountry"		=>$pais,
+			"Ds_Merchant_Email"					=>$email,
+			"Ds_Merchant_ClientPhoneNumber"		=>$telf,
+			"Ds_Merchant_ClientCountry"			=>$pais,
+			"Ds_Merchant_ClientProvince"		=>$prov,
+			"Ds_Merchant_ClientCity"			=>$ciudad,
+			"Ds_Merchant_ClientPostalCode"		=>$po,
+			"Ds_Merchant_ClientCountryOfBirth"	=>$paisNac,
+			"Ds_Merchant_ClientSex"				=>$sex,
+			"Ds_Merchant_ClientOccupation"		=>99,
+			"Ds_Merchant_ClientActivity"		=>$prof,
+			"Ds_Merchant_ClientIsResident"		=>$resident,
+			"Ds_Merchant_ClientIsPublicOffice"	=>'False',
+			"Ds_Merchant_ClientAddress"			=>base64_encode($dir),
+			"Ds_Merchant_ClientDateOfBirth"		=>date('Y-m-d',$fechaNac)
+       ));
+	foreach ($data as $value => $item) {
+		$correoMi .= $value . "=" . $item . "<br>\n";
+	}
+	
+	if (!$idTit) $sale = enviaDato($data);
+	else $sale = $idTit;
+	
+} else { //Es un beneficiario
+	$correoMi .= "Beneficiario\n<br>";
+	$pase=0;
+	if (!($idcliente = $ent->isReal($d['IdCliente'], 12))) muestraError ("falla por IdCliente", $correoMi);
+	if (!($ci = $ent->isReal($d['CI'], 11))) muestraError ("falla por CI", $correoMi);
+	if ($d['Relation'] > 0 && $d['Relation'] < 19) $rela = $d['Relation'];
+	else muestraError ("falla por Relation", $correoMi);
+	if ($d['Reason'] > -1 && $d['Reason'] < 10) $rea = $d['Reason'];
+	else muestraError ("falla por Reason", $correoMi);
+	$telf = $d['Phone'];
+	if (strlen(($d['Phone'])) == 0 || $d['Phone'] == 0) $d['Phone'] = time();
+	if (!($telf = $ent->isAlfanumerico($d['Phone'], 15))) muestraError ("falla por Phone", $correoMi);
+	
+	//verifico que el cliente existe o no
+	$q = "select id, idtitanes from tbl_aisCliente where idcimex = $idcliente";
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	if ($temp->num_rows() == 0)  muestraError ("falla por que no se encuentra el IdCliente en la BD", $correoMi);
+	else {
+		$idcli = $temp->f('id');
+		$idTitCl = $temp->f('idtitanes');
+	}
+	
+	//verifico que el beneficiario existe o no para saber si es una actualización o inscripción nueva
+	$q = "select id, idtitanes from tbl_aisBeneficiario where idcimex = ".$id;
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	$iben = $temp->f('id');
+	$idTit =  $temp->f('idtitanes');
+	
+	if ($temp->num_rows() == 0){ 
+		//chequeo que hayan enviado un beneficiario duplicado buscando el CI en la BD
+		$qs = "select id, idtitanes from tbl_aisBeneficiario where numDocumento = '$ci'";
+		$temp->query($qs);
+		if ($temp->num_rows()>0) {
+			$correoMi .= "El beneficiario ya existía en la BD hago el update de sus datos\n<br>";
+			$iben = $temp->f('id');
+			$idTit =  $temp->f('idtitanes');
+			$q = "update tbl_aisBeneficiario set nombre = '".$nombre."', papellido = '".$ape1."', sapellido = '".$ape2."', telf = '".$telf."',
+					direccion = '".$dir."', ciudad = '".$ciudad."', numDocumento = '$ci', fecha = '".time()."', idcimex = '".$id."'
+				where id = $iben";
+			$pase = true;
+		} else {
+			$qs = "select id, idtitanes from tbl_aisBeneficiario where telf = '$telf' and nombre = '$nombre'";
+			$temp->query($qs);
+			if ($temp->num_rows()>0) {
+				$correoMi .= "El beneficiario ya existía en la BD hago el update de sus datos2\n<br>";
+				$iben = $temp->f('id');
+				$idTit =  $temp->f('idtitanes');
+				$q = "update tbl_aisBeneficiario set nombre = '".$nombre."', papellido = '".$ape1."', sapellido = '".$ape2."', telf = '".$telf."',
+						direccion = '".$dir."', ciudad = '".$ciudad."', numDocumento = '$ci', fecha = '".time()."', idcimex = '".$id."'
+					where id = $iben";
+				$pase = true;
+			} else { //Se inserta el cliente por primera vez
+				$idTit = 0;
+				$correoMi .= "Insertar beneficiario\n<br>";
+				$q = "insert into tbl_aisBeneficiario (idcimex, idrazon, nombre, papellido, sapellido, telf, direccion, ciudad, numDocumento, fecha, fechaAltaCimex)
+						values ('".$id."', '$rea', '".$nombre."', '".$ape1."', '".$ape2."', '".$telf."', '".$dir."', '".$ciudad."',
+							'$ci', '".time()."', '".time()."')";
+				$pase = true;
+			}
+		}
+	} else {// se hace el update de los datos
+		
+		$correoMi .= "Update del beneficiario\n<br>";
+		$q = "update tbl_aisBeneficiario set nombre = '".$nombre."', papellido = '".$ape1."', sapellido = '".$ape2."', telf = '".$telf."',
+					direccion = '".$dir."', ciudad = '".$ciudad."', numDocumento = '$ci', fecha = '".time()."'
+				where idcimex = '".$id."'";
+		$pase = true;
+	}
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	if ($temp->getErrorMsg()) {
+		$correoMi .= "Error insertando Beneficiario- ".$temp->getErrorMsg();
+		muestraError ("Error insertando Beneficiario AIS", $correoMi);
+	}
+	
+	if ($idTit == '' || !$idTit)
+		$idTit = 0;
+		
+	if (stripos($q, "insert") > -1) $iben = $temp->last_insert_id(); //si se inscribió un benef nuevo saco el id
+	
+	//borro la relación que exista entre ese cliente y ese beneficiario
+	$q = "delete from tbl_aisClienteBeneficiario where idcliente = $idcli and idbeneficiario = $iben";
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	
+	//escribo la nueva relación
+	$q = "insert into tbl_aisClienteBeneficiario values (null, '$idcli', '$iben', '$rela', ".time().")";
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	$fen = substr($ci, 0, 6);
+	
+	$ext = "20";
+	if(date('y') - (substr($fen, 0,2)) < 15) $ext = "19";
+
+	$data = array_merge($data, array(
+			"Ds_Merchant_ClientId"=>$idTitCl,
+			"Ds_Merchant_BeneficiaryId"=>$idTit,
+			"Ds_Merchant_BeneficiaryName"=>($nombre),
+			"Ds_Merchant_BeneficiaryLastName1"=>utf8_encode($ape1),
+			"Ds_Merchant_BeneficiaryLastName2"=>utf8_encode($ape2),
+			"Ds_Merchant_BeneficiaryDocNumber"=>$ci,
+			"Ds_Merchant_BeneficiaryPhoneNumber"=>$telf,
+			"Ds_Merchant_BeneficiaryCountry"=>'CU',
+			"Ds_Merchant_BeneficiaryCity"=>utf8_encode($ciudad),
+			"Ds_Merchant_BeneficiaryAddress"=>base64_encode(utf8_encode($dir)),
+			"Ds_Merchant_BeneficiaryRelation"=>$rela,
+			"Ds_Merchant_BeneficiaryTypeDoc"=>'1',
+			"Ds_Merchant_BeneficiaryDocExpiration"=>date('Y-m-d',(time()+325036800)),
+			"Ds_Merchant_BeneficiaryDocCountry"=>'CU',
+			"Ds_Merchant_BeneficiaryCountryOfBirth"=>'CU',
+			"Ds_Merchant_BeneficiaryDateOfBirth"=>date('Y-m-d',mktime(0,0,0,substr($fen, 2,2),substr($fen, 4),$ext.substr($fen, 0,2))),
+			"Ds_Merchant_BeneficiaryGender"=> substr($ci, 10,1) % 2
+		));
+	$sale = enviaDato($data);
+}
+
+if (strlen($sale) > 2) {
+	$correoMi .=  "Actualiza el id de Titanes<br>\n";
+	$correoMi .= "sale=$sale<br>\n";
+	$ok = false;
+
+	if ($pase) {
+		$correoMi .= "<br>\nInscripción de";
+		$lab = 'Inscripción';
+		$mes = "Se ha inscrito";
+	} else {
+		$correoMi .= "<br>\nActualización de";
+		$lab = 'Actualización';
+		$mes = "Se ha actualizado";
+	}
+	
+	if ($cliente) {//para los clientes
+	
+		$q = "select idtitanes from tbl_aisCliente where idcimex = $id and idtitanes is not null";
+		$correoMi .= $q."\n<br>";
+		$temp->query($q);
+		if ($temp->num_rows() == 0) {//si el cliente no se encontraba inscrito con el número de Titanes..
+			$ini = stripos($sale, "<Ds_Merchant_ClientId>")+22;
+			$correoMi .= "ini=$ini\n<br>";
+			if ($fin = stripos($sale, "</Ds_Merchant_ClientId>")) {
+				$dif = $fin - $ini;
+				$idTit = substr($sale, $ini, $dif);
+				$tid = '';
+				if (strlen($idTit)) $tid = "idtitanes = '$idTit',";
+				
+				$q = "update tbl_aisCliente set subfichero = 1, $tid fechaAltaTitanes = ".time()." 
+							where idcimex = $id"; //para los clientes
+				$correoMi .= " cliente OK<br>\n";
+				$ok = true;
+				$lab .= " de Cliente";
+				$mes .= " el Cliente ".$nombre." ".$ape1." ".$ape2;
+				$mes .= "Viene de Ais con el identificador $id, en nosotros es el $idcli y en Titanes está inscrito con el $idTit.";
+			} else {
+				$correoMi .= " Se ha producido un error<br>\n";
+				$errorinsc = true;
+				//como dió error la inscripción lo borro
+// 				$q = "delete from tbl_aisCliente where idcimex = $id";
+// 				$temp->query($q);
+			}
+		} else {//el cliente ya se encontraba inscrito ya con el número de Titanes..
+			$mes .= " el Cliente ".$nombre." ".$ape1." ".$ape2;
+			if ($errorinsc) 
+				$mes .= " ha dado error en la inscripción";
+			else
+				$mes .= ". Viene de Ais con el usuario $usur y el identificador $id, en nosotros es el $idcli 
+						y en Titanes está inscrito con el ".$temp->f('idtitanes');
+			$ok = true;
+		}
+		
+		//
+		
+	} else {// para los beneficiarios
+		$q = "select idtitanes from tbl_aisBeneficiario where idcimex = $id and idtitanes is not null";
+		$correoMi .= $q."\n<br>";
+		$temp->query($q);
+		if ($temp->num_rows() == 0) {
+			$ini = stripos($sale, "<Ds_Merchant_BeneficiaryId>")+27;
+			$correoMi .= "ini=$ini\n<br>";
+			if ($fin = stripos($sale, "</Ds_Merchant_BeneficiaryId>")) {
+				$dif = $fin - $ini;
+				$idTit = substr($sale, $ini, $dif);
+				
+				$q = "update tbl_aisBeneficiario set idtitanes = '$idTit', fechaAltaTitanes = ".time()." where idcimex = $id";// para los beneficiarios
+				$correoMi .= " beneficiario OK<br>\n";
+					$ok = true;
+				$lab .= " de Beneficiario";
+				$mes .= " el Beneficiario ".$nombre." ".$ape1." ".$ape2;
+				$mes .= ". Viene de Ais con el identificador $id, en nosotros es el $iben y en Titanes está inscrito con el $idTit.";
+			} else {
+				$correoMi .= " Se ha producido un error<br>\n";
+				//como dió error la inscripción lo borro
+// 				$q = "delete from tbl_aisBeneficiario where idcimex = $id";
+// 				$temp->query($q);
+			}
+		} else {
+			$ok = true;
+			$mes .= " el Beneficiario ".$nombre." ".$ape1." ".$ape2;
+			$mes .= ". Viene de Ais con el identificador $id, en nosotros es el $iben y en Titanes está inscrito con el $idTit.";
+		}
+		
+	}
+	$correoMi .= $q."\n<br>";
+	$temp->query($q);
+	
+// 	$correo->todo(48, $lab." en Ais", $mes);
+	$correoMi .= $mes;
+	if ($ok) echo $id;
+	elseif ($titSub)  echo $id;
+	else echo $sale;
+// echo "generando un error en la inscripción";
+}
+
+
+function enviaDato($data) {
+	global $correoMi, $salidaCurl, $correo, $url;
+	$i=0;
+	
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+	curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	$correoMi .= "\n<br>";
+	
+	foreach ($data as $key => $value) {
+		$correoMi .= "$key => $value\n<br>";
+	}
+	
+	while (strlen($salidaCurl) == 0 && $i < 4) {
+	 	$salidaCurl = curl_exec($ch);
+		$curl_info = curl_getinfo($ch);
+	
+		foreach ($curl_info as $key => $value) {
+			$correoMi .=  $key." = ".$value."<br>\n";
+		}
+		
+		if(strlen(curl_error($ch))) $correoMi .= "Curl error: ".curl_error($ch)."<br>\n";
+	
+		$correoMi .= "Enviado a TefPay, ".date('d-m-y H:i:s:u')." envío - $i - ".htmlspecialchars_decode($salidaCurl)." |<br>\n";
+		$i++;
+		sleep(10);
+	}
+	curl_close($ch);
+	return $salidaCurl;
+}
+
+$correo->todo(48, 'Insertando usuarios en Ais', $correoMi);
+
+function muestraError ($etiqueta, $textoCorreo) {
+	global $correoMi;
+	$correo = new correo();
+	$textoCorreo .= $etiqueta;
+	$correo->set_subject('Error insertando usuario en Ais');
+	$correo->set_message($textoCorreo);
+	$correo->envia(9);
+	echo '<!-- '.$etiqueta.' -->';
+	//$correo->todo(48, 'Error en los datos', $textoCorreo." ** ".$correoMi);
+	exit;
+}
+
+/**
+ * Busca el identificador del país en base al ISO2
+ * @param strin $codpais
+ * @return integer
+ */
+ function pais ($codpais) {
+ 	global $temp;
+	$q = "select id from tbl_paises where iso2 = '$codpais'";
+	$temp->query($q);
+	return $temp->f('id');
+}
+?>

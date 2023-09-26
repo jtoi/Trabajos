@@ -1,0 +1,201 @@
+body,
+.sp-preloader {
+  background-color: #fff;
+}
+.sp-preloader > div {
+  background: #2bb4e6;
+}
+.sp-preloader > div:after {
+  background: #fff;
+}
+#sp-top-bar {
+  background: #083061;
+  color: #fff;
+}
+#sp-top-bar a {
+  color: #fff;
+}
+#sp-header {
+  background: #a83636;
+}
+a {
+  color: #2bb4e6;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #0f7dbd;
+}
+.tags > li {
+  display: inline-block;
+}
+.tags > li a {
+  background: rgba(43, 180, 230, 0.1);
+  color: #2bb4e6;
+}
+.tags > li a:hover {
+  background: #0f7dbd;
+}
+.article-social-share .social-share-icon ul li a {
+  color: #848484;
+}
+.article-social-share .social-share-icon ul li a:hover,
+.article-social-share .social-share-icon ul li a:focus {
+  background: #2bb4e6;
+}
+.pager > li a {
+  border: 1px solid #ededed;
+  color: #848484;
+}
+.sp-megamenu-parent > li > a {
+  color: #083061;
+}
+.sp-megamenu-parent > li:hover > a {
+  color: #2bb4e6;
+}
+.sp-megamenu-parent > li.active > a,
+.sp-megamenu-parent > li.active:hover > a {
+  color: #2bb4e6;
+}
+.sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
+  background: #fff;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item > a {
+  color: #000;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item > a:hover {
+  color: #2bb4e6;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active > a {
+  color: #2bb4e6;
+}
+.sp-megamenu-parent .sp-mega-group > li > a {
+  color: #000;
+}
+#offcanvas-toggler > .fa {
+  color: #083061;
+}
+#offcanvas-toggler > .fa:hover,
+#offcanvas-toggler > .fa:focus,
+#offcanvas-toggler > .fa:active {
+  color: #2bb4e6;
+}
+.offcanvas-menu {
+  background-color: #fff;
+  color: #000;
+}
+.offcanvas-menu .offcanvas-inner .sp-module ul > li a,
+.offcanvas-menu .offcanvas-inner .sp-module ul > li span {
+  color: #000;
+}
+.offcanvas-menu .offcanvas-inner .sp-module ul > li a:hover,
+.offcanvas-menu .offcanvas-inner .sp-module ul > li span:hover,
+.offcanvas-menu .offcanvas-inner .sp-module ul > li a:focus,
+.offcanvas-menu .offcanvas-inner .sp-module ul > li span:focus {
+  color: #2bb4e6;
+}
+.offcanvas-menu
+  .offcanvas-inner
+  .sp-module
+  ul
+  > li.menu-parent
+  > a
+  > .menu-toggler,
+.offcanvas-menu
+  .offcanvas-inner
+  .sp-module
+  ul
+  > li.menu-parent
+  > .menu-separator
+  > .menu-toggler {
+  color: rgba(0, 0, 0, 0.5);
+}
+.offcanvas-menu .offcanvas-inner .sp-module ul > li ul li a {
+  color: rgba(0, 0, 0, 0.8);
+}
+.btn-primary,
+.sppb-btn-primary {
+  border-color: #2bb4e6;
+  background-color: #2bb4e6;
+}
+.btn-primary:hover,
+.sppb-btn-primary:hover {
+  border-color: #0f7dbd;
+  background-color: #0f7dbd;
+}
+ul.social-icons > li a:hover {
+  color: #2bb4e6;
+}
+.sp-page-title {
+  background: #2bb4e6;
+}
+.layout-boxed .body-innerwrapper {
+  background: #fff;
+}
+.sp-module ul > li > a {
+  color: #848484;
+}
+.sp-module ul > li > a:hover {
+  color: #2bb4e6;
+}
+.sp-module .latestnews > div > a {
+  color: #848484;
+}
+.sp-module .latestnews > div > a:hover {
+  color: #2bb4e6;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #2bb4e6;
+}
+.search .btn-toolbar button {
+  background: #2bb4e6;
+}
+#sp-footer,
+#sp-bottom {
+  background: #072d5a;
+  color: #fff;
+}
+#sp-footer a,
+#sp-bottom a {
+  color: #2bb4e6;
+}
+#sp-footer a:hover,
+#sp-bottom a:hover,
+#sp-footer a:active,
+#sp-bottom a:active,
+#sp-footer a:focus,
+#sp-bottom a:focus {
+  color: #fff;
+}
+#sp-bottom .sp-module-content .latestnews > li > a > span {
+  color: #fff;
+}
+.sp-comingsoon body {
+  background-color: #2bb4e6;
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #848484;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #848484;
+}
+.pagination > .active > a,
+.pagination > .active > span {
+  border-color: #2bb4e6;
+  background-color: #2bb4e6;
+}
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  border-color: #2bb4e6;
+  background-color: #2bb4e6;
+}
+.error-code,
+.coming-soon-number {
+  color: #2bb4e6;
+}

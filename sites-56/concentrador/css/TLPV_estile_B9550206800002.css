@@ -1,0 +1,32 @@
+.l3 { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #FFFFFF; text-decoration: none; background-color: #18305A
+}
+.l2 { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; color: #18305A; text-decoration: none; background-color: #FFFFFF
+}
+.l3p { font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: normal; color: #18305A; text-decoration: none; background-color: #FFFFFF
+}
+.peqa { font-SIZE: 1pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: normal
+}
+.fh { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; color: #18305A; background-color: #EFEFF0
+}
+.fr { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; color: #18305A; background-color: #EFEFF0
+}
+.Formulario { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #22356f
+}
+.boldao { font-SIZE: 9pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold
+}
+.boldaot { font-SIZE: 10pt; COLOR: #003366; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold
+}
+.boldrj { font-SIZE: 9pt; COLOR: #FF0000; font-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none ; font-weight: bold
+}
+a.lnkazul3 { color: #333366; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal
+}
+BODY {
+SCROLLBAR-FACE-COLOR: #DBEAFF;
+SCROLLBAR-HIGHLIGHT-COLOR: #1B2B5E;
+SCROLLBAR-SHADOW-COLOR: #EBF0F4;
+SCROLLBAR-3DLIGHT-COLOR: #1B2B5E;
+SCROLLBAR-ARROW-COLOR: #333366;
+SCROLLBAR-TRACK-COLOR: #333366;
+SCROLLBAR-DARKSHADOW-COLOR:#333366;
+background-color: #FFFFFF;
+}
