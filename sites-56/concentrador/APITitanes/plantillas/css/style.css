@@ -25,6 +25,10 @@ span {
     z-index: 100;
 }
 
+.treeBr {
+    width: 300px;
+}
+
 #espera img {
     position: absolute;
     left: 50%;

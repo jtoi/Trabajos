@@ -38,7 +38,7 @@ function updateUser(){
         ) {
             pase = 0;
         }
-        var patNombre = new RegExp('^[a-zA-Z][a-zA-Z-áéíóúüñ _\.]{1,50}$');
+        var patNombre = new RegExp('^[a-zA-Z][a-zA-Z-áéíóúüñ _\]{1,50}$');
         
         if (!patNombre.test($("#nombre").val())) {
             pase = 0;
@@ -129,14 +129,14 @@ function updateUser(){
 function insertUser(prof){
     var pase = 1;
 	
-    if ($("#tipo").val() == 'Physical') {
+    if ($("#tipo").val() == '1') {
         if (
             $("#nombre").val().length == 0
             || $("#papellido").val().length == 0
         ) {
             pase = 0;
         }
-        var patNombre = new RegExp('^[a-zA-Z][a-zA-Z-áéíóúüñ _\.]{1,50}$');
+        var patNombre = new RegExp('^[a-zA-Z][a-zA-Z-áéíóúüñ _\]{1,50}$');
         
         if (!patNombre.test($("#nombre").val())) {
             pase = 0;
@@ -156,14 +156,14 @@ function insertUser(prof){
             }
         }
 
-    } else if ($("#tipo").val() == 'Legal') {
+    } else if ($("#tipo").val() == '2') {
         if (
             $("#comercialName").val().length == 0
             || $("#dSocial").val().length == 0
         ) {
             pase = 0;
         }
-        var patNombre = new RegExp('^[a-zA-Z0-9][a-zA-Z0-9-áéíóúüñ _\.]{1,50}$');
+        var patNombre = new RegExp('^[a-zA-Z0-9][a-zA-Z0-9-áéíóúüñ _\]{1,50}$');
         if (!patNombre.test($("#comercialName").val())) {
             pase = 0;
             $("#comercialName").focus();

@@ -1,33 +1,49 @@
-function imprimirArbol(array) {
+function generateTreeText(data, level = 0) {
+    var treeText = "";
 
-    var linea = "<div class='linea linea$esp$'><div class='clave'>$clave$: </div><div class='valor'>$valor$</div></div>";
-    var keys = Object.keys(array);
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            var value = data[key];
+            var indentation = "&nbsp;&nbsp;".repeat(level); // Indentation based on the level
 
-    for (var i = 0; i < keys.length; i++) {
-        if (keys[i].toLowerCase().indexOf('personid') >= 0) {
-            array[keys[i]] = "<span class='enla' onClick='envia(" + array[keys[i]] + ")'>" + array[keys[i]] + "</span>";
-        }
+            treeText += indentation + key + ": ";
 
-        if (Array.isArray(array[keys[i]])) {
-
-            var lineas = linea.replace('$clave$', keys[i]).replace('$valor$', ' ').replace('$esp$', esp);
-            $("#todomas").append(lineas)
-            if (array[keys[i]][0] != null) {
-                esp++;
-                imprimirArbol(array[keys[i]][0], esp);
+            if (typeof value === "object" && !Array.isArray(value)) {
+                treeText += "\n<br>" + generateTreeText(value, level + 1); // Recursively call for objects
+            } else if (Array.isArray(value)) {
+                treeText += "\n<br>" + indentation + "  - " + value.join("\n" + indentation + "  - ");
             } else {
-                if (esp > 1) esp--;
+                treeText += value + "<br>";
             }
-        } else {
-            var lineas = linea.replace('$clave$', keys[i]).replace('$valor$', array[keys[i]]).replace('$esp$', esp);
-            $("#todomas").append(lineas)
+
+            treeText += "\n";
         }
     }
-    if (esp > 1) esp--;
+
+    return treeText;
 }
 
+function generarTextoArbol(object) {
+    let texto = "";
 
-var esp = 1;
+    // Recorrer el objeto
+    for (const key in object) {
+        const value = object[key];
+
+        // Si el valor es un objeto, se llama a la función recursivamente
+        if (typeof value === "object") {
+            texto += `<ul>
+        <li class="treeBr"><strong>${key}</strong>
+          ${generarTextoArbol(value)}
+        </li>
+      </ul>`;
+        } else {
+            texto += `<li class="treeBr"><strong>${key}</strong>: ${value}</li>`;
+        }
+    }
+
+    return texto;
+}
 
 
 function envia(perId = '') {
@@ -39,15 +55,16 @@ function envia(perId = '') {
         func: 'personSummary'
     }, function (data) {
         var datos = eval('(' + data + ')');
-        // var entrada = datos.entrada[0];
-        var salida = datos.salida;
-
-        if (typeof datos.error !== 'undefined' && datos.error !== null) alert(utf8Decode(datos.error));
-        else {
-            // imprimirArbol(datos.salida.data);
-            $("#todomas").append(utf8Decode(datos.salida));
-            $(".formul").hide();
+        
+        var sale = datos.pase.salida;
+        var datos = sale.data;
+        
+        if (sale.error != null) {
+            alert("La consulta a Titanes ha devuelto el error: "+sale.error);
+        } else {
+            $("#todomas").html(generarTextoArbol(datos));
         }
+        
         esperafn();
     });
 }

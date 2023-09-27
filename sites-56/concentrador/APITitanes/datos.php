@@ -308,8 +308,11 @@ if ($d['func']) {
 
 	$resp = call_user_func($fun, json_encode($d));
 
+	setLog("RESP-".json_encode($resp));
+	setLog("FUNCION-".$fun);
 
-    if (is_array($resp) && $fun != 'balanceCuenta') {
+
+    if (is_array($resp) && $fun != 'balanceCuenta' && $fun != 'personSummary') {
 		$vari = vardump($resp['salida']['data']);
 		// $vari = print_r($resp, true);
         // echo json_encode($resp);
