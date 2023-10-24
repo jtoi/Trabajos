@@ -481,3 +481,63 @@
 24-Oct-2023 09:59:16.000000 ->COMPARA->
 
 24-Oct-2023 09:59:16.000000 ->JSONSALIDA->{"error":"","pase":{"entrada":[{"Id":"6","idTipo":"1","IdActividad":"1","IdPaisOrigen":"1","IdPaisDoc":"1","idGender":"2","IdTitanes":"226267","IdTipoDoc":"1","IsBeneficiario":"0","Nombre":"Arydea","PApellido":"Benavidez","SApellido":"Alaniz","BusinessName":"","CommercialName":"","DateOfBirth":"1993-05-23","IsPublicOffice":"0","BusinessPerson":"0","Documento":"657345634563","Active":"1","Risk":"2","PersonProfile":"2","Validated":"1","Admited":"1","FechaInsc":"2023-10-24","borrado":"0"}],"salida":{"httpstatus":200,"apistatus":118,"description":"Person data summary","data":{"Id":226267,"Nombre":"BENAVIDEZALANIZ, ARYDEA","PersonTypeId":1,"PersonTypeName":"Physical","BirthDate":"1993-05-23T00:00:00","OriginCountryIso2":"AF","OriginCountryIso3":"AFG","OriginCountryIsoCode":4,"LaboralActivityId":1,"LaboralActivity":{"Id":1,"Name":"Asociaciones sin \u00c3\u00a1nimo de lucro y religiosas","Risk":2,"Active":true},"LaboralActivityDesc":"","BusinessPerson":0,"Active":true,"Admited":true,"ShortId":"0wrT","Documents":[{"Id":374772,"DocumentTypeId":1,"DocumentName":"Documento Nacional Identidad","DocumentNumber":"657345634563","ExpeditionCountryIso2":"AF","ExpeditionCountryIso3":"AFG","ExpeditionCountryIsoCode":4,"ExpirationDate":"2024-12-12T00:00:00","Validated":true,"IsDefault":true}],"Relations":[],"Accounts":[],"Addresses":[{"Id":213162,"Address":"2472 Brown Bear Drive","Province":"California","City":"Rancho California","Iso2":"AF","Iso3":"AFG","CountryIsoCode":4,"PostalCode":"92390"}],"ContactMethod":[{"Id":317527,"ContactMethodTypeId":1,"ContactMethod":"Telefono Fijo","Value":"3456345634"}]},"error":null}}}
+
+24-Oct-2023 10:41:20.000000 ->Entrada de datos->{"func":"getCode"}
+
+24-Oct-2023 10:41:20.000000 ->Entrada de datos->{"dato":"30"}
+
+24-Oct-2023 10:41:20.000000 ->RESP-null
+
+24-Oct-2023 10:41:20.000000 ->FUNCION-getCode
+
+24-Oct-2023 10:41:20.000000 ->LLEGANDO... 
+
+24-Oct-2023 10:41:20.000000 ->COMPARA->
+
+24-Oct-2023 10:41:20.000000 ->JSONSALIDA->{"error":"","pase":null}
+
+24-Oct-2023 10:41:20.000000 ->QUERY->select (select count(Id) from tit_Personas) personas, (select count(Id) from tit_Personas where IsBeneficiario = 0) cliente, (select count(Id) from tit_Personas where IsBeneficiario = 1) beneficiario 
+
+24-Oct-2023 10:41:20.000000 ->JSONNN->[{"personas":"6","cliente":"4","beneficiario":"2"}]
+
+24-Oct-2023 10:41:22.000000 ->Entrada de datos->{"nom":"%","ben":"&","tipo":"&","dato":"31"}
+
+24-Oct-2023 10:41:22.000000 ->QUERY->select distinct idTitanes tit, concat(Nombre, ' ', PApellido, ' ', SApellido) persona, case IsBeneficiario when 1 then 'Si' else 'No' end ben, case idTipo when 1 then 'Persona Física' else 'Persona Legal' end tipo from tit_Personas where 1=1 
+
+24-Oct-2023 10:41:22.000000 ->JSONNN->[{"tit":"226197","persona":"Elizabeth J Simmons ","ben":"No","tipo":"Persona F\u00edsica"},{"tit":"226198","persona":"Pompeyo Lozada Valdivia","ben":"Si","tipo":"Persona F\u00edsica"},{"tit":"229499","persona":"Gina Valenzuela ","ben":"No","tipo":"Persona F\u00edsica"},{"tit":"229795","persona":"nombre apellido ","ben":"No","tipo":"Persona F\u00edsica"},{"tit":"229796","persona":"el hijodel su apellido ","ben":"Si","tipo":"Persona F\u00edsica"},{"tit":"226267","persona":"Arydea Benavidez Alaniz","ben":"No","tipo":"Persona F\u00edsica"}]
+
+24-Oct-2023 10:41:25.000000 ->Entrada de datos->{"PersonId":"226267","func":"personSummary"}
+
+24-Oct-2023 10:41:25.000000 ->QUERY->select Token from tit_Token where datediff (CURDATE(),Fecha) < 1
+
+24-Oct-2023 10:41:25.000000 ->CURL_URL->http://dev.apifenix.grupotitanes.es/Person/datasummary/
+
+24-Oct-2023 10:41:25.000000 ->CURL_METODO->POST
+
+24-Oct-2023 10:41:25.000000 ->CURL_DATOS->{"PersonId":"226267"}
+
+24-Oct-2023 10:41:25.000000 ->CURL_HEADER->["Content-Type: application\/json","Authorization: Bearer uVpbT1TAIy1Yja_TBa_yWhldR5DP_shq9djACRrdQevNsxe5X6NoGDx39TEmw17qb-BZRrbeFOV2PDr1ULxr7WNg_lAHC2MgsoSqAmNX1dYMZokU1A-tkEhdmGd7dCirJOv0Yf6mwifvQFcQtGtw9c0Rw4PPpc7HC2DicE09iZBGfrE7Qh0imeK6dEVxVGiiJ0za98w5tMJouEt0YvWotmoZBYAoNTfaZ3lA-Q0jT3TCwMAhCJgvqO46PtasIjYMhjulo6TsQofjUANdvxaL4Z2dbSqAtIazvWvpeCb0PTAFUXB3G5clctUJkeTCINa5EK4lTKOOehjAn3qHBvNlTv75EjL_8lLNyl5L-rcZUwQIiZITEqcFZ8ss343gnO3rlEOTcdDJQFt7icmskkEiQOMQldp_tdyEVeHi7sIHDUIHraD8ApaXRQoxGdXi7czqj11EEKLeZyIyjRIYncYLDP_dN98HQ_CjjX2LH-VKI0g4mHHkD-m7kbMGtYg-N1dif6bjclPSRZw7rv0F2vAY0GQ8Ipo_k3HvAuo6DiLaCh77mGQ9cuBqFbZvj-d7Lf_NsNDqBF0mqbrOpCN8zrwscGS7Wsc2yGBsMXJRcYprLjryxxoyAjjdJwj1hW3fvQ4a"]
+
+24-Oct-2023 10:41:25.000000 ->Entrada de datos->{"dato":"6"}
+
+24-Oct-2023 10:41:25.000000 ->QUERY->select distinct p.IdTitanes, concat(p.Nombre,' ',p.PApellido,' ',p.SApellido, p.CommercialName) persona from tit_Personas p  where  p.IsBeneficiario like '%' order by persona
+
+24-Oct-2023 10:41:25.000000 ->JSONNN->[{"IdTitanes":"226267","persona":"Arydea Benavidez Alaniz"},{"IdTitanes":"229796","persona":"el hijodel su apellido "},{"IdTitanes":"226197","persona":"Elizabeth J Simmons "},{"IdTitanes":"229499","persona":"Gina Valenzuela "},{"IdTitanes":"229795","persona":"nombre apellido "},{"IdTitanes":"226198","persona":"Pompeyo Lozada Valdivia"}]
+
+24-Oct-2023 10:41:32.000000 ->CURL_RESPUESTA->{"httpstatus":200,"apistatus":118,"description":"Person data summary","data":{"Id":226267,"Nombre":"BENAVIDEZALANIZ, ARYDEA","PersonTypeId":1,"PersonTypeName":"Physical","BirthDate":"1993-05-23T00:00:00","OriginCountryIso2":"AF","OriginCountryIso3":"AFG","OriginCountryIsoCode":4,"LaboralActivityId":1,"LaboralActivity":{"Id":1,"Name":"Asociaciones sin ánimo de lucro y religiosas","Risk":2,"Active":true},"LaboralActivityDesc":"","BusinessPerson":0,"Active":true,"Admited":true,"ShortId":"0wrT","Documents":[{"Id":374772,"DocumentTypeId":1,"DocumentName":"Documento Nacional Identidad","DocumentNumber":"657345634563","ExpeditionCountryIso2":"AF","ExpeditionCountryIso3":"AFG","ExpeditionCountryIsoCode":4,"ExpirationDate":"2024-12-12T00:00:00","Validated":true,"IsDefault":true}],"Relations":[],"Accounts":[],"Addresses":[{"Id":213162,"Address":"2472 Brown Bear Drive","Province":"California","City":"Rancho California","Iso2":"AF","Iso3":"AFG","CountryIsoCode":4,"PostalCode":"92390"}],"ContactMethod":[{"Id":317527,"ContactMethodTypeId":1,"ContactMethod":"Telefono Fijo","Value":"3456345634"}]},"error":null}
+
+24-Oct-2023 10:41:32.000000 ->QUERY->select * from tit_Personas where IdTitanes = '226267'
+
+24-Oct-2023 10:41:32.000000 ->QUERY->update tit_Personas set Active = '1', Admited = '1' where IdTitanes = '226267'
+
+24-Oct-2023 10:41:32.000000 ->QUERY->select * from tit_Personas where IdTitanes = '226267'
+
+24-Oct-2023 10:41:32.000000 ->RESP-{"entrada":[{"Id":"6","idTipo":"1","IdActividad":"1","IdPaisOrigen":"1","IdPaisDoc":"1","idGender":"2","IdTitanes":"226267","IdTipoDoc":"1","IsBeneficiario":"0","Nombre":"Arydea","PApellido":"Benavidez","SApellido":"Alaniz","BusinessName":"","CommercialName":"","DateOfBirth":"1993-05-23","IsPublicOffice":"0","BusinessPerson":"0","Documento":"657345634563","Active":"1","Risk":"2","PersonProfile":"2","Validated":"1","Admited":"1","FechaInsc":"2023-10-24","borrado":"0"}],"salida":{"httpstatus":200,"apistatus":118,"description":"Person data summary","data":{"Id":226267,"Nombre":"BENAVIDEZALANIZ, ARYDEA","PersonTypeId":1,"PersonTypeName":"Physical","BirthDate":"1993-05-23T00:00:00","OriginCountryIso2":"AF","OriginCountryIso3":"AFG","OriginCountryIsoCode":4,"LaboralActivityId":1,"LaboralActivity":{"Id":1,"Name":"Asociaciones sin \u00c3\u00a1nimo de lucro y religiosas","Risk":2,"Active":true},"LaboralActivityDesc":"","BusinessPerson":0,"Active":true,"Admited":true,"ShortId":"0wrT","Documents":[{"Id":374772,"DocumentTypeId":1,"DocumentName":"Documento Nacional Identidad","DocumentNumber":"657345634563","ExpeditionCountryIso2":"AF","ExpeditionCountryIso3":"AFG","ExpeditionCountryIsoCode":4,"ExpirationDate":"2024-12-12T00:00:00","Validated":true,"IsDefault":true}],"Relations":[],"Accounts":[],"Addresses":[{"Id":213162,"Address":"2472 Brown Bear Drive","Province":"California","City":"Rancho California","Iso2":"AF","Iso3":"AFG","CountryIsoCode":4,"PostalCode":"92390"}],"ContactMethod":[{"Id":317527,"ContactMethodTypeId":1,"ContactMethod":"Telefono Fijo","Value":"3456345634"}]},"error":null}}
+
+24-Oct-2023 10:41:32.000000 ->FUNCION-personSummary
+
+24-Oct-2023 10:41:32.000000 ->LLEGANDO... Array
+
+24-Oct-2023 10:41:32.000000 ->COMPARA->
+
+24-Oct-2023 10:41:32.000000 ->JSONSALIDA->{"error":"","pase":{"entrada":[{"Id":"6","idTipo":"1","IdActividad":"1","IdPaisOrigen":"1","IdPaisDoc":"1","idGender":"2","IdTitanes":"226267","IdTipoDoc":"1","IsBeneficiario":"0","Nombre":"Arydea","PApellido":"Benavidez","SApellido":"Alaniz","BusinessName":"","CommercialName":"","DateOfBirth":"1993-05-23","IsPublicOffice":"0","BusinessPerson":"0","Documento":"657345634563","Active":"1","Risk":"2","PersonProfile":"2","Validated":"1","Admited":"1","FechaInsc":"2023-10-24","borrado":"0"}],"salida":{"httpstatus":200,"apistatus":118,"description":"Person data summary","data":{"Id":226267,"Nombre":"BENAVIDEZALANIZ, ARYDEA","PersonTypeId":1,"PersonTypeName":"Physical","BirthDate":"1993-05-23T00:00:00","OriginCountryIso2":"AF","OriginCountryIso3":"AFG","OriginCountryIsoCode":4,"LaboralActivityId":1,"LaboralActivity":{"Id":1,"Name":"Asociaciones sin \u00c3\u00a1nimo de lucro y religiosas","Risk":2,"Active":true},"LaboralActivityDesc":"","BusinessPerson":0,"Active":true,"Admited":true,"ShortId":"0wrT","Documents":[{"Id":374772,"DocumentTypeId":1,"DocumentName":"Documento Nacional Identidad","DocumentNumber":"657345634563","ExpeditionCountryIso2":"AF","ExpeditionCountryIso3":"AFG","ExpeditionCountryIsoCode":4,"ExpirationDate":"2024-12-12T00:00:00","Validated":true,"IsDefault":true}],"Relations":[],"Accounts":[],"Addresses":[{"Id":213162,"Address":"2472 Brown Bear Drive","Province":"California","City":"Rancho California","Iso2":"AF","Iso3":"AFG","CountryIsoCode":4,"PostalCode":"92390"}],"ContactMethod":[{"Id":317527,"ContactMethodTypeId":1,"ContactMethod":"Telefono Fijo","Value":"3456345634"}]},"error":null}}}
