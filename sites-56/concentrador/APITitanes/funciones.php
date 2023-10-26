@@ -932,6 +932,7 @@ function setLog($valor)
 	}
 }
 
+
 function retornaData($q)
 {
 	$temp = new ps_DB();
