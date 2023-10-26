@@ -1,0 +1,7 @@
+<IfModule mod_expires.c>
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !/wp-json/ [NC]
+RewriteCond %{REQUEST_URI} !/wp-admin/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+</IfModule>

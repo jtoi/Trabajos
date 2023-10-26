@@ -15,7 +15,7 @@ function adminer_object() {
 
     function credentials() {
       // server, username and password for connecting to database
-      return array('mysql', 'admin', 'admin');
+      return array('localhost', 'root', 'admin');
     }
 
     function database() {

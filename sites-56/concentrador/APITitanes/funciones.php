@@ -463,7 +463,7 @@ function sendDoc($cade)
 			foreach ($salida['data']['ValidationErrors'] as $efecto) { 
 				$error .= "\n" . $efecto;
 			}
-			return "Error, El contacto no se inscribiÃ³ debido a $error";
+			return "Error, El contacto no se inscribió debido a $error";
 		}
 		
 		$temp->query("select Id from tit_Documento where idTitanes = '" . $salida['data']['DocumentId'] . "'");

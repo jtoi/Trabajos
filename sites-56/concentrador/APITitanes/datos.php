@@ -145,14 +145,20 @@ if ($d['dato'] == '20') {
 }
 
 if ($d['dato'] == '21') {
+	$pase = 1;
 	$arrFech = explode("-", $d['fecha']);
 	$fecha = $arrFech[2] . "-" . $arrFech[1] . "-" . $arrFech[0] . "T00:00:00";
+	$d['persona'] = '';
 
-	if (!$d['IdTitanes']) {
-		$pase = 1;
+	if (!$d['IdTitanes'] && $resp == '') {
 		//chequeo de tamaño
 		if ($_FILES['file']['size'] > 10000000) {
 			echo json_encode(array('error' => "Error: sobrepasado el tamaño del fichero", 'pase' => ''));
+			$pase = 0;
+		}
+
+		if ($d['persona'] == '') {
+			echo json_encode(array('error' => "Error: La persona no tiene identificador asignado. Refresque la página e Intente nuevamente", 'pase' => ''));
 			$pase = 0;
 		}
 
@@ -204,6 +210,13 @@ if ($d['dato'] == '21') {
 			move_uploaded_file($_FILES['file']['tmp_name'], $target);
 		}
 	} else {
+
+		if ($d['persona'] == '') {
+			echo json_encode(array('error' => "Error: La persona no tiene identificador asignado. Refresque la página e Intente nuevamente", 'pase' => ''));
+			$pase = 0;
+		}
+
+		if ($pase == 0) exit;
 
 		$str = json_encode(array(
 			"PersonId"                  => $d['persona'],
