@@ -4,6 +4,7 @@ require_once 'mysqli.php';
 require_once 'funciones.php';
 $temp = new ps_DB;
 
+
 $hola = "Hola";
 
 
@@ -148,7 +149,6 @@ if ($d['dato'] == '21') {
 	$pase = 1;
 	$arrFech = explode("-", $d['fecha']);
 	$fecha = $arrFech[2] . "-" . $arrFech[1] . "-" . $arrFech[0] . "T00:00:00";
-	$d['persona'] = '';
 
 	if (!$d['IdTitanes'] && $resp == '') {
 		//chequeo de tamaño
