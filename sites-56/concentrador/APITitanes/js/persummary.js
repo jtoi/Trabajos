@@ -56,13 +56,10 @@ function envia(perId = '') {
     }, function (data) {
         var datos = eval('(' + data + ')');
         
-        var sale = datos.pase.salida;
-        var datos = sale.data;
-        
-        if (sale.error != null) {
-            alert("La consulta a Titanes ha devuelto el error: "+sale.error);
+        if (datos.error) {
+            alert("La consulta a Titanes ha devuelto el error: " + datos.error);
         } else {
-            $("#todomas").html(generarTextoArbol(datos));
+            $("#todomas").html(generarTextoArbol(datos.pase.salida.data));
         }
         
         esperafn();

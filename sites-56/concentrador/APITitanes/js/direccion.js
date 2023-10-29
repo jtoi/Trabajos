@@ -35,7 +35,7 @@ function envia(){
             AddressAlias:           $("#alias").val(),
             IsAddressDefault:       $('select[name=defecto] :selected').val(),
             dato:                   26,
-            func:                   'creaDirec'
+            func:                   'creaDirec' 
         }, function(data){
 			data = data.replace('[]','');
             var datos = eval('(' + data + ')');
