@@ -1,0 +1,39 @@
+<wpml-config>
+  <admin-texts>
+    <key name="njt_gdpr">
+      <key name="display_on"/>
+      <key name="display_type"/>
+      <key name="content"/>
+      <key name="accept">
+        <key name="text"/>
+        <key name="bg_color"/>
+        <key name="text_color"/>
+      </key>
+      <key name="decline">
+        <key name="text"/>
+        <key name="bg_color"/>
+        <key name="text_color"/>
+      </key>
+      <key name="is_enable_decline_btn"/>
+      <key name="block_cookie"/>
+      <key name="full_width">
+        <key name="position"/>
+      </key>
+      <key name="popup">
+        <key name="position"/>
+        <key name="border_radius"/>
+        <key name="max_width"/>
+      </key>
+      <key name="is_enable_custom_btn"/>
+      <key name="custom_btn">
+        <key name="text"/>
+        <key name="url"/>
+        <key name="bg_color"/>
+        <key name="text_color"/>
+      </key>
+      <key name="custom_css"/>
+      <key name="bg_color"/>
+      <key name="text_color"/>
+    </key>
+  </admin-texts>
+</wpml-config>

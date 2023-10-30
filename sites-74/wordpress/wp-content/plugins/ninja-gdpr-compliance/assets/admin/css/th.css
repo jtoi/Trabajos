@@ -1,0 +1,82 @@
+/* CSS need to replace in app.css */
+.list-pages-wrap {
+    padding: 9px 10px;
+    border-radius: 2px;
+}
+
+.cookie-popup .btns .accept-btn, .cookie-popup .btns .decline-btn {
+    padding: 10px 25px;
+    margin: 0 5px;
+}
+
+.cookie-popup .btns .custom-btn{
+	padding: 11px 20px;
+}
+
+.cookie-popup-container .cookie-popup{
+	padding: 15px;
+}
+
+.cookie-popup-container .cookie-popup a{
+	text-decoration: none !important;
+}
+
+.medium-editor-element {
+    padding: 0px;
+}
+
+.medium-editor-element:after {
+    right: -14px;
+    width: 13px;
+    height: 13px;
+}
+
+.medium-editor-element:hover {
+    border: 1px dashed #ffffff47;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.njt_gdpr_col-12 {
+    margin-bottom: 20px;
+}
+.njt_gdpr_col-12.has_bottom_color {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.njt_gdpr_col-12:last-child {
+    border-bottom: 0;
+    margin-bottom: 0px;
+}
+
+/* CSS need to replace in app.js */
+
+.range-slider-fill {
+    background-color: #00a159 !important;
+}
+
+/* TH CSS */
+
+#app input[type="text"], #app select, #app input[type="number"], #app textarea.form-control {
+    width: 300px;
+}
+
+textarea.regular-text {
+    width: 80%;
+    height: 200px;
+}
+
+.bulkactions select{
+	width: 100%;
+}
+
+.njt-gdpr-integrations textarea {
+    width: 500px;
+    height: 100px;
+}
+
+span.select2.select2-container.select2-container--default{
+    width: 60% !important;
+}

@@ -1,0 +1,1354 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: Ninja GDPR Compliance\n"
+"POT-Creation-Date: 2021-08-21 15:04+0000\n"
+"PO-Revision-Date: 2021-08-21 12:57-0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: njt-gdpr.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: pt_BR\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: src/DataAccess.php:25
+msgid "NJT Data Access"
+msgstr "NJT Data Access"
+
+#: src/DataAccess.php:53 src/DataAccess.php:128 src/DataRectification.php:53
+#: src/DataRectification.php:124 src/DataRectification.php:138
+#: src/ForgetMe.php:56 src/Policy.php:136
+msgid "Success"
+msgstr "Sucesso"
+
+#: src/DataAccess.php:106 src/DataBreach.php:56 src/DataRectification.php:108
+#: src/ForgetMe.php:112
+msgid "Permission denied."
+msgstr "Permissão negada."
+
+#: src/DataAccess.php:130
+msgid "No requests choosed"
+msgstr "Nenhum pedido escolhido"
+
+#: src/DataAccess.php:141 src/DataRectification.php:158 src/ForgetMe.php:194
+msgid "Email is required."
+msgstr "O email é obrigatório."
+
+#: src/DataAccess.php:144 src/DataRectification.php:164 src/ForgetMe.php:197
+msgid "Invalid email format."
+msgstr "Formato de email inválido."
+
+#: src/DataAccess.php:157
+msgid "Data Access New Request"
+msgstr "Novo Pedido de Acesso a Dados"
+
+#: src/DataAccess.php:158 src/DataRectification.php:183 src/ForgetMe.php:210
+msgid "Hi,<br />"
+msgstr "Oi, <br />"
+
+#: src/DataAccess.php:159
+msgid "You have new Data Access request, here is the detail:<br />"
+msgstr ""
+"Você tem uma nova solicitação de acesso a dados, aqui está o detalhe: <br />"
+
+#: src/DataAccess.php:160 src/DataRectification.php:185 src/ForgetMe.php:212
+msgid "Email: "
+msgstr "Email: "
+
+#: src/DataAccess.php:162 src/DataRectification.php:187
+msgid "User ID:"
+msgstr "ID do usuário:"
+
+#: src/DataAccess.php:176 src/ForgetMe.php:229 src/init.php:556
+#: src/init.php:583 src/init.php:608
+msgid "Email"
+msgstr "Email"
+
+#: src/DataAccess.php:181 src/DataRectification.php:201 src/ForgetMe.php:233
+msgid "Submit"
+msgstr "Enviar"
+
+#: src/DataAccess.php:240
+msgid " User "
+msgstr " Usuário "
+
+#: src/DataAccess.php:242
+msgid "- Woocomerece "
+msgstr "- Woocomerece "
+
+#: src/DataAccess.php:256
+msgid "========= Comment =========\n"
+msgstr "========= Comentários =========\n"
+
+#: src/DataAccess.php:267
+msgid "========= Posts =========\n"
+msgstr "========= Posts =========\n"
+
+#: src/DataAccess.php:284
+msgid "========= Gravity Form Entries =========\n"
+msgstr "========= Entradas de formulário de Gravity Form =========\n"
+
+#: src/DataBreach.php:37 src/DataRectification.php:161 src/Integrations.php:130
+#: src/Integrations.php:141
+msgid "Please complete all required fields."
+msgstr "Por favor, preencha todos os campos obrigatórios."
+
+#: src/DataBreach.php:54
+#, php-format
+msgid "Sent to %1$d users. Success: %2$d. Fail: %3$d"
+msgstr "Enviado para %1$d usuários. Sucesso: %2$d. Falha: %3$d"
+
+#: src/DataRectification.php:25
+msgid "NJT Data Rectification"
+msgstr "Retificação de dados NJT"
+
+#: src/DataRectification.php:99
+msgid "Please complete all required field"
+msgstr "Por favor, preencha todos os campos obrigatórios"
+
+#: src/DataRectification.php:130
+msgid ""
+"Error, please enter Email Subject and Email Body first, then save and try "
+"again."
+msgstr ""
+"Erro, insira o Assunto do Email e o Corpo do Email primeiro, depois salve e "
+"tente novamente."
+
+#: src/DataRectification.php:144
+msgid "No requests choosed."
+msgstr "Nenhum pedido escolhido."
+
+#: src/DataRectification.php:182
+msgid "Data Rectification New Request"
+msgstr "Novo Pedido de Retificação de Dados"
+
+#: src/DataRectification.php:184
+msgid "You have new Data Rectification request, here is the detail:<br />"
+msgstr ""
+"Você tem uma nova solicitação de retificação de dados, aqui está o detalhe: "
+"<br />"
+
+#: src/DataRectification.php:198
+msgid "Your Email"
+msgstr "Seu email"
+
+#: src/DataRectification.php:199
+msgid "Enter your information as it currently exists in our system"
+msgstr "Insira suas informações como existem atualmente em nosso sistema"
+
+#: src/DataRectification.php:200
+msgid "Enter the correct version of your information"
+msgstr "Insira a versão correta de suas informações"
+
+#: src/ForgetMe.php:25
+msgid "NJT Forget Me"
+msgstr "NJT Me Esqueça"
+
+#: src/ForgetMe.php:209
+msgid "Forget Me New Request"
+msgstr "Novo Pedido de Esqueça-me"
+
+#: src/ForgetMe.php:211
+msgid "You have new ForgetMe request, here is the detail:<br />"
+msgstr ""
+"Você tem uma nova solicitação de Me Esqueça, aqui está o detalhe: <br />"
+
+#: src/ForgetMe.php:215
+msgid "User ID: "
+msgstr "ID do usuário: "
+
+#: src/Integrations.php:182 src/Integrations.php:186 src/Integrations.php:189
+#: src/Integrations.php:193
+msgid ""
+"By submitting this form, you hereby agree that we may collect, store and "
+"process your data that you provided."
+msgstr ""
+"Ao enviar este formulário, você concorda que podemos coletar, armazenar e "
+"processar os dados que você forneceu."
+
+#: src/Integrations.php:201
+msgid "Do you agree to storage of your data?"
+msgstr "Você concorda com o armazenamento de seus dados?"
+
+#: src/Integrations.php:202
+msgid "Yes"
+msgstr "Sim"
+
+#: src/Integrations.php:203
+msgid "You have to agree with permision"
+msgstr "Você tem que concordar dando permissão"
+
+#: src/Policy.php:29
+msgid "You've accepted the Privacy Policy."
+msgstr "Você aceitou a Política de Privacidade."
+
+#: src/Policy.php:84 src/Term.php:93 src/init.php:237
+msgid "Decline"
+msgstr "Recusar"
+
+#: src/Policy.php:86 src/Term.php:95 src/init.php:232
+msgid "Accept"
+msgstr "Aceitar"
+
+#: src/PrivacySettingsPage.php:15
+msgid "We use cookies to provide a personalised experience for our users."
+msgstr ""
+"Usamos cookies para fornecer uma experiência personalizada aos nossos "
+"usuários."
+
+#: src/PrivacySettingsPage.php:16
+msgid ""
+"Third party service for managing advertisement activities related to the "
+"resource via Facebook"
+msgstr ""
+"Serviço terceirizado para gerenciamento de atividades de publicidade "
+"relacionadas ao recurso via Facebook"
+
+#: src/PrivacySettingsPage.php:17
+msgid ""
+"Used for aggregated statistics to improve user experience on the resource."
+msgstr ""
+"Usado para estatísticas agregadas para melhorar a experiência do usuário no "
+"recurso."
+
+#: src/PrivacySettingsPage.php:50
+msgid "Name"
+msgstr "Nome"
+
+#: src/PrivacySettingsPage.php:51 src/init.php:623
+msgid "Description"
+msgstr "Descrição"
+
+#: src/PrivacySettingsPage.php:52
+msgid "Enable ?"
+msgstr "Permitido ?"
+
+#: src/PrivacySettingsPage.php:57
+msgid "Cookie"
+msgstr "Cookie"
+
+#: src/PrivacySettingsPage.php:62 src/init.php:630 src/init.php:653
+#: src/init.php:675
+msgid "Facebook Pixel"
+msgstr "Facebook Pixel"
+
+#: src/PrivacySettingsPage.php:67 src/init.php:632 src/init.php:654
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: src/PrivacySettingsPage.php:73 src/init.php:539 src/init.php:553
+#: src/init.php:580 src/init.php:605 src/init.php:635 src/init.php:663
+#: src/init.php:681 src/init.php:693 src/init.php:719
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#: src/PrivacySettingsPage.php:102 src/init.php:499
+msgid "Please refresh and try again."
+msgstr "Atualize e tente novamente."
+
+#: src/functions.php:81
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: src/functions.php:82
+msgid "Albania"
+msgstr "Albania"
+
+#: src/functions.php:83
+msgid "Algeria"
+msgstr "Algeria"
+
+#: src/functions.php:84
+msgid "Argentina"
+msgstr "Argentina"
+
+#: src/functions.php:85
+msgid "Armenia"
+msgstr "Armenia"
+
+#: src/functions.php:86
+msgid "Australia"
+msgstr "Australia"
+
+#: src/functions.php:87
+msgid "Austria"
+msgstr "Austria"
+
+#: src/functions.php:88
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: src/functions.php:89
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: src/functions.php:90
+msgid "Basque"
+msgstr "Basque"
+
+#: src/functions.php:91
+msgid "Belarus"
+msgstr "Belarus"
+
+#: src/functions.php:92
+msgid "Belgium"
+msgstr "Belgium"
+
+#: src/functions.php:93
+msgid "Belize"
+msgstr "Belize"
+
+#: src/functions.php:94
+msgid "Bolivarian Republic of Venezuela"
+msgstr "Bolivarian Republic of Venezuela"
+
+#: src/functions.php:95
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: src/functions.php:96
+msgid "Brazil"
+msgstr "Brasil"
+
+#: src/functions.php:97
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: src/functions.php:98
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: src/functions.php:99
+msgid "Cambodia"
+msgstr "Cambodia"
+
+#: src/functions.php:100
+msgid "Canada"
+msgstr "Canada"
+
+#: src/functions.php:102
+msgid "Chile"
+msgstr "Chile"
+
+#: src/functions.php:103
+msgid "Colombia"
+msgstr "Colombia"
+
+#: src/functions.php:104
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: src/functions.php:105
+msgid "Croatia"
+msgstr "Croatia"
+
+#: src/functions.php:106
+msgid "Cyrillic, Azerbaijan"
+msgstr "Cyrillic, Azerbaijan"
+
+#: src/functions.php:107
+msgid "Cyrillic, Bosnia and Herzegovina"
+msgstr "Cyrillic, Bosnia and Herzegovina"
+
+#: src/functions.php:108
+msgid "Cyrillic, Mongolia"
+msgstr "Cyrillic, Mongolia"
+
+#: src/functions.php:109
+msgid "Cyrillic, Montenegro"
+msgstr "Cyrillic, Montenegro"
+
+#: src/functions.php:110
+msgid "Cyrillic, Serbia"
+msgstr "Cyrillic, Serbia"
+
+#: src/functions.php:111
+msgid "Cyrillic, Serbia and Montenegro (Former"
+msgstr "Cyrillic, Serbia and Montenegro (Former"
+
+#: src/functions.php:112
+msgid "Cyrillic, Tajikistan"
+msgstr "Cyrillic, Tajikistan"
+
+#: src/functions.php:113
+msgid "Cyrillic, Uzbekistan"
+msgstr "Cyrillic, Uzbekistan"
+
+#: src/functions.php:114
+msgid "Cyprus"
+msgstr "Cyprus"
+
+#: src/functions.php:115
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+#: src/functions.php:116
+msgid "Denmark"
+msgstr "Denmark"
+
+#: src/functions.php:117
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+#: src/functions.php:118
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: src/functions.php:119
+msgid "Egypt"
+msgstr "Egypt"
+
+#: src/functions.php:120
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: src/functions.php:121
+msgid "Estonia"
+msgstr "Estonia"
+
+#: src/functions.php:122
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+#: src/functions.php:123
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+#: src/functions.php:124
+msgid "Finland"
+msgstr "Finland"
+
+#: src/functions.php:125
+msgid "Former Yugoslav Republic of Macedonia"
+msgstr "Former Yugoslav Republic of Macedonia"
+
+#: src/functions.php:126
+msgid "France"
+msgstr "France"
+
+#: src/functions.php:127
+msgid "Georgia"
+msgstr "Georgia"
+
+#: src/functions.php:128
+msgid "Germany"
+msgstr "Germany"
+
+#: src/functions.php:129
+msgid "Greece"
+msgstr "Greece"
+
+#: src/functions.php:130
+msgid "Greenland"
+msgstr "Greenland"
+
+#: src/functions.php:131
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: src/functions.php:132
+msgid "Honduras"
+msgstr "Honduras"
+
+#: src/functions.php:133
+msgid "Hungary"
+msgstr "Hungary"
+
+#: src/functions.php:134
+msgid "Iceland"
+msgstr "Iceland"
+
+#: src/functions.php:135
+msgid "India"
+msgstr "India"
+
+#: src/functions.php:136
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: src/functions.php:137
+msgid "Iran"
+msgstr "Iran"
+
+#: src/functions.php:138
+msgid "Iraq"
+msgstr "Iraq"
+
+#: src/functions.php:139
+msgid "Ireland"
+msgstr "Ireland"
+
+#: src/functions.php:140
+msgid "Islamic Republic of Pakistan"
+msgstr "Islamic Republic of Pakistan"
+
+#: src/functions.php:141
+msgid "Israel"
+msgstr "Israel"
+
+#: src/functions.php:142
+msgid "Italy"
+msgstr "Italy"
+
+#: src/functions.php:143
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: src/functions.php:144
+msgid "Japan"
+msgstr "Japan"
+
+#: src/functions.php:145
+msgid "Jordan"
+msgstr "Jordan"
+
+#: src/functions.php:146
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+#: src/functions.php:147
+msgid "Kenya"
+msgstr "Kenya"
+
+#: src/functions.php:148
+msgid "Korea"
+msgstr "Korea"
+
+#: src/functions.php:149
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: src/functions.php:150
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+#: src/functions.php:151
+msgid "Lao P.D.R."
+msgstr "Lao P.D.R."
+
+#: src/functions.php:152
+msgid "Latin, Nigeria"
+msgstr "Latin, Nigeria"
+
+#: src/functions.php:153
+msgid "Latvia"
+msgstr "Latvia"
+
+#: src/functions.php:154
+msgid "Lebanon"
+msgstr "Lebanon"
+
+#: src/functions.php:155
+msgid "Libya"
+msgstr "Libya"
+
+#: src/functions.php:156
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: src/functions.php:157
+msgid "Lithuania"
+msgstr "Lithuania"
+
+#: src/functions.php:158
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: src/functions.php:159
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: src/functions.php:160
+msgid "Maldives"
+msgstr "Maldives"
+
+#: src/functions.php:161
+msgid "Malta"
+msgstr "Malta"
+
+#: src/functions.php:162
+msgid "Mexico"
+msgstr "Mexico"
+
+#: src/functions.php:163
+msgid "Monaco"
+msgstr "Monaco"
+
+#: src/functions.php:164
+msgid "Morocco"
+msgstr "Morocco"
+
+#: src/functions.php:165
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/functions.php:166
+msgid "Netherlands"
+msgstr "Netherlands"
+
+#: src/functions.php:167
+msgid "New Zealand"
+msgstr "New Zealand"
+
+#: src/functions.php:168
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: src/functions.php:169
+msgid "Norway"
+msgstr "Norway"
+
+#: src/functions.php:170
+msgid "Oman"
+msgstr "Oman"
+
+#: src/functions.php:171
+msgid "Panama"
+msgstr "Panama"
+
+#: src/functions.php:172
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: src/functions.php:173
+msgid "Peru"
+msgstr "Peru"
+
+#: src/functions.php:174
+msgid "Philippines"
+msgstr "Philippines"
+
+#: src/functions.php:175
+msgid "Poland"
+msgstr "Poland"
+
+#: src/functions.php:176
+msgid "Portugal"
+msgstr "Portugal"
+
+#: src/functions.php:177
+msgid "PRC"
+msgstr "PRC"
+
+#: src/functions.php:178
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: src/functions.php:179
+msgid "Qatar"
+msgstr "Qatar"
+
+#: src/functions.php:180
+msgid "Romania"
+msgstr "Romania"
+
+#: src/functions.php:181
+msgid "Russia"
+msgstr "Russia"
+
+#: src/functions.php:182
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: src/functions.php:183
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+#: src/functions.php:184
+msgid "Senegal"
+msgstr "Senegal"
+
+#: src/functions.php:185
+msgid "Simplified, Singapore"
+msgstr "Simplified, Singapore"
+
+#: src/functions.php:186
+msgid "Slovakia"
+msgstr "Slovakia"
+
+#: src/functions.php:187
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: src/functions.php:188
+msgid "South Africa"
+msgstr "South Africa"
+
+#: src/functions.php:189
+msgid "Spain"
+msgstr "Spain"
+
+#: src/functions.php:190
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: src/functions.php:191
+msgid "Sweden"
+msgstr "Sweden"
+
+#: src/functions.php:192
+msgid "Switzerland"
+msgstr "Switzerland"
+
+#: src/functions.php:193
+msgid "Syria"
+msgstr "Syria"
+
+#: src/functions.php:194
+msgid "Thailand"
+msgstr "Thailand"
+
+#: src/functions.php:195
+msgid "Traditional, Hong Kong S.A.R."
+msgstr "Traditional, Hong Kong S.A.R."
+
+#: src/functions.php:196
+msgid "Traditional, Macao S.A.R."
+msgstr "Traditional, Macao S.A.R."
+
+#: src/functions.php:197
+msgid "Traditional, Taiwan"
+msgstr "Traditional, Taiwan"
+
+#: src/functions.php:198
+msgid "Trinidad and Tobago"
+msgstr "Trinidad and Tobago"
+
+#: src/functions.php:199
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: src/functions.php:200
+msgid "Turkey"
+msgstr "Turkey"
+
+#: src/functions.php:201
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: src/functions.php:202
+msgid "U.A.E."
+msgstr "U.A.E."
+
+#: src/functions.php:203
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: src/functions.php:204
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+#: src/functions.php:205
+msgid "United States"
+msgstr "United States"
+
+#: src/functions.php:206
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: src/functions.php:207
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: src/functions.php:208
+msgid "Yemen"
+msgstr "Yemen"
+
+#: src/functions.php:209
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: src/init.php:114 src/init.php:201 src/init.php:202 src/init.php:677
+msgid "Privacy Settings Page"
+msgstr "Página de Configurações de Privacidade"
+
+#: src/init.php:126 src/init.php:127
+msgid "Ninja GDPR"
+msgstr "Ninja GDPR"
+
+#: src/init.php:136 src/init.php:137 src/init.php:501 views/cookie-popup.php:2
+msgid "Cookie Popup"
+msgstr "Cookie Popup"
+
+#: src/init.php:145 src/init.php:146 src/init.php:659
+msgid "Privacy Policy"
+msgstr "Política de Privacidade"
+
+#: src/init.php:153 src/init.php:154 src/init.php:690
+msgid "Terms and Conditions"
+msgstr "Termos e Condições"
+
+#: src/init.php:161 src/init.php:162
+msgid "Forget Me"
+msgstr "Me Esqueça"
+
+#: src/init.php:169 src/init.php:170 src/init.php:547
+msgid "Data Access"
+msgstr "Acesso aos Dados"
+
+#: src/init.php:177 src/init.php:178 src/init.php:567
+msgid "Data Breach"
+msgstr "Violação de Dados"
+
+#: src/init.php:185 src/init.php:186 src/init.php:574
+msgid "Data Rectification"
+msgstr "Retificação de Dados"
+
+#: src/init.php:193 src/init.php:194 src/init.php:620
+msgid "Integrations"
+msgstr "Integrações"
+
+#: src/init.php:209 src/init.php:210 src/init.php:697
+msgid "EU Traffic"
+msgstr "Tráfico Europeu"
+
+#: src/init.php:217 src/init.php:218 src/init.php:709
+msgid "Unsubscribe"
+msgstr "Cancelar Inscrição"
+
+#: src/init.php:230
+msgid ""
+"We use cookies to give you the best online experience. By agreeing you "
+"accept the use of cookies in accordance with our cookie policy."
+msgstr ""
+"Usamos cookies para lhe proporcionar a melhor experiência online. Ao "
+"concordar, você aceita o uso de cookies de acordo com nossa política de "
+"cookies."
+
+#: src/init.php:253
+msgid "Read More"
+msgstr "Saiba Mais"
+
+#: src/init.php:503
+msgid "Block cookie until user consents ?"
+msgstr "Bloquear o cookie até o consentimento do usuário?"
+
+#: src/init.php:504
+msgid "Display type"
+msgstr "Tipo de exibição"
+
+#: src/init.php:505
+msgid "Full Width"
+msgstr "Tela Cheia"
+
+#: src/init.php:506
+msgid "Popup"
+msgstr "Popup"
+
+#: src/init.php:507 src/init.php:510
+msgid "Position"
+msgstr "Posição"
+
+#: src/init.php:508
+msgid "Top"
+msgstr "Topo"
+
+#: src/init.php:509
+msgid "Bottom"
+msgstr "Inferior"
+
+#: src/init.php:511
+msgid "Top Left"
+msgstr "Topo Esquedo"
+
+#: src/init.php:512
+msgid "Top Right"
+msgstr "Topo Direito"
+
+#: src/init.php:513
+msgid "Bottom Left"
+msgstr "Inferior Esquerdo"
+
+#: src/init.php:514
+msgid "Bottom Right"
+msgstr "Inferior Direito"
+
+#: src/init.php:515
+msgid "Border Radius"
+msgstr "Raio da Borda"
+
+#: src/init.php:516
+msgid "Max Width (px)"
+msgstr "Largura Máxima (px)"
+
+#: src/init.php:517
+msgid "Popup Colors"
+msgstr "Cores do Popup"
+
+#: src/init.php:518 src/init.php:521 src/init.php:527 src/init.php:533
+msgid "Background"
+msgstr "Background"
+
+#: src/init.php:519 src/init.php:522 src/init.php:528 src/init.php:534
+msgid "Text"
+msgstr "Texto"
+
+#: src/init.php:520
+msgid "Agree Button Colors"
+msgstr "Cor do Botão Concordar"
+
+#: src/init.php:523
+msgid "Enable Decline Button ?"
+msgstr "Ativar botão Recusar?"
+
+#: src/init.php:524
+msgid "On"
+msgstr "On"
+
+#: src/init.php:525
+msgid "Off"
+msgstr "Off"
+
+#: src/init.php:526
+msgid "Decline Button Colors"
+msgstr "Cor Botão Declinar"
+
+#: src/init.php:529
+msgid "Enable Custom Button ?"
+msgstr "Ativar Botão Custom?"
+
+#: src/init.php:530
+msgid "Custom Button Text"
+msgstr "Texto do Botão Custom"
+
+#: src/init.php:531
+msgid "Custom Button URL"
+msgstr "URL do Botão Custom"
+
+#: src/init.php:532
+msgid "Colors"
+msgstr "Cores"
+
+#: src/init.php:535
+msgid "Display On:"
+msgstr "Exibir em:"
+
+#: src/init.php:536
+msgid "All Pages But Except:"
+msgstr "Todas as páginas, exceto:"
+
+#: src/init.php:537
+msgid "Selected Pages:"
+msgstr "Páginas Selecionadas:"
+
+#: src/init.php:538 views/cookie-popup.php:59 views/cookie-popup.php:92
+msgid "All"
+msgstr "Todas"
+
+#: src/init.php:541
+msgid "Popup Style"
+msgstr "Estilo do Popup"
+
+#: src/init.php:542 views/cookie-popup.php:34
+msgid "Display"
+msgstr "Exibir"
+
+#: src/init.php:548 src/init.php:575 src/init.php:596 src/init.php:660
+#: src/init.php:678 src/init.php:691
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: src/init.php:549
+msgid "Place shortcode on your existing Data Access page."
+msgstr "Coloque shortcode em sua página de acesso a dados existente."
+
+#: src/init.php:550 src/init.php:568 src/init.php:577 src/init.php:598
+msgid "Notification email subject"
+msgstr "Assunto do email de notificação"
+
+#: src/init.php:551 src/init.php:569 src/init.php:578 src/init.php:599
+msgid "Notification email body"
+msgstr "Corpo do e-mail de notificação"
+
+#: src/init.php:552 src/init.php:579 src/init.php:604
+msgid "Success Message"
+msgstr "Mensagem de Sucesso"
+
+#: src/init.php:554
+msgid "Data Access List"
+msgstr "Lista de Acesso a Dados"
+
+#: src/init.php:555 src/init.php:582 src/init.php:607
+msgid "User ID"
+msgstr "ID do usuário"
+
+#: src/init.php:557 src/init.php:609
+msgid "Email Request"
+msgstr "Pedido de Email"
+
+#: src/init.php:558 src/init.php:584 src/init.php:610
+msgid "Request Date"
+msgstr "Data do Pedido"
+
+#: src/init.php:559 src/init.php:585 src/init.php:611
+msgid "Mail Sent Date"
+msgstr "Data de envio do email"
+
+#: src/init.php:560 src/init.php:586 src/init.php:612
+msgid "Actions"
+msgstr "Ações"
+
+#: src/init.php:561 src/init.php:587
+msgid "Send Email"
+msgstr "Enviar email"
+
+#: src/init.php:562 src/init.php:588 src/init.php:614
+msgid "Remove"
+msgstr "Remover"
+
+#: src/init.php:563 src/init.php:589 src/init.php:615
+msgid "Apply"
+msgstr "Aplicar"
+
+#: src/init.php:570
+msgid "Save Changes And Send To All User"
+msgstr "Salvar Alterações e Enviar para Todos os Usuários"
+
+#: src/init.php:576
+msgid "Place shortcode on your existing Data Rectification page."
+msgstr "Coloque shortcode em sua página de Retificação de Dados existente."
+
+#: src/init.php:581
+msgid "Data Rectification List"
+msgstr "Lista de Retificação de Dados"
+
+#: src/init.php:590
+msgid "Current information"
+msgstr "Informações atuais"
+
+#: src/init.php:591
+msgid "New information"
+msgstr "Nova Informação"
+
+#: src/init.php:595
+msgid "Right to be Forgotten"
+msgstr "Direito de ser Esquecido"
+
+#: src/init.php:597
+msgid "Place shortcode on your existing Forget Me page."
+msgstr "Coloque shortcode em sua página existente do Me Esqueça."
+
+#: src/init.php:600
+msgid "With posts: "
+msgstr "Com postagens: "
+
+#: src/init.php:601
+msgid "Delete"
+msgstr "Deletar"
+
+#: src/init.php:602
+msgid "Assign To Another User"
+msgstr "Atribuir a Outro Usuário"
+
+#: src/init.php:603
+msgid "Assign posts to user: "
+msgstr "Atribuir postagens ao usuário: "
+
+#: src/init.php:606
+msgid "Forget Me List"
+msgstr "Lista esquece-me"
+
+#: src/init.php:613
+msgid "Forget And Send Email"
+msgstr "Esquecer e enviar e-mail"
+
+#: src/init.php:616
+msgid "User account will be deleted. Are you use?"
+msgstr "A conta do usuário será excluída. Você está certo?"
+
+#: src/init.php:621 src/init.php:647
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: src/init.php:622
+msgid "Inject consent checkbox to order form?"
+msgstr "Injetar a caixa de seleção de consentimento no formulário de pedido?"
+
+#: src/init.php:624 src/init.php:648
+msgid "Comments"
+msgstr "Comentários"
+
+#: src/init.php:625
+msgid "Inject consent checkbox to comments form?"
+msgstr ""
+"Injetar a caixa de seleção de consentimento no formulário de comentários?"
+
+#: src/init.php:626 src/init.php:649
+msgid "User Data"
+msgstr "Dados do Usuário"
+
+#: src/init.php:627
+msgid "This description will appear in WordPress Registion Form"
+msgstr "Esta descrição aparecerá no Formulário de Registro do WordPress"
+
+#: src/init.php:628 src/init.php:650
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+#: src/init.php:629
+msgid "Inject consent checkbox to CF7 form?"
+msgstr "Injetar a caixa de seleção de consentimento no Contact Form 7?"
+
+#: src/init.php:631
+msgid "Block Facebook Pixel cookies until user accepts cookies?"
+msgstr ""
+"Bloquear os cookies do Facebook Pixel até que o usuário aceite os cookies?"
+
+#: src/init.php:633
+msgid "Block Google Analytics cookies until user accepts cookies?"
+msgstr "Bloquear cookies do Google Analytics até que o usuário aceite cookies?"
+
+#: src/init.php:634
+msgid "Google Analytics Tracking ID: "
+msgstr "Google Analytics Tracking ID: "
+
+#: src/init.php:636 src/init.php:652
+msgid "Gravity Form"
+msgstr "Gravity Form"
+
+#: src/init.php:637
+msgid "Inject consent checkbox to Gravity Form?"
+msgstr "Injetar a caixa de seleção de consentimento no Gravity Form?"
+
+#: src/init.php:638
+msgid "Label"
+msgstr "Rótulo"
+
+#: src/init.php:639
+msgid "Checkbox Text"
+msgstr "Texto da caixa de seleção"
+
+#: src/init.php:640
+msgid "Validation Text"
+msgstr "Texto de Validação"
+
+#: src/init.php:641 src/init.php:646
+msgid "Addthis"
+msgstr "Addthis"
+
+#: src/init.php:642
+msgid "Block Addthis until user consents ?"
+msgstr "Bloquear Addthis até o consentimento do usuário?"
+
+#: src/init.php:643 src/init.php:651
+msgid "BuddyPress"
+msgstr "BuddyPress"
+
+#: src/init.php:644
+msgid "Inject consent checkbox to BuddyPress forms?"
+msgstr ""
+"Injetar a caixa de seleção de consentimento nos formulários do BuddyPress?"
+
+#: src/init.php:661
+msgid ""
+"Place shortcode on your existing Privacy Policy page to add an accept button."
+msgstr ""
+"Coloque o shortcode em sua página de Política de Privacidade existente para "
+"adicionar um botão de aceitação."
+
+#: src/init.php:662 src/init.php:694 src/init.php:706 src/init.php:712
+msgid "None"
+msgstr "Nenhum"
+
+#: src/init.php:664
+msgid "Page to redirect to after Privacy Policy is accepted:"
+msgstr "Página para redirecionar após a Política de Privacidade ser aceita:"
+
+#: src/init.php:665 src/init.php:687
+msgid "Set consent expire time (days)"
+msgstr "Definir o tempo de expiração do consentimento (dias)"
+
+#: src/init.php:666
+msgid "Require logged in users to accept Privacy Policy (redirect) ?"
+msgstr ""
+"Requer que usuários logados aceitem a Política de Privacidade "
+"(redirecionamento)?"
+
+#: src/init.php:667
+msgid ""
+"Require not logged in users/guests to accept Privacy Policy (redirect) ?"
+msgstr ""
+"Requerem que usuários/convidados não estejam logados para aceitar a Política "
+"de Privacidade (redirecionar)?"
+
+#: src/init.php:668
+msgid ""
+"Redirect to Privacy Policy first ? (if Terms and Conditions also redirect)"
+msgstr ""
+"Redirecionar para a Política de Privacidade primeiro? (se os Termos e "
+"Condições também redirecionarem)"
+
+#: src/init.php:669
+msgid "Privacy Policy page:"
+msgstr "Página de Política de Privacidade:"
+
+#: src/init.php:670
+msgid "Accepted Message: "
+msgstr "Mensagem Aceita: "
+
+#: src/init.php:674
+msgid "Cookie Description"
+msgstr "Descrição do Cookie"
+
+#: src/init.php:676
+msgid "Google Analytics\t"
+msgstr "Google Analytics\t"
+
+#: src/init.php:679
+msgid "Place shortcode on your existing Privacy Settings page."
+msgstr ""
+"Coloque o código de acesso em sua página de configurações de privacidade "
+"existente."
+
+#: src/init.php:680
+msgid "Choose your Privacy Settings page"
+msgstr "Escolha sua página de configurações de privacidade"
+
+#: src/init.php:685
+msgid "Term page:"
+msgstr "Página do termo:"
+
+#: src/init.php:686
+msgid "Page to redirect to after Term is accepted:"
+msgstr "Página para redirecionar após a aceitação do termo:"
+
+#: src/init.php:688
+msgid "Require logged in users to accept Term (redirect) ?"
+msgstr "Exigir que usuários logados aceitem o termo (redirecionar)?"
+
+#: src/init.php:689
+msgid "Require not logged in users/guests to accept Term (redirect) ?"
+msgstr ""
+"Requer usuários/convidados não logados para aceitar o termo (redirecionar)?"
+
+#: src/init.php:692
+msgid "Place shortcode on your existing Term page to add an accept button."
+msgstr ""
+"Coloque o shortcode em sua página de termo existente para adicionar um botão "
+"de aceitação."
+
+#: src/init.php:698
+msgid "Select countries"
+msgstr "Selecione os países"
+
+#: src/init.php:699 src/init.php:710
+msgid " "
+msgstr " "
+
+#: src/init.php:700
+msgid "Refuse all countries?"
+msgstr "Recusar todos os países?"
+
+#: src/init.php:701
+msgid "Save changes"
+msgstr "Salvar alterações"
+
+#: src/init.php:702
+msgid "Options"
+msgstr "Opções"
+
+#: src/init.php:703
+msgid "Select countries to refuse"
+msgstr "Selecione os países para recusar"
+
+#: src/init.php:704
+msgid ""
+"Only apply GDPR for EU Countries (E.g: Cookie Popup displays on countries "
+"you select below only)"
+msgstr ""
+"Aplique o GDPR apenas para países da UE (por exemplo: Cookie Popup é exibido "
+"apenas nos países que você selecionar abaixo)"
+
+#: src/init.php:705
+msgid "Redirect those countries to this page (works with non-admin accounts): "
+msgstr ""
+"Redirecione esses países para esta página (funciona com contas que não sejam "
+"de administrador): "
+
+#: src/init.php:711
+msgid "Unsubscribe Page"
+msgstr "Página de cancelamento de inscrição"
+
+#: src/init.php:713
+msgid "Are you using Mailchimp?"
+msgstr "Você está usando o Mailchimp?"
+
+#: src/init.php:714
+msgid "Mailchimp Unsubscribe URL"
+msgstr "URL de cancelamento de inscrição do Mailchimp"
+
+#: src/init.php:715
+msgid ""
+"Enter your MailChimp Unsubscribe URL here. <a href=\"https://kb.mailchimp."
+"com/lists/signup-forms/find-the-unsubscribe-link-for-your-list\" target="
+"\"_blank\">How to get Mailchimp Unsubscribe URL?</a>"
+msgstr ""
+"Digite o URL de cancelamento de inscrição do MailChimp aqui. <a href="
+"\"https://kb.mailchimp.com/lists/signup-forms/find-the-unsubscribe-link-for-"
+"your-list\" target=\"_blank\">Como obter o URL de cancelamento de inscrição "
+"do Mailchimp?</a>"
+
+#: src/init.php:716
+msgid "Create Iframe"
+msgstr "Criar Iframe"
+
+#: src/init.php:717
+msgid "Mailchimp Iframe Code"
+msgstr "Código Iframe Mailchimp"
+
+#: src/init.php:718
+msgid "Copy this iframe code and insert to your Unsubscribe page"
+msgstr ""
+"Copie este código iframe e insira na sua página de cancelamento de inscrição"
+
+#: views/cookie-popup.php:9
+msgid "Content"
+msgstr "Conteúdo"
+
+#: views/cookie-popup.php:17
+msgid "Agree Text"
+msgstr "Texto de Aceitação"
+
+#: views/cookie-popup.php:25
+msgid "Decline Text"
+msgstr "Texto de Declinação"
+
+#: views/cookie-popup.php:39 views/cookie-popup.php:47
+msgid "Display all pages but except"
+msgstr "Exibir todas as páginas, exceto"
+
+#: views/cookie-popup.php:40
+msgid "Display for pages..."
+msgstr "Exibir para páginas ..."
+
+#: views/cookie-popup.php:80
+msgid "Where you want to display"
+msgstr "Onde você deseja exibir"
+
+#. Plugin Name of the plugin/theme
+msgid "Ninja GDPR Compliance"
+msgstr "Ninja GDPR Compliance"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://ninjateam.org"
+msgstr "http://ninjateam.org"
+
+#. Description of the plugin/theme
+msgid "GDPR Compliance 2018 for WordPress"
+msgstr "GDPR Compliance 2018 for WordPress"
+
+#. Author of the plugin/theme
+msgid "NinjaTeam"
+msgstr "NinjaTeam"

@@ -1,0 +1,49 @@
+/*!
+ * Sizzle CSS Selector Engine v2.3.6
+ * https://sizzlejs.com/
+ *
+ * Copyright JS Foundation and other contributors
+ * Released under the MIT license
+ * https://js.foundation/
+ *
+ * Date: 2021-02-16
+ */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
+
+/*!
+ * jQuery JavaScript Library v3.6.0
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2021-03-02T17:08Z
+ */
+
+/*!
+ * vue-range-slider v0.6.0
+ * https://github.com/ktsn/vue-range-slider
+ *
+ * @license
+ * Copyright (c) 2016-2018 katashin
+ * Released under the MIT license
+ * https://github.com/ktsn/vue-range-slider/blob/master/LICENSE
+ */
+
+/*! @source http://purl.eligrey.com/github/Blob.js/blob/master/Blob.js */
+
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
+
+/**
+ * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
+ * Released under MIT license, http://github.com/requirejs/almond/LICENSE
+ */
