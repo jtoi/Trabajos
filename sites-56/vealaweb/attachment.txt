@@ -1,0 +1,55 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
+errores en ingles de vealawebcuba.com
+
+La imagen grande de arriba tiene el texto en español, las diapositivas de la derecha tambiene tienen los textos en español.
+
+El buscador del home tiene el boton en español.
+
+En ambos idiomas, la bandera de cambio de idioma me sale montada arriba del menu del sitio en Firefox. En IE 9 me sale bien.
+
+Offer request, tiene un texto arriba que no esta traducido
+
+Contact us tiene un texto que no esta traducido.
+
+Terminar de traducir los textos de la pagina PRICES
+
+
+Esto es lo que va en la traduccion de PRICES, no me lo salva el joomla en mi pc
+<div>Prices in CUC only for cuban clients. For other contries, pleaase contact us to request an offer.<br /><br />PACKAGES<br /> 
+<table border="0" cellpadding="5">
+<tbody>
+<tr style="border: 1px solid #919c96;">
+<td style="width: 330px; border: 1px solid #919c96;">#1 I want to be on the Web&nbsp; &nbsp;&nbsp; (<a href="index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=55#Quiero estar en la Web">see details</a>)<br /></td>
+<td style="width: 180px; border: 1px solid #919c96;">120 cuc / year<br /></td>
+</tr>
+<tr>
+<td style="width: 330px; border: 1px solid #919c96;">#2 I am present with my website &nbsp;&nbsp; (<a href="index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=55#Estoy presente con mi Web">see details</a>)</td>
+<td style="width: 180px; border: 1px solid #919c96;">250 cuc / year</td>
+</tr>
+<tr>
+<td style="width: 330px; border: 1px solid #919c96;">#3 Among the first on the Web &nbsp;&nbsp; (<a href="index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=55#Dentro de los primeros de la Web">see details</a>)</td>
+<td style="width: 180px; border: 1px solid #919c96;">350 cuc year + 70 cuc each tree month<br /></td>
+</tr>
+<tr>
+<td style="width: 330px; border: 1px solid #919c96;">#4 My Web updated &nbsp; &nbsp; (<a href="index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=55#Mi Web actualizada">vea detalles</a>)</td>
+<td style="width: 180px; border: 1px solid #919c96;">350 cuc / year + 95 cuc each tree month</td>
+</tr>
+</tbody>
+</table>
+<br />SERVICES<br /> 
+<table border="0" cellpadding="5">
+<tbody>
+<tr style="border: 1px solid #919C96;">
+<td style="width: 330px; border: 1px solid #919C96;">Web Programming, CMS Programming (Joomla, WordPress), Virtual Stores programming</td>
+<td style="width: 180px; border: 1px solid #919C96;"><a href="index.php?option=com_contact&amp;view=contact&amp;id=1&amp;Itemid=58">Contant us</a><br /></td>
+</tr>
+<tr>
+<td style="width: 330px; border: 1px solid #919C96;">Google Adwords Campain<br /></td>
+<td style="width: 180px; border: 1px solid #919C96;"><a href="index.php?option=com_contact&amp;view=contact&amp;id=1&amp;Itemid=58">Contact us</a><br /></td>
+</tr>
+</tbody>
+</table>
+</div>

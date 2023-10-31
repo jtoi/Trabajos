@@ -1,0 +1,395 @@
+/*****************************/
+/*** Core html setup stuff ***/
+/*****************************/
+/*
+colores:
+naranja del le ponemos su negocio en internet: #CB0000
+gris del background: #B8C1BC
+gris del texto: #506078
+*/
+
+html {
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Helvetica,Arial,sans-serif;
+	line-height: 1.3em;
+	margin: 0px 0px 0px 0px;
+	font-size: 12px;
+	color: #506078;
+	background-color: #B8C1BC;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+a:hover {
+	text-decoration: underline;
+	font-weight: normal;
+}
+
+input.button { cursor: pointer; }
+
+p { margin-top: 0; margin-bottom: 5px; }
+
+img, div { border: 0 none; }
+
+/*****************************************/
+/*** Template specific layout elements ***/
+/*****************************************/
+#todo {
+	width: 1163px;
+	margin: 0 auto;
+}
+
+#top, #menutop {
+	float: left;
+	width: 100%;
+}
+
+#top {
+	background: url(../images/fdoTopA.jpg) no-repeat top center;
+	height: 213px;
+}
+
+#top, #medio, #abajo {
+	float: left;
+}
+
+/*		Menu Ppal		*/
+#menutop {
+	padding: 8px 0 0 194px;
+    width: 850px;
+}
+
+#menutop a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    margin-right: 22px;
+    padding-top: 11px;
+    text-decoration: none;
+    vertical-align: bottom;
+}
+
+#menutop #active_menu {
+	background: url("../images/flecha.gif") no-repeat scroll center 1px transparent;
+}
+
+#izq, #centro, #der, #centro1, #footer {
+	float: left;
+}
+
+#centro1 {
+	background: url(../images/fdoTopCont.jpg) no-repeat top left;
+	padding: 20px 20px 0 0;
+    width: 423px;
+	height: 286px;
+}
+
+.moduletable_menu {
+  float:left;
+}
+
+.moduletable_slog {
+  color: #CB0000;
+    float: right;
+    font-family: arial;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 94px 135px;
+    text-shadow: 4px 4px 11px #AAD2EB, -4px 4px 11px #FFFFFF, -4px -4px 11px #FFFFFF, 3px -3px 10px #FFFFFF;
+}
+
+#izq {
+	background: url(../images/fdoIzq.jpg) top right no-repeat;
+	width: 310px;
+	padding-bottom: 60px;
+}
+
+#centro {
+	/*background: url(../images/fdoDerCont.jpg) no-repeat right top #FFFFFF;*/
+	background-color: #ffffff;
+	width: 428px;
+}
+
+#der {
+	width: 415px;
+}
+
+/*		Contenido		*/
+.titleAnunc {
+	color: #CB0000;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*		Imagenes rotatorias		*/
+#listaImg {
+	display: block;
+    left: 304px;
+    position: relative;
+    top: -196px;
+    width: 30px;
+	padding: 0;
+}
+
+#listaImg li {
+	list-style-type: none;
+	text-align: center;
+	line-height: 20px;
+	margin: 11px 0;
+	color: #B7BCBC;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#nav a {
+	color: #B7BCBC;
+}
+
+.botMarc {
+	color: #FFFFFF !important;
+}
+
+.anU {
+	display: none;
+}
+
+#imgRota {
+	background: url(../images/imagenfdo.jpg) no-repeat;
+	width: 415px;
+	height: 300px;
+	padding-top: 6px;
+}
+
+#imgRota img {
+	top: 6px !important;
+	left: 8px !important;
+}
+
+#imagCamb {
+	display: none;
+}
+
+#nav {
+	left: 336px;
+    position: relative;
+    top: 112px;
+    width: 30px;
+    z-index: 7;
+}
+
+#nav a {
+	float: left;
+    margin: 9px 5px 0;
+    padding: 3px 8px;
+    text-decoration: none;
+	background: url(../images/botNumInact.gif) no-repeat 50% 50%;
+}
+
+#nav a.activeSlide { 
+	background: url(../images/botNumAct.gif) no-repeat 50% 50%;
+	color: #ffffff;
+}
+
+#nav a:focus {
+	outline: none;
+}
+
+/*		Menu Recursos		*/
+.moduletable_menuRecursos {
+	margin-top: 0px;
+	padding: 0 46px 0 104px;
+	float: left;
+	width: 141px;
+}
+
+.moduletable_menuRecursos a {
+	display: block;
+	float: left;
+	margin-left: 5px;
+	line-height: 21px;
+	color: #40526B;
+	text-decoration: none;
+}
+
+.moduletable_menuRecursos a:hover {
+	text-decoration: underline;
+}
+
+.moduletable_menuRecursos table td {
+	width: 141px;
+}
+
+/*		modulo de anuncio izq		*/
+.moduletable_anuncio {
+    font-size: 9px;
+    line-height: 12px;
+    margin: 91px 0 0 137px;
+}
+
+.vermas {
+	color: #CB0000;
+	background: url(../images/vmas.png) 42px 50% no-repeat;
+	padding-right: 20px;
+}
+
+/*		Módulo de correo Inicio		*/
+.moduletable_correoIni {
+	background: url(../images/topcorreo.jpg) top center no-repeat #ffffff;
+	width: 452px;
+	float: left;
+}
+
+.moduletable_correoIni h3 {
+	margin: 55px 0 0 9px;
+	color: #333333;
+	font-size: 13px;
+}
+
+div.rapid_contact_correoIni {
+	padding: 0 0 13px 9px;
+	background: url(../images/degradaCorreoInf.jpg) bottom repeat-x #ffffff;
+}
+
+.rapid_contact input.inputbox, .rapid_contact textarea {
+	width: 317px;
+}
+
+.inputbox_correoIni {
+	background: url("../images/tucorreo.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    height: 19px;
+    padding: 7px 23px 11px 11px;
+    width: 254px;
+}
+
+.textarea_correoIni {
+	background: url("../images/tuidea.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    height: 75px;
+    padding: 9px;
+    width: 308px;
+}
+
+#areaCorr_correoIni {
+	padding-top: 16px;
+}
+
+.button_correoIni {
+	background: url("../images/enviar.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    height: 39px;
+    margin: 4px 0 10px 75px;
+    width: 119px;
+	color: #ffffff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*		buscar		*/
+.moduletable_Buscar {
+	background: url("../images/lupa.jpg") no-repeat 10px 10px #E3E3E3;
+    float: left;
+    height: 114px;
+    margin: 57px 0 0 76px;
+    width: 307px;
+}
+
+.moduletable_Buscar h3 {
+    font-size: 1.3em;
+    font-variant: small-caps;
+    margin: 19px 0 3px 96px;
+}
+
+.search_Buscar {
+    background: url("../images/fdoBusc.jpg") no-repeat center bottom;
+    height: 84px;
+    padding: 0 20px 0 109px;
+}
+
+.search_Buscar input {
+	display: block;
+	float: right;
+	clear: both;
+}
+
+.inputbox_Buscar {
+	width: 180px;
+	border: 1px solid #B8C1BC;
+	height: 23px;
+}
+
+.button_Buscar {
+	width: 67px;
+	background: url("../images/fodoBotonBusc.jpg") repeat-x;
+	color: #000000;
+	font-weight: bold;
+	border: none;
+	margin-top: 5px;
+	height: 22px;
+	cursor: pointer;
+	font-size: 1.05em;
+}
+
+/*		Lapiz		*/
+.moduletable_lapiz {
+    float: left;
+    height: 120px;
+    left: -63px;
+    position: relative;
+    top: 160px;
+    width: 95px;
+	display:none;
+}
+
+/*		footer		*/
+#footer {
+    font-size: 0.89em;
+    height: 43px;
+	width: 100%
+}
+
+#footer1 {
+	width: 389px;
+	margin: 0 auto;
+}
+
+.menuInf a, .menuInf .mainlevel {
+	color: #ffffff;
+}
+
+/*		menu inferior		*/
+.menuInf {
+	float: left;
+    margin-left: 16px;
+    width: 100%;
+}
+
+/*		Idiomas		*/
+#jflanguageselection {
+	margin: 0;
+}
+
+.rawimages {
+	margin: 0;
+}
+
+.rapid_contact_correoIni

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-28 09:44:42+0000\n"
+"PO-Revision-Date: 2023-10-30 16:54:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,7 +103,7 @@ msgstr "El tamaño de archivo a subir supera el tamaño máximo aceptable por PH
 
 #: includes/config-validator/form.php:69
 msgid "Colons are used in form-tag names."
-msgstr "Los dos puntos se utilizan en los nombres de las etiquetas de los formularios."
+msgstr "Se están usando dos puntos en los nombres de las etiquetas de formulario."
 
 #: modules/text.php:196
 msgid "Please enter a telephone number."
@@ -268,7 +268,7 @@ msgstr "Identificador único para el formulario de contacto."
 
 #: includes/config-validator/form.php:57
 msgid "Dots are used in form-tag names."
-msgstr "Los puntos se usan en los nombres de las etiquetas de los formularios."
+msgstr "Se están usando puntos en los nombres de las etiquetas de formulario."
 
 #: admin/includes/welcome-panel.php:303
 msgid "Show welcome panel"
@@ -438,11 +438,11 @@ msgstr "lista de rechazo"
 
 #: modules/disallowed-list.php:35
 msgid "Disallowed words (%s) are used."
-msgstr "Se usan palabras no permitidas (%s)."
+msgstr "Se están usando palabras no permitidas (%s)."
 
 #: modules/disallowed-list.php:32
 msgid "Disallowed words are used."
-msgstr "Se usan palabras no permitidas."
+msgstr "Se están usando palabras no permitidas."
 
 #. translators: %s: Contact Form 7 version number.
 #: includes/functions.php:599
@@ -490,7 +490,7 @@ msgstr "El tamaño total de los archivos adjuntos es demasiado grande."
 
 #: includes/config-validator/form.php:45
 msgid "Unavailable HTML elements are used in the form template."
-msgstr "Los elementos HTML no disponibles se usan en la plantilla del formulario."
+msgstr "Se están usando elementos HTML no disponibles en la plantilla del formulario."
 
 #: modules/recaptcha/service.php:284
 msgid "reCAPTCHA is active on this site."
@@ -782,7 +782,7 @@ msgstr "Sintaxis incorrecta en el campo %name%."
 #. translators: %names%: a list of form control names
 #: includes/config-validator/form.php:32
 msgid "Unavailable names (%names%) are used for form controls."
-msgstr "Se está usando un nombre no disponible (%names%) para los controles del formulario."
+msgstr "Se están usando nombres no disponibles (%names%) en los controles del formulario."
 
 #: includes/config-validator/mail.php:322
 msgid "There are invalid mail header fields."
@@ -790,7 +790,7 @@ msgstr "Hay campos de cabecera no válidos en el correo electrónico."
 
 #: includes/config-validator/messages.php:29
 msgid "HTML tags are used in a message."
-msgstr "Se están usando etiquetas HTML en el mensaje."
+msgstr "Se están usando etiquetas HTML en un mensaje."
 
 #: includes/config-validator/mail.php:223
 msgid "Sender email address does not belong to the site domain."

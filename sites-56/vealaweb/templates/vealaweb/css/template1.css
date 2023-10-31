@@ -1,0 +1,274 @@
+/*****************************/
+/*** Core html setup stuff ***/
+/*****************************/
+/*
+colores:
+naranja del le ponemos su negocio en internet: #CB0000
+gris del background: #B8C1BC
+gris del texto: #506078
+*/
+
+html {
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Helvetica,Arial,sans-serif;
+	line-height: 1.3em;
+	margin: 0px 0px 0px 0px;
+	font-size: 12px;
+	color: #506078;
+	background-color: #B8C1BC;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+a:hover {
+	text-decoration: underline;
+	font-weight: normal;
+}
+
+input.button { cursor: pointer; }
+
+p { margin-top: 0; margin-bottom: 5px; }
+
+img, div { border: 0 none; }
+
+/*****************************************/
+/*** Template specific layout elements ***/
+/*****************************************/
+#todo {
+	width: 1163px;
+	margin: 0 auto;
+}
+
+#top, #menutop {
+	float: left;
+	width: 100%;
+}
+
+#top {
+	background: url(../images/fdoTopA1.jpg) no-repeat top center;
+	height: 213px;
+}
+
+#top, #medio, #abajo {
+	float: left;
+}
+
+/*		Menu Ppal		*/
+#menutop {
+	padding: 8px 0 0 194px;
+    width: 850px;
+}
+
+#menutop a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    margin-right: 22px;
+    padding-top: 11px;
+    text-decoration: none;
+    vertical-align: bottom;
+}
+
+#menutop #active_menu {
+	background: url("../images/flecha.gif") no-repeat scroll center 1px transparent;
+}
+
+#izq, #centro {
+	float: left;
+}
+
+#centro1 {
+	background: url(../images/fdoTopCont2.jpg) #ffffff no-repeat top left;
+	padding: 34px 20px 20px;
+	margin-right: 64px;
+    width: 745px;
+	height: 525px;
+}
+
+.moduletable_menu {
+  float:left;
+}
+
+
+.moduletable_slog {
+  color: #CB0000;
+    float: right;
+    font-family: arial;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 94px 135px;
+    text-shadow: 4px 4px 11px #AAD2EB, -4px 4px 11px #FFFFFF, -4px -4px 11px #FFFFFF, 3px -3px 10px #FFFFFF;
+}
+
+#izq {
+	background: url(../images/fdoIzq1.jpg) top right no-repeat;
+	width: 290px;
+	padding-bottom: 60px;
+}
+
+#centro {
+	background: url(../images/fdopagAdic.jpg) no-repeat right top;
+/*	background-color: #ffffff;*/
+}
+
+#centro0 {
+	background: url(../images/degradaLeft.jpg) repeat-y 786px 0px;
+}
+
+/*		modulo de anuncio izq		*/
+.moduletable_anuncio {
+    font-size: 9px;
+    line-height: 12px;
+    margin: 91px 0 0 137px;
+}
+
+.vermas {
+	color: #CB0000;
+	background: url(../images/vmas.png) 42px 50% no-repeat;
+	padding-right: 20px;
+}
+
+
+/*		Contenido		*/
+.contentheading, .componentheading {
+	color: #CB0000;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.fotoVirada {
+	position: relative;
+	margin-left: -35px;
+	margin-bottom:	5px;
+	left: 63px;
+}
+
+.noIndex .contenttoc, .noIndex .pagenavcounter, .component-contact table table table td img {
+	display: none;
+}
+
+/*		Menu Recursos		*/
+.moduletable_menuRecursos {
+	margin-top: 83px;
+	padding: 0 46px 0 104px;
+	float: left;
+	width: 141px;
+}
+
+.moduletable_menuRecursos a {
+	display: block;
+	float: left;
+	margin-left: 5px;
+	line-height: 21px;
+	color: #40526B;
+	text-decoration: none;
+}
+
+.moduletable_menuRecursos a:hover {
+	text-decoration: underline;
+}
+
+.moduletable_menuRecursos td {
+	width: 141px;
+}
+/*		menu inf		*/
+.moduletable_menuInf {
+	background: url(../images/fdoMenInf.jpg) no-repeat top #B8C1BC;
+	float: left;
+	width: 785px;
+	height: 48px;
+	
+}
+
+.moduletable_menuInf a {
+	display: block;
+	float: left;
+	margin-left: 24px;
+	padding-top: 5px;
+	line-height: 23px;
+	color: #ffffff;
+	text-decoration: none;
+/*	font-weight: bold;*/
+}
+
+.moduletable_menuInf a:hover {
+	text-decoration: underline;
+}
+
+/*		Créditos		*/
+#footer {
+    font-size: 0.89em;
+    height: 43px;
+	width: 100%
+}
+
+#footer1 {
+	width: 389px;
+	margin: 0 auto;
+}
+
+/*		menu inferior		*/
+.menuInf {
+	float: left;
+    margin-left: 16px;
+    width: 100%;
+}
+
+.menuInf a, .menuInf .mainlevel {
+	color: #ffffff;
+}
+
+
+
+.pregT {
+	color: #506078;
+	text-decoration: underline !important;
+}
+
+.respT {
+    color: #506078;
+    background:#B8C1BC;
+    display:none; /*--Hides by default--*/
+    padding:10px;
+    position:absolute;    z-index:1000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	width: 700px;
+	border: solid #000000 1px;
+}
+
+.contact_email div {
+	float: left;
+	width: 347px;
+}
+
+.validate {
+	margin-top: 82px;
+}
+
+
+/*		Idiomas		*/
+#jflanguageselection {
+	margin: 0;
+}
+
+.rawimages {
+	margin: 0;
+}

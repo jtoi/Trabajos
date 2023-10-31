@@ -1,0 +1,26 @@
+/* IE ONLY CSS */
+
+#centro {
+/*	width: 413px;*/
+}
+
+#centro1 {
+/*	width: 408px;*/
+}
+
+.fotoVirada {
+	position: relative;
+	margin-left: -35px;
+	margin-bottom:	5px;
+	left: 83px;
+}
+
+#imgRota {
+	top: 213px;
+	left: 738px;
+	position: absolute;
+}
+
+#footer {
+	padding-left: 440px;
+}
