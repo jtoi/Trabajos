@@ -9,13 +9,13 @@ class JConfig {
 	public $captcha = 'recaptcha_invisible';
 	public $list_limit = '500';
 	public $access = '1';
-	public $debug = '0';
+	public $debug = '1';
 	public $debug_lang = '0';
-	public $debug_lang_const = '1';
+	public $debug_lang_const = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'mariadb';
 	public $user = 'root';
-	public $password = 'admin';
+	public $password = 'root';
 	public $db = 'mabelpob_db';
 	public $dbprefix = 'mp_';
 	public $live_site = '';
@@ -43,7 +43,7 @@ class JConfig {
 	public $smtpport = '25';
 	public $caching = '0';
 	public $cache_handler = 'file';
-	public $cachetime = '15';
+	public $cachetime = '25';
 	public $cache_platformprefix = '0';
 	public $MetaDesc = '';
 	public $MetaKeys = '';
@@ -58,7 +58,7 @@ class JConfig {
 	public $feed_limit = '10';
 	public $feed_email = 'none';
 	public $log_path = '/home/jtoi/tmp/logs';
-	public $tmp_path = '/var/tmp';
+	public $tmp_path = '/home/jtoi/tmp';
 	public $lifetime = '15';
 	public $session_handler = 'database';
 	public $shared_session = '0';
