@@ -22,4 +22,5 @@ define("_ESTA_URL", "http://localhost/concentrador/APITitanes/index.php?var="); 
 define("_CORRESPONDANT", "T070");
 define("_SUBCORRESPONDANT", "7");
 define("_BRANCH", "T0700939");
+
 ?>
