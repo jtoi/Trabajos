@@ -65,20 +65,20 @@ $(document).ready(function () {
 				});
 			});
 
-			$.post('datos.php', {
-				dato:	2,
-				pais:	idpais
-			}, function(data){
-				var dato = eval('(' + data + ')');
-				var options = $("#paise");
-				options.empty(); 
-				$.each(dato, function(index,vale) {
-					if (idtipo == vale.Id)
-						options.append($("<option selected='selected' />").val(vale.Iso2).text(vale.Nombre));
-					else
-						options.append($("<option />").val(vale.Iso2).text(vale.Nombre));
-				});
-			});
+			// $.post('datos.php', {
+			// 	dato:	2,
+			// 	pais:	idpais
+			// }, function(data){
+			// 	var dato = eval('(' + data + ')');
+			// 	var options = $("#paise");
+			// 	options.empty(); 
+			// 	$.each(dato, function(index,vale) {
+			// 		if (idtipo == vale.Id)
+			// 			options.append($("<option selected='selected' />").val(vale.Iso2).text(vale.Nombre));
+			// 		else
+			// 			options.append($("<option />").val(vale.Iso2).text(vale.Nombre));
+			// 	});
+			// });
 		});
 	});
    
