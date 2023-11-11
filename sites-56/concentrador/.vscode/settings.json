@@ -1,9 +1,0 @@
-{
-	"prettier.useTabs": true,
-	"phpformatter.logging": true,
-	"intelephense.environment.phpVersion": "5.6",
-	"files.encoding": "iso88591",
-	"editor.detectIndentation": false,
-	"editor.tabCompletion": "on",
-	"git.ignoreLimitWarning": true
-}
