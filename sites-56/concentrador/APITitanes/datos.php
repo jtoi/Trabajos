@@ -300,8 +300,8 @@ if ($d['dato'] == 31) {
     $where = '1=1';
     if ($d['ben'] != '&') $where .= " and IsBeneficiario = '".$d['ben']."'";
     if ($d['tipo'] != '&') $where .= " and idTipo = '".$d['tipo']."'";
-    if ($d['nom'] != '%') $where .= " and concat(Nombre, ' ', PApellido, ' ', SApellido) like '%".$d['nom']."%'";
-    echo retornaData("select distinct idTitanes tit, concat(Nombre, ' ', PApellido, ' ', SApellido) persona, case IsBeneficiario when 1 then 'Si' else 'No' end ben, case idTipo when 1 then 'Persona Física' else 'Persona Legal' end tipo from tit_Personas where $where ");
+    if ($d['nom'] != '%') $where .= " and (concat(Nombre, ' ', PApellido, ' ', SApellido) like '%".$d['nom']."%' or concat(BusinessName, ' ', CommercialName) like '%".$d['nom']."%')";
+    echo retornaData("select distinct idTitanes tit, concat(Nombre, ' ', PApellido, ' ', SApellido, ' ', BusinessName, ' ', CommercialName) persona, case IsBeneficiario when 1 then 'Si' else 'No' end ben, case idTipo when 1 then 'Persona Física' else 'Persona Legal' end tipo from tit_Personas where $where ");
     
 }
 
