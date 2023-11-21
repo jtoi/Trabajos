@@ -2,6 +2,19 @@ $(document).ready(function () {
     const currentUrl = window.location.href;
     var prof = 0;
     if (currentUrl.indexOf('documentb') > 0) prof = 1
+    $("#defecto").change(function(){
+        $.post('datos.php',{
+            dato:	'19',
+            def: $("#defecto").val()
+        },function(data){
+            var datos = eval('(' + data + ')');
+            var options = $("#tipo");
+            options.empty();
+            $.each(datos, function(index,vale) {
+                options.append($("<option />").val(vale.Id).text(vale.Nombre));
+            });
+        });
+    });
 
    
 	$.post('datos.php',{
@@ -17,7 +30,8 @@ $(document).ready(function () {
 		});
 	});
 	$.post('datos.php',{
-			dato:	'19'
+			dato:	'19',
+            def: $("#defecto").val()
 		},function(data){
 			var datos = eval('(' + data + ')');
 			var options = $("#tipo");

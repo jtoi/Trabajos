@@ -136,8 +136,12 @@ if ($d['dato'] == 18) {
 }
 
 if ($d['dato'] == '19') {
+	if ($d["def"]) $q = "select Id, Nombre from tit_TipoDocumento where defecto = 1";
+
 	$q = "select Id, Nombre from tit_TipoDocumento";
-	if ($d['tipo'] > 1) $q .= " where Id = " . $d['tipo'];
+	if ($d['tipo'] > 1 && !$d["def"]) $q .= " where Id = " . $d['tipo'];
+	elseif ($d['tipo'] > 1 ) $q .= " where Id = " . $d['tipo'] . " and defecto = ".$d['def'];
+	elseif ($d["def"]) $q .= " where defecto = ".$d['def'];
 	echo retornaData($q);
 }
 
