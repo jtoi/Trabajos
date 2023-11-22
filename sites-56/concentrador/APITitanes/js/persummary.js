@@ -50,7 +50,7 @@ function generarTextoArbol(object) {
 }
 
 function envia(perId = "") {
-  $("#todomas").html("");
+  $("#todomas").html(""); 
   esperafn();
   if (perId == "") perId = $("#persona").val();
   $.post(
