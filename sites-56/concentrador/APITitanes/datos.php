@@ -28,7 +28,7 @@ if ($d['dato'] == '3') {
 }
 
 if ($d['dato'] == '4') {
-	echo retornaData("select Id, Nombre from tit_TipoDocumento");
+	echo retornaData("select Id, Nombre from tit_TipoDocumento where defecto = 1");
 }
 
 if ($d['dato'] == 5) {
