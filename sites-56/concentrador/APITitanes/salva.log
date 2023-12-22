@@ -3723,3 +3723,9 @@ PersonId is not valid.
 20-Dec-2023 17:32:58.000000 ->QUERY->select distinct p.IdTitanes, concat(p.Nombre,' ',p.PApellido,' ',p.SApellido, p.CommercialName) persona from tit_Personas p , tit_Cuentas c where c.IdPerson = p.Id and  p.IsBeneficiario = '0' order by persona
 
 20-Dec-2023 17:32:58.000000 ->JSONNN->[]
+
+22-Dec-2023 16:09:09.000000 ->Entrada de datos->{"dato":"6","beneficiario":"0","tipo":"cta"}
+
+22-Dec-2023 16:09:09.000000 ->QUERY->select distinct p.IdTitanes, concat(p.Nombre,' ',p.PApellido,' ',p.SApellido, p.CommercialName) persona from tit_Personas p , tit_Cuentas c where c.IdPerson = p.Id and  p.IsBeneficiario = '0' order by persona
+
+22-Dec-2023 16:09:09.000000 ->JSONNN->[]
