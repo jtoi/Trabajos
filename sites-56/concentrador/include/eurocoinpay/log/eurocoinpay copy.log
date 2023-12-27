@@ -1,0 +1,222 @@
+--START OF LOG--
+2021-03-05T22:33:56 checkConfigVars
+2021-03-05T22:33:56 encryptAesBin
+2021-03-05T22:33:56 payment_server_callback 1
+2021-03-05T22:33:56 payment_server_callback 2
+2021-03-05T22:33:56 data:W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg:sig:oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:34:11 checkConfigVars
+2021-03-05T22:34:11 encryptAesBin
+2021-03-05T22:34:11 payment_server_callback 1
+2021-03-05T22:34:11 payment_server_callback 2
+2021-03-05T22:34:11 data:wWu4a3DjbkknnyJJZjq2toSZVsvB2yRzr3loDk54pwHQg/NxM71Kd0RJp1Xa/5J1CI7gh5LzTiGWq0+4bTdX7XJNKB2Wqu5fGElTz7oTgVfBM5iMytKpHS/FRF349FXMrTdZ0aSTgZuVP1SsqPHQf211Lq7sdOQbCcA2YpkqgxN5qTPR+5Jfct5AtxxdlowWyEfBA5IZn6QFTwdnKZdgsiXPq1WIo9ZEx6fTzu8KpZ5bkz28ny7aAXXb9Kq8lLEbndhs1q1H4/TQ+QkEPYNYD9BzP5S0fFDDwKbDGJ0jh+yjyS/8puyYowyDwhmwCurQW87tv9S2IlQ4ol9cYyvdWlexKJ9uT7v+hJEtEB/13oc=:sig:2j3/k6htgWT/6K/2rKHAUQ==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:35:11 checkConfigVars
+2021-03-05T22:35:11 encryptAesBin
+2021-03-05T22:35:11 payment_server_callback 1
+2021-03-05T22:35:11 payment_server_callback 2
+2021-03-05T22:35:11 data:HM8qgCMptaDyiolRqAyAA/x2WSOCN2nLgf1kLEH5PQ8YHOVfsdoVVSS3CLZeqY71VX27XXr5cmU28wnqa31EYxS/vg3lF0jF9apEmo9b7zS1bigM35CFjH1G4cAHYiH28W8jEVJYShA7SHC7dUdpOJ/zSJETf4904USPT6a9rntx7pTeo47+zFerPVHM2aYHUVfaHA4QYqkaegDg16FfTwPGIH6Ag8l2+VfR+Zy/j4eqzTh7pnf8wKh7NkjIOHD4yLPCEu9nqKVR32Axiz4mo56fm7M6VrxZ+NdxhFMAaPjpa+v75Xvv6ilf+L0m79FvUUS8Qf/yWc2Bh3NNRb2bobHvnFUPtKBlp/YdGJxSEOMfMjsXRdDoYssoDLZMGKVa:sig:Ay68W9ttKYPdsggVnfeA7Q==|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=
+2021-03-05T22:35:11 checkConfigVars
+2021-03-05T22:35:11 encryptAesBin
+2021-03-05T22:35:11 payment_server_callback 1
+2021-03-05T22:35:11 payment_server_callback 2
+2021-03-05T22:35:11 data:W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg:sig:oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:36:11 checkConfigVars
+2021-03-05T22:36:11 encryptAesBin
+2021-03-05T22:36:11 payment_server_callback 1
+2021-03-05T22:36:11 payment_server_callback 2
+2021-03-05T22:36:11 data:wWu4a3DjbkknnyJJZjq2toSZVsvB2yRzr3loDk54pwHQg/NxM71Kd0RJp1Xa/5J1CI7gh5LzTiGWq0+4bTdX7XJNKB2Wqu5fGElTz7oTgVfBM5iMytKpHS/FRF349FXMrTdZ0aSTgZuVP1SsqPHQf211Lq7sdOQbCcA2YpkqgxN5qTPR+5Jfct5AtxxdlowWyEfBA5IZn6QFTwdnKZdgsiXPq1WIo9ZEx6fTzu8KpZ5bkz28ny7aAXXb9Kq8lLEbndhs1q1H4/TQ+QkEPYNYD9BzP5S0fFDDwKbDGJ0jh+yjyS/8puyYowyDwhmwCurQW87tv9S2IlQ4ol9cYyvdWlexKJ9uT7v+hJEtEB/13oc=:sig:2j3/k6htgWT/6K/2rKHAUQ==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:36:11 checkConfigVars
+2021-03-05T22:36:11 encryptAesBin
+2021-03-05T22:36:11 payment_server_callback 1
+2021-03-05T22:36:11 payment_server_callback 2
+2021-03-05T22:36:11 data:W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg:sig:oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:36:43 checkConfigVars
+2021-03-05T22:36:43 encryptAesBin
+2021-03-05T22:36:44 checkConfigVars
+2021-03-05T22:36:44 encryptAesBin
+2021-03-05T22:36:44 prepareDataForEcpServer
+2021-03-05T22:36:44 generateSendData
+2021-03-05T22:36:44 encryptAesBin
+2021-03-05T22:36:44 strSig:7|2|lbDrCpVZ3v8d90Z4KYBgrg==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:36:44 strData:u4zbQ1vP9g+h8E/Ky0559EAu1PfWPiVRn1xtoDvYyPQGY08bFRSPlOXRzEKSdsz1/xeuOPT4YF3FKaEoQIBRKhm0gKYhmkKXS6nFUKbiypFkXQs5VGTpAg8tMOVj6bnjYin85B627ZZdaxAwfFz7ZFsyIHvfLZGboSdSBkIswFb1HIKaRkO0iae2mvUdHhEenq/XXRu1flAAJvBG22HQMgkEkDm/OcyLkOH69FFsgNv1rQODrg+/Bwtal6i/56N42dj4BxrhGMKe+A/jLQyuvLszxPs1fZGSWmBE/kgusNGhJZbzWAaIzQ7ue2KwLLh2yokANuRxQJJ1jo8UohGDhCTgaBcfsM6haJktkfFzWI9YzbxHqp96M2W8KbXYUFw/SNQheml04neYnav7Vo8hBUzO4eJe7it/5i1x470NnrBbqgChFFtJRERsfsjCq/dCkKMD4ffELYCCKq+LeC3fAofg2u1B9SRJsqUlO7tcapXLu5i9xxagJxEI6vO50vrnsX7JKyoqalUY9vGdfQ8EPFS+fKe32pYib1FpOxhcpImJq2zOs5rpHwOL26La2brdBbs4vQrwzuYwdr2CyMvl8xU2Yqw8nV4kCLYf1TANJrw=
+2021-03-05T22:36:44 prepareDataForEcpServer
+2021-03-05T22:36:44 generateSendData
+2021-03-05T22:36:44 encryptAesBin
+2021-03-05T22:36:44 strSig:7|2|+nLZo4lRduYjLnUHy/562g==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:36:44 strData:Q/XnA/aHavOqqXBWpVioXxisvkLWRTVhdtEIb9w88c3Ah1pGje1IhxmuXn0OOuzG6LuSCOBivdpsbfoeCBhlmkiUBG7dgiXxonZIeOcM9cio4yem68yI838WZ7UHL+P1gYJRvhh9VJIqbiohS16WFkSJU5RrI+fa+jFreaSfAABop/Mo+hr6cdsqTKxFcGK5AHFM9cP+7ePu3MlAITbl2UI5GaC8k+s7tKi01LQvGAv9Zv0TvNNkbc4LOm/RaYXO8GF3ZRks4s2tD2QQFqwFCjO2hQdIqaV2/rC1+UsCGYc2OewI0A+TPsNLVEcZgVPIhB8CvTKu+B20X51VvEa1hh1PkoBNNAeiiQ6msZhZV1uqBYIOzmeAMems2Db+KHOqNboRrut9QwXhSuqGeD15sp7XzXk/DRg40BjwsdROYhP0mCYD+JuEmK6Duh9STECQeQvy15ZPLpIaWJDGcyZaHMU/vJsgRbfZNN4GcF0OoPnjqRlptUHn+KxbZniUp+Yc/BhwLjdoRGr6k84p4q0Sz0WVM4rj+E45XCEd6Th9Cn5lxCe2Pb/1Mhxj/AH2w06DWYWnflye5dHPdd9XbOC9jeftwL3kudEKxW2WkFaaEJk=
+2021-03-05T22:36:50 checkConfigVars
+2021-03-05T22:36:50 encryptAesBin
+2021-03-05T22:36:50 payment_server_callback 1
+2021-03-05T22:36:50 payment_server_callback 2
+2021-03-05T22:36:50 data:Rtgi2HomPxPbmbvi0anqhTFhhbDz05qUee5TQB8A3ixdaLT/dYgoR6xj1da0N3WiUkrtY93T672RanlH/rxfP3RUkk+8yqEDx8sM0iMf8ORkzkVJGXyI8A7XXLYKkpHkh8hcT4j4hDW0cbCbrlhTQ6DbfpMGX4zlOP8fg92Nh1r4BQ605tVQu0R8a1YMzD81BA523lqE7iiWYKWDt+J8qXpdYC17EfZKDXZqj5dzfVeNUYkToZk5RUYENqyGLXqBr2CcIpK/w5qDMACnM3tzZCOn2cxqEotzLMRy64x1Wd3jr2w/Sxi4CkorfNLMnviC4b5+EN272yZ1fr96r+io68K7aA8FOMm1+yo9m8fFZ1c=:sig:P0cXkGCs2rLFBevt5pSNhg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:36:50 cliObtenParametrosPost
+2021-03-05T22:36:50 sigAll:
+2021-03-05T22:36:50 data|Rtgi2HomPxPbmbvi0anqhTFhhbDz05qUee5TQB8A3ixdaLT/dYgoR6xj1da0N3WiUkrtY93T672RanlH/rxfP3RUkk+8yqEDx8sM0iMf8ORkzkVJGXyI8A7XXLYKkpHkh8hcT4j4hDW0cbCbrlhTQ6DbfpMGX4zlOP8fg92Nh1r4BQ605tVQu0R8a1YMzD81BA523lqE7iiWYKWDt+J8qXpdYC17EfZKDXZqj5dzfVeNUYkToZk5RUYENqyGLXqBr2CcIpK/w5qDMACnM3tzZCOn2cxqEotzLMRy64x1Wd3jr2w/Sxi4CkorfNLMnviC4b5+EN272yZ1fr96r+io68K7aA8FOMm1+yo9m8fFZ1c=
+2021-03-05T22:36:50 sigAll|P0cXkGCs2rLFBevt5pSNhg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:36:50 datosJS:
+2021-03-05T22:36:50 txtFirmadoComprobar||
+2021-03-05T22:36:50 Firma OK|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=|thNnmggU2ex3L5XXeMNfxf8Wl8STcVZTxscSFEKSxa0=|P0cXkGCs2rLFBevt5pSNhg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:36:50 No pudimos deserializar 2
+2021-03-05T22:36:50 res:NULL
+2021-03-05T22:36:50 res->error:
+2021-03-05T22:37:11 checkConfigVars
+2021-03-05T22:37:11 encryptAesBin
+2021-03-05T22:37:11 payment_server_callback 1
+2021-03-05T22:37:11 payment_server_callback 2
+2021-03-05T22:37:11 data:DSh8D1Lzah8oj9SZzJ5nPcEhOoslgS8OeMv+8WyAdaa+LwW4vFUFO/rUm1tUCh5SYpmTqp2pR08SrBLwDVlSTxpjYmao8f06rZFR4mOYNFkzaAvtxWPdJu1V4ZT0mlRVLgWHKeIw3VQT3t3YsQlIIVKTmb/daVOG5eJs2nvN5OxkvMmzil2NHstJjlLuhmYFthLbeuDY9+AkkVOv+NQMcVjIcZgKTSm1/kWfCvSVMf7++xF65CUPB2Ae9VneLu9moT4miUl2OQ0o5Qt4EeMWY6I9uX044rXBkbhXYHYMZf6d2ee106B6RZyL7f0jc24wzNJMoeGrU762gZ9JgkHlYrlHTWNLg+cEFK6WoK/o72c=:sig:cY6K2EX0XdOp+ZSXyr+Whg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:37:11 cliObtenParametrosPost
+2021-03-05T22:37:11 sigAll:
+2021-03-05T22:37:11 data|DSh8D1Lzah8oj9SZzJ5nPcEhOoslgS8OeMv+8WyAdaa+LwW4vFUFO/rUm1tUCh5SYpmTqp2pR08SrBLwDVlSTxpjYmao8f06rZFR4mOYNFkzaAvtxWPdJu1V4ZT0mlRVLgWHKeIw3VQT3t3YsQlIIVKTmb/daVOG5eJs2nvN5OxkvMmzil2NHstJjlLuhmYFthLbeuDY9+AkkVOv+NQMcVjIcZgKTSm1/kWfCvSVMf7++xF65CUPB2Ae9VneLu9moT4miUl2OQ0o5Qt4EeMWY6I9uX044rXBkbhXYHYMZf6d2ee106B6RZyL7f0jc24wzNJMoeGrU762gZ9JgkHlYrlHTWNLg+cEFK6WoK/o72c=
+2021-03-05T22:37:11 sigAll|cY6K2EX0XdOp+ZSXyr+Whg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:37:11 datosJS:
+2021-03-05T22:37:11 txtFirmadoComprobar||
+2021-03-05T22:37:11 Firma OK|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=|thNnmggU2ex3L5XXeMNfxf8Wl8STcVZTxscSFEKSxa0=|cY6K2EX0XdOp+ZSXyr+Whg==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:37:11 No pudimos deserializar 2
+2021-03-05T22:37:11 res:NULL
+2021-03-05T22:37:11 res->error:
+2021-03-05T22:38:11 checkConfigVars
+2021-03-05T22:38:11 encryptAesBin
+2021-03-05T22:38:11 payment_server_callback 1
+2021-03-05T22:38:11 payment_server_callback 2
+2021-03-05T22:38:11 data:W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg:sig:oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:38:11 cliObtenParametrosPost
+2021-03-05T22:38:11 sigAll:
+2021-03-05T22:38:11 data|W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg
+2021-03-05T22:38:11 sigAll|oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:38:11 datosJS:
+2021-03-05T22:38:11 txtFirmadoComprobar||
+2021-03-05T22:38:11 Firma OK|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=|thNnmggU2ex3L5XXeMNfxf8Wl8STcVZTxscSFEKSxa0=|oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0=
+2021-03-05T22:38:11 No pudimos deserializar 2
+2021-03-05T22:38:11 res:NULL
+2021-03-05T22:38:11 res->error:
+2021-03-05T22:40:11 checkConfigVars
+2021-03-05T22:40:11 encryptAesBin
+2021-03-05T22:40:11 payment_server_callback 1
+2021-03-05T22:40:11 payment_server_callback 2
+2021-03-05T22:40:11 data:wWu4a3DjbkknnyJJZjq2toSZVsvB2yRzr3loDk54pwHQg/NxM71Kd0RJp1Xa/5J1CI7gh5LzTiGWq0+4bTdX7XJNKB2Wqu5fGElTz7oTgVfBM5iMytKpHS/FRF349FXMrTdZ0aSTgZuVP1SsqPHQf211Lq7sdOQbCcA2YpkqgxN5qTPR+5Jfct5AtxxdlowWyEfBA5IZn6QFTwdnKZdgsiXPq1WIo9ZEx6fTzu8KpZ5bkz28ny7aAXXb9Kq8lLEbndhs1q1H4/TQ+QkEPYNYD9BzP5S0fFDDwKbDGJ0jh+yjyS/8puyYowyDwhmwCurQW87tv9S2IlQ4ol9cYyvdWlexKJ9uT7v+hJEtEB/13oc=:sig:2j3/k6htgWT/6K/2rKHAUQ==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:40:11 cliObtenParametrosPost
+2021-03-05T22:40:11 sigAll:
+2021-03-05T22:40:11 data|wWu4a3DjbkknnyJJZjq2toSZVsvB2yRzr3loDk54pwHQg/NxM71Kd0RJp1Xa/5J1CI7gh5LzTiGWq0+4bTdX7XJNKB2Wqu5fGElTz7oTgVfBM5iMytKpHS/FRF349FXMrTdZ0aSTgZuVP1SsqPHQf211Lq7sdOQbCcA2YpkqgxN5qTPR+5Jfct5AtxxdlowWyEfBA5IZn6QFTwdnKZdgsiXPq1WIo9ZEx6fTzu8KpZ5bkz28ny7aAXXb9Kq8lLEbndhs1q1H4/TQ+QkEPYNYD9BzP5S0fFDDwKbDGJ0jh+yjyS/8puyYowyDwhmwCurQW87tv9S2IlQ4ol9cYyvdWlexKJ9uT7v+hJEtEB/13oc=
+2021-03-05T22:40:11 sigAll|2j3/k6htgWT/6K/2rKHAUQ==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:40:11 datosJS:
+2021-03-05T22:40:11 txtFirmadoComprobar||
+2021-03-05T22:40:11 Firma OK|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=|thNnmggU2ex3L5XXeMNfxf8Wl8STcVZTxscSFEKSxa0=|2j3/k6htgWT/6K/2rKHAUQ==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:40:11 No pudimos deserializar 2
+2021-03-05T22:40:11 res:NULL
+2021-03-05T22:40:11 res->error:
+2021-03-05T22:51:30 checkConfigVars
+2021-03-05T22:51:30 encryptAesBin
+2021-03-05T22:51:32 checkConfigVars
+2021-03-05T22:51:32 encryptAesBin
+2021-03-05T22:51:32 prepareDataForEcpServer
+2021-03-05T22:51:32 generateSendData
+2021-03-05T22:51:32 encryptAesBin
+2021-03-05T22:51:32 strSig:7|2|yGxCSp+D6yGoChlybSSo6g==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:51:32 strData:0RauwlkM9AKuM9WEHgy7IonWQWrK5NRuybrQ2B7f2Rgy9DNiBjMqgso9cHhQcRgLKYjAaB+Fy4VPg/CLLTwtkundE5QJLphqv33+oKnNCUDqeRMO7UkgH8djH5PHc7rjC9dz8wWOqGE1WLzl0X3zNbgh13vZCDDyqt0Aoj8Sr2Q2jQZpsqx+f7dlRu9gaFrbG8XihL7H+LhIS2LJoxeD/IeHwie+AN2RohdpRw0renx7RMwXjIu0Zhr3W2AYtJCsgG9+iQPJo0rR62lqSAi81/5S8e5/Tn7PFChQ1wKUd0sZ994DUe+x04tIOa6W29ygmfAY3jeZjMivkPP4S4vUfZiDVfhDvv0xuGtRRLLwi2oW9Vs0gQPAv/BnhQm3i3W9VLgKfv7S++5XDmq+nczoej1wWqZc6Yq24gBCm2Ey5xu0PKPqegz+PryYo13oHO3+vzKtddVbTJa469D7wZDH4vvVGtk0Nam05aCcbp3BZ2+kvYCs0Gq5MbR6CDmB2ndm2ZlS8S86/uwVkn4nIOVArxJsfPKXnDjbinl+oT70TpQ4vnNJCzwOHox3XX+wH9Un8Ta4ZCyUPCqVHwO5wOMGCW/BS4jzHdigXhuJSbrzdv0=
+2021-03-05T22:51:32 prepareDataForEcpServer
+2021-03-05T22:51:32 generateSendData
+2021-03-05T22:51:32 encryptAesBin
+2021-03-05T22:51:32 strSig:7|2|U878iRr79ZXOBUOQX+ZfLA==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:51:32 strData:uX0b5hLgGC9tKAj3F+4cVmCbwgBW3fudTiEAOEYBNzWiFHZd5o1V0Rn4BGi6rzA2VFaTa1FB/7rDRiqRfyAbBhS6puI1cARdOmYN6eAXj129KX3QazwJQOtjVx2S7wOCiMYerqqW/ETUlnGxSwFPmeluLew8OYKUYQdeOzwKPaVG5fRjfBIq2fs9KdLNYY2mpY9kjV66NBLt9rkhY/oJL8GoJ4BONGqgJrD9KZHXCa+/M/lgOdBrHF78cnz2R2hdspONorjtJyjpU33oJXiNCKw83ZDKcJNZHNonQEtj0s47GIEVEzlOl8y2GZNCMAqxVF5ItwKUYqlilRP/kb1l1UenQnV6YzcG1c/qlDtbqmqVwVreLRgqPh5DkLE+hLH8CpfURXPNkYt3QXRQIApbcmtrlUKh7fpmGex4zvdIZw18WNU9w+4XqU2dX0qRZH4d+2yW4m+P6hKvczf4NRAQVBU2hcQONf3+XWD+eNLFt+w6SvIXyx1qnDB9cnSxajs5QoN1r7hdH/ycO3etONSnnRUUsy/wZSb5EXNRMdkb40K+V4F/G2oF3P/eYeJ5uZLCUT0JR5TV+AbXkYHSBzJKF3nRRvUflicBB8wWNYhJ1rw=
+2021-03-05T22:51:35 checkConfigVars
+2021-03-05T22:51:35 encryptAesBin
+2021-03-05T22:51:35 payment_server_callback 1
+2021-03-05T22:51:35 payment_server_callback 2
+2021-03-05T22:51:35 data:ywe8W4O8DK1ypo1C30CR48iSHWUdhHSAMO4gpTbtAklSHEbvCcg8+k5w9HIWffwN/tBm7gzar8i5Pj6ZLJtU6X5lb73VZI/+3QDYPwWULBamNBD/TZO8waW8CRoikG0d3bME8h1YjQNniRUIY8dhzBHlbu4BIAfBSV6uvFxh1BVUZAdJDZRTqB43f1iPW1U2ubHAw62nhYYwaAJdlfS8eO19O0QFbP7QhmLOzw5aaOoiiCYr5srjL72fPMZzK3R+FYqYYdJNi4dmP3dkuo1VG4cbEL13mht15Y8Maf4xRAWcw0wohcMi1qi7NlYoYNN5TynGqqyHwWCBgvJcTdAVlv4wSiSEA4RZGOwtwfu6A64=:sig:6HjvcaJQ3e4T/DdyxZAQiA==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:51:35 cliObtenParametrosPost
+2021-03-05T22:51:35 sigAll:
+2021-03-05T22:51:35 data|ywe8W4O8DK1ypo1C30CR48iSHWUdhHSAMO4gpTbtAklSHEbvCcg8+k5w9HIWffwN/tBm7gzar8i5Pj6ZLJtU6X5lb73VZI/+3QDYPwWULBamNBD/TZO8waW8CRoikG0d3bME8h1YjQNniRUIY8dhzBHlbu4BIAfBSV6uvFxh1BVUZAdJDZRTqB43f1iPW1U2ubHAw62nhYYwaAJdlfS8eO19O0QFbP7QhmLOzw5aaOoiiCYr5srjL72fPMZzK3R+FYqYYdJNi4dmP3dkuo1VG4cbEL13mht15Y8Maf4xRAWcw0wohcMi1qi7NlYoYNN5TynGqqyHwWCBgvJcTdAVlv4wSiSEA4RZGOwtwfu6A64=
+2021-03-05T22:51:35 sigAll|6HjvcaJQ3e4T/DdyxZAQiA==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:51:35 datosJS:{"merchant_user_nr":7,"buyer_user_nr":0,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"","error":"ERR_USER_CANCEL"}
+2021-03-05T22:51:35 txtFirmadoComprobar|{"merchant_user_nr":7,"buyer_user_nr":0,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"","error":"ERR_USER_CANCEL"}|
+2021-03-05T22:51:35 Firma OK|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=|6HjvcaJQ3e4T/DdyxZAQiA==|HFulcivDOPeaWSsoC19ypj7zzS0GtfFRhMy9dZ4ixxI=
+2021-03-05T22:51:35 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 7,
+   'buyer_user_nr' => 0,
+   'terminal_nr' => 2,
+   'amount' => 10,
+   'order_currency' => 'EUR',
+   'amount_euros' => 10,
+   'product' => 'Order number 1234',
+   'order_number' => '1234',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Test shop',
+   'operation_id' => '',
+   'error' => 'ERR_USER_CANCEL',
+))
+2021-03-05T22:51:35 res->error:ERR_USER_CANCEL
+2021-03-05T22:52:26 checkConfigVars
+2021-03-05T22:52:26 encryptAesBin
+2021-03-05T22:52:27 checkConfigVars
+2021-03-05T22:52:27 encryptAesBin
+2021-03-05T22:52:27 prepareDataForEcpServer
+2021-03-05T22:52:27 generateSendData
+2021-03-05T22:52:27 encryptAesBin
+2021-03-05T22:52:27 strSig:7|2|1JRkYAZkkH1Vn1ji6wW50Q==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:52:27 strData:KFvr2WOrxqySGnczgiMizdfNM3CXnM1sXhQIJtpjbjN1YremrI1EX53kctBUyuIeEHiIyGqZggQIr6LEtYBfK6DXp0F5zlK4doDBuMb0DXdt9t9Rt9N2sW4b6ukTjASvUXPTkjaBKrwGG3U0pX8UuTOWpz+lwDE0240MIgDMLMkNxjE12GzoseV00Hyye2P2lokbIMb+NgLXTZ/9/0H2vfuudV8xvnh+eXNGXKffa6nnkdnFowXaWDuAyi1LnYdJyxD2I3xzdWex6oKEgRMSgBanvSF5P2o/UJNz6yZjA/mG53nX9N64ZltRA87SSGcXpOfNmiclxBZI7NmCvW/nPnBzsBdz3Sro9F3tXkrGkyq2R0mQZuXzMtqA9cWznBQS3pQlGdjRBjFVAAPqGhNXgYqjI+9/GiOzF9xwNSVJsBve9UkXOVoTxtuuqFTyQiRVByN/haLIQY1dszAp1TVytanEZk4uPrDKhZN6egR0kTz9BY+Mour3vnG2xONPATQ6hPc+nzjap7Lrrdu/8TS1rGxSYeaVAGZSTMLaJTs5+dxeBWnejKvyoZ1xOV43hy+GP6eqsPpu3X9nU4H3K5P95nG1LnUSuQCZv3AZJF0Yskc=
+2021-03-05T22:52:27 prepareDataForEcpServer
+2021-03-05T22:52:27 generateSendData
+2021-03-05T22:52:27 encryptAesBin
+2021-03-05T22:52:27 strSig:7|2|gNw7wj24P+QKTVxGFPUEsg==|G6X4VRweTuqCV76TCRZKLJB7p9r4Ov4tVgnvzRgW8N8=
+2021-03-05T22:52:27 strData:L67ZuycUECUFczzhXAy/XSH3MSx1feibIAiMOg0X2jiAilRVt43bke1QAGcU+Z28VXYVlWhWEuhlYapPD/ZgoWMwr4tgrP52Rt3chffR2Vp3wtlTanBtb0Cq1mALyLOB5TMUPuhFx9PXLGm9VfLfGODWVPvcuQUiv093AUUFEzNCEr2kExCw4E+MS4n0/2SRv0Z0LXduar54eLr5i/O8t6VVYJ5O+pINFquOzlPYqMbULxHvIuplRX3qAb5DaAcuwRbph9gJOlGMxP2KxsiBB4oCj+eWTrYQxPNNxD9X11mMSFWv0HYZrCJc7fmN7j/CMrmaWyGw/R65FNMVwUDujUwGM20SOeyJgc3KMjpG7auV44ylCCT9fCwjNL+vHJ7ZjM6uFPlg5cNsw6Dcgg6ZrPjGza5+nISn3GNW+usGvK5pI3YbTns1PFIydlt+Pryx6hoeX6MYF1xDAE8wbIb6vxzEXC3AZTCJUs6C/71tU8U1JiVPLdBm8KWq75cW+7FjJ3XLuq4klMO3zh+a7NTvmenxWo81rJlZp6ucpggi2d/CXgkWqAbX7dwvBtWuYRv82LAprFCmTXbEQrO+SBSp7JCLfSTsQPQItu/DsLVxB8c=
+2021-03-05T22:54:06 checkConfigVars
+2021-03-05T22:54:06 encryptAesBin
+2021-03-05T22:54:06 payment_server_callback 1
+2021-03-05T22:54:06 payment_server_callback 2
+2021-03-05T22:54:06 data:O/Zv3CE6xnSARJEcjBiuR7jNpwiLnN5Ti5+tY3BVc/KxQJK+pus/OiR8LQOQGw+no9FU2Xjl7Pj858mrPMGQfNEXchP/K+U3K9efm1nr36neWSG1/wfAqEhfMeBzYZGLPPGhBYSj4N+f+fNTKeo/FCqn/91oiu2cDlDsZQDYT/rPVBeztwqcIehSMwrHjMGfDOPVB0WWLMeXgu4c+Pm4cQiiyraPCqnO97QZhs+HxpeTrIaoYds62ze05puDmXHwMRWtEX0Vsf0ABhrEZV24TuxOsQlJ2GbIM7ZAoO+0om+y1i91E3Z9/rDBZdpQt8WVFHVJ8xrTzo1aZ5PxQWrj5ZMzojcZzIO3k5uN4kwpU3d+afjvspo7KJZ/Sx/MNmM4:sig:cNbDWXxKeYPDpE7EvXuHwA==|N87V+nffPTVe9tqjrvP6LQ25Apdtz3W9wiFwu3lSWUE=
+2021-03-05T22:54:06 cliObtenParametrosPost
+2021-03-05T22:54:06 sigAll:
+2021-03-05T22:54:06 data|O/Zv3CE6xnSARJEcjBiuR7jNpwiLnN5Ti5+tY3BVc/KxQJK+pus/OiR8LQOQGw+no9FU2Xjl7Pj858mrPMGQfNEXchP/K+U3K9efm1nr36neWSG1/wfAqEhfMeBzYZGLPPGhBYSj4N+f+fNTKeo/FCqn/91oiu2cDlDsZQDYT/rPVBeztwqcIehSMwrHjMGfDOPVB0WWLMeXgu4c+Pm4cQiiyraPCqnO97QZhs+HxpeTrIaoYds62ze05puDmXHwMRWtEX0Vsf0ABhrEZV24TuxOsQlJ2GbIM7ZAoO+0om+y1i91E3Z9/rDBZdpQt8WVFHVJ8xrTzo1aZ5PxQWrj5ZMzojcZzIO3k5uN4kwpU3d+afjvspo7KJZ/Sx/MNmM4
+2021-03-05T22:54:06 sigAll|cNbDWXxKeYPDpE7EvXuHwA==|N87V+nffPTVe9tqjrvP6LQ25Apdtz3W9wiFwu3lSWUE=
+2021-03-05T22:54:06 datosJS:{"merchant_user_nr":7,"buyer_user_nr":2125,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"28bb1c5464fb4c868c45a191032477a0","error":"OK"}
+2021-03-05T22:54:06 txtFirmadoComprobar|{"merchant_user_nr":7,"buyer_user_nr":2125,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"28bb1c5464fb4c868c45a191032477a0","error":"OK"}|
+2021-03-05T22:54:06 Firma OK|N87V+nffPTVe9tqjrvP6LQ25Apdtz3W9wiFwu3lSWUE=|N87V+nffPTVe9tqjrvP6LQ25Apdtz3W9wiFwu3lSWUE=|cNbDWXxKeYPDpE7EvXuHwA==|N87V+nffPTVe9tqjrvP6LQ25Apdtz3W9wiFwu3lSWUE=
+2021-03-05T22:54:06 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 7,
+   'buyer_user_nr' => 2125,
+   'terminal_nr' => 2,
+   'amount' => 10,
+   'order_currency' => 'EUR',
+   'amount_euros' => 10,
+   'product' => 'Order number 1234',
+   'order_number' => '1234',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Test shop',
+   'operation_id' => '28bb1c5464fb4c868c45a191032477a0',
+   'error' => 'OK',
+))
+2021-03-05T22:54:06 srv_order_id:1234
+2021-03-05T22:54:06 srv_amount:10
+2021-03-05T22:54:06 srv_transaction_id:28bb1c5464fb4c868c45a191032477a0
+2021-03-05T22:54:06 srv_error:OK
+2021-03-05T22:54:06 srv_currency:EUR
+2021-03-05T23:05:12 checkConfigVars
+2021-03-05T23:05:12 encryptAesBin
+2021-03-05T23:05:12 payment_server_callback 1
+2021-03-05T23:05:12 payment_server_callback 2
+2021-03-05T23:05:12 data:HM8qgCMptaDyiolRqAyAA/x2WSOCN2nLgf1kLEH5PQ8YHOVfsdoVVSS3CLZeqY71VX27XXr5cmU28wnqa31EYxS/vg3lF0jF9apEmo9b7zS1bigM35CFjH1G4cAHYiH28W8jEVJYShA7SHC7dUdpOJ/zSJETf4904USPT6a9rntx7pTeo47+zFerPVHM2aYHUVfaHA4QYqkaegDg16FfTwPGIH6Ag8l2+VfR+Zy/j4eqzTh7pnf8wKh7NkjIOHD4yLPCEu9nqKVR32Axiz4mo56fm7M6VrxZ+NdxhFMAaPjpa+v75Xvv6ilf+L0m79FvUUS8Qf/yWc2Bh3NNRb2bobHvnFUPtKBlp/YdGJxSEOMfMjsXRdDoYssoDLZMGKVa:sig:Ay68W9ttKYPdsggVnfeA7Q==|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=
+2021-03-05T23:05:12 cliObtenParametrosPost
+2021-03-05T23:05:12 sigAll:
+2021-03-05T23:05:12 data|HM8qgCMptaDyiolRqAyAA/x2WSOCN2nLgf1kLEH5PQ8YHOVfsdoVVSS3CLZeqY71VX27XXr5cmU28wnqa31EYxS/vg3lF0jF9apEmo9b7zS1bigM35CFjH1G4cAHYiH28W8jEVJYShA7SHC7dUdpOJ/zSJETf4904USPT6a9rntx7pTeo47+zFerPVHM2aYHUVfaHA4QYqkaegDg16FfTwPGIH6Ag8l2+VfR+Zy/j4eqzTh7pnf8wKh7NkjIOHD4yLPCEu9nqKVR32Axiz4mo56fm7M6VrxZ+NdxhFMAaPjpa+v75Xvv6ilf+L0m79FvUUS8Qf/yWc2Bh3NNRb2bobHvnFUPtKBlp/YdGJxSEOMfMjsXRdDoYssoDLZMGKVa
+2021-03-05T23:05:12 sigAll|Ay68W9ttKYPdsggVnfeA7Q==|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=
+2021-03-05T23:05:12 datosJS:{"merchant_user_nr":7,"buyer_user_nr":2125,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"e2c2923f96534b428453c5928fcee1be","error":"OK"}
+2021-03-05T23:05:12 txtFirmadoComprobar|{"merchant_user_nr":7,"buyer_user_nr":2125,"terminal_nr":2,"amount":10.0,"order_currency":"EUR","amount_euros":10.0,"product":"Order number 1234","order_number":"1234","transaction_type":"P","merchant_name":"Test shop","operation_id":"e2c2923f96534b428453c5928fcee1be","error":"OK"}|
+2021-03-05T23:05:12 Firma OK|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=|Ay68W9ttKYPdsggVnfeA7Q==|yem2uIoPdsFHO4icmjcq71KDJfedSB6dcxcG3rmbSj0=
+2021-03-05T23:05:12 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 7,
+   'buyer_user_nr' => 2125,
+   'terminal_nr' => 2,
+   'amount' => 10,
+   'order_currency' => 'EUR',
+   'amount_euros' => 10,
+   'product' => 'Order number 1234',
+   'order_number' => '1234',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Test shop',
+   'operation_id' => 'e2c2923f96534b428453c5928fcee1be',
+   'error' => 'OK',
+))
+2021-03-05T23:05:12 srv_order_id:1234
+2021-03-05T23:05:12 srv_amount:10
+2021-03-05T23:05:12 srv_transaction_id:e2c2923f96534b428453c5928fcee1be
+2021-03-05T23:05:12 srv_error:OK
+2021-03-05T23:05:12 srv_currency:EUR

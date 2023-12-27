@@ -294,7 +294,7 @@ class inico {
 	 * 
 	 * @return boolean
 	 */
-	function cheqPas($bipayId = null, $tipoPago = null) {
+	function cheqPas() {
 		$this->log = "\n<br>Chequeo de la pasarela\n<br>";
 
 		$this->db("select * from tbl_reserva where codigo = '{$this->tran}' and id_comercio = '{$this->comer}'");
@@ -308,17 +308,7 @@ class inico {
 				$this->tipo = 'D';
 			} else $this->tipo = 'P';
 		} else {
-			if(isset($bipayId) && isset($tipoPago)){
-				if($tipoPago == 'W'){
-					$this->pweb = 1;
-				} else{
-					$this->pweb = 0;
-					$this->tipo = $tipoPago;
-				}
-			} else{
-				$this->pweb = 1;
-			}
-			$this->log .= "pweb:".$this->pweb.", tipoPago:".$tipoPago.", bipayId: ".$bipayId."\n<br>";
+			$this->pweb = 1;
 			$this->log .= "Operación originada en la la web del comercio\n<br>";
 		}
 
@@ -345,7 +335,7 @@ class inico {
 						// $this->db ( $q );
 						// $this->pasa = $this->temp->f ( 'idPasarela' );
 
-						$this->db("select r.idpasarela from tbl_rotComPas r, tbl_pasarela p where p.idPasarela = r.idpasarela and p.activo = 1 and r.idcom = " . $this->datCom['id'] . " and r.activo = 1 and p.secure = '".$this->segura."' order by r.orden limit 0,1");
+						$this->db("select r.idpasarela from tbl_rotComPas r, tbl_pasarela p where p.idPasarela = r.idpasarela and r.idcom = " . $this->datCom['id'] . " and r.activo = 1 and p.secure = '".$this->segura."' order by r.orden limit 0,1");
 						if ($this->temp->num_rows()) {
 							$this->pasa = $this->temp->f('idpasarela');
 						} else {
@@ -366,11 +356,11 @@ class inico {
 						elseif ($this->opr == 'R') $tipo = "'P','R'"; 
 						else $tipo = "'A','P','R'";
 
-						$q = "select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = (select secure from tbl_pasarela where idPasarela = " . $this->pasa . ") and p.idPasarela in (" . $this->datCom['pasarela'] . ") and p.tipo in ($tipo) and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin";
+						$q = "select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.secure = (select secure from tbl_pasarela where idPasarela = " . $this->pasa . ") and p.idPasarela in (" . $this->datCom['pasarela'] . ") and p.tipo in ($tipo) and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin";
 						// echo $q."<br>";
 						$this->db($q);
 						if ($this->temp->num_rows() == 0) {
-							$this->db("select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = 1 and p.idPasarela in (" . $this->datCom['pasarela'] . ") and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin limit 0,1");
+							$this->db("select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.secure = 1 and p.idPasarela in (" . $this->datCom['pasarela'] . ") and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin limit 0,1");
 						} else {
 							$mier = $this->temp->loadResultArray();
 							// echo"holllllaaaaaaaaaaaaaaaa<br>";
@@ -557,7 +547,7 @@ class inico {
 			if ($this->opr == 'A') $tipo = "'A'"; 
 			elseif ($this->opr == 'R') $tipo = "'P','R'"; 
 			else $tipo = "'A','P','R'";
-			$this->db("select c.terminal, c.clave, c.comercio, p.nombre, c.datos variant, a.tipo, p.datos datPas, p.idcenauto, m.moneda, p.secure, case p.estado when 'P' then a.urlPro else a.urlDes end url, a.datos, p.comercio comNomb, p.tipo tipoP, j.idTarj  from tbl_colPasarMon c, tbl_pasarela p, tbl_cenAuto a, tbl_moneda m, tbl_colTarjPasar j where m.idmoneda = c.idmoneda and p.activo = 1 and c.idpasarela = p.idPasarela and a.id = p.idcenauto and p.tipo in ($tipo) and c.idpasarela = " . $this->pasa . " and c.idmoneda = '" . $this->mon . "'" . " and j.idTarj = ". $this->amex);
+			$this->db("select c.terminal, c.clave, c.comercio, p.nombre, c.datos variant, a.tipo, p.datos datPas, p.idcenauto, m.moneda, p.secure, case p.estado when 'P' then a.urlPro else a.urlDes end url, a.datos, p.comercio comNomb, p.tipo tipoP  from tbl_colPasarMon c, tbl_pasarela p, tbl_cenAuto a, tbl_moneda m where m.idmoneda = c.idmoneda and p.activo = 1 and c.idpasarela = p.idPasarela and a.id = p.idcenauto and p.tipo in ($tipo) and c.idpasarela = " . $this->pasa . " and c.idmoneda = '" . $this->mon . "'");
 		}
 
 		if ($this->temp->num_rows() > 0) {
@@ -720,7 +710,7 @@ class inico {
 		$this->log .= "Beneficiario: $beneficiarioDt<br>";
 		if ($this->temp->f('bloq') == 1) {
 			$this->log .= "Beneficiario inhabilitado de por vida";
-			$causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, está inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
+			$causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operaci&oacute;n $beneficiarioDt, está inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
 			$this->saltosPasar($this->err);
 			return false;
 		}
@@ -739,7 +729,7 @@ class inico {
 
 		if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del límite 
 			if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no está dentro de los Clientes permitidos
-				$this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al limite para un trimestre natural. Por favor, pongase en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a> para realizar el envio:";
+				$this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en env&iacute;os de " . number_format($total / 100, 2) . ", con esta operaci&oacute;n de " . number_format($this->imp / 100, 2) . " llega al l&iacute;mite para un trimestre natural. Por favor, p&oacute;ngase en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a> para realizar el env&iacute;o:";
 				$this->log .= $causa;
 				$this->saltosPasar($causa);
 				return false;
@@ -747,7 +737,7 @@ class inico {
 		}
 		//Chequeo de 5000
 		if (($total + $this->imp) > 499900) {
-			$this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
+			$this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en env&iacute;os de " . number_format($total / 100, 2) . ", con esta operaci&oacute;n de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
 			$this->log .= $causa;
 			$this->saltosPasar($causa);
 			return false;
@@ -768,7 +758,7 @@ class inico {
 
 		if (!in_array($this->datAis['iddestin'], $arrBen)) {
 			if (($total + $this->imp) > ($vlim * 100)) {
-				$this->err = $causa = "Estimado Cliente $clienteDt, el beneficiario $beneficiarioDt de esta operacion tiene acumulado " . number_format($total / 100, 2) . " con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format($vlim, 2) . " para un trimestre natural. Debe ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a> para realizar el envio:";
+				$this->err = $causa = "Estimado Cliente $clienteDt, el beneficiario $beneficiarioDt de esta operaci&oacute;n tiene acumulado " . number_format($total / 100, 2) . " con esta operaci&oacute;n de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format($vlim, 2) . " para un trimestre natural. Debe ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a> para realizar el env&iacute;o:";
 				$this->log .= $causa;
 				$this->saltosPasar($causa);
 				return false;
@@ -777,7 +767,7 @@ class inico {
 
 		// Chequeo de los 5000
 		if (($total + $this->imp) > 499900) {
-			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br> El beneficiario $beneficiarioDt de esta operacion tiene acumulado " . number_format($total / 100, 2) . " con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
+			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br> El beneficiario $beneficiarioDt de esta operaci&oacute;n tiene acumulado " . number_format($total / 100, 2) . " con esta operaci&oacute;n de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
 			$this->log .= $causa;
 			$this->saltosPasar($causa);
 			return false;
@@ -811,7 +801,7 @@ class inico {
 		$this->db("select count(t.idtransaccion) total from tbl_transacciones t, tbl_aisOrden o, tbl_aisCliente c, tbl_aisBeneficiario b where o.idtransaccion = t.idtransaccion and b.id = o.idbeneficiario and c.id = o.idcliente and t.estado = 'A' and t.fecha > $iniDia and c.idcimex = {$this->datAis['idremitente']} and b.idcimex = {$this->datAis['iddestin']} and valor_inicial = {$this->imp}");
 		if ($this->temp->f('total') > 0) {
 			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>
-			Usted no puede enviar remesa a un mismo beneficiario el mismo monto en un periodo menor de 24 horas. Por favor, intentelo nuevamente usando una cantidad diferente o pruebe a volver enviar en el dia de hoy despues de las 6.00 p.m. hora de Cuba. / You can not send remittances to the same beneficiary, the same amount in less than 24 hours. Please, try again using a different amount or try to send again today after 6.00 p.m. according to Cuba time.<br><br>";
+			Usted no puede enviar remesa a un mismo beneficiario el mismo monto en un per&iacute;odo menor de 24 horas. Por favor, int&eacute;ntelo nuevamente usando una cantidad diferente o pruebe a volver enviar en el d&iacute;a de hoy despu&eacute;s de las 6.00 p.m. hora de Cuba. / You can not send remittances to the same beneficiary, the same amount in less than 24 hours. Please, try again using a different amount or try to send again today after 6.00 p.m. according to Cuba time.<br><br>Gracias por escoger aisremesascuba para sus env&iacute;os de dinero a Cuba!";
 			$this->log .= $causa;
 			$this->saltosPasar($causa);
 			return false;
@@ -821,7 +811,7 @@ class inico {
 		$q = "select count(*) total from tbl_aisCliente where idcimex = " . $this->datAis['idremitente'];
 		$this->db($q);
 		if ($this->temp->f('total') == 0) {
-			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>Usted debe tener un registro mas actualizado que este con el que esta intentando realizar este envio, emplee ese registro / You should have a more up-to-date record of the one you are trying to send with, use that record.<br><br>";
+			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>Usted debe tener un registro m&aacute;s actualizado que este con el que est&aacute; intentando realizar este env&iacute;o, emplee ese registro / You should have a more up-to-date record of the one you are trying to send with, use that record.<br><br>Gracias por escoger aisremesascuba para sus env&iacute;os de dinero a Cuba!";
 			$this->log .= $causa;
 			$this->saltosPasar($causa);
 			return false;
@@ -829,7 +819,7 @@ class inico {
 		$q = "select count(*) total from tbl_aisCliente where fechaDocumento > " . time() . " and idcimex = " . $this->datAis['idremitente'];
 		$this->db($q);
 		if ($this->temp->f('total') == 0) {
-			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>La fecha de vencimiento del Documento de Identidad ha caducado. Debe subir el nuevo documento. / Your Identity Document has expired, please upload the new one.<br><br>";
+			$this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>La fecha de vencimiento del Documento de Identidad ha caducado. Debe subir el nuevo documento. / Your Identity Document has expired, please upload the new one.<br><br>Gracias por escoger aisremesascuba para sus env&iacute;os de dinero a Cuba!";
 			$this->log .= $causa;
 			$this->saltosPasar($causa);
 			return false;
@@ -837,178 +827,6 @@ class inico {
 
 		return true;
 	}
-
-    /**
-     * Chequeo de los límites de Vidaipay
-     *
-     * @return void
-     */
-    private function ChequeoVpay() {
-        $this->log .= "\n<br>Chequeo del l&iacute;mite trimestral en Vidaipay\n<br>";
-        $vlim = leeSetup('trimVpay');
-        $this->log .= "limite trimestral=$vlim<br>";
-        $usrPerm = leeSetup('clientePerm');
-        if (strlen($usrPerm) == 0) $usrPerm = 0;
-
-        $arrCli = explode(',', leeSetup('clientePerm'));
-        $this->db("select b.idcimex from tbl_aisBeneficiario b, tbl_aisClienteBeneficiario r, tbl_aisCliente c where c.id = r.idcliente and b.id = r.idbeneficiario and c.idcimex in ($usrPerm)");
-        $arrBen = $this->temp->loadResultArray();
-        $this->log .= "arrBen1: ".json_encode($arrBen)."<br>";
-        // $arrBen = explode(',', leeSetup('benefPerm'));
-        // $this->log .= "arrBen2: ".json_encode($arrBen)."<br>";
-
-        if (date('n') >= 1 && date('n') <= 3) { // fechas del primer trimestre
-            $fec1Ais = mktime(0, 0, 0, 01, 01, date("Y"));
-            $fec2Ais = mktime(0, 0, 0 - 1, 04, 01, date("Y"));
-            $this->log .= "Primer Trimestre\n<br>";
-        } elseif (date('n') >= 4 && date('n') <= 6) { // fechas del segundo trimestre
-            $fec1Ais = mktime(0, 0, 0, 04, 01, date("Y"));
-            $fec2Ais = mktime(0, 0, 0 - 1, 07, 01, date("Y"));
-            $this->log .= "Segundo Trimestre\n<br>";
-        } elseif (date('n') >= 7 && date('n') <= 9) { // fechas del tercer trimestre
-            $fec1Ais = mktime(0, 0, 0, 07, 01, date("Y"));
-            $fec2Ais = mktime(0, 0, 0 - 1, 10, 01, date("Y"));
-            $this->log .= "Tercer Trimestre\n<br>";
-        } elseif (date('n') >= 10 && date('n') <= 12) { // fechas del cuarto trimestre
-            $fec1Ais = mktime(0, 0, 0, 10, 01, date("Y"));
-            $fec2Ais = mktime(0, 0, 0 - 1, 01, 01, date("Y") + 1);
-            $this->log .= "Cuarto Trimestre\n<br>";
-        }
-
-        $q = "select concat(c.nombre,' ',c.papellido,' ',c.sapellido, ' (',c.usuario,') ',c.correo) cliente, bloq from tbl_aisCliente c where c.idcimex = ".$this->datAis['idremitente'];
-        $this->db($q);
-        $clienteDt = $this->temp->f('cliente');
-        $this->log .= "Cliente: $clienteDt<br>";
-        if ($this->temp->f('bloq') == 1) {
-            $this->log .= "Cliente inhabilitado de por vida";
-            $causa = $this->err = "Estimado Cliente $clienteDt, Ud. está inhabilitado para enviar dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
-            $this->saltosPasar($this->err);
-            return false;
-        }
-
-        $q = "select concat(c.nombre,' ',c.papellido,' ',c.sapellido) beneficiario, bloq from tbl_aisBeneficiario c where c.idcimex = ".$this->datAis['iddestin'];
-        $this->db($q);
-        $beneficiarioDt = $this->temp->f('beneficiario');
-        $this->log .= "Beneficiario: $beneficiarioDt<br>";
-        if ($this->temp->f('bloq') == 1) {
-            $this->log .= "Beneficiario inhabilitado de por vida";
-            $causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, está inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
-            $this->saltosPasar($this->err);
-            return false;
-        }
-
-        //Chequeo de límite trimestral para el Remitente
-        $q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisCliente c
-				where o.idtransaccion = t.idtransaccion and o.idcliente = c.id and t.estado = 'A'
-					and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['idremitente'];
-        //me parece que el tema va por el monto enviado creo que sin importar moneda
-        // $q = "select sum(t.valor) total from tbl_aisOrden o, tbl_transacciones t, tbl_aisCliente c
-        // 		where o.idtransaccion = t.idtransaccion and o.idcliente = c.id and t.estado = 'A'
-        // 			and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis ['idremitente'];
-        $this->db($q);
-        ($this->temp->f('total1') >= $this->temp->f('total2')) ? $total = ($this->temp->f('total1')) : $total = ($this->temp->f('total2'));
-        $this->log .= $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . " / " . $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . "\n<br>";
-
-        if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del límite
-            if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no está dentro de los Clientes permitidos
-                $this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al limite para un trimestre natural. Por favor, pongase en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a> para realizar el env&iacute;o:";
-                $this->log .= $causa;
-                $this->saltosPasar($causa);
-                return false;
-            }
-        }
-        //Chequeo de 5000
-        if (($total + $this->imp) > 499900) {
-            $this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-        }
-
-        //TODO ver el TODO anterior que se aplica acá también
-        //Chequeo de límite trimestral para el Beneficiario
-        $q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisBeneficiario c
-			where o.idtransaccion = t.idtransaccion and o.idbeneficiario = c.id and t.estado = 'A'
-				and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['iddestin'];
-        //me parece que el tema va por el monto enviado creo que sin importar moneda
-        // $q = "select sum(t.valor) total from tbl_aisOrden o, tbl_transacciones t, tbl_aisBeneficiario c
-        // 	where o.idtransaccion = t.idtransaccion and o.idbeneficiario = c.id and t.estado = 'A'
-        // 		and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis ['iddestin'];
-        $this->db($q);
-        ($this->temp->f('total1') >= $this->temp->f('total2')) ? $total = ($this->temp->f('total1')) : $total = ($this->temp->f('total2'));
-        $this->log .= $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . " / " . $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . "\n<br>";
-
-        if (!in_array($this->datAis['iddestin'], $arrBen)) {
-            if (($total + $this->imp) > ($vlim * 100)) {
-                $this->err = $causa = "Estimado Cliente $clienteDt, el beneficiario $beneficiarioDt de esta operacion tiene acumulado " . number_format($total / 100, 2) . " con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format($vlim, 2) . " para un trimestre natural. Debe ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a> para realizar el envio:";
-                $this->log .= $causa;
-                $this->saltosPasar($causa);
-                return false;
-            }
-        }
-
-        // Chequeo de los 5000
-        if (($total + $this->imp) > 499900) {
-            $this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br> El beneficiario $beneficiarioDt de esta operaci&oacute;n tiene acumulado " . number_format($total / 100, 2) . " con esta operacion de " . number_format($this->imp / 100, 2) . " llega al tope que es de " . number_format(5000, 2) . " para un trimestre natural.";
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-        }
-
-        //Chequeo si el Beneficiario existe en la BD
-        $q = "select idtitanes from tbl_aisBeneficiario where idcimex = {$this->datAis['iddestin']}";
-        $this->db($q);
-        if ($this->temp->getNumRows() == 0) {
-            $this->db("select concat(nombre,' ',papellido,' ',sapellido,' (',usuario, ')') cliente from tbl_aisCliente where idcimex = ".$this->datAis['idremitente']);
-            $this->err = $causa = "El Beneficiario ".$this->datAis['iddestin']." no se encuenta en la BD, el Cliente es ".$this->temp->f('cliente');
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-
-        }
-        //Chequeo si el Beneficiario tiene idTitanes en la BD
-        if (strlen($this->temp->f('idtitanes')) < 4) {
-            //include(benRequest.php);
-            //if (!buscaBen($this->datAis['idremitente'])) {
-            $this->db("select concat(nombre,' ',papellido,' ',sapellido,' (',usuario, ')') cliente from tbl_aisCliente where idcimex = ".$this->datAis['idremitente']);
-            $this->err = $causa = "El Beneficiario ".$this->datAis['iddestin']." no tiene IDTitanes, el Cliente es ".$this->temp->f('cliente');
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-            //}
-        }
-
-        //Chequeo de operación repetida
-        $iniDia = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
-        $this->db("select count(t.idtransaccion) total from tbl_transacciones t, tbl_aisOrden o, tbl_aisCliente c, tbl_aisBeneficiario b where o.idtransaccion = t.idtransaccion and b.id = o.idbeneficiario and c.id = o.idcliente and t.estado = 'A' and t.fecha > $iniDia and c.idcimex = {$this->datAis['idremitente']} and b.idcimex = {$this->datAis['iddestin']} and valor_inicial = {$this->imp}");
-        if ($this->temp->f('total') > 0) {
-            $this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>
-			Usted no puede enviar remesa a un mismo beneficiario el mismo monto en un per&iacute;odo menor de 24 horas. Por favor, int&eacute;ntelo nuevamente usando una cantidad diferente o pruebe a volver enviar en el d&iacute;a de hoy despu&eacute;s de las 6.00 p.m. hora de Cuba. / You can not send remittances to the same beneficiary, the same amount in less than 24 hours. Please, try again using a different amount or try to send again today after 6.00 p.m. according to Cuba time.<br><br>Gracias por escoger Vidaipay para sus env&iacute;os de dinero a Cuba!";
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-        }
-
-        //Chequeo de datos del Cliente
-        $q = "select count(*) total from tbl_aisCliente where idcimex = " . $this->datAis['idremitente'];
-        $this->db($q);
-        if ($this->temp->f('total') == 0) {
-            $this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>Usted debe tener un registro mas actualizado que este con el que esta intentando realizar este envio, emplee ese registro / You should have a more up-to-date record of the one you are trying to send with, use that record.<br><br>Gracias por escoger Vidaipay para sus envios de dinero a Cuba!";
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-        }
-        $q = "select count(*) total from tbl_aisCliente where fechaDocumento > " . time() . " and idcimex = " . $this->datAis['idremitente'];
-        $this->db($q);
-        if ($this->temp->f('total') == 0) {
-            $this->err = $causa = "Estimado Cliente / Dear Customer $clienteDt:<br><br>La fecha de vencimiento del Documento de Identidad ha caducado. Debe subir el nuevo documento. / Your Identity Document has expired, please upload the new one.<br><br>Gracias por escoger Vidaipay para sus envios de dinero a Cuba!";
-            $this->log .= $causa;
-            $this->saltosPasar($causa);
-            return false;
-        }
-
-        return true;
-    }
 
 	/**
 	 * Chequeo de los límites por comercio
@@ -1317,17 +1135,8 @@ class inico {
 		}
 
 		// Chequeo de límites para Cimex y Tocopay
-		if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040' ||
-			$this->comer == '169453189889') {
+		if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040') {
 			if ($this->ChequeoAis() == false) {
-				$pase = 0;
-				$causa = $this->err;
-			}
-		}
-
-        // Chequeo de límites para Vidaipay
-		if ($this->comer == '166975114294' || $this->comer == '167707944853') {
-			if ($this->ChequeoVpay() == false) {
 				$pase = 0;
 				$causa = $this->err;
 			}
@@ -1615,8 +1424,7 @@ class inico {
 		if ($pase == 0 && $this->comer != '122327460662') { // si ha saltado algún límite.. y el comercio no es Prueba
 			$this->log .= "Necesita cambio de pasarela\n<br>";
 			
-			if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040'
-                || $this->comer == '166975114294' || $this->comer == '167707944853' || $this->comer == '169453189889')
+			if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040')
 					return false; // Si el comercio es Cimex no hay cambio de pasarela que valga y retorna error
 
 			if (count($this->psArray) == 0 && $this->mp == '') {
@@ -1780,7 +1588,7 @@ class inico {
 	 * 
 	 * @return boolean
 	 */
-	function operacion($bipayId = null) {
+	function operacion() {
 		$this->log .= "Determina la moneda con la que Bidaiondo pagara al comercio<br>";
 		$this->db("select idmoneda from tbl_colComerPasaMon where idcomercio = '".$this->datCom['id']."' and idpasarela = '".$this->pasa."'");
 		$this->receiveCurrency = $this->temp->f('idmoneda');
@@ -1791,11 +1599,7 @@ class inico {
 			$this->idTrn = trIdent(true); // Genera el identificador de la transacción
 			
 			$this->log .= "\n<br>Inserta la operación\<br>";
-			if(isset($bipayId)){
-				$accN = $this->db("insert into tbl_transacciones (idtransaccion,idcomercio,identificador,tipoOperacion,fecha,fecha_mod,"."valor_inicial,tipoEntorno,moneda,estado, sesion, idioma, pasarela, ip, idpais, tpv, id_tarjeta, tipoPago, bipayId) values ('".$this->idTrn."','{$this->comer}','{$this->tran}','{$this->opr}',".time().",".time().","."{$this->imp},'{$this->datCom['estado']}',{$this->mon},'P','{$this->frma}','{$this->idi}',{$this->pasa},"."'{$this->ip}','".$this->damepais()."','{$this->tpv}','{$this->amex}','{$this->tipo}','$bipayId')");
-			} else{
-				$accN = $this->db("insert into tbl_transacciones (idtransaccion,idcomercio,identificador,tipoOperacion,fecha,fecha_mod,"."valor_inicial,tipoEntorno,moneda,estado, sesion, idioma, pasarela, ip, idpais, tpv, id_tarjeta, tipoPago) values ('" . $this->idTrn . "', '{$this->comer}', '{$this->tran}', '{$this->opr}', " . time() . ", " . time() . ", " . "{$this->imp}, '{$this->datCom['estado']}', {$this->mon}, 'P', '{$this->frma}', '{$this->idi}', {$this->pasa}, " . "'{$this->ip}', '" . $this->damepais() . "', '{$this->tpv}', '{$this->amex}', '{$this->tipo}')");
-			}
+			$accN = $this->db("insert into tbl_transacciones (idtransaccion, idcomercio, identificador, tipoOperacion, fecha, fecha_mod, " . "valor_inicial, tipoEntorno, moneda, estado, sesion, idioma, pasarela, ip, idpais, tpv, id_tarjeta, tipoPago) values ('" . $this->idTrn . "', '{$this->comer}', '{$this->tran}', '{$this->opr}', " . time() . ", " . time() . ", " . "{$this->imp}, '{$this->datCom['estado']}', {$this->mon}, 'P', '{$this->frma}', '{$this->idi}', {$this->pasa}, " . "'{$this->ip}', '" . $this->damepais() . "', '{$this->tpv}', '{$this->amex}', '{$this->tipo}')");
 			if ($accN === false)
 				return false;
 			// actualiza la pasarela en la tbl_reserva segun el último cambio realizado
@@ -1885,8 +1689,7 @@ class inico {
 		$this->log .= "Firma generada {$Calc}\n<br>";
 		if ($Calc != $this->frma) {
 			$this->log .= "falla por firma\n<br>";
-//			$this->err = "Firma recibida {$this->frma}\n<br>Firma generada {$Calc}\n<br>falla por firma";
-			$this->err = "Firma recibida {$this->frma}\n<br>";
+			$this->err = "Firma recibida {$this->frma}\n<br>Firma generada {$Calc}\n<br>falla por firma";
 			$this->saltosPasar($this->err);
 			return false;
 		}
@@ -1899,29 +1702,24 @@ class inico {
 	 * @return boolean
 	 */
 	function verTran() {
-		$referencia = leeSetup('refOpPruebas');
-		if($this->tran === $referencia){
-			// Se verifica si la operacion es de un linl de pruebas
-		} else {
-			$this->log = "\n<br>Verifica que la operación no se haya repetido anteriormente\n<br>";
-			$this->db("select idtransaccion, sesion, from_unixtime(fecha,'%d/%m/%y %H:%i:%s') fc from tbl_transacciones where identificador = '" . $this->tran . "' and idcomercio = '" . $this->comer . "'");
+		$this->log = "\n<br>Verifica que la operación no se haya repetido anteriormente\n<br>";
+		$this->db("select idtransaccion, sesion, from_unixtime(fecha,'%d/%m/%y %H:%i:%s') fc from tbl_transacciones where identificador = '" . $this->tran . "' and idcomercio = '" . $this->comer . "'");
 
-			if ($this->temp->f('sesion') == $this->frma) {
-				$idtt = $this->temp->f('idtransaccion');
-				$this->db("select r.email ecliente, r.nombre cliente, a.nombre, a.email from tbl_admin a, tbl_reserva r where r.id_admin = a.idadmin and r.id_comercio = '" . $this->comer . "' and r.codigo = '" . $this->tran . "'");
-				if ($this->temp->num_rows()) {
-					$this->arrCli[0] = $this->temp->f('cliente');
-					$this->arrCli[1] = $this->temp->f('ecliente');
-					$this->arrCli[2] = $idtt;
-					$this->arrUsu[0] = $this->temp->f('nombre');
-					$this->arrUsu[1] = $this->temp->f('email');
-					$this->log .= "Se crean los arrays arrCli y arrUsu con " . count($this->arrCli) . " y " . count($this->arrCli) . "elementos respectivamente.\n<br>";
-				}
-				$this->err = "Transacci&oacute;n duplicada. P&iacute;dale a su comercio la genere nuevamente.<br>Duplicated transacction. Ask " . "your commerce generates it again.<br>Transazione doppia. Ha cliccato due volte sul collegamento (link). Ne richieda uno nuovo.";
-				$this->log .= "Transacción duplicada " . $this->temp->f('fc') . "\n<br>";
-				$this->saltosPasar("Transacci&oacute;n duplicada" . $this->temp->f('fc') . "\n<br>");
-				return false;
+		if ($this->temp->f('sesion') == $this->frma) {
+			$idtt = $this->temp->f('idtransaccion');
+			$this->db("select r.email ecliente, r.nombre cliente, a.nombre, a.email from tbl_admin a, tbl_reserva r where r.id_admin = a.idadmin and r.id_comercio = '" . $this->comer . "' and r.codigo = '" . $this->tran . "'");
+			if ($this->temp->num_rows()) {
+				$this->arrCli[0] = $this->temp->f('cliente');
+				$this->arrCli[1] = $this->temp->f('ecliente');
+				$this->arrCli[2] = $idtt;
+				$this->arrUsu[0] = $this->temp->f('nombre');
+				$this->arrUsu[1] = $this->temp->f('email');
+				$this->log .= "Se crean los arrays arrCli y arrUsu con " . count($this->arrCli) . " y " . count($this->arrCli) . "elementos respectivamente.\n<br>";
 			}
+			$this->err = "Transacci&oacute;n duplicada. P&iacute;dale a su comercio la genere nuevamente.<br>Duplicated transacction. Ask " . "your commerce generates it again.<br>Transazione doppia. Ha cliccato due volte sul collegamento (link). Ne richieda uno nuovo.";
+			$this->log .= "Transacción duplicada " . $this->temp->f('fc') . "\n<br>";
+            $this->saltosPasar("Transacci&oacute;n duplicada" . $this->temp->f('fc') . "\n<br>");
+			return false;
 		}
 		return true;
 	}
@@ -1935,7 +1733,7 @@ class inico {
 		$this->log .= "\n<br>Verifica que no sean hayan producido mas de " . leeSetup('cantReintentos') . " intentos en menos de " . leeSetup('minReintento') . " minutos\n<br>";
 		if (!$this->ipblanca($this->ip)) {
 			$reinten = leeSetup('cantReintentos');
-			if ($reinten == '' || $reinten == 0) $reinten = 5;
+			if ($reinten == '' || $reinten == 0) $reinten = 3;
 			$this->db(sprintf("select estado from tbl_transacciones where idcomercio = '%s' and fecha_mod > %d and ip = '%s' order by fecha_mod limit 0,$reinten", $this->comer, (time() - (leeSetup('minReintento') * 60)), $this->ip));
 			$arrDen = $this->temp->loadResultArray();
 			$arrDen = (array_count_values($arrDen));
@@ -1952,29 +1750,15 @@ class inico {
 			}
 		} else return true;
 
-		$this->log .= "\n<br>Verifica que la ip desde donde están pagando no está bloqueada\n<br>";
-        /* Reina - 26-01-2023
-        $this->db(sprintf("select id from tbl_ipBL where ip='%s' and cuenta >= 5", $this->ip));
-        if ($this->temp->num_rows() !== 0) {
-            $this->err = 'Su IP '.$this->ip.' est&aacute; bloqueada, contacte a su comercio / Your IP '.$this->ip.' is banned, contact to your e-commerce';
-            $this->log .= "Intento de pago desde la IP Bloqueada: " . $this->ip;
-            $this->saltosPasar($this->err);
-            return false;
-        }*/
 
-        $this->db(sprintf("SELECT cuenta FROM tbl_ipBL WHERE ip='%s'", $this->ip));
-        if ($this->temp->num_rows() > 0) {
-            $cuenta = $this->temp->f('cuenta');
-            if( $cuenta > 0){
-                $newCuenta = floor($cuenta / 2);
-                if($newCuenta > 5) {
-                    $this->err = 'Su IP '.$this->ip.' est&aacute; bloqueada, contacte a su comercio / Your IP '.$this->ip.' is banned, contact to your e-commerce';
-                    $this->log .= "Intento de pago desde la IP Bloqueada: " . $this->ip;
-                    $this->saltosPasar($this->err);
-                    return false;
-                }
-            }
-        }
+		$this->log .= "\n<br>Verifica que la ip desde donde están pagando no está bloqueada\n<br>";
+		$this->db(sprintf("select id from tbl_ipBL where ip='%s' and cuenta >= 5", $this->ip));
+		if ($this->temp->num_rows() !== 0) {
+			$this->err = 'Su IP '.$this->ip.' est&aacute; bloqueada, contacte a su comercio / Your IP '.$this->ip.' is banned, contact to your e-commerce';
+			$this->log .= "Intento de pago desde la IP Bloqueada: " . $this->ip;
+			$this->saltosPasar($this->err);
+			return false;
+		}
 
 		$this->log .= "\n<br>Verifica que la ip no está bloqueada por pagos denegados\n<br>";
 		$this->db(sprintf("select idips from tbl_ipbloq where ip = '%s' and bloqueada = 1", $this->ip));
@@ -2334,6 +2118,7 @@ class inico {
 					$message = $imp . $tr . $this->datPas['comercio'] . $this->mon . $tipoTrans . $urlcomercio . $this->datPas['clave'];
 
 					// if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sacó Titanes
+
 					// 	$this->db("select idtitanes, fechaDocumento from tbl_aisCliente where idcimex = " . $this->datAis['idremitente']);
 					// 	if (!$this->temp->f('idtitanes') > 0) {
 					// 		$this->err = "El cliente no existe en la Base de datos";
@@ -2353,88 +2138,6 @@ class inico {
 					// 				(select id from tbl_aisBeneficiario where idcimex = '" . $this->datAis['iddestin'] . "' order by id desc limit 0,1),
 					// 				{$this->datAis['importenvia']}, {$this->datAis['importerecive']}, {$this->datAis['comision']}, 0, {$this->datAis['rason']}, '{$this->datAis['monrecibe']}')");
 					// }
-					break;
-				case 'pasoAN': //Redsys con AFT
-					($idioma == 'es') ? $idioma = '1' : $idioma = '2';
-					if ($this->opr == 'D') $tipoTrans = '3'; else $tipoTrans = '0';
-					$message = $imp . $tr . $this->datPas['comercio'] . $this->mon . $tipoTrans . $urlcomercio . $this->datPas['clave'];
-
-					if($tipoTrans == '0'){
-						$this->db("select id, nombre from tbl_aisCliente where idcimex = '" . $this->datAis['idremitente'] . "'");
-						if ($this->temp->num_rows() == 0) {
-							$this->err = "El cliente no existe en la Base de datos";
-							$this->saltosPasar($this->err);
-							return false;
-						} else{
-							$sendName = $this->temp->f('nombre');
-							if(strlen($sendName) > 30){
-								$sendName = substr($sendName, 0, 30);
-							}
-						}
-						$this->db("select id, nombre, papellido, pais, direccion, ciudad from tbl_aisBeneficiario where idcimex = '" . $this->datAis['iddestin'] . "'");
-						if ($this->temp->num_rows() == 0) {
-							$this->err = "El beneficiario no existe en la Base de datos";
-							$this->saltosPasar($this->err);
-							return false;
-						} else{
-							$rcvName = $this->temp->f('nombre');
-							if(strlen($rcvName) > 30){
-								$rcvName = substr($rcvName, 0, 30);
-							}
-							$rcvLastName = $this->temp->f('papellido');
-							if(strlen($rcvLastName) > 35){
-								$rcvLastName = substr($rcvLastName, 0, 35);
-							}
-							$rcvAddress = $this->temp->f('direccion');
-							if(strlen($rcvAddress) > 35){
-								$rcvAddress = substr($rcvAddress, 0, 35);
-							}
-							$rcvCity = $this->temp->f('ciudad');
-							if(strlen($rcvCity) > 25){
-								$rcvCity = substr($rcvCity, 0, 25);
-							}
-							$this->db("select iso from tbl_paises where id = '" . $this->temp->f('pais') . "'");
-							if ($this->temp->num_rows() == 0) {
-								$this->err = "El pais del beneficiario no existe en la Base de datos";
-								$this->saltosPasar($this->err);
-								return false;
-							} else{
-								$rcvCountry = $this->temp->f('iso');
-							}
-						}
-						$this->db("select b.ica from tbl_bancos b, tbl_pasarela p where b.id = p.idbanco and p.idpasarela = '" . $this->pasa . "'");
-						if ($this->temp->num_rows() == 0) {
-							$ica = str_repeat('0', 6);
-						} else{
-							$ica = $this->temp->f('ica');
-						}
-						$year = date('y');
-						$julDate = date("z");
-                        if(strlen($julDate) < 3){
-                            $julDate = str_pad($julDate,3,"0",STR_PAD_LEFT);
-                        }
-						$time = date('His');
-						$sec = rand(1,99);
-						if(strlen($sec) < 2){
-							$sec = str_pad($sec,2,"0",STR_PAD_LEFT);
-						}
-						$utr = '0'.$ica.substr($year, 1, 1).$julDate.$time.$sec;
-
-						$aft = json_encode(
-							array(
-								"RcvFirstName"  => $rcvName,
-								"RcvLastName"   => $rcvLastName,
-								"RcvCountry"    => $rcvCountry,
-								"RcvAddress"    => $rcvAddress,
-								"RcvCity"       => $rcvCity,
-								"RcvAccountNumber"  => $this->datAis['accountNumber'],
-								"RcvAccountNumberType"  => $this->datAis['accountNumberType'],
-								"UTR"           => $utr,
-								"BAI"           => "AA",    // Account to account
-								"SndName"       => $sendName
-							)
-						);
-					}
 					break;
 				case 'pasoB': // Tefpay
 					$this->db("select id from tbl_aisCliente where idcimex = '" . $this->datAis['idremitente'] . "'");
@@ -2605,21 +2308,6 @@ class inico {
 					break;
 				case 'pasoK': // Tefpay
 					$tr .= '000000000';
-
-					if($this->datPas['idTarj'] == 17){  // Criptomoneda
-						$tipoTrans = 84;
-						$this->db("select moneda from tbl_moneda where idmoneda = '{$this->receiveCurrency}'");
-						$receiveCurrency = $this->temp->f('moneda');
-					} else{
-						if ($this->segura == 1)	$tipoTrans = 1;
-						else {
-							if ($this->pasa == 89 || $this->pasa == 161) {
-								$tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
-							} else $tipoTrans = 22; //para el resto de los Tef
-						}
-					}
-
-					/* Reina - se comenta se comenta porque se identifica por el medio de pago 17
 					if ($this->segura == 1)	$tipoTrans = 1;
 					else if ($this->pasa == 194) { //criptomonedas
 						$tipoTrans = 84;
@@ -2630,7 +2318,7 @@ class inico {
 						if ($this->pasa == 89 || $this->pasa == 161) {
 							$tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
 						} else $tipoTrans = 22; //para el resto de los Tef
-					}*/
+					}
 					if ($this->opr == 'A') $tipoTrans = 2;
 					
 					$this->log .= "tipo operacion: ".$this->opr."<br>tipoTrans:$tipoTrans<br>";
@@ -2640,45 +2328,19 @@ class inico {
                 case 'pasoKN': // Tefpay REST
                     $tr .= '000000000';
 //					if ($this->segura == 1)	$tipoTrans = 1; Reina - cambios a REST
-
-                    // Reina - Busco el id de la pasarela original
-                    $pasarelaOriginal = 0;
-                    $this->db("select pasarLim from tbl_pasarela where idPasarela = {$this->pasa}");
-                    if ($this->temp->num_rows() > 0) {
-                        $pasarelaOriginal = $this->temp->f('pasarLim');
-                    }
-                    if($pasarelaOriginal > 0 && $pasarelaOriginal === 225){  // KUTXABANKTEF 3D
+                    if ($this->segura == 1){
                         $tipoTrans = 201;
                         $termAuth = $this->datPas['terminal'];
-                    } else{
-	                    if($this->datPas['idTarj'] == 17){  // Criptomoneda
-		                    $tipoTrans = 84;
-		                    $this->db("select moneda from tbl_moneda where idmoneda = '{$this->receiveCurrency}'");
-		                    $receiveCurrency = $this->temp->f('moneda');
-	                    } else {
-		                    if ($this->segura == 1){
-			                    $tipoTrans = 201;
-			                    $termAuth = $this->datPas['terminal'];
-		                    } else {
-			                    if ($this->pasa == 89 || $this->pasa == 161) {
-				                    $tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
-			                    } else $tipoTrans = 22; //para el resto de los Tef
-		                    }
-	                    }
-
-                        /* Reina - se comenta porque se identifica por el medio de pago 17
-                        if ($this->segura == 1){
-			                    $tipoTrans = 201;
-			                    $termAuth = $this->datPas['terminal'];
-		                } else if ($this->pasa == 194) { //criptomonedas
-                            $tipoTrans = 84;
-                        } else {
-                            if ($this->pasa == 89 || $this->pasa == 161) {
-                                $tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
-                            } else $tipoTrans = 22; //para el resto de los Tef
-                        } */
-                        if ($this->opr == 'A') $tipoTrans = 2;
+//                        $termAuth = '00000100'; Reina
                     }
+                    else if ($this->pasa == 194) { //criptomonedas
+                        $tipoTrans = 84;
+                    } else {
+                        if ($this->pasa == 89 || $this->pasa == 161) {
+                            $tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
+                        } else $tipoTrans = 22; //para el resto de los Tef
+                    }
+                    if ($this->opr == 'A') $tipoTrans = 2;
 
                     $this->log .= "tipo operacion: ".$this->opr."<br>tipoTrans:$tipoTrans<br>\n";
                     //$tipoTrans = 22;
@@ -2876,7 +2538,7 @@ class inico {
 					$this->saltosPasar($this->err);
 					return false;
 				}
-				$this->db("insert into tbl_aisOrden (idtransaccion, idcliente, idbeneficiario, envia, recibe, comision, subida, idrazon, monedaRecibe) values ('$this->idTrn',
+				$this->db("insert into tbl_aisOrden (idtransaccion, idcliente, idbeneficiario, envia, recibe, comision, subida, idrazon, monedaRecibe) values ('$tr',
 							(select id from tbl_aisCliente where idcimex = '" . $this->datAis['idremitente'] . "' order by id desc limit 0,1),
 							(select id from tbl_aisBeneficiario where idcimex = '" . $this->datAis['iddestin'] . "' order by id desc limit 0,1),
 							{$this->datAis['importenvia']}, {$this->datAis['importerecive']}, {$this->datAis['comision']}, 0, {$this->datAis['rason']}, '{$this->datAis['monrecibe']}')");
@@ -3092,8 +2754,7 @@ class inico {
 			';isoDate;' => date(DATE_ISO8601),
 			';Xitoken;' => $arrayXil->token,
 			';segura;' => $this->segura,
-            ';terminalAuth;' => $termAuth,
-//			';aft;' => $aft
+            ';terminalAuth;' => $termAuth
 		);
 
 		if ($arrayXil->tpvUrl) {
@@ -3104,7 +2765,7 @@ class inico {
 				$cad = str_replace($key, $value, $cad);
 			}
 		} else {
-			$cad = $this->varRedsys($aft);
+			$cad = $this->varRedsys();
 		}
 		if (is_array($cad)) {
 			foreach ($cad as $key => $value) {
@@ -3211,7 +2872,7 @@ class inico {
 	 * 
 	 * @return string
 	 */
-	private function varRedsys($aft = null) {
+	private function varRedsys() {
 
 		//afecta el monto según la moneda para yenes y pesos chilenos
 		$this->db("select factmult from tbl_moneda where idmoneda = '{$this->mon}'");
@@ -3270,14 +2931,6 @@ class inico {
             $this->log .= "<br>DS_MERCHANT_IDENTIFIER= $identificador";
             $this->log .= "<br>DS_MERCHANT_DIRECTPAYMENT= false";
         }
-        if(isset($aft)){
-            $this->log .= "<br>DS_MERCHANT_AFT= {";
-            $aftArray = json_decode($aft, true);
-            foreach ($aftArray as $key => $value) {
-                $this->log .= "<br>" . $key . "=" . $value;
-            }
-            $this->log .= "<br>}";
-        }
 
 		$this->obj->setParameter("DS_MERCHANT_AMOUNT", $amount);
 		$this->obj->setParameter("DS_MERCHANT_ORDER", strval($id));
@@ -3293,9 +2946,6 @@ class inico {
         if ($this->opr == 'R') {
             $this->obj->setParameter("DS_MERCHANT_IDENTIFIER", $identificador);
             $this->obj->setParameter("DS_MERCHANT_DIRECTPAYMENT", "false");
-        }
-        if(isset($aft)){
-            $this->obj->setJsonParameter("DS_MERCHANT_AFT", $aft);
         }
 
 		$params = $this->obj->createMerchantParameters();
