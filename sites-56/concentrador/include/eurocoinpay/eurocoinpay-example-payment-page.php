@@ -1,6 +1,11 @@
 <?php
 require_once "settings.php";
 
+$_POST['orderid'] = "34562461346246";
+$_POST['amount'] = "5.00";
+$_POST['currency'] = "EUR";
+$_SERVER['REQUEST_METHOD'] = "POST";
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -56,7 +61,7 @@ else {
   echo '<input type="hidden" name="sig" value="'.$sndData["sig"].'" />';
   echo '</form>';
   echo '<script>';
-  echo 'document.getElementById("ecpfrm").submit();';
+  echo '//document.getElementById("ecpfrm").submit();';
   echo '</script>';
 
 }

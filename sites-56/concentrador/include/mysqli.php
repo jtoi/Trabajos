@@ -52,7 +52,7 @@ class ps_DB {
 	* @see		JDatabase
 	*/
 	function __construct( $options = null) {
-		include_once 'correo.php';
+		// include_once 'correo.php';
 		//include_once '../admin/adminis.func.php';
 		global $host, $user, $pass, $db;
 		$select = true;
@@ -286,9 +286,10 @@ class ps_DB {
 				$datcorr .= "$key = $value \n<br>";
 			}
 error_log('MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr);
-			sendTelegram("Error de Mysql: Página: ".$_SERVER['HTTP_REFERER'].' \n<br>MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr, null);
-			$corr = new correo();
-			$corr->todo(43, "Error de Mysql", 'Página: '.$_SERVER['HTTP_REFERER'].' \n<br>MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr);
+			sendTelegram("Error de Mysql: Pï¿½gina: ".$_SERVER['HTTP_REFERER'].' \n<br>MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr, null);
+			error_log("Error de Mysql: Pï¿½gina: ".$_SERVER['HTTP_REFERER'].' \n<br>MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr);
+			// $corr = new correo();
+			// $corr->todo(43, "Error de Mysql", 'Pï¿½gina: '.$_SERVER['HTTP_REFERER'].' \n<br>MySQL::queryError: '. $this->_errorNum.' - '.$this->_errorMsg.$datcorr);
 			return false;
 		}
 		

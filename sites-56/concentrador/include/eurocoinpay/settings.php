@@ -1,6 +1,6 @@
 <?php
 
-require_once "eurocoinpay/api/eurocoinpay-class.php"; 
+require_once "api/eurocoinpay-class.php"; 
 
 $ecpc = new EurocoinPayClass();
 

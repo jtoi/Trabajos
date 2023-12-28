@@ -56,10 +56,10 @@ if (stripos(_ESTA_URL, 'localhost') > 0 ||
 	// $d['transaccion']= '711301';
 	$d['transaccion']=substr(time(), -8);
 	$d['importe']='500';
-	$d['moneda']='840';
+	$d['moneda']='978';
 	$d['operacion']='P';
 	$d['idioma']='es';
-	$d['pasarela']='194';
+	$d['pasarela']='248';
 	$d['amex']='17';
 	// $d['tipo']='P';
 	 //$d['referencia'] = 'sdfgdfgsdfgsdfgsdfgdfgs' //referencia para el pago por referencia
@@ -115,7 +115,7 @@ foreach ($_SERVER as $value => $item) {
 }
 
 //print_r($d);
-$dirIp = '172.0.0.2';
+$dirIp = '172.0.0.1';
 
 $correoMi .= "DIR IP - ".$dirIp . "<br>\n";
 error_log($correoMi);
@@ -129,10 +129,10 @@ if(isset($d['tpv'])) $inicio->tpv = $d['tpv'];
 //echo "va";
 
 /* Reina - esto se comenta porque se cambia el chequeo de la IP
-if ($cuenta = ipBloqueada($dirIp)) {//verifica que la ip no esté bloqueada
+if ($cuenta = ipBloqueada($dirIp)) {//verifica que la ip no estï¿½ bloqueada
     echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Su IP '.$dirIp.' est&aacute; bloqueada / Your IP '.$dirIp.' is banned</div>';
     if ($cuenta == 5) {
-        $correo->todo(11, 'IP banned entrada '.$dirIp, ". Se ha bloqueado el acceso de la operación desde la IP ".$dirIp."<br>".$correoMi);
+        $correo->todo(11, 'IP banned entrada '.$dirIp, ". Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp."<br>".$correoMi);
     }
     exit();
 } */
@@ -148,7 +148,7 @@ $correoMi .= "total=".$temp->f('total');
 if ($temp->f('total') > 0) { // Es una IP Blanca
 	$temp->query("update tbl_ipblancas set fecha = ".time()." where ip = '$dirIp'");
 } else{
-	// 2. verifica que esté en la tabla de las ip bloqueadas por login
+	// 2. verifica que estï¿½ en la tabla de las ip bloqueadas por login
 	$q = sprintf("SELECT login FROM tbl_ipBL WHERE ip='%s'", $dirIp);
 	$temp->query($q);
 	error_log($q);
@@ -158,10 +158,10 @@ if ($temp->f('total') > 0) { // Es una IP Blanca
 	if($temp->f('login') >= 3){ // Maximo de intentos por login
 		echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Su IP '.$dirIp.' est&aacute; bloqueada / Your IP '.$dirIp.' is banned</div>';
 		error_log('Intento de pago desde IP bloqueada');
-		$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operación desde la IP ".$dirIp."<br>".$correoMi);
+		$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp."<br>".$correoMi);
 		exit();
 	} else{
-		// 3. verifica que no esté bloqueada por pagos denegados
+		// 3. verifica que no estï¿½ bloqueada por pagos denegados
 		$q = sprintf("select idips from tbl_ipbloq where ip = '%s' and bloqueada = 1", $dirIp);
 		$temp->query($q);
 		error_log($q);
@@ -171,10 +171,10 @@ if ($temp->f('total') > 0) { // Es una IP Blanca
 		if ($temp->num_rows() !== 0) {
 			echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Su IP '.$dirIp.' est&aacute; bloqueada, contacte a su comercio / Your IP '.$dirIp.' is banned, contact to your e-commerce</div>';
 			error_log('Intento de pago desde IP bloqueada');
-			$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operación desde la IP ".$dirIp."<br>".$correoMi);
+			$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp."<br>".$correoMi);
 			exit();
 		} else{
-			// 4. verifica que no esté bloqueada por intentos de ataque u otros motivos
+			// 4. verifica que no estï¿½ bloqueada por intentos de ataque u otros motivos
 			$q = sprintf("SELECT cuenta FROM tbl_ipBL WHERE ip='%s'", $dirIp);
 			$temp->query($q);
 			error_log($q);
@@ -194,7 +194,7 @@ if ($temp->f('total') > 0) { // Es una IP Blanca
 					if($newCuenta >= 5){ // Maximo de intentos permitidos por IP
 						echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Su IP '.$dirIp.' est&aacute; bloqueada, contacte a su comercio / Your IP '.$dirIp.' is banned, contact to your e-commerce</div>';
 						error_log('Intento de pago desde IP bloqueada');
-						$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operación desde la IP ".$dirIp."<br>".$correoMi);
+						$correo->todo(11, 'IP bloqueada '.$dirIp, ". Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp."<br>".$correoMi);
 						exit();
 					}
 				}
@@ -204,12 +204,12 @@ if ($temp->f('total') > 0) { // Es una IP Blanca
 }
 
 /* Reina - temporal para pruebas */
-//detección de envío de operaciones detrás de proxy
+//detecciï¿½n de envï¿½o de operaciones detrï¿½s de proxy
 $test_HTTP_proxy_headers = array('HTTP_VIA', 'VIA', 'Proxy-Connection', 'HTTP_X_FORWARDED_FOR', 'HTTP_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_FORWARDED', 'HTTP_CLIENT_IP', 'HTTP_FORWARDED_FOR_IP', 'X-PROXY-ID', 'MT-PROXY-ID', 'X-TINYPROXY', 'X_FORWARDED_FOR', 'FORWARDED_FOR', 'X_FORWARDED', 'FORWARDED', 'CLIENT-IP',  'CLIENT_IP', 'PROXY-AGENT', 'HTTP_X_CLUSTER_CLIENT_IP', 'FORWARDED_FOR_IP', 'HTTP_PROXY_CONNECTION');
 foreach($test_HTTP_proxy_headers as $header){ 		
 	if (isset($_SERVER[$header]) && !empty($_SERVER[$header])) {
-		// $correo->todo(11, 'IP banned entrada '.$dirIp, "Se ha bloqueado el acceso de la operación desde la IP ".$dirIp." por usar proxy<br>".$correoMi);
-		// sendTelegram('IP banned entrada '.$dirIp. "Se ha bloqueado el acceso de la operación desde la IP ".$dirIp." por usar proxy<br>");
+		// $correo->todo(11, 'IP banned entrada '.$dirIp, "Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp." por usar proxy<br>".$correoMi);
+		// sendTelegram('IP banned entrada '.$dirIp. "Se ha bloqueado el acceso de la operaciï¿½n desde la IP ".$dirIp." por usar proxy<br>");
 		exit("Please disable your proxy connection!");
 	} 	
 }
@@ -248,12 +248,12 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 
 			if (ipCuba($dirIp)) {//verifica que si la ip es de cuba
 				echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Tenemos problemas para procesar su operaci&oacute;n, por favor intente m&aacute;s tarde.</div>';
-				error_log("Se ha detenido la operación {$d['transaccion']} del comercio {$nc} por provenir de IP cubana $dirIp");
-				$correoMi .= "Se ha detenido la operación {$d['transaccion']} del comercio {$nc} por provenir de IP cubana $dirIp<br>";
+				error_log("Se ha detenido la operaciï¿½n {$d['transaccion']} del comercio {$nc} por provenir de IP cubana $dirIp");
+				$correoMi .= "Se ha detenido la operaciï¿½n {$d['transaccion']} del comercio {$nc} por provenir de IP cubana $dirIp<br>";
 				$inicio->saltosPasar("falla por ip cubana");
 				muestraError("falla por ip cubana", $correoMi);
 
-			//    $correo->todo(11, 'Operación de IP cubana detenida '.$dirIp, "Se ha detenido la operación {$d['transaccion']} del comercio {$d['comercio']} por provenir de IP cubana");
+			//    $correo->todo(11, 'Operaciï¿½n de IP cubana detenida '.$dirIp, "Se ha detenido la operaciï¿½n {$d['transaccion']} del comercio {$d['comercio']} por provenir de IP cubana");
 
 				exit();
 			}
@@ -282,11 +282,11 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 	/**
 	 * Las operaciones pueden ser:
 	 * P - pago con Tarjeta
-	 * A - Preautorizaciones y confirmacion de preautorizo (se congela en la tarjeta del Cliente el dinero de la operación por un tiempo)
+	 * A - Preautorizaciones y confirmacion de preautorizo (se congela en la tarjeta del Cliente el dinero de la operaciï¿½n por un tiempo)
 	 * R - Pagos recurrentes (se realiza un primer pago con la tarjeta y el resto de los pagos sin necesidad de poner la tarjeta)
-	 * L - liberación de una operación de preautorizo
-	 * D - devolución automática
-	 * S - solicitud de devolución
+	 * L - liberaciï¿½n de una operaciï¿½n de preautorizo
+	 * D - devoluciï¿½n automï¿½tica
+	 * S - solicitud de devoluciï¿½n
 	 * Q - Quita la referencia anterior (asociada a otra tarjeta) y pide una referencia nueva
 	 */
 	$inicio->opr = strtoupper($d['operacion']);
@@ -318,7 +318,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		}
 	} else {$inicio->idi = 'es';}
 
-//	chequeo que el comercio esté activo
+//	chequeo que el comercio estï¿½ activo
 	if (!$inicio->verComer()) muestraError ($inicio->err, $correoMi.$inicio->log);
 	$correoMi .= $inicio->log;
 
@@ -327,7 +327,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		else muestraError ("falla por tipo de operacion ", $correoMi);
 	}
 
-	// reviso si el pago es presencial y se ejecuta a través de las ips de nuestra VPN
+	// reviso si el pago es presencial y se ejecuta a travï¿½s de las ips de nuestra VPN
 	$q = "select count(*) total from tbl_reserva where codigo = '{$inicio->tran}' and id_comercio = '{$inicio->comer}' and pMomento = 'S'";
 	// $Mi .= "<br>".$q."<br>";
 	$temp->query($q);
@@ -345,7 +345,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 				$q = "select nombre from tbl_comercio where idcomercio = '{$inicio->comer}'";
 				$temp->query($q);
 				// $Mi .= "La ip no se encuentra dentro de las ips de nuestra VPN<br>";
-				sendTelegram("El comercio ".$temp->f('nombre')." está tratando de pagar desde la IP ".$dirIp." que no es nuestra VPN<br>");
+				sendTelegram("El comercio ".$temp->f('nombre')." estï¿½ tratando de pagar desde la IP ".$dirIp." que no es nuestra VPN<br>");
 				echo '<div style="background: url(\'template/images/degrada.png\') repeat-x scroll 0 0 transparent;"><div style="text-align:center; background: url(\'template/images/banner.jpg\') no-repeat scroll left center transparent; height: 73px; margin:0">&nbsp;</div></div><div style="text-align:center; margin-top:100px; font-family:sans serif; font-size:10px; background: url("images/banner.png") no-repeat scroll left center transparent; height: 73px;">Su IP '.$dirIp.' no corresponde a las de nuestra VPN</div>';
 				muestraError ('Operacion presencial fuera de la VPN', $correoMi);
 				exit();
@@ -370,7 +370,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		if (!($inicio->tarj = $ent->isEntero($d['tarj'],16))) {
 			muestraError ("falla por tarjeta incorrecta", $correoMi);
 		} else {
-			if (!$inicio->luhn($d['tarj'])) muestraError("falla por número de tarjeta incorrecto", $correoMi);
+			if (!$inicio->luhn($d['tarj'])) muestraError("falla por nï¿½mero de tarjeta incorrecto", $correoMi);
 		}
 	}
 
@@ -414,10 +414,10 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		$correoMi .= "$q<br>\n";
 	}
 
-	//Modificación para las solicitudes de devolución
-	if ($inicio->opr == 'S') { //si la operación es una solicitud de devolución
+	//Modificaciï¿½n para las solicitudes de devoluciï¿½n
+	if ($inicio->opr == 'S') { //si la operaciï¿½n es una solicitud de devoluciï¿½n
 
-		$correoMi .= "<br>Es una solicitud de devolución<br>";
+		$correoMi .= "<br>Es una solicitud de devoluciï¿½n<br>";
 
 		// Verificar que la operacion solicitada a devolver no este En Proceso de Reclamacion
 		$q = "select solRec from tbl_transacciones where idtransaccion = '".$d['transaccion']."'";
@@ -427,13 +427,13 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		$correoMi .= "$q<br>\n";
 		$correoMi .= "solRec=$solRec<br>\n";
 		if($solRec == 1){
-			muestraerror("Esta operación está en Proceso de Reclamación y no admite devoluciones", $correoMi);
+			muestraerror("Esta operaciï¿½n estï¿½ en Proceso de Reclamaciï¿½n y no admite devoluciones", $correoMi);
 		}
 
 		if (strlen($d['motivo']) < 8 || strcmp($d['motivo'], $d['firma']) == 0){
-			muestraerror("falla por motivo de la solicitud de devolución", $correoMi);
+			muestraerror("falla por motivo de la solicitud de devoluciï¿½n", $correoMi);
 		}
-		//salto a la solicitud de devolución
+		//salto a la solicitud de devoluciï¿½n
 //		$arrSal = json_decode(solDevOper($d['transaccion'], $d['importe'], $d['comercio'], $correoMi, $d['motivo'])); Reina
 		$arrSal = json_decode(solDevOper($d['transaccion'], $d['importe'], $d['comercio'], $correoMi, utf8_decode($d['motivo'])));
 		$correoMi = utf8_decode($arrSal->correoMi."<br>Resultado->".$arrSal->result."<br>Causa->".$arrSal->comen);
@@ -490,7 +490,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 				// 	$q = "delete from tbl_referencia where idtransaccion in (select idtransaccion from tbl_aisOrden o, tbl_aisCliente c where o.idcliente = c.id and c.idcimex not in (79068, 95107) and c.idcimex = '{$d['IdCustomer']}')";;//evito que se borren los ids de Tamara y Mela
 				// 	$correoMi .= "$q<br>";
 				// 	$temp->query($q);
-				// } else { //si no es así, leo el código y lo pongo como si el comercio lo hubiera enviado en los datos
+				// } else { //si no es asï¿½, leo el cï¿½digo y lo pongo como si el comercio lo hubiera enviado en los datos
 					// $q = "select r.codConc from tbl_aisCliente c, tbl_referencia r, tbl_aisOrden o where c.id = o.idcliente and c.idcimex = '{$d['IdCustomer']}' and r.idtransaccion = o.idtransaccion order by r.fecha desc limit 0,1";
 					// $correoMi .= $q."<br>";
 					// $temp->query($q);
@@ -521,8 +521,8 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 				$correoMi .= "referencia->".$inicio->refer."<br>";
 				$correoMi .= "operacion->".$inicio->opr."<br>";
 
-	//Pago por referencia implementación verificación de la referencia enviada
-	//si la referencia enviada no es válida borro la referencia pero no detengo
+	//Pago por referencia implementaciï¿½n verificaciï¿½n de la referencia enviada
+	//si la referencia enviada no es vï¿½lida borro la referencia pero no detengo
 	//el pago
 	if ($inicio->opr == 'R') {
 		//chequeo que el comercio tenga permitido los pagos por referencia
@@ -531,12 +531,12 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 		$correoMi .= $q."<br>";
 
 		if ($temp->f('total') == 1) { //comercio autorizado a realizar los pagos por referencia
-			if (strlen($inicio->refer) > 5) { //el comercio envía la referencia
+			if (strlen($inicio->refer) > 5) { //el comercio envï¿½a la referencia
 				$correoMi .= "PAGO POR REFERENCIA, referencia->".$inicio->refer." / ";
 				// $inicio->refer = pagoxRef($inicio->comer, $inicio->opr, $inicio->refer);
 				$correoMi .= " referencia->".$inicio->refer."<br>";
 			}
-		} else {//si el comercio no está autorizado cambio el tipo de operación a pago normal
+		} else {//si el comercio no estï¿½ autorizado cambio el tipo de operaciï¿½n a pago normal
 			$inicio->opr = 'P';
 			$inicio->refer = '';
 		} 
@@ -544,7 +544,7 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 	}
 	$correoMi .= "operacion->".$inicio->opr."<br>";
 
-//	chequeo que la direccion IP no esté bloqueada
+//	chequeo que la direccion IP no estï¿½ bloqueada
 	if (!$inicio->verIP()) {muestraError($inicio->err, $correoMi.$inicio->log);}
 	$correoMi .= $inicio->log;
 
@@ -552,15 +552,15 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 	$inicio->alerSegur();
 	$correoMi .= $inicio->log;
 
-	//Modificación para las solicitudes de devolución
-	if ($inicio->opr == 'S') { //si la operación es una solicitud de devolución
+	//Modificaciï¿½n para las solicitudes de devoluciï¿½n
+	if ($inicio->opr == 'S') { //si la operaciï¿½n es una solicitud de devoluciï¿½n
 
-		$correoMi .= "<br>Es una solicitud de devolución<br>";
+		$correoMi .= "<br>Es una solicitud de devoluciï¿½n<br>";
 
 		if (strlen($d['motivo']) < 8 || strcmp($d['motivo'], $d['firma']) == 0 ){
-			muestraerror("falla por motivo de la solicitud de devolución", $correoMi);
+			muestraerror("falla por motivo de la solicitud de devoluciï¿½n", $correoMi);
 		}
-		//salto a la solicitud de devolución
+		//salto a la solicitud de devoluciï¿½n
 //		$arrSal = json_decode(solDevOper($d['transaccion'], $d['importe'], $d['comercio'], $correoMi, $d['motivo'])); Reina
 		$arrSal = json_decode(solDevOper($d['transaccion'], $d['importe'], $d['comercio'], $correoMi, utf8_decode($d['motivo'])));
 		$correoMi = utf8_decode($arrSal->correoMi."<br>Resultado->".$arrSal->result."<br>Causa->".$arrSal->comen);
@@ -580,14 +580,14 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 	if (!$inicio->verTran()) {
 		if (count($inicio->arrCli)) {
 			$correo->to($inicio->arrUsu[1]);
-			$correo->todo(57,'Aviso de Transacción duplicada','Estimado(a) '.$inicio->arrUsu[0].'<br><br>
+			$correo->todo(57,'Aviso de Transacciï¿½n duplicada','Estimado(a) '.$inicio->arrUsu[0].'<br><br>
 				El usuario <b>'.$inicio->arrCli[0].'</b> con correo <a href="mailto:'. $inicio->arrCli[1] .'">'. $inicio->arrCli[1] .'</a>
 				est&aacute; intentando volver a pagar sobre la invitaci&oacute;n de pago ya vencida de la operaci&oacute;n con referencia de comercio <b>'.
-				$inicio->tran.'.</b> y número de transacción <b>'. $inicio->arrCli[2].'</b>. <br><br>
+				$inicio->tran.'.</b> y nï¿½mero de transacciï¿½n <b>'. $inicio->arrCli[2].'</b>. <br><br>
 				Por favor comun&iacute;quese con &eacute;l y env&iacute;ele una nueva Invitaci&oacute;n de Pago.
 				Para esto &uacute;ltimo, puede acceder a la operaci&oacute;n a trav&eacute;s de la opci&oacute;n del men&uacute; REPORTES / Clientes<br><br>
 				Administrador de comercios');
-			$correoMi .= "Se envían el correo de transacción duplicada\n<br>";
+			$correoMi .= "Se envï¿½an el correo de transacciï¿½n duplicada\n<br>";
 		}
 		muestraError($inicio->err, $correoMi.$inicio->log);
 	}
@@ -646,8 +646,8 @@ if ($d['comercio'] && $d['transaccion'] && $d['importe'] && $d['moneda'] && $d['
 			  +"px; width:400px; text-align:center;\">"
 			  )</script><strong>Su transacci&oacute;n est&aacute; siendo procesada...</strong><br><br><strong>Your transacction is been processed...</strong></div>';
 	}
-	$correoMi .= "Ejecuta la transacción\n<br>";
-//	Ejecuta la transacción
+	$correoMi .= "Ejecuta la transacciï¿½n\n<br>";
+//	Ejecuta la transacciï¿½n
 	$sale = $inicio->operacion();
 	if (!$sale) muestraError ($inicio->err, $correoMi.$inicio->log);
 	else {
@@ -721,9 +721,9 @@ function muestraError ($etiqueta, $textoCorreo) {
 	error_log("etiqueta=$etiqueta");
 	error_log("textoCorreo=$textoCorreo");
 
-	//Procesamiento de mensaje cuando error es por límites de la pasarela
+	//Procesamiento de mensaje cuando error es por lï¿½mites de la pasarela
 	if (count($inicio->arrPD) > 0 && $pase == false) {
-		$saleErrores = 'La operación '.$d['transaccion'].' del comercio: '.$inicio->datCom['nombre'].'('.$inicio->datCom['id'].') se detuvo por límites de los TPVs:<br>';
+		$saleErrores = 'La operaciï¿½n '.$d['transaccion'].' del comercio: '.$inicio->datCom['nombre'].'('.$inicio->datCom['id'].') se detuvo por lï¿½mites de los TPVs:<br>';
 
 		for($i=0; $i<count($inicio->arrMD); $i++){
 			$temp->query("select nombre from tbl_pasarela where idPasarela = ".$inicio->arrPD[$i]);
@@ -736,9 +736,9 @@ function muestraError ($etiqueta, $textoCorreo) {
 
 	}
 
-	//Procesamiento de mensaje cuando error es por límites del comercio
+	//Procesamiento de mensaje cuando error es por lï¿½mites del comercio
 	if (count($inicio->arrMD) == 1 && $pase == false) {
-		$saleErrores = 'La operación '.$d['transaccion'].' del comercio: '.$inicio->datCom['nombre'].'('.$inicio->datCom['id'].') se detuvo por límites del Comercio:<br>';
+		$saleErrores = 'La operaciï¿½n '.$d['transaccion'].' del comercio: '.$inicio->datCom['nombre'].'('.$inicio->datCom['id'].') se detuvo por lï¿½mites del Comercio:<br>';
 		$saleErrores = $saleErrores.$inicio->arrMD[0];
 		$errorId = substr($inicio->arrMD[0],strpos($inicio->arrMD[0],'{')+1,strpos($inicio->arrMD[0],'}')-strpos($inicio->arrMD[0],'{')-1);
 		$exp = explode(":",$inicio->arrMD[0]);
@@ -746,7 +746,7 @@ function muestraError ($etiqueta, $textoCorreo) {
 		$pase=true;
 	}
 
-	//Preparación de mensaje a mostrar al cliente
+	//Preparaciï¿½n de mensaje a mostrar al cliente
 	switch ($inicio->idi) {
 		case 'en':
 			$file = 'english';
@@ -803,10 +803,10 @@ function muestraError ($etiqueta, $textoCorreo) {
 	$saleErrores = str_replace($cam,'',$saleErrores);
 	error_log("saleErrores=".$saleErrores);
 
-	//envío de errores para página Verificación de errores en la administración
-	if ($pase) $correo->todo(9,'Verificación de errores',$saleErrores);
+	//envï¿½o de errores para pï¿½gina Verificaciï¿½n de errores en la administraciï¿½n
+	if ($pase) $correo->todo(9,'Verificaciï¿½n de errores',$saleErrores);
 
-	//Envío de errores para trazas
+	//Envï¿½o de errores para trazas
 	if (strlen($textoCorreo) > 1) {
 		$textoCorreo .= $etiqueta;
 		$correo->todo(9,'Entrada de datos',$textoCorreo);
@@ -820,9 +820,9 @@ function muestraError ($etiqueta, $textoCorreo) {
 	$temp->query($q);
 
 	$sal = '';
-	if ($temp->num_rows()>0) {//si la operación es al momento redirijo el error a la página de pago
+	if ($temp->num_rows()>0) {//si la operaciï¿½n es al momento redirijo el error a la pï¿½gina de pago
 		error_log("Datos, com=".$d['comercio']."\ntrans=".$d['transaccion']."\netiq".$etiquetajs);
-		$correo->todo(24, 'Operación regresa a la página de Pago', "Datos, com=" . $d['comercio'] . "<br>trans=" . $d['transaccion'] . "<br>etiq" . $etiquetajs ."<br>error: ". $inicio->err);
+		$correo->todo(24, 'Operaciï¿½n regresa a la pï¿½gina de Pago', "Datos, com=" . $d['comercio'] . "<br>trans=" . $d['transaccion'] . "<br>etiq" . $etiquetajs ."<br>error: ". $inicio->err);
 		// exit;
 		$sal = "<form name='retorno' action='"._ESTA_URL."/admin/index.php?componente=comercio&pag=pago' method='post'>
 		<input type='hidden' value='".$temp->f('id_reserva')."' name='identf'>
