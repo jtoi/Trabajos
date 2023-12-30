@@ -366,11 +366,11 @@ class inico {
 						elseif ($this->opr == 'R') $tipo = "'P','R'"; 
 						else $tipo = "'A','P','R'";
 
-						$q = "select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = (select secure from tbl_pasarela where idPasarela = " . $this->pasa . ") and p.idPasarela in (" . $this->datCom['pasarela'] . ") and p.tipo in ($tipo) and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin";
+						$q = "select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = (select secure from tbl_pasarela where idPasarela = " . $this->pasa . ") and p.idPasarela in (" . trim($this->datCom['pasarela'],',') . ") and p.tipo in ($tipo) and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin";
 						// echo $q."<br>";
 						$this->db($q);
 						if ($this->temp->num_rows() == 0) {
-							$this->db("select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = 1 and p.idPasarela in (" . $this->datCom['pasarela'] . ") and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin limit 0,1");
+							$this->db("select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = 1 and p.idPasarela in (" . trim($this->datCom['pasarela'],',') . ") and c.idcomercio = '{$this->comer}' and " . time() . " between c.fechaIni and c.fechaFin limit 0,1");
 						} else {
 							$mier = $this->temp->loadResultArray();
 							// echo"holllllaaaaaaaaaaaaaaaa<br>";
@@ -2248,7 +2248,7 @@ class inico {
 
 		//error_log("preform=".$preform);
 		$forma = $preform . $this->finForm();
-		//error_log("FORMA=".$forma);
+		error_log("FORMA=".$forma);
 
 		return $forma;
 	}
@@ -2855,6 +2855,56 @@ class inico {
 					// $this->log .= "<br><br>salida=$output<br><br>";
 
 					break;
+				case 'pasoR':
+					include_once("eurocoinpay/api/eurocoinpay-class.php"); 
+
+					$ecpc = new EurocoinPayClass();
+
+					$q = "select terminal, clave FROM tbl_colPasarMon where idmoneda = '" . $this->mon . "' and estado = 1 and idpasarela = " . $this->pasa;
+					$this->db($q);
+					$codi = $this->temp->f('clave');
+					$term = $this->temp->f('terminal');
+
+					$this->log .= "URL->".$this->datPas['url'] . "<br>";
+					$this->log .= "urlOri=" . $urlOri . "llegada.php<br>";
+					$this->log .= "terminal=" . $this->temp->f('terminal') . "<br>clave=" . $this->temp->f('clave') . "<br>";
+		
+
+					//TODO: Set here your payment terminal parameters, provided by EurocoinPay
+					$ecpc->eurocoinpay_customer_number = 7;
+					// $ecpc->eurocoinpay_terminal_number = 2;
+					// $ecpc->eurocoinpay_encryption_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+					// $ecpc->eurocoinpay_terminal_number = 1;
+					// $ecpc->eurocoinpay_encryption_key = 'tT4HloLltnctVWzHEikTzwDfpv8rsgslVR/uycaKXzs=';
+					$ecpc->eurocoinpay_terminal_number = $term;
+					$ecpc->eurocoinpay_encryption_key = $codi;
+					$ecpc->eurocoinpay_real_mode = $this->datPas['url']; // real or test payments
+					$ecpc->eurocoinpay_shop_name = 'Test shop'; // The name of your shop to be displayed
+					$ecpc->eurocoinpay_log_enabled = false; // Only activate this setting if instructed by EurocoinPay
+
+
+					$cur_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+					$pos1 = strrpos($cur_page_url,"/");
+					$cur_page_dir = substr($cur_page_url,0,$pos1+1);
+					
+					$this->log .= "cur_page_dir = " . $cur_page_dir . "<br>";
+
+					$ecpc->eurocoinpay_url_ok = $urldirOK;
+					$ecpc->eurocoinpay_url_fail = $urldirKO;
+					$ecpc->eurocoinpay_url_notif = $urlOri . "llegada.php";
+					$this->log .= "urldirOK = " . $urldirOK . "<br>";
+					$this->log .= "urldirKO = " . $urldirKO . "<br>";
+					// $ecpc->eurocoinpay_url_ok = $cur_page_dir . "eurocoinpay-example-payok.php";
+					// $ecpc->eurocoinpay_url_fail = $cur_page_dir . "eurocoinpay-example-payfail.php";
+					// $ecpc->eurocoinpay_url_notif = $cur_page_dir .'eurocoinpay-example-receive-notification.php';
+					$sndData = $ecpc->prepareDataForEcpServer($tr ,$imp,  $this->mon );
+
+					$this->log .= "salida = " . $salida . "<br>";
+
+					$this->datPas['url'] = $sndData['srvUrl'];
+					$data = $sndData['data'];
+					$sig = $sndData['sig'];
+					break;
 			}
 
 			if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sac� Titanes
@@ -3004,6 +3054,8 @@ class inico {
 		}
 
 		$arrVals = array(
+			';data;' => $data,
+			';sig;' => $sig,
 			';importe;' => $imp,
 			';moneda;' => $this->mon,
 			';trans;' => $tr,

@@ -2,7 +2,7 @@
 
 if ( !class_exists( 'EurocoinPayClass' ) ) { 
 
-    require_once "api/EurocoinPayApi.php";
+    require_once "EurocoinPayApi.php";
  
     class EurocoinPayClass {
 

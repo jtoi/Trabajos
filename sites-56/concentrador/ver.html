@@ -1,12 +1,146 @@
-<form name="envia" action="simBanca.php" method="post">
-						 <input type="hidden"name="Num_operacion" value="141007145588"/>
-						 <input type="hidden"name="Importe" value="46900"/>
-						 <input type="hidden"name="TipoMoneda" value="840"/>
-						 <input type="hidden"name="URL_OK" value="https://www.administracomercios.com/rep/index.php?resp=141007145588&est=ok"/>
-						 <input type="hidden"name="URL_NOK" value="https://www.administracomercios.com/rep/index.php?resp=141007145588&est=ko"/>
-						 <input type="hidden"name="Idioma" value="es"/>
-						 <input type="hidden"name="lleg" value="https://www.administracomercios.com/rep/llegada.php"/>
-						 </form>
-						 <script language='javascript'>
-							 document.envia.submit();
-						 </script>
+fecha=29/12/2023 16:39:24<br>referer=<br>POST- comercio=122327460662<br> POST- transaccion=03864364<br> POST-
+importe=500<br> POST- moneda=978<br> POST- operacion=P<br> POST- idioma=es<br> POST- pasarela=223<br> POST- amex=17<br>
+POST- firma=3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d<br> entrada SERVER
+REMOTE_ADDR=172.18.0.1<br> entrada SERVER HTTP_USER_AGENT=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0)
+Gecko/20100101 Firefox/120.0<br> entrada SERVER HTTP_ACCEPT_LANGUAGE=es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3<br> DIR IP -
+172.0.0.1<br> SELECT count(*) total FROM tbl_ipblancas WHERE ip=&#039;172.0.0.1&#039;total=1<br>Chequea si la ip es de
+Cuba<br>Ip a chequear: 172.0.0.1<br>Analiza el bloque: 152.206.0.0 - 152.207.255.255<br>Analiza el bloque: 169.158.0.0 -
+169.158.255.255<br>Analiza el bloque: 181.225.224.0 - 181.225.255.255<br>Analiza el bloque: 190.6.64.0 -
+190.6.79.255<br>Analiza el bloque: 190.6.80.0 - 190.6.95.255<br>Analiza el bloque: 190.15.144.0 -
+190.15.159.255<br>Analiza el bloque: 190.92.112.0 - 190.92.127.255<br>Analiza el bloque: 190.107.0.0 -
+190.107.15.255<br>Analiza el bloque: 200.55.128.0 - 200.55.159.255<br>Analiza el bloque: 200.55.160.0 -
+200.55.175.255<br>Analiza el bloque: 200.55.176.0 - 200.55.191.255<br>Analiza el bloque: 201.220.192.0 -
+201.220.207.255<br>Analiza el bloque: 201.220.208.0 - 201.220.223.255<br>Analiza el bloque: 104.224.20.0 -
+104.224.20.255<br>Analiza el bloque: 57.74.110.0 - 57.74.111.255<br>Analiza el bloque: 57.91.32.0 -
+57.91.47.255<br>Analiza el bloque: 190.98.130.0 - 190.98.130.31<br>Analiza el bloque: 200.0.16.0 -
+200.0.16.255<br>Analiza el bloque: 200.0.24.0 - 200.0.27.255<br>Analiza el bloque: 200.5.12.0 - 200.5.15.255<br>Analiza
+el bloque: 200.13.144.0 - 200.13.151.255<br>Analiza el bloque: 200.14.48.0 - 200.14.55.255<br>Analiza el bloque:
+41.194.23.160 - 41.194.23.175<br>Analiza el bloque: 69.172.204.0 - 69.172.204.63<br>La IP no es cubana, pasa<br><br>
+<br>Verifica la validez del comercio <br>select id, nombre, prefijo_trans, estado, pasarela, pasarelaAlMom, url,
+usdxamex from tbl_comercio where activo = &#039;S&#039; and idcomercio = &#039;122327460662&#039; <br>Comercio = Prueba
+<br>select limxoper, limxdia, limadia, limxmes, limxano, cantxdia, cantxmes, cantxano from tbl_colComerLim where
+idcomercio = 1 <br>moneda=978 <br>usdxamex=1 <br>amex=17 <br> <br>Verifica la firma de la operaci?n <br>firma
+122327460662 . 03864364 . 500 . 978 . P <br>Firma recibida
+3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d <br>Firma generada
+3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d <br>referencia-><br>operacion->P<br>operacion->P<br>
+<br>Verifica la firma de la operaci?n <br>firma 122327460662 . 03864364 . 500 . 978 . P <br>Firma recibida
+3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d <br>Firma generada
+3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d <br> <br>Verifica que no sean hayan producido mas de 3
+intentos en menos de 10 minutos <br>select id from tbl_ipblancas where ip=&#039;172.0.0.1&#039; <br>update tbl_ipblancas
+set fecha = 1703864364 where ip=&#039;172.0.0.1&#039; <br> <br>Verifica que el monto de la operaci?n no est? por encima
+del m?ximo de peligro <br> <br>Verifica que la operaci?n no se haya repetido anteriormente <br>select idtransaccion,
+sesion, from_unixtime(fecha,&#039;%d/%m/%y %H:%i:%s&#039;) fc from tbl_transacciones where identificador =
+&#039;03864364&#039; and idcomercio = &#039;122327460662&#039; <br> <br>Chequeo de la pasarela <br>select * from
+tbl_reserva where codigo = &#039;03864364&#039; and id_comercio = &#039;122327460662&#039; <br>pweb:1, tipoPago:,
+bipayId: <br>Operaci?n originada en la la web del comercio <br>Comercio env?a su pasarela 223 pero no est? autorizado a
+usarla <br>select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo =
+1 and p.secure = (select secure from tbl_pasarela where idPasarela = 223) and p.idPasarela in (223) and p.tipo in
+(&#039;A&#039;,&#039;P&#039;,&#039;R&#039;) and c.idcomercio = &#039;122327460662&#039; and 1703864364 between
+c.fechaIni and c.fechaFin <br>select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW =
+p.idPasarela and p.activo = 1 and p.secure = 1 and p.idPasarela in (223) and c.idcomercio = &#039;122327460662&#039; and
+1703864364 between c.fechaIni and c.fechaFin limit 0,1 <br>la cambio a 223 <br>select idPasarela, nombre from
+tbl_pasarela where activo = 1 and idPasarela = 223 <br>Revisa que la pasarela escogida 223 no tenga cambios por monedas
+<br><br> Revisa si hay cambio de pasarela por moneda<br> select count(*) total from tbl_rotPasarOperac r, tbl_comercio c
+where c.id = r.idcomercio and r.activo = 1 and c.idcomercio = &#039;122327460662&#039; and r.idmoneda = &#039;978&#039;
+<br>select secure from tbl_pasarela where idPasarela = 223 <br>select count(*) total from tbl_tarjetas where id =
+&#039;17&#039; and tipo = &#039;M&#039; <br>enviaron un metodo de pago<br>Tipo pasarela idpasarelaW<br>select
+idpasarelaW &#039;idPasarela&#039; from tbl_colComerPasar c, tbl_pasarela p, tbl_colTarjPasar j, tbl_colPasarMon m where
+j.idPasar = p.idPasarela and m.idpasarela = p.idPasarela and m.idmoneda = 978 and p.activo = 1 and m.estado = 1 and
+idpasarelaW = p.idPasarela and c.idcomercio = 122327460662 and (1703864364 between c.fechaIni and c.fechaFin) and
+j.idTarj = 17 <br>pasarela antes del chequeo de l?mites 223 <br><br>select pasarela from tbl_comercio where idcomercio =
+&#039;122327460662&#039; <br>select count(idtransaccion) total from tbl_transacciones where idcomercio =
+&#039;122327460662&#039; and estado = &#039;A&#039; and pasarela = 223 and fecha > 1703862564 <br>select p.nombre,
+p.pasarLim, c.valor , p.secure from tbl_pasarela p, tbl_colPasarLimite c where c.idPasar = p.idPasarela and c.idmoneda =
+&#039;978&#039; and p.idPasarela = &#039;223&#039; order by idLimite <br>select nombre from tbl_limites order by id
+<br>nombre => Eurocoinpay / pasarLim => 0 / secure => 0 / LimMinOper => 0 / LimMaxOper => 100000000 / LimDiar =>
+100000000 / LimMens => 100000000 / LimAnual => 100000000 / LimOperIpDia => 1000 / LimOperDia => 1000 / <br>select
+idPasarela from tbl_pasarela where pasarLim = 0 <br>pasarelas para limites 223 <br>select count(id) &#039;total&#039;
+FROM tbl_colPasarMon where idmoneda = &#039;978&#039; and estado = 1 and idpasarela = 223 <br>Chequeo del tipo de moneda
+<br>978 <br>Chequeo de l&iacute;mite m&iacute;nimo por operaci?n <br>5 100000000 <br>Chequeo del n&uacute;mero de
+transacciones para una IP <br>select count(t.idtransaccion) &#039;total&#039; FROM tbl_transacciones t where
+t.tipoEntorno = &#039;P&#039; and from_unixtime(t.fecha, &#039;%d%m%y&#039;) = &#039;291223&#039; and t.ip =
+&#039;172.0.0.1&#039; and t.pasarela in (223) <br>25 >= 1000 <br>Chequeo de l&iacute;mite diario <br>select
+sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-29 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 102000000 <br>Chequeo de l&iacute;mite
+mensual <br>select sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-01 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 100000000 <br>Chequeo de l&iacute;mite
+anual <br>select sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-01-01 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 100000000 <br>Chequeo de cantidad de
+operaciones al d&iacute;a <br>select count(t.idtransaccion) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-29 00:00:00&#039;) and t.pasarela in (223) <br>0 >= 1000 <br>select count(*) tot from
+tbl_colTarjPasar where idPasar = 223 and idTarj = 17 <br>Pase = 1<br> Segura = 0<br> Causa = <br>
+psArrayB=223,<br>Pasarela = 223 <br>Verificaci&oacute;n de la combinaci&oacute;n Pasarela - Moneda y captaci&oacute;n de
+datos <br>select c.terminal, c.clave, c.comercio, p.nombre, c.datos variant, a.tipo, p.datos datPas, p.idcenauto,
+m.moneda, p.secure, case p.estado when &#039;P&#039; then a.urlPro else a.urlDes end url, a.datos, p.comercio comNomb,
+p.tipo tipoP, j.idTarj from tbl_colPasarMon c, tbl_pasarela p, tbl_cenAuto a, tbl_moneda m, tbl_colTarjPasar j where
+m.idmoneda = c.idmoneda and p.activo = 1 and c.idpasarela = p.idPasarela and a.id = p.idcenauto and p.tipo in
+(&#039;A&#039;,&#039;P&#039;,&#039;R&#039;) and c.idpasarela = 223 and c.idmoneda = &#039;978&#039; and j.idTarj = 17
+<br>Ejecuta la transacci?n <br> <br>Chequeo de la pasarela <br>select * from tbl_reserva where codigo =
+&#039;03864364&#039; and id_comercio = &#039;122327460662&#039; <br>pweb:1, tipoPago:, bipayId: <br>Operaci?n originada
+en la la web del comercio <br>Comercio env?a su pasarela 223 pero no est? autorizado a usarla <br>select idPasarela from
+tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW = p.idPasarela and p.activo = 1 and p.secure = (select secure
+from tbl_pasarela where idPasarela = 223) and p.idPasarela in (223) and p.tipo in
+(&#039;A&#039;,&#039;P&#039;,&#039;R&#039;) and c.idcomercio = &#039;122327460662&#039; and 1703864364 between
+c.fechaIni and c.fechaFin <br>select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaW =
+p.idPasarela and p.activo = 1 and p.secure = 1 and p.idPasarela in (223) and c.idcomercio = &#039;122327460662&#039; and
+1703864364 between c.fechaIni and c.fechaFin limit 0,1 <br>la cambio a 223 <br>select idPasarela, nombre from
+tbl_pasarela where activo = 1 and idPasarela = 223 <br>Revisa que la pasarela escogida 223 no tenga cambios por monedas
+<br><br> Revisa si hay cambio de pasarela por moneda<br> select count(*) total from tbl_rotPasarOperac r, tbl_comercio c
+where c.id = r.idcomercio and r.activo = 1 and c.idcomercio = &#039;122327460662&#039; and r.idmoneda = &#039;978&#039;
+<br>select secure from tbl_pasarela where idPasarela = 223 <br>select count(*) total from tbl_tarjetas where id =
+&#039;17&#039; and tipo = &#039;M&#039; <br>enviaron un metodo de pago<br>Tipo pasarela idpasarelaW<br>select
+idpasarelaW &#039;idPasarela&#039; from tbl_colComerPasar c, tbl_pasarela p, tbl_colTarjPasar j, tbl_colPasarMon m where
+j.idPasar = p.idPasarela and m.idpasarela = p.idPasarela and m.idmoneda = 978 and p.activo = 1 and m.estado = 1 and
+idpasarelaW = p.idPasarela and c.idcomercio = 122327460662 and (1703864364 between c.fechaIni and c.fechaFin) and
+j.idTarj = 17 <br>pasarela antes del chequeo de l?mites 223 <br><br>select pasarela from tbl_comercio where idcomercio =
+&#039;122327460662&#039; <br>select count(idtransaccion) total from tbl_transacciones where idcomercio =
+&#039;122327460662&#039; and estado = &#039;A&#039; and pasarela = 223 and fecha > 1703862564 <br>select p.nombre,
+p.pasarLim, c.valor , p.secure from tbl_pasarela p, tbl_colPasarLimite c where c.idPasar = p.idPasarela and c.idmoneda =
+&#039;978&#039; and p.idPasarela = &#039;223&#039; order by idLimite <br>select nombre from tbl_limites order by id
+<br>nombre => Eurocoinpay / pasarLim => 0 / secure => 0 / LimMinOper => 0 / LimMaxOper => 100000000 / LimDiar =>
+100000000 / LimMens => 100000000 / LimAnual => 100000000 / LimOperIpDia => 1000 / LimOperDia => 1000 / <br>select
+idPasarela from tbl_pasarela where pasarLim = 0 <br>pasarelas para limites 223 <br>select count(id) &#039;total&#039;
+FROM tbl_colPasarMon where idmoneda = &#039;978&#039; and estado = 1 and idpasarela = 223 <br>Chequeo del tipo de moneda
+<br>978 <br>Chequeo de l&iacute;mite m&iacute;nimo por operaci?n <br>5 100000000 <br>Chequeo del n&uacute;mero de
+transacciones para una IP <br>select count(t.idtransaccion) &#039;total&#039; FROM tbl_transacciones t where
+t.tipoEntorno = &#039;P&#039; and from_unixtime(t.fecha, &#039;%d%m%y&#039;) = &#039;291223&#039; and t.ip =
+&#039;172.0.0.1&#039; and t.pasarela in (223) <br>25 >= 1000 <br>Chequeo de l&iacute;mite diario <br>select
+sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-29 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 102000000 <br>Chequeo de l&iacute;mite
+mensual <br>select sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-01 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 100000000 <br>Chequeo de l&iacute;mite
+anual <br>select sum(t.valor_inicial/100/t.tasa) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-01-01 00:00:00&#039;) and t.pasarela in (223) <br>5 >= 100000000 <br>Chequeo de cantidad de
+operaciones al d&iacute;a <br>select count(t.idtransaccion) &#039;valor&#039; FROM tbl_transacciones t where t.estado in
+(&#039;A&#039;,&#039;V&#039;,&#039;B&#039;,&#039;R&#039;) and t.tipoEntorno = &#039;P&#039; and t.fecha >
+unix_timestamp(&#039;2023-12-29 00:00:00&#039;) and t.pasarela in (223) <br>0 >= 1000 <br>select count(*) tot from
+tbl_colTarjPasar where idPasar = 223 and idTarj = 17 <br>Pase = 1<br> Segura = 0<br> Causa = <br>
+psArrayB=223,<br>Pasarela = 223 <br>Verificaci&oacute;n de la combinaci&oacute;n Pasarela - Moneda y captaci&oacute;n de
+datos <br>select c.terminal, c.clave, c.comercio, p.nombre, c.datos variant, a.tipo, p.datos datPas, p.idcenauto,
+m.moneda, p.secure, case p.estado when &#039;P&#039; then a.urlPro else a.urlDes end url, a.datos, p.comercio comNomb,
+p.tipo tipoP, j.idTarj from tbl_colPasarMon c, tbl_pasarela p, tbl_cenAuto a, tbl_moneda m, tbl_colTarjPasar j where
+m.idmoneda = c.idmoneda and p.activo = 1 and c.idpasarela = p.idPasarela and a.id = p.idcenauto and p.tipo in
+(&#039;A&#039;,&#039;P&#039;,&#039;R&#039;) and c.idpasarela = 223 and c.idmoneda = &#039;978&#039; and j.idTarj = 17
+<br>Determina la moneda con la que Bidaiondo pagara al comercio<br>select idmoneda from tbl_colComerPasaMon where
+idcomercio = &#039;1&#039; and idpasarela = &#039;223&#039; <br>El comercio recibir? el resultado de esta operaci?n en
+978<br>tipo de operacion: P<br> <br>Inserta la operaci?n<br> <br>Determina el pa?s desde donde se est? realizando la
+operaci?n<br>insert into tbl_transacciones
+(idtransaccion,idcomercio,identificador,tipoOperacion,fecha,fecha_mod,valor_inicial,tipoEntorno,moneda,estado, sesion,
+idioma, pasarela, ip, idpais, tpv, id_tarjeta, tipoPago) values (&#039;231229163990&#039;, &#039;122327460662&#039;,
+&#039;03864364&#039;, &#039;P&#039;, 1703864364, 1703864364, 500, &#039;P&#039;, 978, &#039;P&#039;,
+&#039;3fcddbafed95e158ed8e8a6c8c75e0b04a4be6ca7589387cafeb0d7b2601d32d&#039;, &#039;es&#039;, 223,
+&#039;172.0.0.1&#039;, &#039;null&#039;, &#039;0&#039;, &#039;17&#039;, &#039;W&#039;) <br>update tbl_reserva set
+pasarela = 223 where id_comercio = &#039;122327460662&#039; and codigo = &#039;03864364&#039; <br> <br>Entra al Centro
+Autorizador <br>entra en form<br>url=False <br>Sustituye valores en la cadena <br>Pasarela de env?o: 223 - Eurocoinpay
+<br>select factmult from tbl_moneda where idmoneda = &#039;978&#039; <br>select nombre, servicio from tbl_reserva where
+codigo = &#039;03864364&#039; and id_comercio = &#039;122327460662&#039; <br>entra en pasoR@ <br>select terminal, clave
+FROM tbl_colPasarMon where idmoneda = &#039;978&#039; and estado = 1 and idpasarela = 223
+<br>URL->False<br>urlOri=https://www.administracomercios.com/rep/llegada.php<br>terminal=1<br>clave=tT4HloLltnctVWzHEikTzwDfpv8rsgslVR/uycaKXzs=<br>cur_page_dir
+= http://localhost/concentrador/<br>salida = <br>data = data<br>sig = sig<br>

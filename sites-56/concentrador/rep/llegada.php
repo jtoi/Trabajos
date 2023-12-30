@@ -106,7 +106,7 @@ $paseEst = "'P', 'D', 'N'";
 
 if (count($_REQUEST) > 1) $d = $_REQUEST;
 else {
-	$d = json_decode(file_get_contents('php://input'), true);
+	$d = json_decode(file_get_contents('php://input'), true); 
 	error_log("recibe la respuesta aca");
 	error_log(file_get_contents('php://input'));
 }
@@ -261,7 +261,7 @@ $correoMi .= "pasarela=$pasarela||<br>\n";
 $pedazo='';
 
 if ($pasarela == 218) {//Moneytigo
-	if (!$idtrans = $ent->isNumero($d['MerchantRef'],12)) $correoMi .= "No es válido el número de la operación {$d['MerchantRef']} <br>";
+	if (!$idtrans = $ent->isNumero($d['MerchantRef'],12)) $correoMi .= "No es vï¿½lido el nï¿½mero de la operaciï¿½n {$d['MerchantRef']} <br>";
 	else {
 		$correoMi .= "<br>Entra en Moneytigo<br>";
 
@@ -286,8 +286,8 @@ if ($pasarela == 218) {//Moneytigo
 		}
 		$correoMi .= "<br>ESTADO>".$moEstado;
 
-		if ($moEstado == '2') {//operación Aceptada
-			if (!$codautorizacion = $ent->isAlfanumerico($moBankCod,20))$correoMi .= "No es válido el número de autorizo ".$d['auth']." <br>";
+		if ($moEstado == '2') {//operaciï¿½n Aceptada
+			if (!$codautorizacion = $ent->isAlfanumerico($moBankCod,20))$correoMi .= "No es vï¿½lido el nï¿½mero de autorizo ".$d['auth']." <br>";
 			$estado = 2;
 
 			$pedazo = "tarjetas = '".$moCardNumb."', identificadorBnco = '".$d['TransId']."', ";
@@ -302,7 +302,7 @@ if ($pasarela == 218) {//Moneytigo
 
 	}
 } elseif ($pasarela == 183) { //Stripe
-	if (!$idtrans = $ent->isNumero($d['orderid'],12)) $correoMi .= "No es válido el número de la operación {$d['data']} <br>";
+	if (!$idtrans = $ent->isNumero($d['orderid'],12)) $correoMi .= "No es vï¿½lido el nï¿½mero de la operaciï¿½n {$d['data']} <br>";
 	else {
 	$correoMi .= "<br>Entra en Stripe2<br>";
 		$q = sprintf("select c.clave, t.valor_inicial, t.moneda from tbl_colPasarMon c, tbl_transacciones t where t.idtransaccion = '%s' and t.pasarela = c.idpasarela and c.idmoneda = t.moneda", $idtrans);
@@ -314,7 +314,7 @@ if ($pasarela == 218) {//Moneytigo
 		$correoMi .= "<br>".$d['status'];
 
 		if ($d['status'] == 'succeeded' ) {
-			if (!$codautorizacion = $ent->isAlfanumerico($d['auth'],28))$correoMi .= "No es válido el número de autorizo ".$d['auth']." <br>";
+			if (!$codautorizacion = $ent->isAlfanumerico($d['auth'],28))$correoMi .= "No es vï¿½lido el nï¿½mero de autorizo ".$d['auth']." <br>";
 			$estado = 2;
 
 			// Calculo del hash
@@ -349,7 +349,7 @@ if ($pasarela == 218) {//Moneytigo
 		$correoMi .= "<br>estado=$estado<br>";
 	}
 } elseif ($pasarela == 115) { //Papam
-	if (!$idtrans = $ent->isNumero($d['data'],12)) $correoMi .= "No es válido el número de la operación {$d['data']} <br>";
+	if (!$idtrans = $ent->isNumero($d['data'],12)) $correoMi .= "No es vï¿½lido el nï¿½mero de la operaciï¿½n {$d['data']} <br>";
 	else {
 		include_once ('../include/payment.php');
 		$temp->query("select c.clave, t.valor_inicial, t.moneda from tbl_colPasarMon c, tbl_transacciones t where t.idtransaccion = ".$idtrans." and t.pasarela = c.idpasarela and c.idmoneda = t.moneda");
@@ -363,7 +363,7 @@ if ($pasarela == 218) {//Moneytigo
 		// echo "<br>".$codigo;
 
 		// if(!validSec($d,$codigo)){
-		// 	$error = 'No validada la operación';
+		// 	$error = 'No validada la operaciï¿½n';
 		// 	error_log($error);
 		// 	$correoMi .= $error;
 		// 	$correo->todo(13,$titulo,$correoMi);
@@ -390,7 +390,7 @@ if ($pasarela == 218) {//Moneytigo
 	foreach ($d['trx'] as $value => $item) {
 		$correoMi .= $value . "=" . $item . "<br>\n";
 	}
-	if (!$idtrans = $ent->isNumero($d['trx']['reference'],12)) $correoMi .= "No es válido el número de la operación ".$d['trx']['reference']." <br>";
+	if (!$idtrans = $ent->isNumero($d['trx']['reference'],12)) $correoMi .= "No es vï¿½lido el nï¿½mero de la operaciï¿½n ".$d['trx']['reference']." <br>";
 //	error_log("idtrans=$idtrans");
 	
 	$q = "select moneda, tipoOperacion from tbl_transacciones where idtransaccion = ".$idtrans;
@@ -398,7 +398,7 @@ if ($pasarela == 218) {//Moneytigo
 	$temp->query($q);
 	$tipoOper = $temp->f('tipoOperacion');
 	$moneda = $temp->f('moneda');
-	if ($d['status'] == 'Error' || $d['status'] == 'Denied') {// la operación vino con error
+	if ($d['status'] == 'Error' || $d['status'] == 'Denied') {// la operaciï¿½n vino con error
 		$correoMi .= "<br>entra aca<br>";
 		$iderror = $d['errors'][0]['message'];
 		$importe = 0;
@@ -411,8 +411,8 @@ if ($pasarela == 218) {//Moneytigo
 		elseif (stripos($iderror,'Status: 401') > 1) {$coderror = '5558'; $iderror = '';}
 		elseif (stripos($iderror,'Status: 500') > 1 ) {$coderror = '5555'; $iderror = '';}
 	} else {
-		if (!$codautorizacion = $ent->isAlfanumerico($d['trx']['authCode'],6))$correoMi .= "No es válido el número de autorizo ".$d['trx']['authCode']." <br>";
-		if (!$importe = $ent->isNumero($d['trx']['amount'], 11)) $correoMi .= "No es importe válido ".$d['trx']['amount']." <br>";
+		if (!$codautorizacion = $ent->isAlfanumerico($d['trx']['authCode'],6))$correoMi .= "No es vï¿½lido el nï¿½mero de autorizo ".$d['trx']['authCode']." <br>";
+		if (!$importe = $ent->isNumero($d['trx']['amount'], 11)) $correoMi .= "No es importe vï¿½lido ".$d['trx']['amount']." <br>";
 		$importe = $importe*100;
 //		error_log("moneda=$moneda");
 //		error_log("importe=$importe");
@@ -429,7 +429,7 @@ if ($pasarela == 218) {//Moneytigo
 } elseif ($pasarela == 71) { //PayTpv nuevo
 	$correoMi .= "Entra en pasarela PayTpv nuevo||<br>\n";
 	if (strpos($d['TransactionName'], 'evoluci') > 0 && $d['TransactionType'] == '2') exit;
-	if (!$idtrans = $ent->isNumero($d['Order'],12)) $correoMi .= "No es válido el número de la operación {$d['Order']} <br>";
+	if (!$idtrans = $ent->isNumero($d['Order'],12)) $correoMi .= "No es vï¿½lido el nï¿½mero de la operaciï¿½n {$d['Order']} <br>";
 	else {
 		$q = "select idmoneda from tbl_moneda where moneda = '".$d['Currency']."'";
 		$temp->query($q);
@@ -442,13 +442,13 @@ if ($pasarela == 218) {//Moneytigo
         $temp->query($q);
         if ($temp->f('idcenauto') == 21) $pasarela = 21;
 		
-		if ($d['Response'] == 'KO') {//la pasarela devolvió error
+		if ($d['Response'] == 'KO') {//la pasarela devolviï¿½ error
 			$iderror = $d['ErrorID']." - ".$d['ErrorDescription'];
 			$importe = 0;
 			$estado = 3;
 			$coderror = $d['ErrorID'];
 		} else {
-			$correoMi .= "La operación está Aceptada, salvo iduser y token<br>\n";
+			$correoMi .= "La operaciï¿½n estï¿½ Aceptada, salvo iduser y token<br>\n";
 			$uspytpv = $d['IdUser']."/".$d['TokenUser'];
 			$arrAuto = explode('/', $d['AuthCode']);
 			$codautorizacion = $arrAuto[0];
@@ -493,7 +493,7 @@ if ($pasarela == 218) {//Moneytigo
 		$correoMi .= "<br>fingerprint generado:$comprueba<br>\n";
 	    $pedazo = "tarjetas = '".$d['maskedPan']."', ";
 //	    if ($comprueba != $d['responseFingerprint']) {
-//	    	$correoMi .= "<br><br>\n\nError en la comprobación de la firma en Wirecard";
+//	    	$correoMi .= "<br><br>\n\nError en la comprobaciï¿½n de la firma en Wirecard";
 //	     	$correo->todo(13,$titulo,$correoMi);
 // 	    	exit;
 //	    }
@@ -676,8 +676,8 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     if ($TefPasa != 37) $paseEst = "'P','D','N'";
 	$cojin = " and estado = 'A'";
 	$correoMi .= strlen($d['Ds_AuthorisationCode'])."<br>\n";
-    if ($d['Ds_Code'] == 100 && strlen($d['Ds_AuthorisationCode']) > 3) {// operación Aceptada
-    	$correoMi .= "Operación Aceptada<br>\n";
+    if ($d['Ds_Code'] == 100 && strlen($d['Ds_AuthorisationCode']) > 3) {// operaciï¿½n Aceptada
+    	$correoMi .= "Operaciï¿½n Aceptada<br>\n";
     	$estado = '2';
     	
     	if ($d['Ds_Amount']) $importe = $d['Ds_Amount'];
@@ -685,10 +685,10 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     	
     	$pedazo = "tarjetas = '************".$d['Ds_PanMask']."', identificadorBnco = '".$d['Ds_Date']."', ";
     	
-    } elseif ($d['Ds_Code'] == 703 ) {// operación en Dudas
-    	$correoMi .= "Operación en Dudas con 703<br>\n";
+    } elseif ($d['Ds_Code'] == 703 ) {// operaciï¿½n en Dudas
+    	$correoMi .= "Operaciï¿½n en Dudas con 703<br>\n";
 //     	if ($estaIn == 'A') { //Si estaba antes Aceptada sigue Aceptada
-//     		$correoMi .= "Operación Denegada por Titanes<br>\n";
+//     		$correoMi .= "Operaciï¿½n Denegada por Titanes<br>\n";
 // 	    	$estado = '2';
 	    	
 // 	    	if ($d['Ds_Amount']) $importe = $d['Ds_Amount'];
@@ -696,7 +696,7 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
 	    	
 // 	    	$pedazo = " tarjetas = '**** **** **** ".$d['Ds_PanMask']."', ";
 //     	} else {
-    		$correoMi .= "Operación Denegada por Titanes<br>\n";
+    		$correoMi .= "Operaciï¿½n Denegada por Titanes<br>\n";
     		$estado = '3';
     		$importe = 0;
     		$codautorizacion = null;
@@ -704,10 +704,10 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     		$iderror = $d['Titanes_Description']." ".$d['Titanes_Messages'];
     		$coderror = $d['Ds_Code'];
 //     	}
-    	$correo->todo(51, "Operación con Error 703 de Tefpay", $correoMi);
+    	$correo->todo(51, "Operaciï¿½n con Error 703 de Tefpay", $correoMi);
     	
-    } elseif ($d['Ds_Code'] == 700) {// operación Aceptada
-    	$correoMi .= "Operación Aceptada<br>\n";
+    } elseif ($d['Ds_Code'] == 700) {// operaciï¿½n Aceptada
+    	$correoMi .= "Operaciï¿½n Aceptada<br>\n";
     	$estado = '2';
     	
     	if ($d['Ds_Amount']) $importe = $d['Ds_Amount'];
@@ -716,7 +716,7 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     	$pedazo = "tarjetas = '************".$d['Ds_PanMask']."', identificadorBnco = ".$d['Ds_Date'].", ";
     	
     	if (isset($d['Titanes_OrderId']) && $d['Titanes_OrderCode'] != 3) { //denegada por Titanes aunque de Tefpay viene Aceptada
-    	$correoMi .= "Operación Denegada por Titanes<br>\n";
+    	$correoMi .= "Operaciï¿½n Denegada por Titanes<br>\n";
     		$estado = '3';
     		$importe = 0;
     		$codautorizacion = null;
@@ -731,8 +731,8 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
 			$iderror = $d['Titanes_Description']." ".$d['Titanes_Messages']. " / ".$coerr;
     		$coderror = $d['Ds_Code'];
     	}
-    } else { //operación denegada
-		$correoMi .= "Operación Denegada por TefPay<br>\n";
+    } else { //operaciï¿½n denegada
+		$correoMi .= "Operaciï¿½n Denegada por TefPay<br>\n";
         $estado = '3';
         $importe = 0;
         $codautorizacion = null;
@@ -764,7 +764,7 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     if ($estado == '2' && $TefPasa == '37'){
 		include_once '../admin/classes/tcpdf/config/tcpdf_config.php';
 		include_once '../admin/classes/tcpdf/tcpdf.php';
-		creatitVou($idtrans); //está Aceptada, genero voucher y lo envío a Titanes
+		creatitVou($idtrans); //estï¿½ Aceptada, genero voucher y lo envï¿½o a Titanes
     }
 	$tipoTr = $d['Ds_Merchant_TransactionType'];
 	$ddate = $d['Ds_Date'];
@@ -879,7 +879,7 @@ $correoMi .=  "\n iderror=".$iderror;
 	$importe = $importe*1;
 	$correoMi .= $comprueba." / ".$firma."<br>\n";
 	//$comprueba=$firma;
-	echo '<HTML><HEAD><TITLE>Respuesta correcta a la comunicación ON-LINE</TITLE></HEAD><BODY>$*$OKY$*$</BODY></HTML>'; //Confirmando al TPV la llegada de la respuesta
+	echo '<HTML><HEAD><TITLE>Respuesta correcta a la comunicaciï¿½n ON-LINE</TITLE></HEAD><BODY>$*$OKY$*$</BODY></HTML>'; //Confirmando al TPV la llegada de la respuesta
 } elseif ($pasarela == 24) { //PayTpv
 	$correoMi .= "Entra en la pasarela de PayTpv<br />\n";
 //	$d = $_REQUEST;
@@ -1063,7 +1063,7 @@ $correoMi .=  "\n iderror=".$iderror;
 				$correoMi .= $q."<br>";
 				$temp->query($q);
 			}
-		} else $correoMi .= "La operación no aparece en transacciones.<br>";
+		} else $correoMi .= "La operaciï¿½n no aparece en transacciones.<br>";
 	}
 	
 }
@@ -1073,9 +1073,9 @@ $correoMi .= "$comprueba=$firma||<br>\n";
 if ($comprueba == $firma||1==1||$ok=1) {
 	
 	if ($comprueba != $firma && $ok=0) {
-		$correoMis =  "<br>\nNo concuerda la firma=".$firma."<br>\ncon la comprobación=$comprueba realizada<br>\npara la operación $idtrans<br>\n";
+		$correoMis =  "<br>\nNo concuerda la firma=".$firma."<br>\ncon la comprobaciï¿½n=$comprueba realizada<br>\npara la operaciï¿½n $idtrans<br>\n";
 		$correoMi .= $correoMis;
-		$correo->todo(13,"Fallo en firma de la operación",$correoMis);
+		$correo->todo(13,"Fallo en firma de la operaciï¿½n",$correoMis);
 	}
 	
 	if ($estado == '') $estado = '4';
@@ -1125,7 +1125,7 @@ $correoMi .= "dserror=$dserror<br>";
 	// 		$temp->setQuery();
 			$temp->query($sql);
 			if (!$temp->num_rows() && $error != 0) {
-				$correo->todo(12, 'No existe el error en la BD', "La operación $idtrans devolvió un código de error $error en el terminal $psrl del TPV $va");
+				$correo->todo(12, 'No existe el error en la BD', "La operaciï¿½n $idtrans devolviï¿½ un cï¿½digo de error $error en el terminal $psrl del TPV $va");
 			} else {
 				$iderror = $iderror ." ". $error." - ".$coderror." - ".$temp->f("texto")." ".$dserror;
 				$tipoError = $temp->f('idtipo');
@@ -1152,7 +1152,7 @@ $correoMi .= "dserror=$dserror<br>";
 			error_log("select count(*) total from tbl_setup where nombre = '$mon' and from_unixtime(fecha, '%d%m%y%H%i') like '".$f."140%'");
 			if ($temp->f('total') == 0) {
 				$temp->query("select from_unixtime(fecha, '%d%m%y %H:%i:%s') 'fecha' from tbl_setup where nombre = '$mon' and from_unixtime(fecha, '%d%m%y%H%i') like '".$f."140%'");
-				//$correo->todo(2,'Cambio en la tabla setup','Se cambió la fecha de la moneda '.$mon.' antes de tiempo ahora tiene la fecha '.$temp->f('fecha').' y el valor ahora es '.$cambioRate."<br>select from_unixtime(fecha, '%d%m%y %H:%i:%s') 'fecha' from tbl_setup where nombre = '$mon' and from_unixtime(fecha, '%d%m%y%H%i') like '".$f."140%'");
+				//$correo->todo(2,'Cambio en la tabla setup','Se cambiï¿½ la fecha de la moneda '.$mon.' antes de tiempo ahora tiene la fecha '.$temp->f('fecha').' y el valor ahora es '.$cambioRate."<br>select from_unixtime(fecha, '%d%m%y %H:%i:%s') 'fecha' from tbl_setup where nombre = '$mon' and from_unixtime(fecha, '%d%m%y%H%i') like '".$f."140%'");
 			}
 
 			// $temp->query("select distinct truncate(tasa,4) 'tasa' from tbl_transacciones where moneda = $moneda and tipoOperacion = 'P' and estado = 'A' and idtransaccion > ".date('ymd')."140400 and idcomercio != '527341458854'");
@@ -1162,9 +1162,9 @@ $correoMi .= "dserror=$dserror<br>";
 			// error_log("tasa=".$temp->f('tasa'));
 			// error_log("number_format=".number_format($temp->f('tasa')));
 			// if ($temp->num_rows() == 1 && number_format($cambioRate, 4, '.','') != $temp->f('tasa')) {
-			// 	$correo->todo(2,'Cambio de tasa '.date('d/m/Y H:i:s'),'Se cambió la tasa con la que se venía registrando la moneda '.$mon.' antes era de '.$temp->f('tasa').' y el valor ahora es '.$cambioRate."<br>select tasa from tbl_transacciones where moneda = $moneda and tipoOperacion = 'P' and estado = 'A' and idtransaccion > ".date('ymd')."140400 and idcomercio != '527341458854'");
+			// 	$correo->todo(2,'Cambio de tasa '.date('d/m/Y H:i:s'),'Se cambiï¿½ la tasa con la que se venï¿½a registrando la moneda '.$mon.' antes era de '.$temp->f('tasa').' y el valor ahora es '.$cambioRate."<br>select tasa from tbl_transacciones where moneda = $moneda and tipoOperacion = 'P' and estado = 'A' and idtransaccion > ".date('ymd')."140400 and idcomercio != '527341458854'");
 			// } else if ($temp->num_rows() > 1){
-			// 	$correo->todo(2,'Mas de una tasa anterior '.date('d/m/Y H:i:s'),'Se obtiene mas de una tasa ('.$temp->num_rows().') con la que se venía registrando la moneda '.$mon.' correr el siguiente select'."<br>select tasa from tbl_transacciones where moneda = $moneda and tipoOperacion = 'P' and estado = 'A' and idtransaccion > ".date('ymd')."140400 and idcomercio != '527341458854'");
+			// 	$correo->todo(2,'Mas de una tasa anterior '.date('d/m/Y H:i:s'),'Se obtiene mas de una tasa ('.$temp->num_rows().') con la que se venï¿½a registrando la moneda '.$mon.' correr el siguiente select'."<br>select tasa from tbl_transacciones where moneda = $moneda and tipoOperacion = 'P' and estado = 'A' and idtransaccion > ".date('ymd')."140400 and idcomercio != '527341458854'");
 			// }
 		}
 	}
@@ -1246,9 +1246,9 @@ $correoMi .=  "<br>\factmult=".$factmult;
     }
 
     if (($est == "A" || $est == "B" || $est == "V") && $pasarela != 3 ) {
-        $correoMi .= "La operación estaba con estado $est a las $fe y se volvió a recibir información del Banco como $estadoC, no se reliza ninguna acción en el Concentrador ni se envían datos a los ".
+        $correoMi .= "La operaciï¿½n estaba con estado $est a las $fe y se volviï¿½ a recibir informaciï¿½n del Banco como $estadoC, no se reliza ninguna acciï¿½n en el Concentrador ni se envï¿½an datos a los ".
                 "comercios<br>";
-        // $salta = true; //Cambiado por Umbrella que no recibía este primer llamado cuando la operación se actualizaba con el segundo llamado
+        // $salta = true; //Cambiado por Umbrella que no recibï¿½a este primer llamado cuando la operaciï¿½n se actualizaba con el segundo llamado
     } elseif ( 
             (($est == "N" || $est == "D") && ( $estado == '2')) ||
             ($est == "P") ||
@@ -1299,7 +1299,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
 			$temp->query("update tbl_transacciones set codigo = '$codautorizacion', estado = 'A' where idtransaccion = $idtrans");
 			$temp->query("update tbl_reserva set bankId = '".$codautorizacion."', estado = 'A' where id_transaccion = $idtrans");
 
-			//Si la operación fué Aceptada actualizo la operación en la tabla de los lotes si existe
+			//Si la operaciï¿½n fuï¿½ Aceptada actualizo la operaciï¿½n en la tabla de los lotes si existe
 			$temp->query("select lotes, id from tbl_comercio where idcomercio = '$elcomercio'");
 			if ($temp->f('lotes') == 1) { // si el comercio tiene permitidas operaciones por lotes
 				$temp->query("select idlote, valor, moneda from tbl_reserva where id_transaccion = $idtrans");
@@ -1311,17 +1311,17 @@ $correoMi .=  "<br>\factmult=".$factmult;
 		}
 	}
     
-    //Aviso de transacción duplicada desde el Banco
+    //Aviso de transacciï¿½n duplicada desde el Banco
     if ($est == "N" || $est == "D" || $est == "A" || $est == "B" || $est == "V") {
         $lab = 'Recibido datos duplicados desde el banco';
-        $mes = "fecha=".date('d/m/Y H:i:s')."<br>\n"."Se ha recibido duplicado los datos de la transacción $idtrans. La misma estaba en la base de datos con el estado $est el $fec ". "y se recibió con estado $estadoC";
+        $mes = "fecha=".date('d/m/Y H:i:s')."<br>\n"."Se ha recibido duplicado los datos de la transacciï¿½n $idtrans. La misma estaba en la base de datos con el estado $est el $fec ". "y se recibiï¿½ con estado $estadoC";
         $correo->todo (20, $lab, $mes);
         
         $correoMi .= $mes."<br>\n";
 		
 		if ($est == 'A' && $estadoC == 'A') {
-			$lab = 'Recibida transacción Aceptada duplicada desde el banco';
-			$mes = "Fecha=".date('d/m/Y H:i:s')."<br>\n"."Se han recibido los siguentes datos de la transacción $idtrans:<br>\n $lleg <br><br>Anteriormente tenía código de banco $code. Se debe revisar si se devuelve.";
+			$lab = 'Recibida transacciï¿½n Aceptada duplicada desde el banco';
+			$mes = "Fecha=".date('d/m/Y H:i:s')."<br>\n"."Se han recibido los siguentes datos de la transacciï¿½n $idtrans:<br>\n $lleg <br><br>Anteriormente tenï¿½a cï¿½digo de banco $code. Se debe revisar si se devuelve.";
 			if (!isset($TefPasa))
 			     $correo->todo (20, $lab, $mes);
 
@@ -1364,8 +1364,8 @@ $correoMi .=  "<br>\factmult=".$factmult;
 		$correoMi .=  "<br>\n".$query;
 	}
 
-	//Envío al sitio del cliente de la info de la transacción
-	//Lee los datos de la transacción
+	//Envï¿½o al sitio del cliente de la info de la transacciï¿½n
+	//Lee los datos de la transacciï¿½n
 	$query = "select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod, valor, moneda, t.estado, c.nombre, 
 				c.url, t.tipoEntorno, t.valor/100 precio, c.url_llegada, p.nombre, (select a.nombre from tbl_agencias a where p.idagencia = a.id) comercio, 
 				(select idusrToken from tbl_usuarios u where u.idtransaccion = t.idtransaccion) usuario,
@@ -1383,7 +1383,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
 	$q = "select id_reserva from tbl_reserva where id_transaccion = '$valores[0]'";
 	$temp->query($q);
 	
-	//el pago es através de web y el sitio solicita envío directo de datos
+	//el pago es atravï¿½s de web y el sitio solicita envï¿½o directo de datos
 	if ( ($temp->num_rows() == 0) && (strlen($valores[13]) > 1) && $salta == false ) { 
 		if (strlen($valores[18]) == 32)
 			$firma = convierte($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
@@ -1426,11 +1426,11 @@ $correoMi .=  "<br>\factmult=".$factmult;
 				$output = curl_exec($ch);
 	            $curl_info = curl_getinfo($ch);
 	// 						echo "error=".curl_errno($ch);
-				if (curl_errno($ch)) $correoMi .=  "Error en la comunicación al comercio:".curl_error($ch)."<br>\n";
+				if (curl_errno($ch)) $correoMi .=  "Error en la comunicaciï¿½n al comercio:".curl_error($ch)."<br>\n";
 				$crlerror = curl_error($ch);
 	// 						echo "otroerror=".$crlerror;
 				if ($crlerror) {
-					$correoMi .=  "La comunicación al comercio ha dado error:".$crlerror."<br>\n";
+					$correoMi .=  "La comunicaciï¿½n al comercio ha dado error:".$crlerror."<br>\n";
 				}
 				curl_close($ch);
 	
@@ -1462,7 +1462,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
 						"tipoerror"		=> $tipoError
 								);
 
-				//envía identificador para operaciones de pagos por referencia cuando se genere
+				//envï¿½a identificador para operaciones de pagos por referencia cuando se genere
 				if (strlen($identConc) > 10) {
 					$data = array(
 							"comercio"		=> $valores[1],
@@ -1502,11 +1502,11 @@ $correoMi .=  "<br>\factmult=".$factmult;
 				curl_setopt_array($ch , $options);
 				$output = curl_exec($ch);
 	// 						echo "error=".curl_errno($ch);
-				if (curl_errno($ch)) $correoMi .=  "Error en la comunicación al comercio:".curl_strerror(curl_errno($ch))."<br>\n";
+				if (curl_errno($ch)) $correoMi .=  "Error en la comunicaciï¿½n al comercio:".curl_strerror(curl_errno($ch))."<br>\n";
 				$crlerror = curl_error($ch);
 	// 						echo "otroerror=".$crlerror;
 				if ($crlerror) {
-					$correoMi .=  "La comunicación al comercio ha dado error:".$crlerror."<br>\n";
+					$correoMi .=  "La comunicaciï¿½n al comercio ha dado error:".$crlerror."<br>\n";
 				}
 				$curl_info = curl_getinfo($ch);
 				curl_close($ch);
@@ -1520,7 +1520,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
 		}
 	}
 	
-//	envío de correos y voucher este último en caso de pagos online Aceptados
+//	envï¿½o de correos y voucher este ï¿½ltimo en caso de pagos online Aceptados
 // 	$q = "select nombre, email from tbl_admin where correoT = 1 and idcomercio = '$valores[1]' and activo = 'S'";
 	$q = "select email from tbl_admin a, tbl_colAdminComer c, tbl_comercio e where c.idAdmin = a.idadmin 
 			and e.id = c.idComerc and e.idcomercio = '$valores[1]' and a.activo = 'S' and a.correoT = 1";
@@ -1542,13 +1542,13 @@ $correoMi .=  "<br>\factmult=".$factmult;
 	$mon = $temp->f('moneda');
 
     if ( $salta == false ) {
-        $subject = "Transacción realizada y $texto de ".$comercioN." monto ".number_format(($valores[6]/100),2,'.',' ') ." $mon";
-        $message = "Estimado Cliente,<br><br> Se ha realizado una operación con los siguientes datos:<br>
+        $subject = "Transacciï¿½n realizada y $texto de ".$comercioN." monto ".number_format(($valores[6]/100),2,'.',' ') ." $mon";
+        $message = "Estimado Cliente,<br><br> Se ha realizado una operaciï¿½n con los siguientes datos:<br>
             Cliente: ".$valores[17]." <br>
             Referencia del Comercio: ".$valores[2]."<br>
-            Número de transaccion: ".$valores[0]." <br>
-            Código entregado por el banco: ".$valores[3]."<br>
-            Estado de la transacción: $texto <br>
+            Nï¿½mero de transaccion: ".$valores[0]." <br>
+            Cï¿½digo entregado por el banco: ".$valores[3]."<br>
+            Estado de la transacciï¿½n: $texto <br>
             Fecha: ".date('d/m/y h:i:s', $valores[5])."<br>
             Valor: ".number_format(($valores[6]/100),2,'.',' ') .$mon;
 
@@ -1556,7 +1556,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
         $correo->todo(14, $subject, $message);
         $correo->destroy();
 
-        //envío de voucher
+        //envï¿½o de voucher
         if ($valores[8] == 'A') {
             $q = "select r.nombre, r.email, a.dominio from tbl_reserva r, tbl_transacciones t, tbl_pasarela p, tbl_agencias a 
             		where r.id_transaccion = '$idtrans' 
@@ -1603,7 +1603,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
                 		" order by a.fecha_visita desc limit 0,1";
                 $temp->query($q);
 //				if (strlen($temp->f('email'))) $correo->reply = $temp->f('email');
-				$correoMi .= "<br>El correo se envía con from desde: ".$correo->from;
+				$correoMi .= "<br>El correo se envï¿½a con from desde: ".$correo->from;
                 $correo->todo(15, $subject, $contents);
                 $correo->destroy();
             }
@@ -1611,7 +1611,7 @@ $correoMi .=  "<br>\factmult=".$factmult;
 	}
 }
 
-//envío de sms
+//envï¿½o de sms
 $sql = "select sms, telf, t.ip, t.pasarela, p.LimMinOper, p.LimMaxOper, p.LimDiar, p.LimMens, p.LimAnual, p.LimOperIpDia, p.LimOperTarDia, p.LimOperDia, 
 				t.valor_inicial, p.nombre
 			from tbl_comercio c, tbl_transacciones t, tbl_pasarela p 
@@ -1619,7 +1619,7 @@ $sql = "select sms, telf, t.ip, t.pasarela, p.LimMinOper, p.LimMaxOper, p.LimDia
 $correoMi .= "<br>\n".$sql."<br>\n";
 $temp->query($sql);
 $sms 		= $temp->f("sms");
-$telf 		= $temp->f("telf"); //borrar el número mío!!!!!!!!!!
+$telf 		= $temp->f("telf"); //borrar el nï¿½mero mï¿½o!!!!!!!!!!
 $ip 		= $temp->f("ip");
 $pasa 		= $temp->f("pasarela");
 $minlim 	= number_format($temp->f("LimMinOper"),2);
@@ -1641,18 +1641,18 @@ $correoMi .= "<br>\nPasarela:".$pasa."<br>\n";
 $correoMi .= "<br>\n".$passe."<br>\n";
 $pag = 1;
 
-//envío de avisos de errores por límites
+//envï¿½o de avisos de errores por lï¿½mites
 if (strstr($iderror, 'SIS0261')) {
-	$etiqueta = "Avisos de Límites alcanzados en TPV";
-	$mes = "La operación $idtrans ha pasado a través de la pasarela $pasnom con un monto de $valini<br>\n";
+	$etiqueta = "Avisos de Lï¿½mites alcanzados en TPV";
+	$mes = "La operaciï¿½n $idtrans ha pasado a travï¿½s de la pasarela $pasnom con un monto de $valini<br>\n";
 	
-	//para el límite mínimo por operación
-	$mes .= "El límite mínimo para este TPV es de $minlim<br>\n";
+	//para el lï¿½mite mï¿½nimo por operaciï¿½n
+	$mes .= "El lï¿½mite mï¿½nimo para este TPV es de $minlim<br>\n";
 	
-	//para el límite máximo por operación
-	$mes .= "El límite máximo para este TPV es de $maxlim<br>\n";
+	//para el lï¿½mite mï¿½ximo por operaciï¿½n
+	$mes .= "El lï¿½mite mï¿½ximo para este TPV es de $maxlim<br>\n";
 	
-	//para el límite mínimo por operación
+	//para el lï¿½mite mï¿½nimo por operaciï¿½n
 	$q = "select sum(case t.estado
 			when 'B' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
 			when 'V' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
@@ -1665,9 +1665,9 @@ if (strstr($iderror, 'SIS0261')) {
 			and t.fecha > unix_timestamp('".date('Y')."-".date('m')."-".date('d')." 00:00:00')
 			and t.pasarela = ".$pasa;
 	$temp->query($q);
-	$mes .= "El límite diario para este TPV es de $limdiar y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
+	$mes .= "El lï¿½mite diario para este TPV es de $limdiar y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
 	
-	//para el número de transacciones desde una misma IP en el día
+	//para el nï¿½mero de transacciones desde una misma IP en el dï¿½a
 	$q = "select count(t.idtransaccion) 'total'
 			FROM tbl_transacciones t
 			where t.estado in ('A','V','B','R')
@@ -1676,10 +1676,10 @@ if (strstr($iderror, 'SIS0261')) {
 				and t.ip = '$ip'
 				and t.pasarela = ".$pasa;
 	$temp->query($q);
-	$mes .= "El número máximo de operaciones desde una misma IP al día para este TPV es de $operip y en el día de hoy han pasado ".
+	$mes .= "El nï¿½mero mï¿½ximo de operaciones desde una misma IP al dï¿½a para este TPV es de $operip y en el dï¿½a de hoy han pasado ".
 				number_format($temp->f('total'),2). "<br>\n";
 	
-	//para el límite mensual
+	//para el lï¿½mite mensual
 	$q = "select sum(case t.estado 
 				when 'B' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
 				when 'V' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
@@ -1692,9 +1692,9 @@ if (strstr($iderror, 'SIS0261')) {
 			and t.fecha > unix_timestamp('".date('Y')."-".date('m')."-01 00:00:00')
 			and t.pasarela = ".$pasa;
 	$temp->query($q);
-	$mes .= "El límite mensual para este TPV es de $limen y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
+	$mes .= "El lï¿½mite mensual para este TPV es de $limen y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
 	
-	//para el límite anual
+	//para el lï¿½mite anual
 	$q = "select sum(case t.estado 
 				when 'B' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
 				when 'V' then if (t.fecha_mod < t.fechaPagada, (-1 * ((t.valor_inicial-t.valor)/100/t.tasa)), t.valor/100/t.tasa)
@@ -1707,9 +1707,9 @@ if (strstr($iderror, 'SIS0261')) {
 			and t.fecha > unix_timestamp('".date('Y')."-01-01 00:00:00')
 			and t.pasarela = ".$pasa;
 	$temp->query($q);
-	$mes .= "El límite anual para este TPV es de $liman y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
+	$mes .= "El lï¿½mite anual para este TPV es de $liman y el acumulado hasta ahora es de ".number_format($temp->f('valor'),2)."<br>\n";
 	
-	//número de operaciones al día
+	//nï¿½mero de operaciones al dï¿½a
 	$q = "select count(t.idtransaccion) 'total'
 		FROM tbl_transacciones t 
 		where t.estado in ('A','V','B','R','D') 
@@ -1717,7 +1717,7 @@ if (strstr($iderror, 'SIS0261')) {
 			and t.fecha > unix_timestamp('".date('Y')."-".date('m')."-".date('d')." 00:00:00')
 			and t.pasarela = ".$pasa;
 	$temp->query($q);
-	$mes .= "El número máximo de operaciones al día para este TPV es de $operdia y en el día de hoy han pasado ".
+	$mes .= "El nï¿½mero mï¿½ximo de operaciones al dï¿½a para este TPV es de $operdia y en el dï¿½a de hoy han pasado ".
 				number_format($temp->f('total'),2). "<br>\n";
 	
 	$correo->todo(44, $etiqueta, $mes);
@@ -1738,7 +1738,7 @@ if ($sms == 1 && $tot != 0 &&  $texto == 'Aceptada') {
 $correoMi .= "<br>\nEnviando SMS";
 	$arrayDest = explode(',', $telf);
 	$importe100 = $importe/100;
-	$asunto = "Transacción No: $idtrans $texto valor:$importe100 $monedaNom";
+	$asunto = "Transacciï¿½n No: $idtrans $texto valor:$importe100 $monedaNom";
 }
 
 if (_MOS_CONFIG_DEBUG) echo $correoMi;

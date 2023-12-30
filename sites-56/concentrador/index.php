@@ -55,11 +55,11 @@ if (stripos(_ESTA_URL, 'localhost') > 0 ||
 	// $d['comercio']= '163430526040'; //Transtur
 	// $d['transaccion']= '711301';
 	$d['transaccion']=substr(time(), -8);
-	$d['importe']='500';
+	$d['importe']='50';
 	$d['moneda']='978';
 	$d['operacion']='P';
 	$d['idioma']='es';
-	$d['pasarela']='248';
+	$d['pasarela']='223';
 	$d['amex']='17';
 	// $d['tipo']='P';
 	 //$d['referencia'] = 'sdfgdfgsdfgsdfgsdfgdfgs' //referencia para el pago por referencia
