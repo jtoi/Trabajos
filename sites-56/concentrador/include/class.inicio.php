@@ -2872,10 +2872,6 @@ class inico {
 
 					//TODO: Set here your payment terminal parameters, provided by EurocoinPay
 					$ecpc->eurocoinpay_customer_number = 7;
-					// $ecpc->eurocoinpay_terminal_number = 2;
-					// $ecpc->eurocoinpay_encryption_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-					// $ecpc->eurocoinpay_terminal_number = 1;
-					// $ecpc->eurocoinpay_encryption_key = 'tT4HloLltnctVWzHEikTzwDfpv8rsgslVR/uycaKXzs=';
 					$ecpc->eurocoinpay_terminal_number = $term;
 					$ecpc->eurocoinpay_encryption_key = $codi;
 					$ecpc->eurocoinpay_real_mode = $this->datPas['url']; // real or test payments
@@ -2894,9 +2890,6 @@ class inico {
 					$ecpc->eurocoinpay_url_notif = $urlOri . "llegada.php";
 					$this->log .= "urldirOK = " . $urldirOK . "<br>";
 					$this->log .= "urldirKO = " . $urldirKO . "<br>";
-					// $ecpc->eurocoinpay_url_ok = $cur_page_dir . "eurocoinpay-example-payok.php";
-					// $ecpc->eurocoinpay_url_fail = $cur_page_dir . "eurocoinpay-example-payfail.php";
-					// $ecpc->eurocoinpay_url_notif = $cur_page_dir .'eurocoinpay-example-receive-notification.php';
 					$sndData = $ecpc->prepareDataForEcpServer($tr ,$imp,  $this->mon );
 
 					$this->log .= "salida = " . $salida . "<br>";

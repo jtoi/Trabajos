@@ -22,77 +22,12 @@ $ent = new entrada;
 //$dms->autentificacion->username='amfglobalitems';
 //$dms->autentificacion->passwd='Mario107';
 
-/*********************************************************************************************************************/
-if (stripos(_MOS_CONFIG_DEBUG)) {
-	// $_REQUEST['Ds_SignatureVersion'] = 'HMAC_SHA256_V1';
-	// $_REQUEST['Ds_MerchantParameters'] = 'eyJEc19EYXRlIjoiMjElMkYwNCUyRjIwMjIiLCJEc19Ib3VyIjoiMTklM0E1NyIsIkRzX1NlY3VyZVBheW1lbnQiOiIxIiwiRHNfQ2FyZF9UeXBlIjoiRCIsIkRzX0V4cGlyeURhdGUiOiIyNDAxIiwiRHNfTWVyY2hhbnRfSWRlbnRpZmllciI6IjMyMmU2YmRkN2QwOTkxN2Y0NGEzN2Y5NGY0ZjFhZDMzNWE2YjM5ZWEiLCJEc19DYXJkX0NvdW50cnkiOiI3MjQiLCJEc19BbW91bnQiOiIyNTAxIiwiRHNfQ3VycmVuY3kiOiI5NzgiLCJEc19PcmRlciI6IjIyMDQyMTE5NTUzNSIsIkRzX01lcmNoYW50Q29kZSI6IjA1OTM4MDc4MiIsIkRzX1Rlcm1pbmFsIjoiMDAxIiwiRHNfUmVzcG9uc2UiOiIwMDAwIiwiRHNfTWVyY2hhbnREYXRhIjoiIiwiRHNfVHJhbnNhY3Rpb25UeXBlIjoiMCIsIkRzX0NvbnN1bWVyTGFuZ3VhZ2UiOiIxIiwiRHNfQXV0aG9yaXNhdGlvbkNvZGUiOiIyNzE5MzYiLCJEc19DYXJkX0JyYW5kIjoiMSIsIkRzX01lcmNoYW50X0NvZl9UeG5pZCI6IjIxMTE3MTg1ODA0NDQ5MyIsIkRzX1Byb2Nlc3NlZFBheU1ldGhvZCI6Ijc4In0=';
-	// $_REQUEST['Ds_Signature'] = '6t83_3_k91s_7cJlBk91fx9XqzyDhnOtpHpPxU23eO8=';
-	
-//$_REQUEST['Ds_Amount'] = '23760';
-//$_REQUEST['Ds_Date'] = '171116221123';
-//$_REQUEST['Ds_AuthorisationCode'] = '0';
-//$_REQUEST['Ds_Bank'] = '2038';
-//$_REQUEST['Ds_Message'] = 'Operacion denegada';
-//$_REQUEST['Ds_Code'] = '201';
-//$_REQUEST['Ds_CodeBank'] = '0190';
-//$_REQUEST['Ds_Merchant_MatchingData'] = '171116221050000000000';
-//$_REQUEST['Ds_Merchant_TransactionType'] = '22';
-//$_REQUEST['Ds_PanMask'] = '0005';
-//$_REQUEST['Ds_Expiry'] = '1805';
-//$_REQUEST['Ds_Merchant_Guarantees'] = '0';
-//$_REQUEST['Ds_Signature'] = '206468d41e317ff572ca84e43176ad920226f519';
-//$_REQUEST['Ds_Merchant_MerchantCode'] = '126791813';
-//$_REQUEST['Ds_CostumerCreditCardBin'] = '553397';
-//$_REQUEST['Ds_CostumerCreditCardBrand'] = 'MASTERCARD';
-//$_REQUEST['Ds_CostumerCreditCardOrganization'] = 'OPTAL FINANCIAL, LTD.';
-//$_REQUEST['Ds_CostumerCreditCardType'] = 'CREDIT';
-//$_REQUEST['Ds_CostumerCreditCardCategory'] = 'BUSINESS';
-//$_REQUEST['Ds_CostumerCreditCardCountry'] = 'UNITED KINGDOM';
-//$_REQUEST['Ds_CostumerCreditCardCountryCode2'] = 'GB';
-//$_REQUEST['Ds_CostumerCreditCardCountryCode'] = 'GBR';
-//$_REQUEST['Ds_CostumerCreditCardCountryNumber'] = '826';
-//$_REQUEST['Ds_CostumerCreditCardOrganizationWWW'] = '';
-//$_REQUEST['Ds_CostumerCreditCardOrganizationPhone'] = '';
-	
-// $_REQUEST['Ds_Date'] = '171121032119';
-// $_REQUEST['Ds_Merchant_MatchingData'] = '171121031953000000000';
-// $_REQUEST['Ds_PanMask'] = '2011';
-// $_REQUEST['Ds_Merchant_TransactionType'] = '46';
-// $_REQUEST['Ds_Merchant_MerchantCode'] = '160324919';
-// $_REQUEST['Ds_Merchant_Amount'] = '23000';
-// $_REQUEST['Ds_Code'] = '700';
-// $_REQUEST['Ds_Merchant_ClientId'] = '399147';
-// $_REQUEST['Ds_Merchant_BeneficiaryId'] = '1132572';
-// $_REQUEST['Titanes_OrderId'] = '5470635';
-// $_REQUEST['Titanes_OrderStatusCode'] = '3';
-// $_REQUEST['Titanes_OrderStatus'] = 'Available';
-// $_REQUEST['Titanes_Description'] = 'Money has been received.';
-// $_REQUEST['Ds_Signature'] = '';
-// $_REQUEST['Titanes_OrderCode'] = '3';
 
-// $_REQUEST['amount'] = '8';
-// $_REQUEST['currency'] = '840';
-// $_REQUEST['paymentType'] = 'CCARD';
-// $_REQUEST['financialInstitution'] = 'MC';
-// $_REQUEST['language'] = 'en';
-// $_REQUEST['orderNumber'] = '1398119';
-// $_REQUEST['paymentState'] = 'SUCCESS';
-// $_REQUEST['shopname_customParameter1'] = '160714231513';
-// $_REQUEST['shopname_customParameter2'] = 'shopname_customParameter2';
-// $_REQUEST['authenticated'] = 'Yes';
-// $_REQUEST['anonymousPan'] = '0001';
-// $_REQUEST['expiry'] = '12/2016';
-// $_REQUEST['cardholder'] = 'john Doe';
-// $_REQUEST['maskedPan'] = '950000******0001';
-// $_REQUEST['gatewayReferenceNumber'] = 'DGW_1398119_RN';
-// $_REQUEST['gatewayContractNumber'] = 'DemoContractNumber123';
-// $_REQUEST['avsResponseCode'] = 'X';
-// $_REQUEST['avsResponseMessage'] = 'Demo AVS ResultMessage';
-// $_REQUEST['avsProviderResultCode'] = 'X';
-// $_REQUEST['avsProviderResultMessage'] = 'Demo AVS ProviderResultMessage';
-// $_REQUEST['responseFingerprintOrder'] = 'amount,currency,paymentType,financialInstitution,language,orderNumber,paymentState,shopname_customParameter1,shopname_customParameter2,authenticated,anonymousPan,expiry,cardholder,maskedPan,gatewayReferenceNumber,gatewayContractNumber,avsResponseCode,avsResponseMessage,avsProviderResultCode,avsProviderResultMessage,secret,responseFingerprintOrder';
-// $_REQUEST['responseFingerprint'] = 'c986f700842f3808e9f6464b8edf7b391b20a8e3e8d84d771c9dbe84d3da92a7df1301a1b45550db0e4ad1e7f628afd419c3c9df4ec4e13b0e79622d81efc6bc';
-}
+#id de la pasarela EurocoinPay
+$pasaEuroP = 223; #TODO Revisar si este es el id de la pasarela
+
+/*********************************************************************************************************************/
+
 /*********************************************************************************************************************/
 
 $correoMi = "fecha=".date('d/m/Y H:i:s')."<br>\n";
@@ -160,6 +95,8 @@ if ($d['SHASIGN']){
 	$pasarela = 115; //Papam
 } elseif ($d['orderid']){
 	$pasarela = 183; //Stripe
+} elseif ($d['data'] && $d['sig']){ // EurocoinPay
+	$pasarela = $pasaEuroP;
 }else {
 
     if (!strstr($_SERVER['DOCUMENT_ROOT'], '/home/jtoirac/') && 
@@ -227,6 +164,9 @@ switch ($pasarela) {
 	case 218:
 		$va = "Moneytigo";
 	break;
+	case $pasaEuroP: 
+		$va = "EurocoinPay";
+	break;
 }
 $correoMi .= "pasarela->".$va."||<br>\ndesde->".$_SERVER['HTTP_REFERER']."<br>\n";
 $cojin = '';
@@ -259,8 +199,31 @@ function GetElementByName ($xml, $start, $end) {
 
 $correoMi .= "pasarela=$pasarela||<br>\n";
 $pedazo='';
+if ($pasarela == $pasaEuroP) {//EurocoinPay
+	include_once '../include/eurocoinpay/api/eurocoinpay-class.php';
+	$ecp = new EurocoinPayApi();
 
-if ($pasarela == 218) {//Moneytigo
+	#hasta ahora hay una sola moneda en esta pasarela, por lo que se puede obtener la clave y el terminal directamente
+	#si apareciera otra moneda en la pasarela, se debería usar el c�digo de la moneda correspondiente
+	$q = "select terminal, clave FROM tbl_colPasarMon where idmoneda = '978' and estado = 1 and idpasarela = " . $pasaEuroP;
+	$temp->query($q);
+	$codi = $temp->f('clave');
+	$term = $temp->f('terminal');
+
+	$correoMi .= "<br>Entra en Eurocoinpay<br>";
+	error_log("data->".$d['data']);
+	error_log("sig->".$d['sig']);
+	error_log("codi->".$codi);
+	error_log("term->".$term);
+
+	$res = $ecp->cliObtenParametrosPost($d['data'], $d['sig'], $codi);
+	logEcp("res:" . var_export ($res,TRUE));
+
+	error_log(json_decode($res));
+
+	exit;
+
+}elseif ($pasarela == 218) {//Moneytigo
 	if (!$idtrans = $ent->isNumero($d['MerchantRef'],12)) $correoMi .= "No es v�lido el n�mero de la operaci�n {$d['MerchantRef']} <br>";
 	else {
 		$correoMi .= "<br>Entra en Moneytigo<br>";
