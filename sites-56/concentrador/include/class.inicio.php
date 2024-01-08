@@ -11,11 +11,11 @@ defined('_VALID_ENTRADA') or die('Restricted access');
  */
 class inico {
 	/**
-	 * Array de Cliente del comercio para el env�o del correo de pago duplicado (nombre, email)
+	 * Array de Cliente del comercio para el envío del correo de pago duplicado (nombre, email)
 	 */
 	var $arrCli = array();
 	/**
-	 * Array del usuario del comercio que ha puesto la invitaci�n de pago (nombre, email)
+	 * Array del usuario del comercio que ha puesto la invitación de pago (nombre, email)
 	 */
 	var $arrUsu = array();
 	/**
@@ -35,7 +35,7 @@ class inico {
 	 */
 	var $tran = '';
 	/**
-	 * moneda de la operaci�n
+	 * moneda de la operación
 	 */
 	var $mon = '';
 	/**
@@ -71,24 +71,24 @@ class inico {
 	 */
 	var $ip = '';
 	/**
-	 * identificador del pa�s desde el que se realiza el pago
+	 * identificador del país desde el que se realiza el pago
 	 */
 	var $idpais = '';
 	/**
-	 * si la operaci�n no viene desde un tpvv
+	 * si la operación no viene desde un tpvv
 	 */
 	var $tpv = 0;
 	/**
-	 * Si la operaci�n viene desde una web
+	 * Si la operación viene desde una web
 	 */
 	var $pweb = 0;
 	/**
-	 * orden de rotaci�n para la pasarela con 3D
+	 * orden de rotación para la pasarela con 3D
 	 * @var integer
 	 */
 	var $or3DPAS = 0;
 	/**
-	 * identificador de la operaci�n en el Concentrador
+	 * identificador de la operación en el Concentrador
 	 */
 	var $idTrn = '';
 	/**
@@ -124,7 +124,7 @@ class inico {
 	 */
 	var $arrPV = array();
 	/**
-	 * Array de motivos de denegaci�n
+	 * Array de motivos de denegación
 	 */
 	var $arrMD = array();
 	/**
@@ -137,7 +137,7 @@ class inico {
 	var $mp = '';
 
 	/**
-	 * conxi�n a la BD
+	 * conxión a la BD
 	 */
 	var $temp = '';
 	/**
@@ -174,7 +174,7 @@ class inico {
 	 */
 	var $urldirKO = '';
 	/**
-	 * Moneda en la que el comercio recibir� el pago de Bidaiondo
+	 * Moneda en la que el comercio recibirá el pago de Bidaiondo
 	 */
 	var $receiveCurrency = '978';
 
@@ -236,7 +236,7 @@ class inico {
 	}
 
 	/**
-	 * Verifica los datos del usuario que se envi� y de estar aceptados los env�a a PayTpv
+	 * Verifica los datos del usuario que se envió y de estar aceptados los envía a PayTpv
 	 * 
 	 * @param string $usuario        	
 	 * @return boolean
@@ -249,15 +249,15 @@ class inico {
 				$this->idusr = $arrUs[0];
 				$this->tkusr = $arrUs[1];
 			} else
-				$this->log .= "No se encontraron los datos del usuario en la base de datos, se env�a la oper.\n<br>";
+				$this->log .= "No se encontraron los datos del usuario en la base de datos, se envía la oper.\n<br>";
 		} else {
-			$this->log .= "No se form� correctamente el array de usuario, se env�a la oper.\n<br>";
+			$this->log .= "No se formó correctamente el array de usuario, se envía la oper.\n<br>";
 		}
 		return true;
 	}
 
 	/**
-	 * Verifica que el correo enviado del cliente sea v�lido
+	 * Verifica que el correo enviado del cliente sea válido
 	 * 
 	 * @return boolean
 	 */
@@ -267,7 +267,7 @@ class inico {
 		$this->log .= "Dominio=$domain\n<br>";
 
 		if (!checkdnsrr($domain . ".", "MX")) {
-			$this->log .= "El dominio del correo del Cliente no es v�lido\n<br>";
+			$this->log .= "El dominio del correo del Cliente no es válido\n<br>";
 			$this->err = "Error en el correo del Cliente, no es v\u00E1lido";
 			$this->saltosPasar($this->err);
 			return false;
@@ -300,7 +300,7 @@ class inico {
 		$this->db("select * from tbl_reserva where codigo = '{$this->tran}' and id_comercio = '{$this->comer}'");
 		if ($this->temp->num_rows()) {
 			$this->pweb = 0;
-			$this->log .= "Operaci�n originada en el concentrador\n<br>";
+			$this->log .= "Operación originada en el concentrador\n<br>";
 			if ($this->temp->f('pMomento') == 'N'){
 				$this->log .= "Pago Diferido, chequeo si el comercio tiene permitido diferidos sin 3D<br>";
 				$this->db("select permnsec from tbl_comercio where id = " . $this->datCom['id'] );
@@ -319,10 +319,10 @@ class inico {
 				$this->pweb = 1;
 			}
 			$this->log .= "pweb:".$this->pweb.", tipoPago:".$tipoPago.", bipayId: ".$bipayId."\n<br>";
-			$this->log .= "Operaci�n originada en la la web del comercio\n<br>";
+			$this->log .= "Operación originada en la la web del comercio\n<br>";
 		}
 
-		if ($this->datCom['estado'] == 'D') { // si el comercio est� en desarrollo lo mando a la pasarela de desarrollo
+		if ($this->datCom['estado'] == 'D') { // si el comercio está en desarrollo lo mando a la pasarela de desarrollo
 			$this->pasa = 1;
 			$this->log .= "Comercio en desarrollo lo pongo en la pasarela de desarrollo\n<br>";
 			if ($this->imp > 200000) {
@@ -331,14 +331,14 @@ class inico {
 				$this->saltosPasar($this->err);
 				return false;
 			}
-		} else { // si el comercio no est� en desarrollo
-			if ($this->pasa > 0) { // el comercio envi� la pasarela en los datos, revisar si est� autorizada
+		} else { // si el comercio no está en desarrollo
+			if ($this->pasa > 0) { // el comercio envió la pasarela en los datos, revisar si está autorizada
 				if ($this->pweb == 0) { //es un pago al momento
 
 					if (!stristr($this->datCom['pasarelaAlMom'] . ',', $this->pasa . ',')) {
 
-						// reviso si el comercio est� autorizado a usar esa pasarela que env�a
-						$this->log .= "Comercio env�a su pasarela " . $this->pasa . " pero no est� autorizado a usarla  \n<br>";
+						// reviso si el comercio está autorizado a usar esa pasarela que envía
+						$this->log .= "Comercio envía su pasarela " . $this->pasa . " pero no está autorizado a usarla  \n<br>";
 						// $q = "select idPasarela from tbl_pasarela p, tbl_colComerPasar c where c.idpasarelaT = p.idPasarela and
 						// 		p.secure = (select secure from tbl_pasarela where idPasarela = " . $this->pasa . ") and c.idcomercio = '{$this->comer}'
 						// 		and " . time () . " between c.fechaIni and c.fechaFin";
@@ -349,7 +349,7 @@ class inico {
 						if ($this->temp->num_rows()) {
 							$this->pasa = $this->temp->f('idpasarela');
 						} else {
-							$this->log .= "no tiene pasarela en la tabla de rotaci�n de pasarelas la saco por la del comercio ";
+							$this->log .= "no tiene pasarela en la tabla de rotación de pasarelas la saco por la del comercio ";
 							$arrP = explode(',', $this->datCom['pasarelaAlMom'] . ',');
 							$this->pasa = $arrP[0];
 						}
@@ -360,8 +360,8 @@ class inico {
 
 					// if (!stristr($this->datCom['pasarela'] . ',', $this->pasa . ',')) {
 
-						// reviso si el comercio est� autorizado a usar esa pasarela que env�a
-						$this->log .= "Comercio env�a su pasarela " . $this->pasa . " pero no est� autorizado a usarla  \n<br>";
+						// reviso si el comercio está autorizado a usar esa pasarela que envía
+						$this->log .= "Comercio envía su pasarela " . $this->pasa . " pero no está autorizado a usarla  \n<br>";
 						if ($this->opr == 'A') $tipo = "'A'"; 
 						elseif ($this->opr == 'R') $tipo = "'P','R'"; 
 						else $tipo = "'A','P','R'";
@@ -387,24 +387,24 @@ class inico {
 					// }
 				}
 
-				// chequeo si la pasarela que env�an es v�lida
+				// chequeo si la pasarela que envían es válida
 				$this->db("select idPasarela, nombre from tbl_pasarela where activo = 1 and idPasarela = " . $this->pasa);
 				$this->pasaN = $this->temp->f('nombre');
-				if ($this->temp->num_rows() == 0) { // la pasarela no existe o es inv�lida
-					$this->log .= "La pasarela " . $this->pasa . " no es v�lida o no existe\n<br>";
+				if ($this->temp->num_rows() == 0) { // la pasarela no existe o es inválida
+					$this->log .= "La pasarela " . $this->pasa . " no es válida o no existe\n<br>";
 					$this->err = "falla por pasarela inv&aacute;lida";
 					$this->saltosPasar($this->err);
 					return false;
 				}
-			} else { // el comercio no env�a la pasarela hay que determinarla
+			} else { // el comercio no envía la pasarela hay que determinarla
 				// if (stristr($this->datCom['pasarela'], ',') ) { //chequeo si el comercio debe enviar la pasarela
 				// $this->log .= "El comercio tiene este listado de posibles pasarelas ".$this->datCom['pasarela'].", sin embargo en ".
-				// "los datos no envi� la pasarela \n<br>";
+				// "los datos no envió la pasarela \n<br>";
 				// $this->err = "falla por pasarela inv&aacute;lida, su comercio debe especificar pasarela";
 				// return FALSE;
 				// }
 
-				// reviso si el comercio est� dentro de los comercios cuya pasarela rota por horas
+				// reviso si el comercio está dentro de los comercios cuya pasarela rota por horas
 				// y ahora mismo tiene una pasarela activa
 				$this->db("select id from tbl_rotComPas where idcom = " . $this->datCom['id'] . " and activo = 1 and horas != 0");
 				$numpas = $this->temp->num_rows();
@@ -428,7 +428,7 @@ class inico {
 						if ($this->temp->num_rows() == 1) {
 							$this->pasa = $this->temp->f('idpasarela');
 
-							// modifica la fecha en dependencia de las horas que estar� activa
+							// modifica la fecha en dependencia de las horas que estará activa
 							$this->db("update tbl_rotComPas set fecha = " . (mktime(date('H') + $this->temp->f('horas'), 0, 0, date('m'), date('d'), date('Y'))) . " where id = " . $this->temp->f('id'));
 							$this->db("update tbl_comercio set pasaRot = " . $this->pasa . " where id = " . $this->datCom['id']);
 						} else {
@@ -462,23 +462,23 @@ class inico {
 					//$this->db("select idPasarela from tbl_pasarela where idPasarela in ({$this->datCom ['pasarelaAlMom']}) and secure = 0");
 					$this->psArray = $this->temp->loadResultArray();
 					if (count($this->psArray) == 0) {
-						$this->log .= "Fall� al obtener las pasarelas de este comercio (paso1)";
+						$this->log .= "Falló al obtener las pasarelas de este comercio (paso1)";
 						$this->err = "Fall&oacute; al obtener los datos de su comercio(1), contacte a Comercial";
 						$this->saltosPasar($this->err);
 						return false;
-					} else if (count($this->psArray) == 1) $this->log .= "ALERTA S�LO TIENE UNA PASARELA";
+					} else if (count($this->psArray) == 1) $this->log .= "ALERTA SÓLO TIENE UNA PASARELA";
 
 					//reordena el array de pasarelas y toma la primera pasarela de ese array
 					$this->reordPasar();
 
 					// array_shift($this->psArray);
 					$this->log .= "psArray=".implode(",",$this->psArray)."<br>";
-					$this->log .= "Pasarela sin 3D en la nueva rotaci�n escogida: {$this->pasa}\n<br>";
+					$this->log .= "Pasarela sin 3D en la nueva rotación escogida: {$this->pasa}\n<br>";
 				} else {
 					// if ($this->pweb == 0) { //si no es pago desde web busco el array 
-						$this->log .= "Es una pasarela con 3D se busca el array de pasarelas por el que circular�a la oper y se toma como la primera para que inicie la verificaci�n\n<br>";
+						$this->log .= "Es una pasarela con 3D se busca el array de pasarelas por el que circularía la oper y se toma como la primera para que inicie la verificación\n<br>";
 
-						//Si la oper es con 3D busca el array de pasarelas por los que deber� circular el comercio
+						//Si la oper es con 3D busca el array de pasarelas por los que deberá circular el comercio
 						//y fija como la pasarela la primera que tenga
 						if ($this->opr == 'A') $tipo = "'A'"; 
 						elseif ($this->opr == 'R') $tipo = "'P','R'"; 
@@ -491,16 +491,16 @@ class inico {
 							$this->reordPasar();
 
 						} else if ($this->temp->num_rows()  == 1){
-							$this->log .= "ALERTA S�LO TIENE UNA PASARELA(2)";
+							$this->log .= "ALERTA SÓLO TIENE UNA PASARELA(2)";
 						} else {
-							$this->log .= "Fall� al obtener las pasarelas de este comercio (paso2)";
+							$this->log .= "Falló al obtener las pasarelas de este comercio (paso2)";
 							$this->err = "Fall&oacute; al obtener los datos de su comercio(2), contacte a Comercial";
 							$this->saltosPasar($this->err);
 							return false;
 						}
 
 						//} else {
-						//$this->log .= "Es una pasarela con 3D y pago desde la web se busca el array de pasarelas por el que circular�a la operaci�n \n<br>";
+						//$this->log .= "Es una pasarela con 3D y pago desde la web se busca el array de pasarelas por el que circularía la operación \n<br>";
 						//$this->db("select pasarelaWeb from tbl_comercio where id = '{$this->datCom['id']}'");
 						//$this->psArray = $this->temp->loadResultArray();
 						//$this->pasa = $this->psArray[0];
@@ -509,7 +509,7 @@ class inico {
 			}
 
 
-			//adiciona al array de pasarelas las pasarelas autorizadas usd amex si el comercio est� autorizado
+			//adiciona al array de pasarelas las pasarelas autorizadas usd amex si el comercio está autorizado
 			if ($this->datCom['usdxamex'] == 1 && $this->amex == 1 && $this->mon == 840) {
 				//busco las pasarelas que tienen permitido esta variande de usd - amex
 				$this->db("select idPasarela from tbl_pasarela where usdxamex = 1 and activo = 1 and secure = " . $this->segura);
@@ -521,17 +521,17 @@ class inico {
 				}
 			}
 
-			//adiciona las pasarelas necesarias de acuerdo al m�todo de pago seleccionado
-			//chequeo si es un m�todo de pago
+			//adiciona las pasarelas necesarias de acuerdo al método de pago seleccionado
+			//chequeo si es un método de pago
 			$this->db("select count(*) total from tbl_tarjetas where id = '".$this->amex."' and tipo = 'M'");
 			if ($this->temp->f('total') > 0 ) {
-				// Lo enviado en amex es un m�todo de pago
+				// Lo enviado en amex es un método de pago
 				$this->log .= "enviaron un metodo de pago<br>";
 
 				if ($this->pweb == 0) $term = 'idpasarelaT'; else $term = 'idpasarelaW';
 					$this->log .= "Tipo pasarela $term<br>";
 
-				// busco si una o varias de las pasarelas asignadas al comercio tienen el m�todo de pago enviado
+				// busco si una o varias de las pasarelas asignadas al comercio tienen el método de pago enviado
 				$this->db("select $term 'idPasarela' from tbl_colComerPasar c, tbl_pasarela p, tbl_colTarjPasar j, tbl_colPasarMon m where j.idPasar = p.idPasarela and m.idpasarela = p.idPasarela and m.idmoneda = ".$this->mon." and p.activo = 1 and m.estado = 1 and $term = p.idPasarela and c.idcomercio = " . $this->comer . " and (" . time() . " between c.fechaIni and c.fechaFin) and j.idTarj = " . $this->amex);
 
 				if ($this->temp->num_rows() > 0) {
@@ -541,7 +541,7 @@ class inico {
 					$this->pasa = $this->psArray[0];
 				}
 			}
-			$this->log .= "pasarela antes del chequeo de l�mites ".$this->pasa." <br>";
+			$this->log .= "pasarela antes del chequeo de límites ".$this->pasa." <br>";
 
 			if ($this->CheqLimites() == false)
 				return false;
@@ -575,21 +575,21 @@ class inico {
 	}
 
 	/**
-	 * Reordena el array de pasarelas teniendo en cuenta la pasarela por la que pas� la �ltima operaci�n de ese comercio
+	 * Reordena el array de pasarelas teniendo en cuenta la pasarela por la que pasó la última operación de ese comercio
 	 *
 	 * @return void
 	 */
 	private function reordPasar() {
 		$this->log .= "Array desordenado de las pasarelas->". implode(",",$this->psArray)."<br>";
-		//verifica la pasarela de la �ltima operaci�n de este comercio
+		//verifica la pasarela de la última operación de este comercio
 		$this->db("select pasarela from tbl_transacciones where idcomercio = '" . $this->comer . "' and pasarela in (" . implode(",", $this->psArray) . ") order by fecha desc limit 0,1");
 		//cambio el orden de las pasarelas en el array
-		if ($this->temp->num_rows() > 0) { //si anteriormente el comercio tuvo alguna transacci�n por estas pasarelas
+		if ($this->temp->num_rows() > 0) { //si anteriormente el comercio tuvo alguna transacción por estas pasarelas
 			$ultpas = $this->temp->f(pasarela);
-			$this->log .= "�ltima pasarela: $ultpas\n<br>";
-			if ($ultpas !== $this->psArray[count($this->psArray) - 1]) { //chequeo si la �ltima pasarela no es el �ltimo elemento del array
+			$this->log .= "Última pasarela: $ultpas\n<br>";
+			if ($ultpas !== $this->psArray[count($this->psArray) - 1]) { //chequeo si la última pasarela no es el último elemento del array
 
-				//Determino la posici�n en el array de la �ltima pasarela por la que transit� la �ltima operaci�n
+				//Determino la posición en el array de la última pasarela por la que transitó la última operación
 				for ($i = 0; $i < count($this->psArray); $i++) {
 					if ($this->psArray[$i] == $ultpas) {
 						if (($i + 1) > count($this->psArray)) {
@@ -600,8 +600,8 @@ class inico {
 						break;
 					}
 				}
-				$this->log .= "Orden en el array de la pr�xima pasarela: $elmIni\n<br>";
-				//ordeno el array para que la pr�xima pasarela sea la primera
+				$this->log .= "Orden en el array de la próxima pasarela: $elmIni\n<br>";
+				//ordeno el array para que la próxima pasarela sea la primera
 				$arrORd = array();
 				$this->log .= "psArray=".implode(",",$this->psArray)."<br>";
 
@@ -619,10 +619,10 @@ class inico {
 			//PONER ACA LA PASARELA POR LA QUE DEBE TRANSITAR EL CLIENTE PARA LOS PAGOS RECURRENTES
 			//DE PRIMERA EN EL ORDENAMIENTO DE LAS PASARELAS
 			if ($this->opr == 'R') {
-				//evaluar si el c�digo enviado es v�lido
+				//evaluar si el código enviado es válido
 				$this->log .= "<br />Entra a pagos Recurrentes<br />refer='$this->refer'<br />";
 				if (strlen($this->refer) == 40) {
-					//buscamos en la tabla referencia por el c�digo que nos manda el comercio el TPV correspondiente
+					//buscamos en la tabla referencia por el código que nos manda el comercio el TPV correspondiente
 					$this->db(sprintf ("select r.idpasarela, r.idtransaccion, t.codigo, t.idcomercio, t.identificador from tbl_referencia r, tbl_transacciones t where t.idtransaccion = r.idtransaccion and codConc = '%s'", $this->refer));
 
 					if ($this->temp->num_rows()) {
@@ -636,27 +636,27 @@ class inico {
 						$this->log .= $this->refer." == ".hash("sha1",$orden.$codBanc.$comRef.$ideRef)."<br>";
 
 						if ($this->refer == hash("sha1",$orden.$codBanc.$comRef.$ideRef)){
-							//quito la pasarela de donde est�
+							//quito la pasarela de donde esté
 							if (($key = array_search($pasRef, $this->psArray)) !== false) {
 								unset($this->psArray[$key]);
 							}
 							// unset($this->psArray[$pasRef]);
 							array_unshift($this->psArray, $pasRef);
 
-						} else $this->refer = ''; //la referencia enviada no es v�lida
+						} else $this->refer = ''; //la referencia enviada no es válida
 
-					} else $this->refer = ''; //la referencia enviada no est� en la BD
+					} else $this->refer = ''; //la referencia enviada no está en la BD
 				}  else $this->refer = ''; //la referencia enviada no tiene la longitud requerida
 
-			} elseif ($this->opr == 'Q') {//nos piden cambio de la tarjeta que ten�a la referencia
-				//borramos en la tabla referencia por el c�digo que nos manda el comercio el TPV correspondiente
+			} elseif ($this->opr == 'Q') {//nos piden cambio de la tarjeta que tenía la referencia
+				//borramos en la tabla referencia por el código que nos manda el comercio el TPV correspondiente
 				$this->db(sprintf ("delete from tbl_referencia where codConc = '%s'", $this->refer));
 
-				//ponemos la operaci�n como pago por referencia para pedirle al banco nos env�e la nueva referencia
+				//ponemos la operación como pago por referencia para pedirle al banco nos envíe la nueva referencia
 				$this->opr = 'P';
 			}
 			
-						// if ($this->datAis['idremitente'] == '262') { //quitar estas tres l�neas completa
+						// if ($this->datAis['idremitente'] == '262') { //quitar estas tres líneas completa
 						// 	array_unshift($this->psArray, '188');
 						// 	$this->log .= "Cambio el ordennnnnn".implode(",",$this->psArray)."<br>";
 						// }
@@ -667,7 +667,7 @@ class inico {
 	}
 
 	/**
-	 * Chequeo de los l�mites de Fincimex y Tocopay
+	 * Chequeo de los límites de Fincimex y Tocopay
 	 *
 	 * @return void
 	 */
@@ -709,7 +709,7 @@ class inico {
 		$this->log .= "Cliente: $clienteDt<br>";
 		if ($this->temp->f('bloq') == 1) {
 			$this->log .= "Cliente inhabilitado de por vida";
-			$causa = $this->err = "Estimado Cliente $clienteDt, Ud. est� inhabilitado para enviar dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
+			$causa = $this->err = "Estimado Cliente $clienteDt, Ud. está inhabilitado para enviar dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
 			$this->saltosPasar($this->err);
 			return false;
 		}
@@ -720,12 +720,12 @@ class inico {
 		$this->log .= "Beneficiario: $beneficiarioDt<br>";
 		if ($this->temp->f('bloq') == 1) {
 			$this->log .= "Beneficiario inhabilitado de por vida";
-			$causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, est� inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
+			$causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, está inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a>";
 			$this->saltosPasar($this->err);
 			return false;
 		}
 
-		//Chequeo de l�mite trimestral para el Remitente
+		//Chequeo de límite trimestral para el Remitente
 		$q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisCliente c
 				where o.idtransaccion = t.idtransaccion and o.idcliente = c.id and t.estado = 'A'
 					and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['idremitente'];
@@ -737,8 +737,8 @@ class inico {
 		($this->temp->f('total1') >= $this->temp->f('total2')) ? $total = ($this->temp->f('total1')) : $total = ($this->temp->f('total2'));
 		$this->log .= $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . " / " . $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . "\n<br>";
 
-		if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del l�mite 
-			if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no est� dentro de los Clientes permitidos
+		if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del límite 
+			if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no está dentro de los Clientes permitidos
 				$this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al limite para un trimestre natural. Por favor, pongase en contacto con <a href='mailto:info@tocopay.com'>info@tocopay.com</a> para realizar el envio:";
 				$this->log .= $causa;
 				$this->saltosPasar($causa);
@@ -753,8 +753,8 @@ class inico {
 			return false;
 		}
 
-		//TODO ver el TODO anterior que se aplica ac� tambi�n
-		//Chequeo de l�mite trimestral para el Beneficiario
+		//TODO ver el TODO anterior que se aplica acá también
+		//Chequeo de límite trimestral para el Beneficiario
 		$q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisBeneficiario c
 			where o.idtransaccion = t.idtransaccion and o.idbeneficiario = c.id and t.estado = 'A'
 				and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['iddestin'];
@@ -806,7 +806,7 @@ class inico {
 			//}
 		}
 
-		//Chequeo de operaci�n repetida
+		//Chequeo de operación repetida
 		$iniDia = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
 		$this->db("select count(t.idtransaccion) total from tbl_transacciones t, tbl_aisOrden o, tbl_aisCliente c, tbl_aisBeneficiario b where o.idtransaccion = t.idtransaccion and b.id = o.idbeneficiario and c.id = o.idcliente and t.estado = 'A' and t.fecha > $iniDia and c.idcimex = {$this->datAis['idremitente']} and b.idcimex = {$this->datAis['iddestin']} and valor_inicial = {$this->imp}");
 		if ($this->temp->f('total') > 0) {
@@ -839,7 +839,7 @@ class inico {
 	}
 
     /**
-     * Chequeo de los l�mites de Vidaipay
+     * Chequeo de los límites de Vidaipay
      *
      * @return void
      */
@@ -881,7 +881,7 @@ class inico {
         $this->log .= "Cliente: $clienteDt<br>";
         if ($this->temp->f('bloq') == 1) {
             $this->log .= "Cliente inhabilitado de por vida";
-            $causa = $this->err = "Estimado Cliente $clienteDt, Ud. est� inhabilitado para enviar dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
+            $causa = $this->err = "Estimado Cliente $clienteDt, Ud. está inhabilitado para enviar dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
             $this->saltosPasar($this->err);
             return false;
         }
@@ -892,12 +892,12 @@ class inico {
         $this->log .= "Beneficiario: $beneficiarioDt<br>";
         if ($this->temp->f('bloq') == 1) {
             $this->log .= "Beneficiario inhabilitado de por vida";
-            $causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, est� inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
+            $causa = $this->err = "Estimado Cliente $clienteDt, el beneficiario de esta operacion $beneficiarioDt, está inhabilitado para recibir dinero por nuestro sitio, si lo desea puede ponerse en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a>";
             $this->saltosPasar($this->err);
             return false;
         }
 
-        //Chequeo de l�mite trimestral para el Remitente
+        //Chequeo de límite trimestral para el Remitente
         $q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisCliente c
 				where o.idtransaccion = t.idtransaccion and o.idcliente = c.id and t.estado = 'A'
 					and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['idremitente'];
@@ -909,8 +909,8 @@ class inico {
         ($this->temp->f('total1') >= $this->temp->f('total2')) ? $total = ($this->temp->f('total1')) : $total = ($this->temp->f('total2'));
         $this->log .= $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . " / " . $total . " + " . $this->imp . " = " . ($total + $this->imp) . " > " . ($vlim * 100) . "\n<br>";
 
-        if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del l�mite
-            if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no est� dentro de los Clientes permitidos
+        if (($total + $this->imp) > ($vlim * 100)) {//si va a pasar mas del límite
+            if (!in_array($this->datAis['idremitente'], $arrCli)) { //pero no está dentro de los Clientes permitidos
                 $this->err = $causa = "Estimado Cliente $clienteDt, usted tiene un acumulado en envios de " . number_format($total / 100, 2) . ", con esta operacion de " . number_format($this->imp / 100, 2) . " llega al limite para un trimestre natural. Por favor, pongase en contacto con <a href='mailto:info@vidaipay.com'>info@vidaipay.com</a> para realizar el env&iacute;o:";
                 $this->log .= $causa;
                 $this->saltosPasar($causa);
@@ -925,8 +925,8 @@ class inico {
             return false;
         }
 
-        //TODO ver el TODO anterior que se aplica ac� tambi�n
-        //Chequeo de l�mite trimestral para el Beneficiario
+        //TODO ver el TODO anterior que se aplica acá también
+        //Chequeo de límite trimestral para el Beneficiario
         $q = "select sum(o.recibe) total1, sum(t.valor) total2 from tbl_aisOrden o, tbl_transacciones t, tbl_aisBeneficiario c
 			where o.idtransaccion = t.idtransaccion and o.idbeneficiario = c.id and t.estado = 'A'
 				and t.fecha between $fec1Ais and $fec2Ais and c.idcimex = " . $this->datAis['iddestin'];
@@ -978,7 +978,7 @@ class inico {
             //}
         }
 
-        //Chequeo de operaci�n repetida
+        //Chequeo de operación repetida
         $iniDia = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
         $this->db("select count(t.idtransaccion) total from tbl_transacciones t, tbl_aisOrden o, tbl_aisCliente c, tbl_aisBeneficiario b where o.idtransaccion = t.idtransaccion and b.id = o.idbeneficiario and c.id = o.idcliente and t.estado = 'A' and t.fecha > $iniDia and c.idcimex = {$this->datAis['idremitente']} and b.idcimex = {$this->datAis['iddestin']} and valor_inicial = {$this->imp}");
         if ($this->temp->f('total') > 0) {
@@ -1011,7 +1011,7 @@ class inico {
     }
 
 	/**
-	 * Chequeo de los l�mites por comercio
+	 * Chequeo de los límites por comercio
 	 *
 	 * @return void
 	 */
@@ -1024,9 +1024,9 @@ class inico {
 		if (count($arrLimCom) > 0 ) {
 			//verifico lim por operacion
 			if ($arrLimCom['limxoper'] > -1) {
-				$this->log .= "Chequeo de l�mite m�ximo por operaci�n para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxoper'] . "\n<br>";
+				$this->log .= "Chequeo de límite máximo por operación para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxoper'] . "\n<br>";
 				if (($this->imp / 100) > $arrLimCom['limxoper']) {
-					$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por operaci�n para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxoper'];
+					$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por operación para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxoper'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = "M&aacute;ximo por operaci&oacte;n con esta (".number_format(($this->imp / 100),2).") y el comercio tiene permitido{2}:".number_format($arrLimCom['limxoper'],2);
@@ -1037,13 +1037,13 @@ class inico {
 
 			//verifico el limite diario
 			if ($arrLimCom['limxdia'] > -1) {
-				$this->log .= "Chequeo de limite maximo por operaci�n para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxdia'] . "\n<br>";
+				$this->log .= "Chequeo de limite maximo por operación para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxdia'] . "\n<br>";
 				$this->db("select sum(t.valor_inicial/100/t.tasa) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-" . date('m') . "-" . date('d') . " 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if (($this->temp->f('valor') + $this->imp / 100) >= $arrLimCom['limxdia']) {
-					$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por d�a para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxdia'];
+					$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por día para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxdia'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = "M&aacute;ximo por d&iacute;a, con esta operaci&oacute;n (".number_format(($this->temp->f('valor') + $this->imp / 100),2)."), el comercio sobrepas&oacute; lo permitido para el d&iacute;a{4}:".number_format($arrLimCom['limxdia'],2);
@@ -1060,7 +1060,7 @@ class inico {
 				$this->log .= "Chequeo de limite diario acumulado para el comercio\n<br>" . ($this->temp->f('valor') + $this->imp / 100) . " >= " .($arrLimCom['limadia'] * date(j)) . "\n<br>";
 				
 				if (($this->temp->f('valor') + $this->imp / 100) >= ($arrLimCom['limadia'] * date(j))) {
-					$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " sobrepasa el l�mite m�ximo acumulado por d�a ".($arrLimCom['limadia'] * date(j))." para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limadia']." ";
+					$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " sobrepasa el límite máximo acumulado por día ".($arrLimCom['limadia'] * date(j))." para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limadia']." ";
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = "M&aacute;ximo acumulado por d&iacutea, hasta el d&iacute;a de hoy acumula el comercio (".number_format(($this->temp->f('valor') + $this->imp / 100),2).") tiene situado para hoy{4}:".number_format(($arrLimCom['limadia'] * date(j)),2);
@@ -1071,13 +1071,13 @@ class inico {
 			
 			//verifico el limite mensual
 			if ($arrLimCom['limxmes'] > -1) {
-				$this->log .= "Chequeo de limite diario m�ximo para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxmes'] . "\n<br>";
+				$this->log .= "Chequeo de limite diario máximo para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxmes'] . "\n<br>";
 				$this->db("select sum(t.valor_inicial/100/t.tasa) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-" . date('m') . "-01 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if (($this->temp->f('valor') + $this->imp / 100) >= $arrLimCom['limxmes']) {
-					$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por mes para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxmes'];
+					$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por mes para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxmes'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = "M&aacute;ximo por mes, el comercio con esta operaci&oacute;n llega a ".number_format(($this->temp->f('valor') + $this->imp / 100),2)." y tiene situado{5}:".number_format($arrLimCom['limxmes'],2);
@@ -1088,13 +1088,13 @@ class inico {
 			
 			//verifico el limite anual
 			if ($arrLimCom['limxano'] > -1) {
-				$this->log .= "Chequeo de limite diario m�ximo para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxano'] . "\n<br>";
+				$this->log .= "Chequeo de limite diario máximo para el comercio\n<br>" . ($this->imp / 100) . " > " . $arrLimCom['limxano'] . "\n<br>";
 				$this->db("select sum(t.valor_inicial/100/t.tasa) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-01-01 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if (($this->temp->f('valor') + $this->imp / 100) >= $arrLimCom['limxano']) {
-					$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por a�o para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxano'];
+					$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&iacute;nimo permitido por año para este comercio " . $this->datCom[1] . " que es de " . $arrLimCom['limxano'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = 'M&aacute;ximo por a&ntilde;o, el comercio con esta operaci&oacute;n llega a '.number_format(($this->temp->f('valor') + $this->imp / 100),2). ' y tiene permitido'."{6}:".number_format($arrLimCom['limxano'],2);
@@ -1103,16 +1103,16 @@ class inico {
 				}
 			}
 			
-			//verifico el limite por cantidad de operaciones en el d�a
+			//verifico el limite por cantidad de operaciones en el día
 			if ($arrLimCom['cantxdia'] > -1) {
-				$this->log .= "Chequeo de la cantidad m�xima de operaciones al d�a para el comercio\n<br>" . $arrLimCom['cantxdia'] . "\n<br>";
+				$this->log .= "Chequeo de la cantidad máxima de operaciones al día para el comercio\n<br>" . $arrLimCom['cantxdia'] . "\n<br>";
 
 				$this->db("select count(t.idtransaccion) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-" . date('m') . "-" . date('d') . " 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if ($this->temp->f('valor') >= $arrLimCom['cantxdia']) {
-					$mes = "Con la operaci�n {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite diario m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxdia'];
+					$mes = "Con la operación {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite diario m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxdia'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = 'M&aacute;ximo de operaciones por d&iacute;a, el comercio acumula hoy '.$this->temp->f('valor'). ' y tiene permitido'."{7}:".($arrLimCom['cantxdia']);
@@ -1123,13 +1123,13 @@ class inico {
 			
 			//verifico el limite por cantidad de operaciones en el mes
 			if ($arrLimCom['cantxmes'] > -1) {
-				$this->log .= "Chequeo de la cantidad m�xima de operaciones al mes para el comercio\n<br>" . $arrLimCom['cantxmes'] . "\n<br>";
+				$this->log .= "Chequeo de la cantidad máxima de operaciones al mes para el comercio\n<br>" . $arrLimCom['cantxmes'] . "\n<br>";
 				$this->db("select count(t.idtransaccion) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-" . date('m') . "-01 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if ($this->temp->f('valor') >= $arrLimCom['cantxmes']) {
-					$mes = "Con la operaci�n {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite mensual m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxmes'];
+					$mes = "Con la operación {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite mensual m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxmes'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = 'M&aacute;ximo de operaciones por mes, el comercio acumula hasta hoy '.$this->temp->f('valor'). ' y tiene permitido'."{8}:".$arrLimCom['cantxmes'];
@@ -1138,15 +1138,15 @@ class inico {
 				}
 			}
 			
-			//verifico el limite por cantidad de operaciones en el a�o
+			//verifico el limite por cantidad de operaciones en el año
 			if ($arrLimCom['cantxano'] > -1) {
-				$this->log .= "Chequeo de la cantidad m�xima de operaciones al a�o para el comercio\n<br>" . $arrLimCom['cantxano'] . "\n<br>";
+				$this->log .= "Chequeo de la cantidad máxima de operaciones al año para el comercio\n<br>" . $arrLimCom['cantxano'] . "\n<br>";
 				$this->db("select count(t.idtransaccion) 'valor'
 				FROM tbl_transacciones t 
 				where t.estado in ('A','V','B','R') and t.tipoEntorno = 'P' and t.fecha > unix_timestamp('" . date('Y') . "-01-01 00:00:00') and t.idcomercio = ".$this->comer);
 				
 				if ($this->temp->f('valor') >= $arrLimCom['cantxano']) {
-					$mes = "Con la operaci�n {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite anual m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxano'];
+					$mes = "Con la operación {$this->tran} este comercio " . $this->datCom[1] . " ha arribado al l&iacute;mite anual m&aacute;ximo de operaciones que es de " . $arrLimCom['cantxano'];
 					
 					$this->log .= $mes . "\n<br>";
 					$this->arrMD[] = $this->err = 'M&aacute;ximo de operaciones por a&ntilde;o, el comercio acumula hasta hoy '.$this->temp->f('valor'). ' y tiene permitido'."{9}:".$arrLimCom['cantxano'];
@@ -1169,7 +1169,7 @@ class inico {
     }
 
 	/**
-	 * Chequeo de los l�mites por pasarelas
+	 * Chequeo de los límites por pasarelas
 	 * 
 	 * @return boolean
 	 */
@@ -1206,7 +1206,7 @@ class inico {
 			}
 		}
 
-		// Variaci�n para rotar todas las operaciones de pasarelas No Seguras entre las pasarelas 44 - Sabadell3, 52 - Bankia6
+		// Variación para rotar todas las operaciones de pasarelas No Seguras entre las pasarelas 44 - Sabadell3, 52 - Bankia6
 		// y luego que estas dos se llenen empezar a pasarlas por 20 - Caixa
 		if (isset($datPas['secure']) && $datPas['secure'] == 0) {
 			//if ($this->pasa != 44 && $this->comer != '122327460662') { // Si la pasarela no es Sabadel y no es el comercio Prueba
@@ -1222,10 +1222,10 @@ class inico {
 			$this->segura = 1;
 
 		//Chequeo de las pasarelas permitidas al comercio
-		//si el comercio es cubana me lo salto porque tiene rotaci�n especial
+		//si el comercio es cubana me lo salto porque tiene rotación especial
 		if ($this->comer != '129025985109' && $this->pasa != 1) {
 
-			//reviso si la operaci�n es de un sitio web o est� originada en el Concentrador
+			//reviso si la operación es de un sitio web o está originada en el Concentrador
 			//$this->db("select * from tbl_reserva where id_comercio = ". $this->comer ." and codigo = '".$this->tran."'");
 			($this->pweb == 0) ? $mq = "pasarelaAlMom" : $mq = "pasarela";
 
@@ -1236,14 +1236,14 @@ class inico {
 			$arrPa = explode(',', $this->temp->loadResult());
 			if (_MOS_CONFIG_DEBUG) var_dump($this->temp->loadResult());
 
-			//Si no est� dentro de las pasarelas asignadas por el comercio pido el cambio
+			//Si no está dentro de las pasarelas asignadas por el comercio pido el cambio
 			if (!in_array($this->pasa, $arrPa)) {
 				$this->log .= $causa = "Cambio de pasarela desde la Web, no est&aacute; asignada al comercio:".$this->pasa;
 				$pase = 0;
 			}
 		}
 
-		//Chequeo que la pasarela est� activa
+		//Chequeo que la pasarela esté activa
 		if ($this->comer != '122327460662') {
 			if ($this->opr == 'A') $tipo = "'A'"; 
 			elseif ($this->opr == 'R') $tipo = "'P','R'"; 
@@ -1260,8 +1260,8 @@ class inico {
 		$this->db("select count(idtransaccion) total from tbl_transacciones where idcomercio = '" . $this->comer . "' and estado = 'A' and pasarela = " . $this->pasa . " and  fecha > " . (time() - 60 * 60 * 0.5));
 		$oprR = $this->temp->f('total');
 		if ($this->comer != '122327460662') {
-			$arrCom = explode(',', leeSetup('com6Horas' . $this->pasa)); //El listado de los comercios est� en tbl_setup
-			if ($this->pasa == 44 || $this->pasa == 52) { // Si es de Sabadell3 o Bankia6 y adem�s de alguno de los comercios
+			$arrCom = explode(',', leeSetup('com6Horas' . $this->pasa)); //El listado de los comercios está en tbl_setup
+			if ($this->pasa == 44 || $this->pasa == 52) { // Si es de Sabadell3 o Bankia6 y además de alguno de los comercios
 				if (in_array($this->comer, $arrCom) && $oprR > 0) {
 						$this->log .= $causa = "Cambio de pasarela obligado operaci&oacte;n repetida en menos de 0.5 horas{1}:";
 						$pase = 0;
@@ -1272,7 +1272,7 @@ class inico {
 		//Chequeo de restricciones de IP por Sabadell3
 		if ($this->comer != '122327460662') {
 			if (
-				$this->pasa == 44 && ( // Si es de Sabadell3 y adem�s de alguna de estas IP
+				$this->pasa == 44 && ( // Si es de Sabadell3 y además de alguna de estas IP
 					$this->ip == '200.55.188.130' 		// Hotel Nacional
 					|| $this->ip == '200.55.183.72' 	// Hotel Nacional
 					|| $this->ip == '200.68.72.41' 		// Havanatur Argentina
@@ -1294,7 +1294,7 @@ class inico {
 		//Chequeo de restricciones por IP para Abanca2
 		if ($this->comer != '122327460662') {
 			if (
-				$this->pasa == 53 && ( // Si es de Abanca2 y adem�s de alguna de estas IP
+				$this->pasa == 53 && ( // Si es de Abanca2 y además de alguna de estas IP
 					$this->ip != '200.55.188.130' 		// Hotel Nacional
 					// $this->ip == '200.55.165.58' || 	//Gaviota Tours
 					&& $this->ip != '190.179.230.61') 	// Outdoor Argentina
@@ -1304,7 +1304,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de restricciones por pa�ses
+		// Chequeo de restricciones por países
 		if ($this->comer != '122327460662') {
 			if ($pase && $this->ip != '127.0.0.1') {
 				$q = "select id from tbl_colPaisPasarelDeng where idpasarela = " . $this->pasa . " and idpais = " . $this->damepais();
@@ -1316,7 +1316,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mites para Cimex y Tocopay
+		// Chequeo de límites para Cimex y Tocopay
 		if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040' ||
 			$this->comer == '169453189889') {
 			if ($this->ChequeoAis() == false) {
@@ -1325,7 +1325,7 @@ class inico {
 			}
 		}
 
-        // Chequeo de l�mites para Vidaipay
+        // Chequeo de límites para Vidaipay
 		if ($this->comer == '166975114294' || $this->comer == '167707944853') {
 			if ($this->ChequeoVpay() == false) {
 				$pase = 0;
@@ -1339,7 +1339,7 @@ class inico {
 				$this->pasa == 71
 				|| $this->pasa == 72
 			) {
-				if (strlen($this->email) < 4) { //Si no se envi� el correo del cliente lo busco en la BD
+				if (strlen($this->email) < 4) { //Si no se envió el correo del cliente lo busco en la BD
 					$this->log .= "El Cliente viene sin correo y la oper va por un Navarrap\n<br>";
 					$this->db("select email from tbl_reserva where id_comercio = '{$this->comer}' and codigo = '{$this->tran}' ");
 					$this->email = $this->temp->f('email');
@@ -1352,8 +1352,8 @@ class inico {
 			}
 		}
 
-		//buscando los l�mites
-		if (!_CAMB_LIM) {//verifico si el cambio de limites por moneda est� habilitado
+		//buscando los límites
+		if (!_CAMB_LIM) {//verifico si el cambio de limites por moneda está habilitado
 			$q = "select nombre, LimMinOper, LimMaxOper, LimDiar, LimMens, LimAnual, LimOperIpDia, LimOperDia, pasarLim";
 			if ($verif)
 				$q .= ", secure";
@@ -1391,14 +1391,14 @@ class inico {
 		$this->log .= "\n<br>";
 			// echo "<br>".$this->log; exit;
 
-		//selecciona pasarelas iguales para l�mites
+		//selecciona pasarelas iguales para límites
 		if (strlen($datPas['pasarLim'])>0) {
 			$this->db("select idPasarela from tbl_pasarela where pasarLim = " . $datPas['pasarLim']);
 			$arrPasSum = implode(",", $this->temp->loadResultArray());
 		}
 		$this->log .= "pasarelas para limites $arrPasSum \n<br>";
 
-		// Chequeo por la �ltima pasarela que curs�
+		// Chequeo por la última pasarela que cursó
 		// if ($this->comer != '129025985109' //Cubana
 		// 	&& $this->comer != '152295812637' // Soy Cubano IT
 		// 	&& $this->comer != '527341458854' //Fincimex
@@ -1415,8 +1415,8 @@ class inico {
 		// 				$this->log .= "Chequeo de la &uacute;ltima pasarela del comercio\n<br>" . ($this->comer) . "\n<br>";
 		// 				$this->log .= $this->temp->f('pasarela') . " == " . $this->pasa . " ?\n<br>";
 		// 				if ($this->temp->f('pasarela') == $this->pasa) {
-		// 					$mes = "Esta pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " ha cursado la operaci�n anterior";
-		// 					//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
+		// 					$mes = "Esta pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " ha cursado la operación anterior";
+		// 					//$this->corr->todo ( 44, 'Alerta por límites', $mes );
 		// 					$this->log .= $this->err = $mes . "\n<br>";
 		// 					$pasV = $this->pasa;
 		// 					$pase = 0;
@@ -1433,7 +1433,7 @@ class inico {
 			$this->log .= "Chequeo del tipo de moneda\n<br>" . ($this->mon) . "\n<br>";
 			if ($this->temp->f('total') == 0) {
 				$mes = "Esta pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " no soporta la moneda " . $this->mon . " enviada";
-				//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
+				//$this->corr->todo ( 44, 'Alerta por límites', $mes );
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
 				$pase = 0;
@@ -1442,12 +1442,13 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite m�nimo por operaci�n
+		// Chequeo de límite mínimo por operación
 		if ($pase) {
-			$this->log .= "Chequeo de l&iacute;mite m&iacute;nimo por operaci�n\n<br>" . ($this->imp / 100) . " <= " . $datPas['LimMinOper'] . "\n<br>";
+			$this->log .= "Chequeo de limite minimo por operación\n<br>";
+			$this->log .= ($this->imp / 100) . " < " . $datPas['LimMinOper'] . "\n<br>";
 			if (($this->imp / 100) < $datPas['LimMinOper']) {
-				$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " menor que el l&iacute;mite m&iacute;nimo permitido por operaci�n" . " para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " que es de " . $datPas['LimMinOper'];
-				//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
+				$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " menor que el l&iacute;mite m&iacute;nimo permitido por operación" . " para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " que es de " . $datPas['LimMinOper'];
+				//$this->corr->todo ( 44, 'Alerta por límites', $mes );
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
 				$pase = 0;
@@ -1456,12 +1457,13 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite m�ximo por operaci�n
+		// Chequeo de límite máximo por operación
 		if ($pase) {
-			$this->log .= "Chequeo de l&iacute;mite m&aacute;ximo por operaci�n\n<br>" . ($this->imp / 100) . " > " . $datPas['LimMaxOper'] . "\n<br>";
+			$this->log .= "Chequeo de limite maximo por operación\n<br>";
+			$this->log .= ($this->imp / 100) . " > " . $datPas['LimMaxOper'] . "\n<br>";
 			if (($this->imp / 100) > $datPas['LimMaxOper']) {
-				$mes = "La operaci�n {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&aacute;ximo permitido por operaci�n" . " para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " que es de " . $datPas['LimMaxOper'];
-				//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
+				$mes = "La operación {$this->tran} con un valor de " . ($this->imp / 100) . " mayor que el l&iacute;mite m&aacute;ximo permitido por operación" . " para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa . " que es de " . $datPas['LimMaxOper'];
+				//$this->corr->todo ( 44, 'Alerta por límites', $mes );
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
 				$pase = 0;
@@ -1470,7 +1472,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite cantidad de transacciones por Ip
+		// Chequeo de límite cantidad de transacciones por Ip
 		if ($pase) {
 			$this->log .= "Chequeo del n&uacute;mero de transacciones para una IP\n<br>";
 			$q = "select count(t.idtransaccion) 'total'
@@ -1484,7 +1486,7 @@ class inico {
 			if ($this->temp->f('total') >= $datPas['LimOperIpDia']) {
 				$mes = "Se ha arribado al l&iacute;mite m&aacute;ximo de operaciones por IP al d&iacute;a que es de {$datPas['LimOperIpDia']} 
 							para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
-				//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
+				//$this->corr->todo ( 44, 'Alerta por límites', $mes );
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
 				$pase = 0;
@@ -1493,7 +1495,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite diario
+		// Chequeo de límite diario
 		if ($pase) {
 			$this->log .= "Chequeo de l&iacute;mite diario\n<br>";
 			$q = "select sum(t.valor_inicial/100/t.tasa) 'valor'
@@ -1505,7 +1507,7 @@ class inico {
 			$this->db($q);
 			$this->log .= ($this->temp->f('valor') + $this->imp / 100) . " >= " . ($datPas['LimDiar'] * $incPorc) . "\n<br>";
 			if (($this->temp->f('valor') + $this->imp / 100) >= ($datPas['LimDiar'] * $incPorc)) {
-				$mes = "Con la operaci�n {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite diario m&aacute;ximo por montos que es de {$datPas['LimDiar']} para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
+				$mes = "Con la operación {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite diario m&aacute;ximo por montos que es de {$datPas['LimDiar']} para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
 				$pase = 0;
@@ -1514,7 +1516,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite mensual
+		// Chequeo de límite mensual
 		if ($pase) {
 			$this->log .= "Chequeo de l&iacute;mite mensual\n<br>";
 			$q = "select sum(t.valor_inicial/100/t.tasa) 'valor'
@@ -1526,7 +1528,7 @@ class inico {
 			$this->db($q);
 			$this->log .= ($this->temp->f('valor') + $this->imp / 100) . " >= " . $datPas['LimMens'] . "\n<br>";
 			if (($this->temp->f('valor') + $this->imp / 100) >= $datPas['LimMens']) {
-				$mes = "Con la operaci�n {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite mensual m&aacute;ximo por 
+				$mes = "Con la operación {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite mensual m&aacute;ximo por 
 						montos que es de {$datPas['LimMens']} para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
@@ -1536,7 +1538,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite anual
+		// Chequeo de límite anual
 		if ($pase) {
 			$this->log .= "Chequeo de l&iacute;mite anual\n<br>";
 			$q = "select sum(t.valor_inicial/100/t.tasa) 'valor'
@@ -1548,7 +1550,7 @@ class inico {
 			$this->db($q);
 			$this->log .= ($this->temp->f('valor') + $this->imp / 100) . " >= " . $datPas['LimAnual'] . "\n<br>";
 			if (($this->temp->f('valor') + $this->imp / 100) >= $datPas['LimAnual']) {
-				$mes = "Con la operaci�n {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite anual m&aacute;ximo por 
+				$mes = "Con la operación {$this->tran} de un valor de " . ($this->imp / 100) . " se ha arribado al l&iacute;mite anual m&aacute;ximo por 
 						montos que es de {$datPas['LimAnual']} para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
@@ -1558,7 +1560,7 @@ class inico {
 			}
 		}
 
-		// Chequeo de l�mite de cantidad de operaciones al d�a
+		// Chequeo de límite de cantidad de operaciones al día
 		if ($pase) {
 			$this->log .= "Chequeo de cantidad de operaciones al d&iacute;a\n<br>";
 			$q = "select count(t.idtransaccion) 'valor'
@@ -1571,7 +1573,7 @@ class inico {
 			$this->db($q);
 			$this->log .= $this->temp->f('valor') . " >= " . $datPas['LimOperDia'] . "\n<br>";
 			if ($this->temp->f('valor') > $datPas['LimOperDia']) {
-				$mes = "Con la operaci�n {$this->tran} se ha arribado al l&iacute;mite diario m&aacute;ximo por operaciones que es de 
+				$mes = "Con la operación {$this->tran} se ha arribado al l&iacute;mite diario m&aacute;ximo por operaciones que es de 
 						{$datPas['LimOperDia']} para esta la pasarela " . $datPas['nombre'] . " identificador " . $this->pasa;
 				$this->log .= $this->err = $mes . "\n<br>";
 				$pasV = $this->pasa;
@@ -1612,7 +1614,7 @@ class inico {
 // echo "catArr=".$this->datCom['pasarelaAlMom'];
 		//if (_MOS_CONFIG_DEBUG) $pase = 0;
 
-		if ($pase == 0 && $this->comer != '122327460662') { // si ha saltado alg�n l�mite.. y el comercio no es Prueba
+		if ($pase == 0 && $this->comer != '122327460662') { // si ha saltado algún límite.. y el comercio no es Prueba
 			$this->log .= "Necesita cambio de pasarela\n<br>";
 			
 			if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040'
@@ -1621,17 +1623,20 @@ class inico {
 
 			if (count($this->psArray) == 0 && $this->mp == '') {
 				// entra por primera vez determina los elementos y el orden del array de pasarelas seguras
-				// basados en el comportamiento que han tenido los �ltimos 7 d�as
+				// basados en el comportamiento que han tenido los últimos 7 días
 
+				return false;
+
+				/* Reina
 				if (count($this->psArray) == 0)
-					return true; // si no aparece ninguna pasarela
+					return true; // si no aparece ninguna pasarela */
 			} elseif (count($this->psArray) == 0 && $this->mp != '') { // si recorre todo el array y no tiene ninguna pasarela seleccionada...
 
 				// $this->pasa = $this->mps; //toma la mejor y se encarga a Dios
-				$this->corr->todo(44, "Operaci�n posible a Denegar", "Esta operaci�n super� alg�n l�mite la causa fu�: $causa");
-				return false; // Retorna falso y d� error
+				$this->corr->todo(44, "Operación posible a Denegar", "Esta operación superó algún límite la causa fué: $causa");
+				return false; // Retorna falso y dá error
 			} elseif (count($this->psArray) == 1) {
-				//no quedan m�s pasarelas en el array escojo retorno esta �ltima y aviso
+				//no quedan más pasarelas en el array escojo retorno esta última y aviso
 
 				//retorno falso si no quedan mas pasarelas
 				$this->corr->todo(44, "Problema con la pasarela escogida", $this->log);
@@ -1640,13 +1645,13 @@ class inico {
 				$sal = '';
 				
 				for($i = 0; $i < count($this->arrPV); $i++) {
-					$sal .= "La pasarela ".$this->arrPV[$i]." salt� por ".$this->arrMD[$i]."<br>";
+					$sal .= "La pasarela ".$this->arrPV[$i]." saltó por ".$this->arrMD[$i]."<br>";
 				}
 				$this->log .= "<br><br>problema con la pasarela escogida ".$this->arrMD[$i].$sal;
 //				$this->corr->todo(44, "Problema con la pasarela escogida", $this->log);
 
-				//si la tarjeta es Amex y la moneda USD verifico que la operaci�n se vaya por Navarra Amex 3D
-				//que es la �nica autorizada a cobrar usd
+				//si la tarjeta es Amex y la moneda USD verifico que la operación se vaya por Navarra Amex 3D
+				//que es la única autorizada a cobrar usd
 				if ($this->mon == '840' && $this->amex == '1') {
 					return $this->usdxamex();
 				} else 
@@ -1657,8 +1662,8 @@ class inico {
 			$this->pasa = $this->psArray[0];
 
 			$mes .= " Pasar&aacute; a la pasarela" . $this->pasa;
-			//$this->corr->todo ( 44, 'Alerta por l�mites', $mes );
-			$this->log .= "La pasarela {$datPas['nombre']} ha llegado al tope por $causa la operaci�n {$this->tran} pas� a la pasarela {$this->pasa}
+			//$this->corr->todo ( 44, 'Alerta por límites', $mes );
+			$this->log .= "La pasarela {$datPas['nombre']} ha llegado al tope por $causa la operación {$this->tran} pasó a la pasarela {$this->pasa}
 							contador = $this->contador\n<br>\n<br>";
 			$this->contador++;
 			return $this->CheqLimites(false);
@@ -1668,7 +1673,7 @@ class inico {
 
 	/**
 	 * Verifica que el comercio tenga la(s) pasarela(2) autorizadas para las operaciones
-	 * con Amex en usd, si no lo tuviera retorna error y la operaci�n no se efect�a
+	 * con Amex en usd, si no lo tuviera retorna error y la operación no se efectúa
 	 *
 	 * @return boolean
 	 */
@@ -1694,7 +1699,7 @@ class inico {
 	}
 
 	/**
-	 * Chequea el n�mero de la tarjeta
+	 * Chequea el número de la tarjeta
 	 * 
 	 * @param integer $number        	
 	 * @return boolean
@@ -1717,7 +1722,7 @@ class inico {
 	}
 
 	/**
-	 * Chequea el tipo de tarjeta que se est� procesando
+	 * Chequea el tipo de tarjeta que se está procesando
 	 * 
 	 * @param string $cc        	
 	 * @return boolean
@@ -1748,13 +1753,13 @@ class inico {
 	}
 
 	/**
-	 * Busca el pa�s desde donde se est� haciendo la operaci�n
+	 * Busca el país desde donde se está haciendo la operación
 	 * 
 	 * @return string
 	 */
 	function damepais() {
 		$idpais = 'null';
-		$this->log .= "\n<br>Determina el pa�s desde donde se est� realizando la operaci�n\<br>";
+		$this->log .= "\n<br>Determina el país desde donde se está realizando la operación\<br>";
 		if (function_exists(geoip_country_code3_by_name)) {
 			if (strlen(geoip_country_code3_by_name($this->ip)) > 0) {
 				$this->db("select id from tbl_paises where iso = '" . geoip_country_code3_by_name($this->ip) . "'");
@@ -1776,7 +1781,7 @@ class inico {
 	}
 
 	/**
-	 * Inserta la operaci�n en la BD
+	 * Inserta la operación en la BD
 	 * 
 	 * @return boolean
 	 */
@@ -1784,13 +1789,13 @@ class inico {
 		$this->log .= "Determina la moneda con la que Bidaiondo pagara al comercio<br>";
 		$this->db("select idmoneda from tbl_colComerPasaMon where idcomercio = '".$this->datCom['id']."' and idpasarela = '".$this->pasa."'");
 		$this->receiveCurrency = $this->temp->f('idmoneda');
-		$this->log .= "El comercio recibir� el resultado de esta operaci�n en {$this->receiveCurrency}<br>";
+		$this->log .= "El comercio recibirá el resultado de esta operación en {$this->receiveCurrency}<br>";
 
         $this->log .= "tipo de operacion: ".$this->opr."<br>";
 		if ($this->opr == 'P' || $this->opr == 'A' || $this->opr == 'R') {
-			$this->idTrn = trIdent(true); // Genera el identificador de la transacci�n
+			$this->idTrn = trIdent(true); // Genera el identificador de la transacción
 			
-			$this->log .= "\n<br>Inserta la operaci�n\<br>";
+			$this->log .= "\n<br>Inserta la operación\<br>";
 			if(isset($bipayId)){
 				$accN = $this->db("insert into tbl_transacciones (idtransaccion,idcomercio,identificador,tipoOperacion,fecha,fecha_mod,"."valor_inicial,tipoEntorno,moneda,estado, sesion, idioma, pasarela, ip, idpais, tpv, id_tarjeta, tipoPago, bipayId) values ('".$this->idTrn."','{$this->comer}','{$this->tran}','{$this->opr}',".time().",".time().","."{$this->imp},'{$this->datCom['estado']}',{$this->mon},'P','{$this->frma}','{$this->idi}',{$this->pasa},"."'{$this->ip}','".$this->damepais()."','{$this->tpv}','{$this->amex}','{$this->tipo}','$bipayId')");
 			} else{
@@ -1798,7 +1803,7 @@ class inico {
 			}
 			if ($accN === false)
 				return false;
-			// actualiza la pasarela en la tbl_reserva segun el �ltimo cambio realizado
+			// actualiza la pasarela en la tbl_reserva segun el último cambio realizado
 			$this->db("update tbl_reserva set pasarela = {$this->pasa} where id_comercio = '{$this->comer}' and codigo = '{$this->tran}'");
 
 			// if ($this->comer == '527341458854' || $this->comer == '144172448713' || $this->comer == '163430526040') {
@@ -1818,8 +1823,8 @@ class inico {
 	function verComer() {
 		$this->log = "\n<br>Verifica la validez del comercio\n<br>";
 		// if (time() >= mktime(0, 0, 1, 8, 1, 2014) and $this->comer == '527341458854') {
-		// $this->err = "Comercio inv�lido";
-		// $this->log .= "Ha tratado de entrar una operaci�n de AIS";
+		// $this->err = "Comercio inválido";
+		// $this->log .= "Ha tratado de entrar una operación de AIS";
 		// return false;
 		// }
 
@@ -1843,7 +1848,7 @@ class inico {
 		$this->log .= "moneda=".$this->mon." \n<br>";
 		$this->log .= "usdxamex=".$this->datCom['usdxamex']." \n<br>";
 		$this->log .= "amex=".$this->amex." \n<br>";
-		// Chequeo de restricci�n por la autorizaci�n de usar Amex con otra divisa que no sea EUR
+		// Chequeo de restricción por la autorización de usar Amex con otra divisa que no sea EUR
 		if ($this->amex == 1) {
 			if ($this->mon != 978 && $this->mon != 840) {
 				$pase = 0;
@@ -1870,12 +1875,12 @@ class inico {
 	}
 
 	/**
-	 * Verifica la firma de la operaci�n
+	 * Verifica la firma de la operación
 	 * 
 	 * @return boolean
 	 */
 	function verFir() {
-		$this->log = "\n<br>Verifica la firma de la operaci�n\n<br>";
+		$this->log = "\n<br>Verifica la firma de la operación\n<br>";
 		$this->log .= "firma $this->comer . $this->tran . $this->imp . $this->mon . $this->opr\n<br>";
 		if (strlen($this->frma) == 32) 
 			$Calc = convierte($this->comer, $this->tran, $this->imp, $this->mon, $this->opr);
@@ -1894,7 +1899,7 @@ class inico {
 	}
 
 	/**
-	 * Verificaci�n de las operaciones desde el comercio
+	 * Verificación de las operaciones desde el comercio
 	 * 
 	 * @return boolean
 	 */
@@ -1903,7 +1908,7 @@ class inico {
 		if($this->tran === $referencia){
 			// Se verifica si la operacion es de un linl de pruebas
 		} else {
-			$this->log = "\n<br>Verifica que la operaci�n no se haya repetido anteriormente\n<br>";
+			$this->log = "\n<br>Verifica que la operación no se haya repetido anteriormente\n<br>";
 			$this->db("select idtransaccion, sesion, from_unixtime(fecha,'%d/%m/%y %H:%i:%s') fc from tbl_transacciones where identificador = '" . $this->tran . "' and idcomercio = '" . $this->comer . "'");
 
 			if ($this->temp->f('sesion') == $this->frma) {
@@ -1918,7 +1923,7 @@ class inico {
 					$this->log .= "Se crean los arrays arrCli y arrUsu con " . count($this->arrCli) . " y " . count($this->arrCli) . "elementos respectivamente.\n<br>";
 				}
 				$this->err = "Transacci&oacute;n duplicada. P&iacute;dale a su comercio la genere nuevamente.<br>Duplicated transacction. Ask " . "your commerce generates it again.<br>Transazione doppia. Ha cliccato due volte sul collegamento (link). Ne richieda uno nuovo.";
-				$this->log .= "Transacci�n duplicada " . $this->temp->f('fc') . "\n<br>";
+				$this->log .= "Transacción duplicada " . $this->temp->f('fc') . "\n<br>";
 				$this->saltosPasar("Transacci&oacute;n duplicada" . $this->temp->f('fc') . "\n<br>");
 				return false;
 			}
@@ -1927,7 +1932,7 @@ class inico {
 	}
 
 	/**
-	 * Realiza todas las verificaciones sobre las IPs que env�an pagos
+	 * Realiza todas las verificaciones sobre las IPs que envían pagos
 	 * 
 	 * @return boolean
 	 */
@@ -1952,7 +1957,7 @@ class inico {
 			}
 		} else return true;
 
-		$this->log .= "\n<br>Verifica que la ip desde donde est�n pagando no est� bloqueada\n<br>";
+		$this->log .= "\n<br>Verifica que la ip desde donde están pagando no está bloqueada\n<br>";
         /* Reina - 26-01-2023
         $this->db(sprintf("select id from tbl_ipBL where ip='%s' and cuenta >= 5", $this->ip));
         if ($this->temp->num_rows() !== 0) {
@@ -1976,7 +1981,7 @@ class inico {
             }
         }
 
-		$this->log .= "\n<br>Verifica que la ip no est� bloqueada por pagos denegados\n<br>";
+		$this->log .= "\n<br>Verifica que la ip no está bloqueada por pagos denegados\n<br>";
 		$this->db(sprintf("select idips from tbl_ipbloq where ip = '%s' and bloqueada = 1", $this->ip));
 		if ($this->temp->num_rows() !== 0) {
 			$this->err = 'Su IP est&aacute; bloqueada, contacte a su comercio / Your IP is banned, contact to your e-commerce';
@@ -1989,7 +1994,7 @@ class inico {
 	}
 	
     /**
-     * Env�os de SMS desde la plataforma Esendex
+     * Envíos de SMS desde la plataforma Esendex
      *
      * @param [int] $id identificador del mensaje
      * @param [varchar] $mens texto del mensaje
@@ -2022,7 +2027,7 @@ class inico {
             
             if (strlen($result->id()) > 5) {
                 error_log("mensaje enviado a $telefono");
-            } else return "Hubo error en el env�o de los SMS";
+            } else return "Hubo error en el envío de los SMS";
         }
         error_log("SMS enviado");
         return true;
@@ -2030,7 +2035,7 @@ class inico {
 
 	/**
 	 * Alertas de Seguridad.
-	 * Es una funci�n que s�lo env�a alertas no bloquean operaciones
+	 * Es una función que sólo envía alertas no bloquean operaciones
 	 * 
 	 * @return boolean
 	 */
@@ -2040,7 +2045,7 @@ class inico {
 		$this->db("select moneda from tbl_moneda where idmoneda = '".$this->mon."'");
 		($this->temp->num_rows() == 0) ? $mone = '' : $mone = $this->temp->f('moneda');
 		$mensage = "";
-		$this->log = "\n<br>Verifica que el monto de la operaci�n no est� por encima del m�ximo de peligro\n<br>";
+		$this->log = "\n<br>Verifica que el monto de la operación no está por encima del máximo de peligro\n<br>";
 		if ($this->imp >= leeSetup('montoAlerta') * 100) {
 			$mensage .= "Se est&aacute; realizando una transacci&oacute;n por un monto de " . number_format(($this->imp / 100), 2, '.', ' ');
 			$mensage .= " $mone correspondiente al comercio: " . $this->datCom['nombre']. " impuesto por el Usuario: ".$admin;
@@ -2049,15 +2054,15 @@ class inico {
 			$this->corr->todo(10, "Alerta de vigilancia antifraude", $mensage);
 			$this->log .= $mensage;
 			$mensage = str_replace("&oacute;","o",str_replace("&aacute;","a",str_replace("<br />", "", $mensage)));
-			if (!envioSMS(2,$mensage)) error_log("Error en el env�o de los sms de l�mites");
+			if (!envioSMS(2,$mensage)) error_log("Error en el envío de los sms de límites");
 		}
 
 		return true;
 	}
 
 	/**
-	 * Determina si la IP desde la que se est� realizando el pago
-	 * est� en el listado de las IPs blancas
+	 * Determina si la IP desde la que se está realizando el pago
+	 * está en el listado de las IPs blancas
 	 * 
 	 * @return boolean
 	 */
@@ -2073,7 +2078,7 @@ class inico {
 	}
 
 	/**
-	 * Cambio de pasarelas seg�n la moneda
+	 * Cambio de pasarelas según la moneda
 	 * 
 	 * @return boolean
 	 */
@@ -2082,11 +2087,11 @@ class inico {
 		$npas = 0;
 		// Euros de Soy Cubano por IDirect
 		// if($this->pasa === 36 && $this->mon === '978' && $this->comer === '411691546810') {$npas = 42;}
-		// Todo el EUR de Cubana lo voy rotando entre las pasarelas, la rotaci�n de los USD se cambia en la tbl_rotComPas
+		// Todo el EUR de Cubana lo voy rotando entre las pasarelas, la rotación de los USD se cambia en la tbl_rotComPas
 		$this->db("select count(*) total from tbl_rotPasarOperac r, tbl_comercio c where c.id = r.idcomercio and r.activo = 1 and c.idcomercio = '".$this->comer."' and r.idmoneda = '".$this->mon."'");
 		$cantPas = $this->temp->f('total');
 		if ($cantPas > 0) {
-			$this->log .= "<br>\nCambia pasarela por n�mero de operaciones y moneda<br>\n";
+			$this->log .= "<br>\nCambia pasarela por número de operaciones y moneda<br>\n";
 			$this->db("select pasarela from tbl_transacciones where moneda = '".$this->mon."' and idcomercio = '".$this->comer."' order by fecha desc limit 0,1");
 			$ultpasUsa = $this->temp->f('pasarela');
 			$this->log .= "Ultima pasarela usada: $ultpasUsa<br>\n";
@@ -2126,7 +2131,7 @@ class inico {
 					}
 				}
 			} else {
-				$this->log .= "Entra acull�<br>";
+				$this->log .= "Entra acullá<br>";
 				for ($i = 1; $i<$cantPas; $i++) {
 					$q = "select idpasarela from tbl_rotPasarOperac r, tbl_comercio c where c.id = r.idcomercio and c.idcomercio = '".$this->comer."' and r.idmoneda = '".$this->mon."' and orden = $i limit 0,1";
 					$this->db($q);
@@ -2164,7 +2169,7 @@ class inico {
 	}
 
 	/**
-	 * Elabora la cadena de env�o al TPV de prueba
+	 * Elabora la cadena de envío al TPV de prueba
 	 * 
 	 * @return boolean
 	 */
@@ -2202,7 +2207,7 @@ class inico {
                     if ($this->datPas['datPas'] != 'pasoA@firmaX') {
                         $forma .= "<input type=\"$est\" name=\"$key\" value=\"$value\"/>\n";
                     } else {
-                        $forma .= "$key=$value" . '�';
+                        $forma .= "$key=$value" . '¿';
                     }
                 }
 
@@ -2219,7 +2224,7 @@ class inico {
 					if ($this->datPas['datPas'] != 'pasoA@firmaX') {
 						$forma .= "<input type=\"$est\" name=\"$key\" value=\"$value\"/>\n";
 					} else {
-						$forma .= "$key=$value" . '�';
+						$forma .= "$key=$value" . '¿';
 					}
 				}
 			} elseif ($this->datPas['tipo'] == 'iframe') { // echo "entra";
@@ -2254,7 +2259,7 @@ class inico {
 	}
 
 	/**
-	 * Finaliza el formulario de env�o
+	 * Finaliza el formulario de envío
 	 * @return string
 	 */
 	private function finForm() {
@@ -2285,7 +2290,7 @@ class inico {
 	 */
 	private function cambVals($cad) {
 		$this->log .= "Sustituye valores en la cadena\n<br>";
-		$this->log .= "Pasarela de env�o: {$this->pasa} - {$this->datPas['nombre']}\n<br>";
+		$this->log .= "Pasarela de envío: {$this->pasa} - {$this->datPas['nombre']}\n<br>";
         //$this->saltosPasar("Transacci&oacute;n enviada al banco");
 		$imp = $this->imp;
 		$tr = $this->idTrn;
@@ -2333,7 +2338,7 @@ class inico {
 					if ($this->opr == 'D') $tipoTrans = '3'; else $tipoTrans = '0';
 					$message = $imp . $tr . $this->datPas['comercio'] . $this->mon . $tipoTrans . $urlcomercio . $this->datPas['clave'];
 
-					// if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sac� Titanes
+					// if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sacó Titanes
 					// 	$this->db("select idtitanes, fechaDocumento from tbl_aisCliente where idcimex = " . $this->datAis['idremitente']);
 					// 	if (!$this->temp->f('idtitanes') > 0) {
 					// 		$this->err = "El cliente no existe en la Base de datos";
@@ -2614,7 +2619,7 @@ class inico {
 						if ($this->segura == 1)	$tipoTrans = 1;
 						else {
 							if ($this->pasa == 89 || $this->pasa == 161) {
-								$tipoTrans = 27; //s�lo iberoTef2 e iberoTef2 TIENDAS
+								$tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
 							} else $tipoTrans = 22; //para el resto de los Tef
 						}
 					}
@@ -2628,7 +2633,7 @@ class inico {
 
 					} else {
 						if ($this->pasa == 89 || $this->pasa == 161) {
-							$tipoTrans = 27; //s�lo iberoTef2 e iberoTef2 TIENDAS
+							$tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
 						} else $tipoTrans = 22; //para el resto de los Tef
 					}*/
 					if ($this->opr == 'A') $tipoTrans = 2;
@@ -2661,7 +2666,7 @@ class inico {
 			                    $termAuth = $this->datPas['terminal'];
 		                    } else {
 			                    if ($this->pasa == 89 || $this->pasa == 161) {
-				                    $tipoTrans = 27; //s�lo iberoTef2 e iberoTef2 TIENDAS
+				                    $tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
 			                    } else $tipoTrans = 22; //para el resto de los Tef
 		                    }
 	                    }
@@ -2674,7 +2679,7 @@ class inico {
                             $tipoTrans = 84;
                         } else {
                             if ($this->pasa == 89 || $this->pasa == 161) {
-                                $tipoTrans = 27; //s�lo iberoTef2 e iberoTef2 TIENDAS
+                                $tipoTrans = 27; //sólo iberoTef2 e iberoTef2 TIENDAS
                             } else $tipoTrans = 22; //para el resto de los Tef
                         } */
                         if ($this->opr == 'A') $tipoTrans = 2;
@@ -2756,7 +2761,7 @@ class inico {
 					$ch = curl_init();
 					curl_setopt_array($ch, $options);
 					$output = curl_exec($ch);
-					if (curl_error($ch)) $this->log .= "Error en la resp de Xilema:" . curl_error($ch) . "<br>\nurl de env�o: " . $this->datPas['url'];
+					if (curl_error($ch)) $this->log .= "Error en la resp de Xilema:" . curl_error($ch) . "<br>\nurl de envío: " . $this->datPas['url'];
 
 					$curl_info = curl_getinfo($ch);
 					curl_close($ch);
@@ -2847,7 +2852,7 @@ class inico {
 					// $ch = curl_init();
 					// curl_setopt_array($ch, $options);
 					// // $output = curl_exec($ch);
-					// if (curl_error($ch)) $this->log .= "Error en la resp de Moneytigo:" . curl_error($ch) . "<br>\nurl de env�o: " . $this->datPas['url'];
+					// if (curl_error($ch)) $this->log .= "Error en la resp de Moneytigo:" . curl_error($ch) . "<br>\nurl de envío: " . $this->datPas['url'];
 
 					// $curl_info = curl_getinfo($ch);
 					// curl_close($ch);
@@ -2860,23 +2865,29 @@ class inico {
 
 					$ecpc = new EurocoinPayClass();
 
-					$q = "select terminal, clave FROM tbl_colPasarMon where idmoneda = '" . $this->mon . "' and estado = 1 and idpasarela = " . $this->pasa;
+					$q = "select terminal, clave, comercio FROM tbl_colPasarMon where idmoneda = '" . $this->mon . "' and estado = 1 and idpasarela = " . $this->pasa;
 					$this->db($q);
 					$codi = $this->temp->f('clave');
 					$term = $this->temp->f('terminal');
+					$comercio = $this->temp->f('comercio');
 
 					$this->log .= "URL->".$this->datPas['url'] . "<br>";
 					$this->log .= "urlOri=" . $urlOri . "llegada.php<br>";
 					$this->log .= "terminal=" . $this->temp->f('terminal') . "<br>clave=" . $this->temp->f('clave') . "<br>";
-		
+
+					$q = "select moneda FROM tbl_moneda where idmoneda = " . $this->mon;
+					$this->db($q);
+					$moneda = $this->temp->f('moneda');
+
+					$this->log .= "moneda->".$moneda. "<br>";
 
 					//TODO: Set here your payment terminal parameters, provided by EurocoinPay
-					$ecpc->eurocoinpay_customer_number = 7;
+					$ecpc->eurocoinpay_customer_number = $comercio;
 					$ecpc->eurocoinpay_terminal_number = $term;
 					$ecpc->eurocoinpay_encryption_key = $codi;
-					$ecpc->eurocoinpay_real_mode = $this->datPas['url']; // real or test payments
-					$ecpc->eurocoinpay_shop_name = 'Test shop'; // The name of your shop to be displayed
-					$ecpc->eurocoinpay_log_enabled = false; // Only activate this setting if instructed by EurocoinPay
+					$ecpc->eurocoinpay_real_mode = 'test'; // real or test payments
+					$ecpc->eurocoinpay_shop_name = 'Caribbean Travels'; // The name of your shop to be displayed
+					$ecpc->eurocoinpay_log_enabled = 'false'; // Only activate this setting if instructed by EurocoinPay
 
 
 					$cur_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -2888,11 +2899,18 @@ class inico {
 					$ecpc->eurocoinpay_url_ok = $urldirOK;
 					$ecpc->eurocoinpay_url_fail = $urldirKO;
 					$ecpc->eurocoinpay_url_notif = $urlOri . "llegada.php";
-					$this->log .= "urldirOK = " . $urldirOK . "<br>";
-					$this->log .= "urldirKO = " . $urldirKO . "<br>";
-					$sndData = $ecpc->prepareDataForEcpServer($tr ,$imp,  $this->mon );
+					$this->log .= "ecpc->eurocoinpay_customer_number = " . $ecpc->eurocoinpay_customer_number . "<br>";
+					$this->log .= "ecpc->eurocoinpay_terminal_number = " . $ecpc->eurocoinpay_terminal_number . "<br>";
+					$this->log .= "ecpc->eurocoinpay_encryption_key = " . $ecpc->eurocoinpay_encryption_key . "<br>";
+					$this->log .= "ecpc->eurocoinpay_real_mode = " . $ecpc->eurocoinpay_real_mode . "<br>";
+					$this->log .= "ecpc->eurocoinpay_shop_name = " . $ecpc->eurocoinpay_shop_name . "<br>";
+					$this->log .= "ecpc->eurocoinpay_log_enabled = " . $ecpc->eurocoinpay_log_enabled . "<br>";
+					$this->log .= "ecpc->eurocoinpay_url_notif = " . $ecpc->eurocoinpay_url_notif . "<br>";
+					$this->log .= "ecpc->eurocoinpay_url_ok = " . $ecpc->eurocoinpay_url_ok . "<br>";
+					$this->log .= "ecpc->eurocoinpay_url_fail = " . $ecpc->eurocoinpay_url_fail . "<br>";
+					$sndData = $ecpc->prepareDataForEcpServer($tr ,($this->imp / 100),  $moneda );
 
-					$this->log .= "salida = " . $salida . "<br>";
+					$this->log .= "salida = " . $sndData . "<br>";
 
 					$this->datPas['url'] = $sndData['srvUrl'];
 					$data = $sndData['data'];
@@ -2900,7 +2918,7 @@ class inico {
 					break;
 			}
 
-			if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sac� Titanes
+			if (isset($this->datAis['idremitente']) && $this->datAis['idremitente'] > 10) { //Para la pasarela de Redsys que sacó Titanes
 
 				$this->db("select idtitanes, fechaDocumento from tbl_aisCliente where idcimex = " . $this->datAis['idremitente']);
 				if (!$this->temp->f('idtitanes') > 0) {
@@ -3125,7 +3143,7 @@ class inico {
 			';shopname_customParameter2;' => $shopname_customParameter2,
 			';fgprtord;' => $fgprtord,
 			';urlser;' => $urlser,
-			';T;' => 'T',
+//			';T;' => 'T',
 			';pasar;' => $this->pasa,
 			';secu;' => $this->datPas['secure'],
 			';jetid;' => $this->datPas['variant'],
@@ -3162,15 +3180,15 @@ class inico {
 	}
 
 	/**
-	 * Funci�n para la b�squeda inteligente de la pr�xima pasarela ********** OBSOLETA ************
+	 * Función para la búsqueda inteligente de la próxima pasarela ********** OBSOLETA ************
 	 */
 	private function arrpasar() {
-		$dias = 7; // n�mero de d�as hacia atr�s para buscar datos
+		$dias = 7; // número de días hacia atrás para buscar datos
 		$this->log .= "Cambio de pasarela inteligente\n<br>";
 		$restpasa = '';
 		$inser = ' ';
 
-		// Cubana rotar� por las siguientes pasarelas para las divisas:
+		// Cubana rotará por las siguientes pasarelas para las divisas:
 		// Sabadell 2, Bankia 4, Caixa bank 2, Bankia 5, Navarra 2, Ibercaja
 		// Para los EUR por:
 		// Ibercaja, Sabadell DCC, Bankia DCC, Navarra DCC, Laboral 3D, Abanca 3D
@@ -3202,10 +3220,10 @@ class inico {
 		else {
 			$minop = 500001;
 			$maxop = 5000000000;
-		} // m�s de 5000
+		} // más de 5000
 		$this->log .= "$minop - $maxop\n<br>";
 
-		if ($this->comer == '147145461846') //servicios m�dicos docentes
+		if ($this->comer == '147145461846') //servicios médicos docentes
 			$inser .= 'and p.idPasarela in (59,63,12,45,46) ';
 			
 		if ($this->opr == 'A') $tipo = "'A'"; 
@@ -3233,7 +3251,7 @@ class inico {
 		// si hay restricciones de pasarela
 		if (strlen($restpasa) > 0)
 			$q .= " and t.pasarela in ($restpasa)";
-		// eliminar wirecard WDCP de la rotaci�n
+		// eliminar wirecard WDCP de la rotación
 		$q .= " and t.pasarela not in (64)";
 
 		$q .= "		and p.activo = 1
@@ -3252,13 +3270,13 @@ class inico {
 	}
 
 	/**
-	 * Variaci�n de datos a Redsys con el c�lculo de la firma SHA256
+	 * Variación de datos a Redsys con el cálculo de la firma SHA256
 	 * 
 	 * @return string
 	 */
 	private function varRedsys($aft = null) {
 
-		//afecta el monto seg�n la moneda para yenes y pesos chilenos
+		//afecta el monto según la moneda para yenes y pesos chilenos
 		$this->db("select factmult from tbl_moneda where idmoneda = '{$this->mon}'");
 		$amount = $this->imp / $this->temp->f('factmult');
 		$id = $this->idTrn;

@@ -11,6 +11,8 @@ include_once("../admin/adminis.func.php");
 require_once( '../include/apiRedsys.php' );
 require_once( '../admin/classes/entrada.php' );
 
+//xdebug_break();
+
 $miObj = new RedsysAPI;
 $temp = new ps_DB;
 //$dms=new dms_send;
@@ -24,11 +26,82 @@ $ent = new entrada;
 
 
 #id de la pasarela EurocoinPay
-$pasaEuroP = 223; #TODO Revisar si este es el id de la pasarela
+$pasaEuroP = 248; #TODO Revisar si este es el id de la pasarela
 
 /*********************************************************************************************************************/
+if (stripos(_MOS_CONFIG_DEBUG)) {
+	// $_REQUEST['Ds_SignatureVersion'] = 'HMAC_SHA256_V1';
+	// $_REQUEST['Ds_MerchantParameters'] = 'eyJEc19EYXRlIjoiMjElMkYwNCUyRjIwMjIiLCJEc19Ib3VyIjoiMTklM0E1NyIsIkRzX1NlY3VyZVBheW1lbnQiOiIxIiwiRHNfQ2FyZF9UeXBlIjoiRCIsIkRzX0V4cGlyeURhdGUiOiIyNDAxIiwiRHNfTWVyY2hhbnRfSWRlbnRpZmllciI6IjMyMmU2YmRkN2QwOTkxN2Y0NGEzN2Y5NGY0ZjFhZDMzNWE2YjM5ZWEiLCJEc19DYXJkX0NvdW50cnkiOiI3MjQiLCJEc19BbW91bnQiOiIyNTAxIiwiRHNfQ3VycmVuY3kiOiI5NzgiLCJEc19PcmRlciI6IjIyMDQyMTE5NTUzNSIsIkRzX01lcmNoYW50Q29kZSI6IjA1OTM4MDc4MiIsIkRzX1Rlcm1pbmFsIjoiMDAxIiwiRHNfUmVzcG9uc2UiOiIwMDAwIiwiRHNfTWVyY2hhbnREYXRhIjoiIiwiRHNfVHJhbnNhY3Rpb25UeXBlIjoiMCIsIkRzX0NvbnN1bWVyTGFuZ3VhZ2UiOiIxIiwiRHNfQXV0aG9yaXNhdGlvbkNvZGUiOiIyNzE5MzYiLCJEc19DYXJkX0JyYW5kIjoiMSIsIkRzX01lcmNoYW50X0NvZl9UeG5pZCI6IjIxMTE3MTg1ODA0NDQ5MyIsIkRzX1Byb2Nlc3NlZFBheU1ldGhvZCI6Ijc4In0=';
+	// $_REQUEST['Ds_Signature'] = '6t83_3_k91s_7cJlBk91fx9XqzyDhnOtpHpPxU23eO8=';
+	
+//$_REQUEST['Ds_Amount'] = '23760';
+//$_REQUEST['Ds_Date'] = '171116221123';
+//$_REQUEST['Ds_AuthorisationCode'] = '0';
+//$_REQUEST['Ds_Bank'] = '2038';
+//$_REQUEST['Ds_Message'] = 'Operacion denegada';
+//$_REQUEST['Ds_Code'] = '201';
+//$_REQUEST['Ds_CodeBank'] = '0190';
+//$_REQUEST['Ds_Merchant_MatchingData'] = '171116221050000000000';
+//$_REQUEST['Ds_Merchant_TransactionType'] = '22';
+//$_REQUEST['Ds_PanMask'] = '0005';
+//$_REQUEST['Ds_Expiry'] = '1805';
+//$_REQUEST['Ds_Merchant_Guarantees'] = '0';
+//$_REQUEST['Ds_Signature'] = '206468d41e317ff572ca84e43176ad920226f519';
+//$_REQUEST['Ds_Merchant_MerchantCode'] = '126791813';
+//$_REQUEST['Ds_CostumerCreditCardBin'] = '553397';
+//$_REQUEST['Ds_CostumerCreditCardBrand'] = 'MASTERCARD';
+//$_REQUEST['Ds_CostumerCreditCardOrganization'] = 'OPTAL FINANCIAL, LTD.';
+//$_REQUEST['Ds_CostumerCreditCardType'] = 'CREDIT';
+//$_REQUEST['Ds_CostumerCreditCardCategory'] = 'BUSINESS';
+//$_REQUEST['Ds_CostumerCreditCardCountry'] = 'UNITED KINGDOM';
+//$_REQUEST['Ds_CostumerCreditCardCountryCode2'] = 'GB';
+//$_REQUEST['Ds_CostumerCreditCardCountryCode'] = 'GBR';
+//$_REQUEST['Ds_CostumerCreditCardCountryNumber'] = '826';
+//$_REQUEST['Ds_CostumerCreditCardOrganizationWWW'] = '';
+//$_REQUEST['Ds_CostumerCreditCardOrganizationPhone'] = '';
+	
+// $_REQUEST['Ds_Date'] = '171121032119';
+// $_REQUEST['Ds_Merchant_MatchingData'] = '171121031953000000000';
+// $_REQUEST['Ds_PanMask'] = '2011';
+// $_REQUEST['Ds_Merchant_TransactionType'] = '46';
+// $_REQUEST['Ds_Merchant_MerchantCode'] = '160324919';
+// $_REQUEST['Ds_Merchant_Amount'] = '23000';
+// $_REQUEST['Ds_Code'] = '700';
+// $_REQUEST['Ds_Merchant_ClientId'] = '399147';
+// $_REQUEST['Ds_Merchant_BeneficiaryId'] = '1132572';
+// $_REQUEST['Titanes_OrderId'] = '5470635';
+// $_REQUEST['Titanes_OrderStatusCode'] = '3';
+// $_REQUEST['Titanes_OrderStatus'] = 'Available';
+// $_REQUEST['Titanes_Description'] = 'Money has been received.';
+// $_REQUEST['Ds_Signature'] = '';
+// $_REQUEST['Titanes_OrderCode'] = '3';
 
+// $_REQUEST['amount'] = '8';
+// $_REQUEST['currency'] = '840';
+// $_REQUEST['paymentType'] = 'CCARD';
+// $_REQUEST['financialInstitution'] = 'MC';
+// $_REQUEST['language'] = 'en';
+// $_REQUEST['orderNumber'] = '1398119';
+// $_REQUEST['paymentState'] = 'SUCCESS';
+// $_REQUEST['shopname_customParameter1'] = '160714231513';
+// $_REQUEST['shopname_customParameter2'] = 'shopname_customParameter2';
+// $_REQUEST['authenticated'] = 'Yes';
+// $_REQUEST['anonymousPan'] = '0001';
+// $_REQUEST['expiry'] = '12/2016';
+// $_REQUEST['cardholder'] = 'john Doe';
+// $_REQUEST['maskedPan'] = '950000******0001';
+// $_REQUEST['gatewayReferenceNumber'] = 'DGW_1398119_RN';
+// $_REQUEST['gatewayContractNumber'] = 'DemoContractNumber123';
+// $_REQUEST['avsResponseCode'] = 'X';
+// $_REQUEST['avsResponseMessage'] = 'Demo AVS ResultMessage';
+// $_REQUEST['avsProviderResultCode'] = 'X';
+// $_REQUEST['avsProviderResultMessage'] = 'Demo AVS ProviderResultMessage';
+// $_REQUEST['responseFingerprintOrder'] = 'amount,currency,paymentType,financialInstitution,language,orderNumber,paymentState,shopname_customParameter1,shopname_customParameter2,authenticated,anonymousPan,expiry,cardholder,maskedPan,gatewayReferenceNumber,gatewayContractNumber,avsResponseCode,avsResponseMessage,avsProviderResultCode,avsProviderResultMessage,secret,responseFingerprintOrder';
+// $_REQUEST['responseFingerprint'] = 'c986f700842f3808e9f6464b8edf7b391b20a8e3e8d84d771c9dbe84d3da92a7df1301a1b45550db0e4ad1e7f628afd419c3c9df4ec4e13b0e79622d81efc6bc';
+}
 /*********************************************************************************************************************/
+
+
 
 $correoMi = "fecha=".date('d/m/Y H:i:s')."<br>\n";
 $pasarela = null;
@@ -55,6 +128,11 @@ foreach ($d as $key => $value) {
 $correoMi .= $lleg;
 $q = "insert into tbl_traza (titulo,traza,fecha) values ('".$titulo." entrada datos','".preg_replace("/[^a-zA-Z0-9]+/", "", html_entity_decode($correoMi, ENT_QUOTES))."',".time().")";
 $temp->query($q);
+
+if(isset($d['origen'])){
+	$correoMi .= "<br>Respuesta enviada desde rep/index.php";
+}
+
 //$correo->todo(13, 'ver otro', $correoMi);
 
 // if (isset($d['Ds_TransactionType'])) $echo = 'hola';
@@ -204,24 +282,23 @@ if ($pasarela == $pasaEuroP) {//EurocoinPay
 	$ecp = new EurocoinPayApi();
 
 	#hasta ahora hay una sola moneda en esta pasarela, por lo que se puede obtener la clave y el terminal directamente
-	#si apareciera otra moneda en la pasarela, se debería usar el c�digo de la moneda correspondiente
+	#si apareciera otra moneda en la pasarela, se debería usar el c�digo de la moneda correspondiente0
 	$q = "select terminal, clave FROM tbl_colPasarMon where idmoneda = '978' and estado = 1 and idpasarela = " . $pasaEuroP;
 	$temp->query($q);
 	$codi = $temp->f('clave');
 	$term = $temp->f('terminal');
 
 	$correoMi .= "<br>Entra en Eurocoinpay<br>";
-	error_log("data->".$d['data']);
-	error_log("sig->".$d['sig']);
-	error_log("codi->".$codi);
-	error_log("term->".$term);
+	$correoMi .= "data->".$d['data']."<br>";
+	$correoMi .= "sig->".$d['sig']."<br>";
+	$correoMi .= "codi->".$codi."<br>";
+	$correoMi .= "term->".$term."<br>";
 
 	$res = $ecp->cliObtenParametrosPost($d['data'], $d['sig'], $codi);
 	logEcp("res:" . var_export ($res,TRUE));
 
-	error_log(json_decode($res));
+	$correoMi .= json_decode($res)."<br>";
 
-	exit;
 
 }elseif ($pasarela == 218) {//Moneytigo
 	if (!$idtrans = $ent->isNumero($d['MerchantRef'],12)) $correoMi .= "No es v�lido el n�mero de la operaci�n {$d['MerchantRef']} <br>";
@@ -336,10 +413,17 @@ if ($pasarela == $pasaEuroP) {//EurocoinPay
 		if ($d['result'] == 'OK' ) {
 			$estado = 2;
 		} else {
-			$iderror = $d['errors'][0]['message'];
-			$importe = 0;
-			$estado = 3;
-			$coderror = null;
+			if(isset($d['errors'])){
+				$iderror = $d['errors'][0]['message'];
+				$importe = 0;
+				$estado = 3;
+				$coderror = null;
+			} else{
+				$iderror = "282 - Abandoned transaction";
+				$importe = 0;
+				$estado = 3;
+				$coderror = 282;
+			}
 		}
 	}
 } elseif ($pasarela == 92) { //Xilema
@@ -519,7 +603,7 @@ $correoMi .= "count=$count||<br>\n";
         $query = "select c.estado, t.pasarela from tbl_comercio c, tbl_transacciones t where c.idcomercio = t.idcomercio and idtransaccion = '$idtrans'";
         $temp->query($query);
     //fwrite($handle, "query= $query <br>\n");
-$correoMi .= "query= $query ||<br>\n";
+		$correoMi .= "query= $query ||<br>\n";
         if ($temp->f('estado') == 'P') {
         	$clave = '';
 			if ($temp->f('pasarela') == '1') {
@@ -628,6 +712,7 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     $comercio = $d['Ds_Merchant_MerchantCode'];
     $firma = $d['Ds_Signature'];
     $codautorizacion = $d['Ds_AuthorisationCode'];
+
     $q = "select moneda, estado, tarjetas, pasarela, tipoOperacion from tbl_transacciones where idtransaccion = '$idtrans'";
     $temp->query($q);
     $moneda = $temp->f('moneda');
@@ -774,7 +859,8 @@ $correoMi .= "$idterminal . $idcomercio . $idtrans . $importe . $moneda . $estad
     $codautorizacion = $d['pszApprovalCode'];
     $coderror = $d['coderror'];
     $deserror = $d['deserror'];
-	$iderror = $coderror." ".$dserror;
+//	$iderror = $coderror." ".$dserror; Reina
+	$iderror = $coderror." ".$deserror;
 
 $correoMi .=  "\n coderror=".$coderror;
 $correoMi .=  "\n deserror=".$deserror;
@@ -1000,6 +1086,7 @@ $correoMi .=  "\n iderror=".$iderror;
 					codautorizacion=$codautorizacion\n<br>";
 	
 	$comprueba = $miObj->createMerchantSignatureNotif($kc,$datos);
+//	$comprueba = 'hola'; temporal - Reina
 
 	if (strlen($decodec->Ds_Merchant_Identifier) > 10) {//pagos por referencia
 		$q = "select identificador, idcomercio, pasarela from tbl_transacciones where idtransaccion = '".$decodec->Ds_Order."'";
@@ -1140,13 +1227,19 @@ $correoMi .=  "<br>\factmult=".$factmult;
 
 //echo $correoMi;
 	$est = "X";
-	$q = "select estado, from_unixtime(fecha_mod,'%d/%m/%Y %H:%i:%s') fe, codigo, idcomercio from tbl_transacciones where idtransaccion = '$idtrans'";
+	$q = "select estado, from_unixtime(fecha_mod,'%d/%m/%Y %H:%i:%s') fe, codigo, idcomercio, directa, identificador, tipoPago from tbl_transacciones where idtransaccion = '$idtrans'";
 	$correoMi .=  "<br>\n".$q."<br>\n";
 	$temp->query($q);
-	$est = $temp->f('estado');
+	$estadoOp = $est = $temp->f('estado');
 	$fe = $temp->f('fe');
 	$code = $temp->f('codigo');
 	$comerid = $temp->f('idcomercio');
+	$directa = $temp->f('directa');
+	$refComercio = $temp->f('identificador');
+	$tipoPago = $temp->f('tipoPago');
+
+	$correoMi .=  "<br>\nEstado Op=".$estadoOp."<br>\n";
+	$correoMi .=  "<br>\nRespuesta Directa=".$directa."<br>\n";
 	
 	if ($comerid == '527341458854' && $cambioRate != 1) {//Si el comercio es Cimex le afecto la tasa de cambio
 		$q = "select tasa from tbl_colCambBanco where idmoneda = '$moneda' and idbanco = 17 order by fecha desc limit 0,1";
@@ -1160,25 +1253,14 @@ $correoMi .=  "<br>\factmult=".$factmult;
 //		error_log("<br>\ncambioRateCimex=".$cambioRate);
 	}
 	
-	if ($comerid == '163430526040' && $cambioRate != 1) {//Si el comercio es Tocopay le afecto la tasa de cambio
-		$correoMi .=  "<br>\nselect pasarela from tbl_comercio where idcomercio = $comerid";
-		$temp->query("select pasarela from tbl_comercio where idcomercio = $comerid");
-		$pasHab = $temp->f('pasarela');
-
-		$q = "select max(tasa) tasa from tbl_colCambBanco where idmoneda = 840 and idbanco in (select idbanco from tbl_pasarela where idPasarela in ($pasHab)) group by fecha desc limit 0,1";
-		$correoMi .=  "<br>".$q;
-		$temp->query($q);
-		if ($temp->num_rows() == 0) {
-			$q = "select tasa from tbl_colCambBanco where idmoneda = '$moneda' and idbanco = 17 order by fecha desc limit 0,1";
-			$correoMi .=  "<br>\n".$q;
-			$temp->query($q);
-		}
-		$ta = $temp->f('tasa');
-		$correoMi .=  "<br>\nta=".$ta;
-		$cambioRate = $ta + leeSetup('descCimex');
-//		$cambioRate = $cambioRate - leeSetup('descCimex');
+	if (($comerid == '163430526040' || $comerid == '169453189889') && $moneda == '840') {//Si el comercio es Tocopay le afecto la tasa de cambio
+		$cambioRate = leeSetup('cambioCimex');
 		$correoMi .=  "<br>\ncambioRateTocopay=".$cambioRate;
-//		error_log("<br>\ncambioRateCimex=".$cambioRate);
+	}
+
+	if (($comerid == '166975114294' || $comerid == '167707944853') && $moneda == '840') { //Si el comercio es Vidaipay o Vidaipay Bolsa y la moneda es USD, la tasa de cambio esta en setup
+		$cambioRate = leeSetup('cambioVidaipay');
+		$correoMi .=  "<br>\ncambioRateVidaipay=".$cambioRate;
 	}
 
 	if ($comerid == '160253960650' && $moneda == '840') { //Si el comercio es Etecsa Bolsa y la moneda es USD, la tasa de cambio esta en setup
@@ -1191,7 +1273,6 @@ $correoMi .=  "<br>\factmult=".$factmult;
 	$temp->query($q);
 	$total = $temp->f('total');
     $salta = false;
-    
 
     switch ($estado) {
         case '2': //Aceptada
@@ -1241,56 +1322,133 @@ $correoMi .=  "<br>\factmult=".$factmult;
 				$texto = 'No Procesada';
 				break;
 		}
-		$query .= " estado = '$estado', fecha_mod = ".time()." where idtransaccion = '$idtrans' and estado in ($paseEst)";
-		//fwrite($handle, "<br>\n".$query);
-		$correoMi .=  "<br>\n".$query;
-		$temp->query($query);
-        
+		$query .= " estado = '$estado', fecha_mod = ".time()." where idtransaccion = '$idtrans' ";
+
+		// verificar si se ejecuta la consulta para actualizar la operacion segun el estado en que se encuentre
+		$correoMi .=  "<br>\n"."Verificar si se ejecuta la consulta para actualizar la operacion segun el estado en que se encuentre.";
+		$actualizaOp = false;
+		if(in_array($estadoOp, array('P', 'D', 'N'))){
+			$actualizaOp = true;
+
+			if($estadoOp === 'D'){
+				if($estado === 'A') {
+					// hay que ver si el comercio quiere recibir la respuesta de Aceptada
+					// Solo se permite si el pago es Diferido y generado en el Concentrador
+					$q = "select count(*) total from tbl_reserva where codigo = '$refComercio' and id_comercio = '$comerid'";
+					$correoMi .= "query=$q<br>\n";
+					$temp->query($q);
+
+					if ($temp->f('total') > 0 && $tipoPago === 'D') {    //la transaccion ha sido realizada directamente en el concentrador
+						$correoMi .= "<br>\n" . "Pago Diferido desde el Concentrador. Se notifica la Aceptada despues de Denegada";
+						$recibeAceptada = true;
+					} else {
+						$correoMi .= "<br>\n" . "Hay que ver si el comercio quiere recibir la respuesta de Aceptada.";
+						$q = "select AdespuesD from tbl_comercio where idcomercio = '$comerid'";
+						$correoMi .= "<br>\n" . $q;
+						$temp->query($q);
+
+						$recibeAceptada = $temp->f('AdespuesD');
+						$correoMi .= "<br>\nRecibe Aceptada despues Denegada=" . $recibeAceptada . "<br>\n";
+					}
+					$actualizaOp = $recibeAceptada;
+
+					// Alertar los casos que no se acepta Aceptada despues de Denegada para que se devuelvan en el TPV
+					if (!$recibeAceptada) {
+						$lab = 'Recibida transacci�n Aceptada duplicada que debe devolverse!!!';
+						$mes = "La transacci�n $idtrans estaba en la base de datos con el estado $estadoOp y se recibi� con estado $estado";
+						$mes .= "<br>\n" . "Devolver en TPV!!! El comercio no acepta la segunda respuesta.";
+						sendTelegram($lab . "<br>$mes", null, 'RL');
+					}
+				} elseif ($estado === 'D'){
+					$actualizaOp = false;
+				}
+			}
+			$query .= " and estado in ($paseEst)";
+		} else{
+			// Verificar si fue que entro primero por rep/index porque llego primero la respuesta del navegador
+			if($estadoOp === 'A' && !$directa){
+				$actualizaOp = true;
+			}
+		}
+		$correoMi .=  "<br>\nEjecuta update transaccion=".$actualizaOp."<br>\n";
+		if($actualizaOp){
+			$correoMi .=  "<br>\n".$query;
+			$temp->query($query);
+
+			$query = "update tbl_transacciones set directa = 1 where idtransaccion = '$idtrans'";
+			$correoMi .=  "<br>\n".$query;
+			$temp->query($query);
+		}
+
         $q = "select fecha_mod, tipoEntorno, (valor*$factmult/100) val, idcomercio, identificador from tbl_transacciones where idtransaccion = '$idtrans'";
         $temp->query($q);
 		$elcomercio = $temp->f('idcomercio');
-        
-        //Actualiza la tabla de las reservas con el resultado de la transaccion
-        $query = "update tbl_reserva set id_transaccion = '".$idtrans."', bankId = '".$codautorizacion."', fechaPagada = ".$temp->f('fecha_mod').",
-                        estado = '".$estado."', est_comer = '".$temp->f('tipoEntorno')."', valor = ".$temp->f('val')."
-                    where codigo = '".$temp->f('identificador')."' and estado in ($paseEst) and id_comercio = ".$temp->f('idcomercio');
-    //	echo $query;
-        $temp->query($query);
-        $correoMi .=  "<br>\n".$query."\n<br><br>\n";
-		
-		if ($estado == 'A' || $estado == 'R' ) {
-			$temp->query("update tbl_transacciones set codigo = '$codautorizacion', estado = 'A' where idtransaccion = $idtrans");
-			$temp->query("update tbl_reserva set bankId = '".$codautorizacion."', estado = 'A' where id_transaccion = $idtrans");
 
-			//Si la operaci�n fu� Aceptada actualizo la operaci�n en la tabla de los lotes si existe
-			$temp->query("select lotes, id from tbl_comercio where idcomercio = '$elcomercio'");
-			if ($temp->f('lotes') == 1) { // si el comercio tiene permitidas operaciones por lotes
-				$temp->query("select idlote, valor, moneda from tbl_reserva where id_transaccion = $idtrans");
-				if ($temp->f('idlote') > 0) {
-					$q = "update tbl_lotes set valor = ".($temp->f('valor') * 100).", moneda = ".$temp->f('moneda')." fechaLanz = unix_timestamp(), valida = 0 where id = ".$temp->f('idlote');
-					$temp->query("update tbl_lotes set valor = ".($temp->f('valor') * 100).", moneda = ".$temp->f('moneda').", fechaLanz = unix_timestamp(), valida = 0 where id = ".$temp->f('idlote'));
+//		if($estadoOp != 'A'){
+			$referencia = leeSetup('refOpPruebas');
+			if($temp->f('identificador') != $referencia) {
+				if($actualizaOp) {
+					//Actualiza la tabla de las reservas con el resultado de la transaccion
+					$query = "update tbl_reserva set id_transaccion = '" . $idtrans . "', bankId = '" . $codautorizacion . "', fechaPagada = " . $temp->f('fecha_mod') . ",
+								estado = '" . $estado . "', est_comer = '" . $temp->f('tipoEntorno') . "', valor = " . $temp->f('val') . "
+							where codigo = '" . $temp->f('identificador') . "' and estado in ($paseEst) and id_comercio = " . $temp->f('idcomercio');
+					//	echo $query;
+					$temp->query($query);
+					$correoMi .= "<br>\n" . $query . "\n<br><br>\n";
+
+					if ($estado == 'A' || $estado == 'R') {
+						$temp->query("update tbl_transacciones set codigo = '$codautorizacion', estado = 'A' where idtransaccion = $idtrans");
+						$temp->query("update tbl_reserva set bankId = '" . $codautorizacion . "', estado = 'A' where id_transaccion = $idtrans");
+
+						//Si la operaci�n fu� Aceptada actualizo la operaci�n en la tabla de los lotes si existe
+						$temp->query("select lotes, id from tbl_comercio where idcomercio = '$elcomercio'");
+						if ($temp->f('lotes') == 1) { // si el comercio tiene permitidas operaciones por lotes
+							$temp->query("select idlote, valor, moneda from tbl_reserva where id_transaccion = $idtrans");
+							if ($temp->f('idlote') > 0) {
+								$q = "update tbl_lotes set valor = " . ($temp->f('valor') * 100) . ", moneda = " . $temp->f('moneda') . " fechaLanz = unix_timestamp(), valida = 0 where id = " . $temp->f('idlote');
+								$temp->query("update tbl_lotes set valor = " . ($temp->f('valor') * 100) . ", moneda = " . $temp->f('moneda') . ", fechaLanz = unix_timestamp(), valida = 0 where id = " . $temp->f('idlote'));
+							}
+						}
+					}
 				}
 			}
+//		}
+	}
+
+	// Es que NO es la primera vez que entra por aqui
+	if($directa){
+		//Aviso de transacci�n duplicada desde el Banco
+		if ($est == "N" || $est == "D" || $est == "A" || $est == "B" || $est == "V") {
+			$enviaTelegram = false;
+
+			$lab = 'Recibido datos duplicados desde el banco';
+			$mes = "fecha=".date('d/m/Y H:i:s')."<br>\n"."Se han recibido duplicado los datos de la transacci�n $idtrans. La misma estaba en la base de datos con el estado $est el $fec ". "y se recibi� con estado $estadoC";
+			$correo->todo (20, $lab, $mes);
+
+			if ($est == 'A' && $estadoC == 'A') {
+				$lab = 'Recibida transacci�n Aceptada duplicada desde el banco';
+
+				$mes = "Fecha=".date('d/m/Y H:i:s')."<br>\n"."Se han recibido duplicado los datos de la transacci�n $idtrans."."<br>\n";
+				if($codautorizacion !== $code){
+					$q = "select estado from tbl_comercio where idcomercio = '$comerid'";
+					$correoMi .= "<br>\n" . $q;
+					$temp->query($q);
+					$estadoComercio = $temp->f('estado');
+
+					$enviaTelegram = ($estadoComercio == 'P');	// solo se envia por Telegram si el comercio esta en Produccion
+					$mes .= "Se ha recibido con c�digo de autorizo diferente!!! Anteriormente ten�a $code y ahora recibimos $codautorizacion. Se debe revisar si se devuelve.";
+				} else{
+					$mes .= "Se ha recibido con igual c�digo de autorizo ($codautorizacion).";
+				}
+				if (!isset($TefPasa)){
+					$correo->todo (20, $lab, $mes);
+				}
+			}
+			$correoMi .= "<br>\n".$mes."<br>\n";
+
+			if($enviaTelegram) sendTelegram($lab."<br>$mes",null, 'RL');
 		}
 	}
-    
-    //Aviso de transacci�n duplicada desde el Banco
-    if ($est == "N" || $est == "D" || $est == "A" || $est == "B" || $est == "V") {
-        $lab = 'Recibido datos duplicados desde el banco';
-        $mes = "fecha=".date('d/m/Y H:i:s')."<br>\n"."Se ha recibido duplicado los datos de la transacci�n $idtrans. La misma estaba en la base de datos con el estado $est el $fec ". "y se recibi� con estado $estadoC";
-        $correo->todo (20, $lab, $mes);
-        
-        $correoMi .= $mes."<br>\n";
-		
-		if ($est == 'A' && $estadoC == 'A') {
-			$lab = 'Recibida transacci�n Aceptada duplicada desde el banco';
-			$mes = "Fecha=".date('d/m/Y H:i:s')."<br>\n"."Se han recibido los siguentes datos de la transacci�n $idtrans:<br>\n $lleg <br><br>Anteriormente ten�a c�digo de banco $code. Se debe revisar si se devuelve.";
-			if (!isset($TefPasa))
-			     $correo->todo (20, $lab, $mes);
-
-			$correoMi .= $mes."<br>\n";
-		}
-    }
 
 	if ($_SESSION['codProdReserv']) {
 		if ($estado != 2) {
@@ -1327,251 +1485,306 @@ $correoMi .=  "<br>\factmult=".$factmult;
 		$correoMi .=  "<br>\n".$query;
 	}
 
-	//Env�o al sitio del cliente de la info de la transacci�n
-	//Lee los datos de la transacci�n
-	$query = "select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod, valor, moneda, t.estado, c.nombre, 
-				c.url, t.tipoEntorno, t.valor/100 precio, c.url_llegada, p.nombre, (select a.nombre from tbl_agencias a where p.idagencia = a.id) comercio, 
-				(select idusrToken from tbl_usuarios u where u.idtransaccion = t.idtransaccion) usuario,
-				(select nombre from tbl_reserva r where r.id_transaccion = t.idtransaccion) usr, 
-				t.sesion, c.resp
-			from tbl_transacciones t, tbl_comercio c, tbl_pasarela p
-			where t.idcomercio = c.idcomercio
-                and p.idPasarela = t.pasarela
-				and idtransaccion = '$idtrans'";
-	$temp->query($query);
-	$valores = $temp->loadRow();
-	$comercioN = $valores[9];
-	$correoMi .=  "<br>\n".$query;
+//	if($estadoOp != 'A') {
+	// Si es la primera vez que entra por aqui o la operacion fue actualizada en BDatos, se notifica al comercio
+	if(!$directa || $actualizaOp){
+		$correoMi .=  "<br>\nSe notifica al comercio<br>\n";
 
-	$q = "select id_reserva from tbl_reserva where id_transaccion = '$valores[0]'";
-	$temp->query($q);
-	
-	//el pago es atrav�s de web y el sitio solicita env�o directo de datos
-	if ( ($temp->num_rows() == 0) && (strlen($valores[13]) > 1) && $salta == false ) { 
-		if (strlen($valores[18]) == 32)
-			$firma = convierte($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
-		else 
-			$firma = convierte256($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+		//Lee los datos de la transacci�n
+		$query = "select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod, valor, moneda, t.estado, c.nombre, 
+					c.url, t.tipoEntorno, t.valor/100 precio, c.url_llegada, p.nombre, (select a.nombre from tbl_agencias a where p.idagencia = a.id) comercio, 
+					(select idusrToken from tbl_usuarios u where u.idtransaccion = t.idtransaccion) usuario,
+					(select nombre from tbl_reserva r where r.id_transaccion = t.idtransaccion) usr, 
+					t.sesion, c.resp, t.bipayId, t.pasarela, t.id_tarjeta
+				from tbl_transacciones t, tbl_comercio c, tbl_pasarela p
+				where t.idcomercio = c.idcomercio
+					and p.idPasarela = t.pasarela
+					and idtransaccion = '$idtrans'";
+		$temp->query($query);
+		$valores = $temp->loadRow();
+		$comercioN = $valores[9];
+		$correoMi .= "<br>\n" . $query;
 
-		if (strlen($firma) > 2) {
-			$correoMi .=  "<br>firma={$valores[1]}, {$valores[2]}, {$valores[6]}, {$valores[7]}, {$valores[8]},	{$valores[0]}, ".
-								date('d/m/y h:i:s', $valores[5])."<br>\n";
-			$iderror = urlencode($iderror);
-			$correoMi .=  "<br>valores19=".$valores[19];
-			if ( $valores[19] == 0
-				// $valores[1] != '140778652871' 		//Prueba Cubana 
-			    // && $valores[1] != '129025985109' 	//Cubana
-			    // && $valores[1] != '140784511377' 	// Saratoga
-			    // && $valores[1] != '135334103888' 	// Nacional
-				// && $valores[1] != '146161323238' 	// Claim
-				// && $valores[1] != '151560722836' 	// IZ- IslazulCuba WEB
-				// && $valores[1] != '138668374494' 	// PruebaHN
-				// && $valores[1] != '144172448713' 	// PruebaCimex 
-				// && $valores[1] != '159136992102' 	// Umbrella
-				// && $valores[1] != '159171392542' 	// Havanatursa
-				// && $valores[1] != '527341458854' 	// Cimex
-				) {
-				$correoMi .= "<br>Funcionalidad GET para todos los comercios excepto los indicados<br>";
-				
-				$cadenaEnv = "?"."comercio=".$valores[1]."&transaccion=".$valores[2]."&importe=".$valores[6].
-							"&moneda=".$valores[7]."&resultado=".$valores[8]."&codigo=".$valores[0]."&idioma=".$valores[4].
-							"&firma=$firma&fecha=". urlencode(date('d/m/y h:i:s', $valores[5]))."&error=".urlencode($iderror)."&tasa=$cambioRate".
-							"&comerc=".urlencode($valores[15])."&usuario=".urlencode($valores[16])."&autorizo=".$codautorizacion."&tipoerror=".$tipoError;
-				$cadenaEnvia = $valores[13].$cadenaEnv;
-				if (strlen($identConc) > 10 ) $cadenaEnvia .= "&identConc=$identConc";
-				$correoMi .= $cadenaEnvia."<br>\n";
-	
-				$ch = curl_init($cadenaEnvia);
-	
-				curl_setopt($ch, CURLOPT_HEADER, false);
-				curl_setopt($ch, CURLOPT_POST, false);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				$output = curl_exec($ch);
-	            $curl_info = curl_getinfo($ch);
-	// 						echo "error=".curl_errno($ch);
-				if (curl_errno($ch)) $correoMi .=  "Error en la comunicaci�n al comercio:".curl_error($ch)."<br>\n";
-				$crlerror = curl_error($ch);
-	// 						echo "otroerror=".$crlerror;
-				if ($crlerror) {
-					$correoMi .=  "La comunicaci�n al comercio ha dado error:".$crlerror."<br>\n";
-				}
-				curl_close($ch);
-	
-	//			$ch = curl_init("https://www.concentradoramf.com/recgDatos.php".$cadenaEnv);
-	//			curl_setopt($ch, CURLOPT_HEADER, false);
-	//			curl_setopt($ch, CURLOPT_POST, false);
-	//			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	//			$output = curl_exec($ch);
-	//			curl_close($ch);
-	//			$correoMi .=  "respuCurl=".str_replace('<script', '<scr|ipt', $output)."||<br>\n";
-				
-			} elseif ($valores[19] == 1) {
-				$correoMi .= "<br>Funcionalidad por POST<br>\n";
-				$data = array(
-						"comercio"		=> $valores[1],
-						"transaccion"	=> $valores[2],
-						"importe"		=> $valores[6],
-						"moneda"		=> $valores[7],
-						"resultado"		=> $valores[8],
-						"codigo"		=> $valores[0],
-						"idioma"		=> $valores[4],
-						"firma"			=> $firma,
-						"fecha"			=> urlencode(date('d/m/y h:i:s', $valores[5])),
-						"error"			=> $iderror,
-						"comerc"		=> $valores[15],
-						"usuario"		=> $valores[16],
-						"tasa"			=> $cambioRate,
-						"autorizo"		=> $codautorizacion,
-						"tipoerror"		=> $tipoError
-								);
-
-				//env�a identificador para operaciones de pagos por referencia cuando se genere
-				if (strlen($identConc) > 10) {
-					$data = array(
-							"comercio"		=> $valores[1],
-							"transaccion"	=> $valores[2],
-							"importe"		=> $valores[6],
-							"moneda"		=> $valores[7],
-							"resultado"		=> $valores[8],
-							"codigo"		=> $valores[0],
-							"idioma"		=> $valores[4],
-							"firma"			=> $firma,
-							"fecha"			=> urlencode(date('d/m/y h:i:s', $valores[5])),
-							"error"			=> $iderror,
-							"comerc"		=> $valores[15],
-							"usuario"		=> $valores[16],
-							"tasa"			=> $cambioRate,
-							"autorizo"		=> $codautorizacion,
-							"tipoerror"		=> $tipoError,
-							"identConc"		=> $identConc
-								);
-				}
-				$options = array(
-						CURLOPT_RETURNTRANSFER	=> true,
-						CURLOPT_SSL_VERIFYPEER	=> false,
-						CURLOPT_POST			=> true,
-						CURLOPT_VERBOSE			=> true,
-						CURLOPT_URL				=> $valores[13],
-						CURLOPT_POSTFIELDS		=> $data
-				);
-				$correoMi .= "<br><br>
-					CURLOPT_RETURNTRANSFER	=> true,<br>
-					CURLOPT_SSL_VERIFYPEER	=> false,<br>
-					CURLOPT_POST			=> true,<br>
-					CURLOPT_VERBOSE			=> true,<br>
-					CURLOPT_URL				=> ".$valores[13].",
-					CURLOPT_POSTFIELDS		=> ".http_build_query($data)."<br>";
-				$ch = curl_init();
-				curl_setopt_array($ch , $options);
-				$output = curl_exec($ch);
-	// 						echo "error=".curl_errno($ch);
-				if (curl_errno($ch)) $correoMi .=  "Error en la comunicaci�n al comercio:".curl_strerror(curl_errno($ch))."<br>\n";
-				$crlerror = curl_error($ch);
-	// 						echo "otroerror=".$crlerror;
-				if ($crlerror) {
-					$correoMi .=  "La comunicaci�n al comercio ha dado error:".$crlerror."<br>\n";
-				}
-				$curl_info = curl_getinfo($ch);
-				curl_close($ch);
-				
+		//Env�o al sitio del cliente de la info de la transacci�n
+		if (count($valores) > 0) {  // Se encontro la operacion registrada
+			// Se busca si la operacion tiene registrada url de llegada
+			$q = "select urlLlegada as url from tbl_ComerTransUrl where idcomercio = '$valores[1]' and idOperacion = '$valores[2]'";
+			$temp->query($q);
+			$correoMi .= "\n<br>Se busca si la la operacion tiene registrada url de llegada <br>\n";
+			$correoMi .= "$q<br>\n";
+			if ($temp->num_rows() > 0 && strlen($temp->f('url')) > 0) {
+				$valores[13] = $temp->f('url');
 			}
-	            
-	            foreach ($curl_info as $key => $value) {
-	                $correoMi .=  $key." = ".$value."<br>\n";
-	            }
-				$correoMi .=  "respuCurl=$output||<br>\n";
+			$correoMi .= "urlLlegada = '$valores[13]' <br>\n";
+		}
+
+		$q = "select id_reserva from tbl_reserva where id_transaccion = '$valores[0]'";
+		$temp->query($q);
+
+		//el pago es atrav�s de web y el sitio solicita env�o directo de datos
+		if (($temp->num_rows() == 0) && (strlen($valores[13]) > 1) && $salta == false) {
+			if(isset($valores[20])){	// es una operacion BiPay
+				$firma = convierte256($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+			} else{
+				if (strlen($valores[18]) == 32)
+					$firma = convierte($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+				else
+					$firma = convierte256($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+			}
+			if (strlen($firma) > 2) {
+				$correoMi .= "<br>firma={$valores[1]}, {$valores[2]}, {$valores[6]}, {$valores[7]}, {$valores[8]},	{$valores[0]}, " .
+					date('d/m/y h:i:s', $valores[5]) . "<br>\n";
+				//			$iderror = urlencode($iderror); Reina
+				$iderror = $iderror;
+				$correoMi .= "<br>valores19=" . $valores[19];
+				if ($valores[19] == 0
+					// $valores[1] != '140778652871' 		//Prueba Cubana
+					// && $valores[1] != '129025985109' 	//Cubana
+					// && $valores[1] != '140784511377' 	// Saratoga
+					// && $valores[1] != '135334103888' 	// Nacional
+					// && $valores[1] != '146161323238' 	// Claim
+					// && $valores[1] != '151560722836' 	// IZ- IslazulCuba WEB
+					// && $valores[1] != '138668374494' 	// PruebaHN
+					// && $valores[1] != '144172448713' 	// PruebaCimex
+					// && $valores[1] != '159136992102' 	// Umbrella
+					// && $valores[1] != '159171392542' 	// Havanatursa
+					// && $valores[1] != '527341458854' 	// Cimex
+				) {
+					$correoMi .= "<br>Funcionalidad GET para todos los comercios excepto los indicados<br>";
+
+					$cadenaEnv = "?" . "comercio=" . $valores[1] . "&transaccion=" . $valores[2] . "&importe=" . $valores[6] .
+						"&moneda=" . $valores[7] . "&resultado=" . $valores[8] . "&codigo=" . $valores[0] . "&idioma=" . $valores[4] .
+						"&firma=$firma&fecha=" . urlencode(date('d/m/y h:i:s', $valores[5])) . "&error=" . urlencode($iderror) . "&tasa=$cambioRate" .
+						"&comerc=" . urlencode($valores[15]) . "&usuario=" . urlencode($valores[16]) . "&autorizo=" . $codautorizacion . "&tipoerror=" . $tipoError;
+
+					if(isset($valores[20])){    // es una operacion BiPay
+						$cadenaEnv .=  "&bipay=".$valores[20]."&pasarela=" . $valores[21]."&tarjeta=" . $valores[22];
+					}
+					$cadenaEnvia = $valores[13] . $cadenaEnv;
+					if (strlen($identConc) > 10) $cadenaEnvia .= "&identConc=$identConc";
+					$correoMi .= $cadenaEnvia . "<br>\n";
+
+					// remplaza las cascaras que agrega la funcion urlencode
+					$strValores = str_replace('%2F', '/', $cadenaEnvia);
+					$strValores = str_replace('%3A', ':', $strValores);
+					$strValores = str_replace('+', ' ', $strValores);
+					$correoMi .= '<br> Valores limpios: ' . $strValores . "<br>\n";
+
+					$ch = curl_init($cadenaEnvia);
+
+					curl_setopt($ch, CURLOPT_HEADER, false);
+					curl_setopt($ch, CURLOPT_POST, false);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					$output = curl_exec($ch);
+					$curl_info = curl_getinfo($ch);
+					// 						echo "error=".curl_errno($ch);
+					if (curl_errno($ch)) $correoMi .= "Error en la comunicaci�n al comercio:" . curl_error($ch) . "<br>\n";
+					$crlerror = curl_error($ch);
+					// 						echo "otroerror=".$crlerror;
+					if ($crlerror) {
+						$correoMi .= "La comunicaci�n al comercio ha dado error:" . $crlerror . "<br>\n";
+					}
+					curl_close($ch);
+
+					//			$ch = curl_init("https://www.concentradoramf.com/recgDatos.php".$cadenaEnv);
+					//			curl_setopt($ch, CURLOPT_HEADER, false);
+					//			curl_setopt($ch, CURLOPT_POST, false);
+					//			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					//			$output = curl_exec($ch);
+					//			curl_close($ch);
+					//			$correoMi .=  "respuCurl=".str_replace('<script', '<scr|ipt', $output)."||<br>\n";
+
+				} elseif ($valores[19] == 1) {
+					$correoMi .= "<br>Funcionalidad por POST<br>\n";
+					$data = array(
+						"comercio" => $valores[1],
+						"transaccion" => $valores[2],
+						"importe" => $valores[6],
+						"moneda" => $valores[7],
+						"resultado" => $valores[8],
+						"codigo" => $valores[0],
+						"idioma" => $valores[4],
+						"firma" => $firma,
+						"fecha" => urlencode(date('d/m/y h:i:s', $valores[5])),
+						"error" => urlencode($iderror),
+						"comerc" => $valores[15],
+						"usuario" => $valores[16],
+						"tasa" => $cambioRate,
+						"autorizo" => $codautorizacion,
+						"tipoerror" => $tipoError
+					);
+
+					//env�a identificador para operaciones de pagos por referencia cuando se genere
+					if (strlen($identConc) > 10) {
+						$data = array(
+							"comercio" => $valores[1],
+							"transaccion" => $valores[2],
+							"importe" => $valores[6],
+							"moneda" => $valores[7],
+							"resultado" => $valores[8],
+							"codigo" => $valores[0],
+							"idioma" => $valores[4],
+							"firma" => $firma,
+							"fecha" => urlencode(date('d/m/y h:i:s', $valores[5])),
+							"error" => urlencode($iderror),
+							"comerc" => $valores[15],
+							"usuario" => $valores[16],
+							"tasa" => $cambioRate,
+							"autorizo" => $codautorizacion,
+							"tipoerror" => $tipoError,
+							"identConc" => $identConc
+						);
+					}
+					if(isset($valores[20])){    // es una operacion BiPay
+						$data['bipay'] = $valores[20];
+						$data['pasarela'] = $valores[21];
+						$data['tarjeta'] = $valores[22];
+					}
+					$options = array(
+						CURLOPT_RETURNTRANSFER => true,
+						CURLOPT_SSL_VERIFYPEER => false,
+						CURLOPT_POST => true,
+						CURLOPT_VERBOSE => true,
+						CURLOPT_URL => $valores[13],
+						CURLOPT_POSTFIELDS => $data
+					);
+					$correoMi .= "<br><br>
+						CURLOPT_RETURNTRANSFER	=> true,<br>
+						CURLOPT_SSL_VERIFYPEER	=> false,<br>
+						CURLOPT_POST			=> true,<br>
+						CURLOPT_VERBOSE			=> true,<br>
+						CURLOPT_URL				=> " . $valores[13] . ",
+						CURLOPT_POSTFIELDS		=> " . http_build_query($data) . "<br>";
+
+					// remplaza las cascaras que agrega la funcion urlencode
+					$strValores = http_build_query($data);
+					$strValores = str_replace('%252F', '/', $strValores);
+					$strValores = str_replace('%253A', ':', $strValores);
+					$strValores = str_replace('%2B', ' ', $strValores);
+
+					$correoMi .= "<br> Valores limpios: <br><br>
+						CURLOPT_RETURNTRANSFER	=> true,<br>
+						CURLOPT_SSL_VERIFYPEER	=> false,<br>
+						CURLOPT_POST			=> true,<br>
+						CURLOPT_VERBOSE			=> true,<br>
+						CURLOPT_URL				=> " . $valores[13] . ",
+						CURLOPT_POSTFIELDS		=> " . $strValores . "<br>";
+
+					$ch = curl_init();
+					curl_setopt_array($ch, $options);
+					$output = curl_exec($ch);
+					// 						echo "error=".curl_errno($ch);
+					if (curl_errno($ch)) $correoMi .= "Error en la comunicaci�n al comercio:" . curl_strerror(curl_errno($ch)) . "<br>\n";
+					$crlerror = curl_error($ch);
+					// 						echo "otroerror=".$crlerror;
+					if ($crlerror) {
+						$correoMi .= "La comunicaci�n al comercio ha dado error:" . $crlerror . "<br>\n";
+					}
+					$curl_info = curl_getinfo($ch);
+					curl_close($ch);
+
+				}
+
+				foreach ($curl_info as $key => $value) {
+					$correoMi .= $key . " = " . $value . "<br>\n";
+				}
+				$correoMi .= "respuCurl=$output||<br>\n";
+			}
+		}
+
+		if(!isset($valores[20])) {   // NO es una operacion BiPay
+			//	env�o de correos y voucher este �ltimo en caso de pagos online Aceptados
+			// 	$q = "select nombre, email from tbl_admin where correoT = 1 and idcomercio = '$valores[1]' and activo = 'S'";
+			$q = "select email from tbl_admin a, tbl_colAdminComer c, tbl_comercio e where c.idAdmin = a.idadmin 
+					and e.id = c.idComerc and e.idcomercio = '$valores[1]' and a.activo = 'S' and a.correoT = 1";
+			$temp->query($q);
+			$correoMi .= "<br>\n" . $q . "<br>\n";
+			//	$arrayTo[] = $temp->loadRowList();
+			$cc = false;
+			while ($temp->next_record()) {
+				if (!strlen($correo->to)) $correo->to($temp->f('email'));
+				else {
+					if (!$cc) $cc = $temp->f('email');
+					else $cc .= "," . $temp->f('email');
+				}
+			}
+			if ($cc) $correo->add_headers("Cc: " . $cc);
+
+			$query = "select moneda from tbl_moneda where idmoneda = {$valores[7]}";
+			$temp->query($query);
+			$mon = $temp->f('moneda');
+
+			if ($salta == false) {
+				$subject = "Transacci�n realizada y $texto de " . $comercioN . " monto " . number_format(($valores[6] / 100), 2, '.', ' ') . " $mon";
+				$message = "Estimado Cliente,<br><br> Se ha realizado una operaci�n con los siguientes datos:<br>
+					Cliente: " . $valores[17] . " <br>
+					Referencia del Comercio: " . $valores[2] . "<br>
+					N�mero de transaccion: " . $valores[0] . " <br>
+					C�digo entregado por el banco: " . $valores[3] . "<br>
+					Estado de la transacci�n: $texto <br>
+					Fecha: " . date('d/m/y h:i:s', $valores[5]) . "<br>
+					Valor: " . number_format(($valores[6] / 100), 2, '.', ' ') . $mon;
+
+				$correoMi .= "<br>\nCorreo Estado transaccion";
+				$correo->todo(14, $subject, $message);
+				$correo->destroy();
+
+				//env�o de voucher
+				if ($valores[8] == 'A') {
+					$q = "select r.nombre, r.email, a.dominio from tbl_reserva r, tbl_transacciones t, tbl_pasarela p, tbl_agencias a 
+							where r.id_transaccion = '$idtrans' 
+								and r.id_transaccion = t.idtransaccion 
+								and t.pasarela = p.idPasarela
+								and p.idagencia = a.id";
+					//echo $q."<br>";
+					$temp->query($q);
+					//echo "cant=".$temp->num_rows()."<br>";
+					if ($temp->num_rows() > 0) {
+						$correoMi .= "<br>FROM=tpv@" . $temp->f('dominio');
+						$correo->from = "tpv@" . $temp->f('dominio');
+						if (_MOS_CONFIG_DEBUG) echo _ESTA_URL . "/voucher.php?tr=" . $valores[2] . "&co=" . $valores[1] . "<br>";
+						$correoMi .= "<br>\ncurl_init(" . _ESTA_URL . "/voucher.php?tr=" . $valores[2] . "&co=" . $valores[1] . ")";
+						$ch = curl_init(_ESTA_URL . "/voucher.php?tr=" . $valores[2] . "&co=" . $valores[1]);
+						curl_setopt($ch, CURLOPT_HEADER, false);
+						curl_setopt($ch, CURLOPT_POST, false);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						$contents = curl_exec($ch);
+						curl_close($ch);
+
+						$correoMi .= "<br>\nCorreo Voucher<br>\n" . $contents;
+						if (_MOS_CONFIG_DEBUG) echo "voucher=$contents<br>";
+
+						if (strpos($temp->f('email'), ' - ') !== false) {
+							$arrCor = explode(" - ", $temp->f('email'));
+							$corr = $arrCor[0];
+						} else $corr = $temp->f('email');
+						$correoMi .= "<br>\ncorr=$corr";
+						$arrayTo[] = array($temp->f('nombre'), $corr);
+						// 			$arrayTo[] = array($temp->f('nombre'), $temp->f('email'));
+						foreach ($arrayTo as $todale) {
+							if (!strlen($correo->to))
+								$correo->to = $todale[1];
+							else
+								$correo->set_headers("Cc: " . $todale[1]);
+						}
+						$subject = "Voucher";
+
+						$q = "select email from tbl_admin a, tbl_colAdminComer o, tbl_comercio c where o.idAdmin = a.idadmin " .
+							" and o.idComerc = c.id and a.idrol in (11,12,14) and a.activo = 'S' and c.idcomercio = " . $valores[1] .
+							" order by a.fecha_visita desc limit 0,1";
+						$temp->query($q);
+						//				if (strlen($temp->f('email'))) $correo->reply = $temp->f('email');
+						$correoMi .= "<br>El correo se env�a con from desde: " . $correo->from;
+						$correo->todo(15, $subject, $contents);
+						$correo->destroy();
+					}
+				}
+			}
 		}
 	}
-	
-//	env�o de correos y voucher este �ltimo en caso de pagos online Aceptados
-// 	$q = "select nombre, email from tbl_admin where correoT = 1 and idcomercio = '$valores[1]' and activo = 'S'";
-	$q = "select email from tbl_admin a, tbl_colAdminComer c, tbl_comercio e where c.idAdmin = a.idadmin 
-			and e.id = c.idComerc and e.idcomercio = '$valores[1]' and a.activo = 'S' and a.correoT = 1";
-	$temp->query($q);
-	$correoMi .= "<br>\n".$q."<br>\n";
-//	$arrayTo[] = $temp->loadRowList();
-	$cc = false;
-	while($temp->next_record()) {
-        if(!strlen($correo->to)) $correo->to($temp->f('email'));
-        else {
-        	if (!$cc) $cc = $temp->f('email');
-        	else $cc .= ",".$temp->f('email');
-        }
-	}
-	if ($cc) $correo->add_headers ("Cc: ".$cc);
-	
-	$query = "select moneda from tbl_moneda where idmoneda = {$valores[7]}";
-	$temp->query($query);
-	$mon = $temp->f('moneda');
-
-    if ( $salta == false ) {
-        $subject = "Transacci�n realizada y $texto de ".$comercioN." monto ".number_format(($valores[6]/100),2,'.',' ') ." $mon";
-        $message = "Estimado Cliente,<br><br> Se ha realizado una operaci�n con los siguientes datos:<br>
-            Cliente: ".$valores[17]." <br>
-            Referencia del Comercio: ".$valores[2]."<br>
-            N�mero de transaccion: ".$valores[0]." <br>
-            C�digo entregado por el banco: ".$valores[3]."<br>
-            Estado de la transacci�n: $texto <br>
-            Fecha: ".date('d/m/y h:i:s', $valores[5])."<br>
-            Valor: ".number_format(($valores[6]/100),2,'.',' ') .$mon;
-
-    	$correoMi .= "<br>\nCorreo Estado transaccion";
-        $correo->todo(14, $subject, $message);
-        $correo->destroy();
-
-        //env�o de voucher
-        if ($valores[8] == 'A') {
-            $q = "select r.nombre, r.email, a.dominio from tbl_reserva r, tbl_transacciones t, tbl_pasarela p, tbl_agencias a 
-            		where r.id_transaccion = '$idtrans' 
-            			and r.id_transaccion = t.idtransaccion 
-            			and t.pasarela = p.idPasarela
-            			and p.idagencia = a.id";
-    //echo $q."<br>";
-            $temp->query($q);
-    //echo "cant=".$temp->num_rows()."<br>";
-            if($temp->num_rows() > 0){
-            	$correoMi .= "<br>FROM=tpv@".$temp->f('dominio');
-            	$correo->from = "tpv@".$temp->f('dominio');
-    if (_MOS_CONFIG_DEBUG) echo _ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."<br>";
-    $correoMi .= "<br>\ncurl_init("._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1].")";
-                $ch = curl_init( _ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]);
-                curl_setopt($ch, CURLOPT_HEADER, false);
-                curl_setopt($ch, CURLOPT_POST, false);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                $contents = curl_exec($ch);
-                curl_close($ch);
-
-    $correoMi .= "<br>\nCorreo Voucher<br>\n".$contents;
-    if (_MOS_CONFIG_DEBUG) echo "voucher=$contents<br>";
-
-                if (strpos($temp->f('email'), ' - ') !== false){
-                    $arrCor = explode(" - ", $temp->f('email'));
-                    $corr = $arrCor[0];
-                } else $corr = $temp->f('email');
-    $correoMi .= "<br>\ncorr=$corr";
-                $arrayTo[] = array($temp->f('nombre'),$corr);
-    // 			$arrayTo[] = array($temp->f('nombre'), $temp->f('email'));
-                foreach ($arrayTo as $todale) {
-                    if (!strlen($correo->to))
-                        $correo->to = $todale[1];
-                    else 
-                        $correo->set_headers ("Cc: ".$todale[1]);
-                }
-                $subject = "Voucher";
-					
-                $q = "select email from tbl_admin a, tbl_colAdminComer o, tbl_comercio c where o.idAdmin = a.idadmin ".
-                		" and o.idComerc = c.id and a.idrol in (11,12,14) and a.activo = 'S' and c.idcomercio = ".$valores[1].
-                		" order by a.fecha_visita desc limit 0,1";
-                $temp->query($q);
-//				if (strlen($temp->f('email'))) $correo->reply = $temp->f('email');
-				$correoMi .= "<br>El correo se env�a con from desde: ".$correo->from;
-                $correo->todo(15, $subject, $contents);
-                $correo->destroy();
-            }
-        }
-	}
+//	}
 }
 
 //env�o de sms

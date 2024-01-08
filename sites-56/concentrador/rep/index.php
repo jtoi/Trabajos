@@ -8,6 +8,8 @@ require_once( '../include/hoteles.func.php' );
 require_once( '../admin/adminis.func.php' );
 require_once( '../include/apiRedsys.php' );
 
+//xdebug_break();
+
 $miObj = new RedsysAPI;
 $temp = new ps_DB;
 $correo = new correo();
@@ -124,8 +126,20 @@ if ($d['reason'] && $d['result']) { //Papam
 	error_log('cookie='.$cookie);
 	error_log('sabad='.$sabad);
 	if ($d['est'] == 'ko') {//si la operación  es denegada pongo en la tabla transacciones el error
-		$q = "update tbl_transacciones set id_error = (select texto from tbl_errores where idpasarela = 115 and codigo = ".$d['codeReponse'].") where idtransaccion = $cookie";
-		error_log($q);
+        $q = "select texto from tbl_errores where idpasarela = 115 and codigo = '".$d['codeReponse']."'";
+        $correoMi .= $q."<br>\n";
+        $temp->query($q);
+        if(strlen($temp->f('texto')) > 0){
+            $textoError = $temp->f('texto');
+        } else{
+            $textoError =  $d['reason'];
+        }
+        $correoMi .= "Texto del Error: $textoError <br>\n";
+
+//		$q = "update tbl_transacciones set id_error = (select texto from tbl_errores where idpasarela = 115 and codigo = ".$d['codeReponse'].") where idtransaccion = $cookie"; Reina
+		$q = "update tbl_transacciones set id_error = '$textoError' where idtransaccion = '$cookie'";
+        $correoMi .= $q."<br>\n";
+        error_log($q);
 		$temp->query($q);
 	}
 }
@@ -159,6 +173,8 @@ $pasarr = $temp->f('pasarela');
 $idpas = $temp->f('idpas');
 $valor_inicial = $temp->f('valor_inicial');
 $idcenauto = $temp->f('idcenauto');
+$estadoOp = $temp->f('estado');
+$correoMi .=  "<br>\nEstado Op=".$estadoOp."<br>\n";
 
 if ($can > 0) {
 	$q = "select * from tbl_pasarela where idPasarela = $idpas and idbanco = 19";
@@ -284,7 +300,10 @@ if ($can == 1 && $wcp == 0) {
 				'Ds_AuthorisationCode' => $d['Ds_AuthorisationCode']
 	        );
 			if (strlen($d['Ds_AuthorisationCode']) > 2 && $d['Ds_AuthorisationCode'] < 12) {
-				$temp->query("update tbl_transacciones set codigo = '".$d['Ds_AuthorisationCode']."', estado = 'A' where idtransaccion = ".$cookie);
+				$q = "update tbl_transacciones set codigo = '".$d['Ds_AuthorisationCode']."', estado = 'A' where idtransaccion = ".$cookie;
+				$correoMi .= "$q<br>\n";
+				$temp->query($q);
+
 				$temp->query("update tbl_reserva set bankId = '".$d['Ds_AuthorisationCode']."', estado = 'A' where id_transaccion = ".$cookie);
 				$correoMi .= "Hace el update de c&oacute;digo de banco<br>\nupdate tbl_transacciones set codigo = ".$d['Ds_AuthorisationCode']." where idtransaccion = ".$cookie."\n<br>";
 			}
@@ -397,14 +416,27 @@ if ($can == 1 && $wcp == 0) {
 		$text = $correoMi .= "La operación $cookie de $comercio con identificador $identif realizada ahora (".date('d/m/Y H:i:s').") no entró por llegada.php pero fué actualizada acá con estado $est, si está Aceptada buscar el código del banco";
 		//$correo->todo(29,'Operación de Xilema por index',$text);
 		$correoMi .= "entra en el centro autorizador 14<br>";
+	} else{
+		$correoMi .= "No se conoce el Centro Autorizador<br>";
 
-
+		if ($sabad == 'ok') {
+			$est = 'A';
+			$val = "valor = valor_inicial, tasa = $tasa, euroEquiv = ((valor/100)/($tasa)) ";
+		} elseif ($sabad == 'ko') {
+			$est = 'D';
+			$val = "valor = 0 ";
+		}
+		$q = "update tbl_transacciones set $val, estado = '$est', fecha_mod = ".time()." where idtransaccion = '$cookie'";
+		$correoMi .= "$q<br>\n";
+		$temp->query($q);
 	}
 
 	$correoMi .= "Pases = $pases<br>\n";
 	if ($pases) {
 		$correoMi .= "Se lanza el update en llegada<br>";
-		
+
+		$data["origen"] = "browser";
+
 		$options = array(
 				CURLOPT_RETURNTRANSFER	=> true,
 				CURLOPT_SSL_VERIFYPEER	=> false,
@@ -476,7 +508,8 @@ if ($can == 1 && $wcp == 0) {
 //echo $correoMi;
 
 $query = sprintf("select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod, valor_inicial, moneda, t.estado,
-		c.nombre, c.url, t.tipoEntorno, t.valor/100, t.tpv, t.pasarela, t.tasa, p.idcenauto, t.id_error, t.sesion
+		c.nombre, c.url, t.tipoEntorno, t.valor/100, t.tpv, t.pasarela, t.tasa, p.idcenauto, t.id_error, t.sesion, t.bipayId, t.pasarela,
+		(select a.nombre from tbl_agencias a where p.idagencia = a.id) comercio
 			from tbl_transacciones t, tbl_comercio c, tbl_pasarela p
 			where t.idcomercio = c.idcomercio
 				and p.idPasarela = t.pasarela
@@ -492,6 +525,18 @@ if(is_array($valores)) {
     foreach ($valores as $key => $value) {
         $correoMi .= $key." = ".$value."<br>\n";
     }
+}
+
+if (count($valores) > 0) {  // Se encontro la operacion registrada
+    // Se busca si la operacion tiene registrada url de retorno
+    $q = "select urlRetorno as url from tbl_ComerTransUrl where idcomercio = '$valores[1]' and idOperacion = '$valores[2]'";
+    $temp->query($q);
+    $correoMi .= "\n<br>Se busca si la la operacion tiene registrada url de retorno <br>\n";
+    $correoMi .= "$q<br>\n";
+    if ($temp->num_rows() > 0 && strlen($temp->f('url')) > 0) {
+        $valores[10] = $temp->f('url');
+    }
+    $correoMi .= "urlRetorno = '$valores[10]' <br>\n";
 }
 
 //carga el código javascript para destruir iframes excepto para el nuevo sitio de cubana TODO Cubana
@@ -528,7 +573,8 @@ if (count($valores) > 0) {
 				$valores[8] = $pasEs;
 				if ($valores[3] == '' && $d['Ds_AuthorisationCode']) $valores[3] = $d['Ds_AuthorisationCode'];
 				if ($idpas != 91) {
-					$q = "update tbl_transacciones set estado = '".$valores[8]."', codigo = '{$valores[3]}', estado = 'A' where idtransaccion = '".$valores[0]."'";
+//					$q = "update tbl_transacciones set estado = '".$valores[8]."', codigo = '{$valores[3]}', estado = 'A' where idtransaccion = '".$valores[0]."'";  Reina
+					$q = "update tbl_transacciones set estado = '".$valores[8]."', codigo = '{$valores[3]}' where idtransaccion = '".$valores[0]."'";
 					$temp->query($q);
 					$correoMi .= $q."<br>\n";
 				}
@@ -610,31 +656,33 @@ if (count($valores) > 0) {
 			$valores[12] = $valores[12]/100; //wirecard ahora manda las operaciones mult. por 100
 		}
 	}
+
+	$referencia = leeSetup('refOpPruebas');
+	if($valores[2] != $referencia) {
+		$query = "update tbl_reserva set id_transaccion = '" . $valores[0] . "', bankId = '" . $valores[3] . "', fechaPagada = " . $valores[5] . ",
+						estado = '" . $valores[8] . "', est_comer = '" . $valores[11] . "', valor = " . $valores[12] . "
+					where codigo = '" . $valores[2] . "' and id_comercio = " . $valores[1];
+		$correoMi .= "\n<br> $query <br><br>\n\n";
+		$temp->query($query);
+	}
 	
-	
-	$query = "update tbl_reserva set id_transaccion = '".$valores[0]."', bankId = '".$valores[3]."', fechaPagada = ".$valores[5].",
-					estado = '".$valores[8]."', est_comer = '".$valores[11]."', valor = ".$valores[12]."
-				where codigo = '".$valores[2]."' and id_comercio = ".$valores[1];
-	$correoMi .=  "\n<br> $query <br><br>\n\n";
-	$temp->query($query);
-	
-	$correoMi .= "valores= {$valores[1]} && {$pago[18]} && {$valores[13]} <br>\n";
+//	$correoMi .= "valores= {$valores[1]} && {$pago[18]} && {$valores[13]} <br>\n";
+	$correoMi .= "valores= $valores[1] && $pago[18] && $valores[13] <br>\n";
 	$correoMi .= "count(pago)= ".count($pago)."<br>\n";
 	
 	//TODO Cubana
-	if (count($pago) == 0 
-//             || ($valores[1] == '129025985109' && $pago[18] == 'S' && $valores[13] == 0) //Para pagos de Cubana 
-//            || ($valores[1] == '122327460662' && $pago[18] == 'S' && $valores[13] == 0)//Para pagos de Prueba haciéndose pasar como Cubana
-            ) 
-        { //no hay pago online o el comercio es Cubana
-
+	if (count($pago) == 0){ //no hay pago online o el comercio es Cubana
 //         if ($valores[1] != '129025985109') { //Camino de todos los comercios excepto Cubana TODO Cubana
+		if(isset($valores[19])){	// es una operacion BiPay
+			$firma = convierte256($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
+		} else{
 			if (strlen($valores[18]) == 32)
 				$firma = convierte($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
-			else 
+			else
 				$firma = convierte256($valores[1], $valores[2], $valores[6], $valores[7], $valores[8], $valores[0], date('d/m/y h:i:s', $valores[5]));
-				
-    $correoMi .=  "firma={$valores[1]}, {$valores[2]}, {$valores[6]}, {$valores[7]}, {$valores[8]}, {$valores[0]}, ".date('d/m/y h:i:s', $valores[5])."<br>";
+		}
+
+		$correoMi .=  "firma={$valores[1]}, {$valores[2]}, {$valores[6]}, {$valores[7]}, {$valores[8]}, {$valores[0]}, ".date('d/m/y h:i:s', $valores[5])."<br>";
 	
 		$cont = "<input type=\"hidden\" name=\"comercio\" value=\"".$valores[1]."\">
 				<input type=\"hidden\" name=\"transaccion\" value=\"".$valores[2]."\">
@@ -646,10 +694,16 @@ if (count($valores) > 0) {
 				<input type=\"hidden\" name=\"fecha\" value=\"".date('d/m/y h:i:s', $valores[5])."\">
 				<input type=\"hidden\" name=\"tasa\" value=\"".$valores[15]."\">
 				<input type=\"hidden\" name=\"firma\" value=\"$firma\">";
-	$correoMi .= "idcenauto=$valores[16] && sabad=$sabad<br>";
+		if(isset($valores[19])) {    // es una operacion BiPay
+			$cont .= "<input type=\"hidden\" name=\"bipay\" value=\"$valores[19]\">";
+			$cont .= "<input type=\"hidden\" name=\"pasarela\" value=\"$valores[20]\">";
+			$cont .= "<input type=\"hidden\" name=\"comerc\" value=\"$valores[21]\">";
+		}
+
+		$correoMi .= "idcenauto=$valores[16] && sabad=$sabad<br>";
 		
 		if (($valores[16] == 13 || $valores[16] == 4 ) && $sabad == 'ko') {
-				$correoMi .= "entra a crear la pagina de error<br>";
+			$correoMi .= "entra a crear la pagina de error<br>";
 			$plant = 'modtefpay.html';
 			if (is_file($plant)) {
 				$correoMi .= "entra a leer el fichero<br>";
@@ -657,10 +711,21 @@ if (count($valores) > 0) {
 				$cadena = str_replace('{error}', $valores[17], str_replace('{accion}', $valores[10], str_replace('{formulario}', $cont, $cadena)));
 			}
 		} else {
-		
+
+			/*$cadena = "<script>$dstrIframe
+                    </script>
+                    <form id=\"envia\" action=\"".$valores[10]."\" method=\"post\">$cont</form>";*/
+
             $cadena = "<script>$dstrIframe
                     </script>
-                    <form id=\"envia\" action=\"".$valores[10]."\" method=\"post\">$cont</form>";
+                    <form id=\"envia\" action=\"".$valores[10];
+
+			if(isset($valores[19])) {    // es una operacion BiPay
+				$cadena .= "\" method=\"get\">$cont</form>";
+			} else{
+				$cadena .= "\" method=\"post\">$cont</form>";
+			}
+
             $cadena .= '<script>document.writeln("<div style=\"margin:"+
                        window.innerHeight/2
                        +"px 0 0 "+
@@ -705,102 +770,102 @@ if (count($valores) > 0) {
 //             echo $cadena;
 //         }
     } else { //hay pago online
+		if(!isset($valores[19])) {    // NO es una operacion BiPay
+			if (($valores[16] == 13 || $valores[16] == 4 ) && $sabad == 'ko') {
+					$correoMi .= "entra a crear la pagina de error<br>";
+				$plant = 'modtefpay.html';
+				if (is_file($plant)) {
+					$correoMi .= "entra a leer el fichero<br>";
+					$cadena = leeFicheros($plant);
+					$cadena = str_replace('{error}', $valores[17], str_replace('{accion}', $valores[10], str_replace('{formulario}', $cont, $cadena)));
+				}
+			}
 		
-		if (($valores[16] == 13 || $valores[16] == 4 ) && $sabad == 'ko') {
-				$correoMi .= "entra a crear la pagina de error<br>";
-			$plant = 'modtefpay.html';
-			if (is_file($plant)) {
-				$correoMi .= "entra a leer el fichero<br>";
-				$cadena = leeFicheros($plant);
-				$cadena = str_replace('{error}', $valores[17], str_replace('{accion}', $valores[10], str_replace('{formulario}', $cont, $cadena)));
+			$correoMi .=  "valor=".$pago[18]."<br>\n" ;
+
+			(strstr($pago[23], "admin.admin")) ?
+				$sit = "https://".$pago[23]."/index.php?componente=comercio&pag=cliente":
+				$sit = "https://".$pago[23]."/admin/index.php?componente=comercio&pag=cliente";
+
+			if ($valores[8] == 'A') {
+				if ($pago[18] == 'N') { //no es pago al momento
+					echo "<script language=\"JavaScript\">$dstrIframe"
+							. "window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_self');
+						</script>";
+				} else { //es pago al momento
+					if ($valores[13] != '1') {
+						$correoMi .= "Aceptada al Concentrador <br>\n$sit.<br>\n";
+						echo "<script language=\"JavaScript\">$dstrIframe
+							window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+							window.open('"._ESTA_URL."/ticket.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+							window.open('".$sit."', '_self');
+							</script>";
+					} else {
+						$correoMi .= "Aceptada al TPVV <br>\n";
+						echo "<script language=\"JavaScript\">$dstrIframe
+							window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+							window.open('"._ESTA_URL."/ticket.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
+							window.open('https://tpvv.administracomercios.com', '_self');
+							</script>";
+					}
+				}
+			} else {
+				if ($pago[18] == 'N') {  //no es pago al momento
+					$q = "select nombre, datos from tbl_comercio where idcomercio = ".$valores[1];
+					$temp->query($q);
+					$comNom = $temp->f('nombre');
+					$comDat = $temp->f('datos');
+
+					$q = "select a.nombre, a.email, t.id_error from tbl_reserva r, tbl_admin a, tbl_transacciones t where r.id_admin = a.idadmin and t.idtransaccion = r.id_transaccion and r.id_transaccion = '$cookie' ";
+					$temp->query($q);
+					$nomAd = $temp->f('nombre');
+					$corAd = $temp->f('email');
+					$fallo = $temp->f('id_error');
+					?>
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+					<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+					<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+					<title><?php echo $titulo ?></title>
+					<link href="../admin/template/css/admin.css" rel="stylesheet" type="text/css" />
+					<!--<link href="../template/css/calendar.css" rel="stylesheet" type="text/css" />-->
+					<script>
+						<?php echo $dstrIframe; ?>
+					</script>
+					</head>
+					<body>
+						<div id="encabPago">
+							<div id="logoPago"><img src="../admin/template/images/banner2.png" /> </div>
+							<div class="inf"></div>
+						</div>
+						<div id="cuerpoPago">
+							El pago realizado ha reportado un error. <br /><br /><?php echo $fallo; ?><br /><br />Contacte su proveedor en: /
+							The Payment was reported as null. Contact your provider at:<br />
+							<?php echo $nomAd; ?><br />
+							<a href="mailto:<?php echo $corAd; ?>" > <?php echo $corAd; ?> </a>
+						</div>
+						<div>
+							<div class="inf2"></div>
+							<!-- Copyright &copy; Travels &amp; Discovery, <?php echo date('Y', time()); ?><br /><br /> -->
+						</div>
+					</body>
+					</html>
+				<?php
+				} else { //es denegada con pago al momento
+						if ($valores[13] != '1') {
+							$correoMi .= "Denegada al Concentrador<br>";
+							echo "<script language=\"JavaScript\">$dstrIframe
+								window.open('".$sit."', '_self');
+								</script>";
+						} else {
+							$correoMi .= 'Denegada al TPVV<br>';
+							echo "<script language=\"JavaScript\">$dstrIframe
+							window.open('https://tpvv.administracomercios.com', '_self');
+							</script>";
+						}
+				}
 			}
 		}
-		
-$correoMi .=  "valor=".$pago[18]."<br>\n" ;
-
-		(strstr($pago[23], "admin.admin")) ?
-			$sit = "https://".$pago[23]."/index.php?componente=comercio&pag=cliente":
-			$sit = "https://".$pago[23]."/admin/index.php?componente=comercio&pag=cliente";
-
-        if ($valores[8] == 'A') {
-            if ($pago[18] == 'N') { //no es pago al momento
-                echo "<script language=\"JavaScript\">$dstrIframe"
-						. "window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_self');
-                    </script>";
-            } else { //es pago al momento
-				if ($valores[13] != '1') {
-					$correoMi .= "Aceptada al Concentrador <br>\n$sit.<br>\n";
-					echo "<script language=\"JavaScript\">$dstrIframe
-						window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
-						window.open('"._ESTA_URL."/ticket.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
-						window.open('".$sit."', '_self');
-						</script>";
-				} else {
-					$correoMi .= "Aceptada al TPVV <br>\n";
-					echo "<script language=\"JavaScript\">$dstrIframe
-						window.open('"._ESTA_URL."/voucher.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
-						window.open('"._ESTA_URL."/ticket.php?tr=".$valores[2]."&co=".$valores[1]."', '_new');
-						window.open('https://tpvv.administracomercios.com', '_self');
-						</script>";
-				}
-            }
-        } else {
-            if ($pago[18] == 'N') {  //no es pago al momento
-				$q = "select nombre, datos from tbl_comercio where idcomercio = ".$valores[1];
-				$temp->query($q);
-				$comNom = $temp->f('nombre');
-				$comDat = $temp->f('datos');
-				
-				$q = "select a.nombre, a.email, t.id_error from tbl_reserva r, tbl_admin a, tbl_transacciones t where r.id_admin = a.idadmin and t.idtransaccion = r.id_transaccion and r.id_transaccion = '$cookie' ";
-				$temp->query($q);
-				$nomAd = $temp->f('nombre');
-				$corAd = $temp->f('email');
-				$fallo = $temp->f('id_error');
-				?>
-				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-				<html xmlns="http://www.w3.org/1999/xhtml">
-				<head>
-				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-				<title><?php echo $titulo ?></title>
-				<link href="../admin/template/css/admin.css" rel="stylesheet" type="text/css" />
-				<!--<link href="../template/css/calendar.css" rel="stylesheet" type="text/css" />-->
-				<script>
-					<?php echo $dstrIframe; ?>
-				</script>
-				</head>
-				<body>
-					<div id="encabPago">
-						<div id="logoPago"><img src="../admin/template/images/banner2.png" /> </div>
-						<div class="inf"></div>
-					</div>
-					<div id="cuerpoPago">
-						El pago realizado ha reportado un error. <br /><br /><?php echo $fallo; ?><br /><br />Contacte su proveedor en: /
-						The Payment was reported as null. Contact your provider at:<br />
-						<?php echo $nomAd; ?><br />
-						<a href="mailto:<?php echo $corAd; ?>" > <?php echo $corAd; ?> </a>
-					</div>
-					<div>
-						<div class="inf2"></div>
-						<!-- Copyright &copy; Travels &amp; Discovery, <?php echo date('Y', time()); ?><br /><br /> -->
-					</div>
-				</body>
-				</html>
-			<?php
-            } else { //es denegada con pago al momento
-					if ($valores[13] != '1') { 
-						$correoMi .= "Denegada al Concentrador<br>";
-		                echo "<script language=\"JavaScript\">$dstrIframe
-							window.open('".$sit."', '_self');
-		                    </script>";
-                	} else {
-						$correoMi .= 'Denegada al TPVV<br>';
-						echo "<script language=\"JavaScript\">$dstrIframe
-						window.open('https://tpvv.administracomercios.com', '_self');
-						</script>";
-					}
-            }
-        }
-
     }
 }
 $subject = "Llegada del banco a rep-index";
