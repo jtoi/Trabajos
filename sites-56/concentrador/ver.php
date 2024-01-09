@@ -4,9 +4,16 @@ include 'include/mysqli.php';
 
 $temp = new ps_DB;
 
-$q = "select fecha, traza from tbl_traza order by fecha desc limit 0,1";
+if ($_GET['id'] > 0) {
+	$q = "select fecha, traza from tbl_traza where id = '{$_GET['id']}'";
+	
+} else {
+	$q = "select fecha, traza from tbl_traza order by fecha desc limit 0,1";
+}
+
+
 $temp->query($q);
-echo date('Y-m-d H:i:s',$temp->f('fecha')) . " " . $temp->f('fecha')."<br><br>";
-echo $temp->f('traza');
+echo date('Y-m-d H:i:s',$temp->f('fecha')) . " ";
+echo "<br><br>".$temp->f('traza');
 
 ?>

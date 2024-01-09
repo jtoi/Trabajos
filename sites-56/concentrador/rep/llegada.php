@@ -288,17 +288,31 @@ if ($pasarela == $pasaEuroP) {//EurocoinPay
 	$codi = $temp->f('clave');
 	$term = $temp->f('terminal');
 
-	$correoMi .= "<br>Entra en Eurocoinpay<br>";
-	$correoMi .= "data->".$d['data']."<br>";
-	$correoMi .= "sig->".$d['sig']."<br>";
-	$correoMi .= "codi->".$codi."<br>";
-	$correoMi .= "term->".$term."<br>";
+	$correoMi .= "<br>\nEntra en Eurocoinpay<br>\n";
+	$correoMi .= "codi->".$codi."<br>\n";
+	$correoMi .= "term->".$term."<br>\n";
 
 	$res = $ecp->cliObtenParametrosPost($d['data'], $d['sig'], $codi);
 	logEcp("res:" . var_export ($res,TRUE));
+	
+	if (!$idtrans = $ent->isNumero($res->order_number,12)) $correoMi .= "No es v�lido el n�mero de la operaci�n {$res->order_number} <br>";
+	else {
+		if ($res->error == 'OK') { //operación aceptada
+		$estado = '2';
+		$correoMi .= "Aceptada<br>\n";
+		$importe = $res->amount;
+		$codautorizacion = $res->operation_id;
+		} else {
+			$correoMi .= "Denegada<br>\n";
+			$estado = '3';
+			$importe = null;
+			$codautorizacion = null;
+			$ok = 1;
+			$iderror = $res->error;
+		}
+	}
 
-	$correoMi .= json_decode($res)."<br>";
-
+	
 
 }elseif ($pasarela == 218) {//Moneytigo
 	if (!$idtrans = $ent->isNumero($d['MerchantRef'],12)) $correoMi .= "No es v�lido el n�mero de la operaci�n {$d['MerchantRef']} <br>";

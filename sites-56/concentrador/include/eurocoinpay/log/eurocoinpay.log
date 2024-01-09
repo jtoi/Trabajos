@@ -427,3 +427,245 @@ daA�\;�
 2024-01-08T14:12:44 encryptAesBin
 2024-01-08T14:12:44 strSig:25576|1|A+6b3ccpTAaOQKgarUmiLQ==|kAX+ukNwplKdUQZ7Hrkd3lHgreNTrgVJuHgLU4LJDes=
 2024-01-08T14:12:44 strData:Wp4tp+qpjjU902mRYTOO/WzvibLxxSnSoJx8c9VTvXYb4X7EbFFstP6tRCPhDiiUsX2N2Z02gbLRXiUTATYVRnOYaGjgtILQOjpHyy+RmSGeKc9C9sjg49ROUJFulOIVsvGBzuAN6xFOn903oDxprMtLeGXZ3xqCVqInldmabYt32nGHo/QvQdhiDrsdeGuNcZcBYlCFM8vPaSJkl7XG3rNluQ5GMzPRQggZ/naM7XQwZJtaExMGM4f6qmKMwrYG9knMN7+eLt8OTUV/rTMXGUaOGhVY5AqEgATKTIIJci5WDuVUuDUeSsULk4T0vXpjoDJ/PL2ditXoaT8C2upjLx5GDVJuQZs7WTMEfVxByCEqQ4RpVIIpN5c2cvBrwouInHvh9ItfTDvmh1gzU8Eqzpeofoiiadi2jXlUqrhV6iaxoA+7gBA4ZFAc0f5Pbk4Af9i8J4jOxZK6/g3KXX2eFJgOI/Eb+aKQx/O1MwRB13U3J/I74kSC9e+Fditg/CkezZZqw+4p3ADENP9Ola8h9mj6I/6ly6YVDEN3xTDvHEqJX6B9RPZDIdcZuZno7xarXZy1O65l/7y5MaTM87pxw098p9XdH1m4HPmZBXhbnfKy6XYQ4G9d4/FUAi3SG///po2C8K5+RSYXHthEeotYAieelZTs9RkRyNzPIrGEQWjJLktfmaZMfd64ml0N/iSx
+2024-01-09T08:16:02 cliObtenParametrosPost
+2024-01-09T08:16:02 sigAll:
+2024-01-09T08:16:02 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:16:02 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:16:02 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:16:02 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:16:02 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:16:02 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:20:33 cliObtenParametrosPost
+2024-01-09T08:20:33 sigAll:
+2024-01-09T08:20:33 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:20:33 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:20:33 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:20:33 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:20:33 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:20:33 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:22:25 cliObtenParametrosPost
+2024-01-09T08:22:25 sigAll:
+2024-01-09T08:22:25 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:22:25 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:22:25 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:22:25 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:22:25 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:22:25 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:25:10 cliObtenParametrosPost
+2024-01-09T08:25:10 sigAll:
+2024-01-09T08:25:10 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:25:10 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:25:10 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:25:10 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:25:10 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:25:10 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:26:03 cliObtenParametrosPost
+2024-01-09T08:26:03 sigAll:
+2024-01-09T08:26:03 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:26:03 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:26:03 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:26:03 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:26:03 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:26:03 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:29:30 cliObtenParametrosPost
+2024-01-09T08:29:30 sigAll:
+2024-01-09T08:29:30 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:29:30 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:29:30 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:29:30 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:29:30 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:29:30 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:32:08 cliObtenParametrosPost
+2024-01-09T08:32:08 sigAll:
+2024-01-09T08:32:08 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:32:08 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:32:08 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:32:08 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:32:08 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:32:08 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:33:14 cliObtenParametrosPost
+2024-01-09T08:33:14 sigAll:
+2024-01-09T08:33:14 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:33:14 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:33:14 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:33:14 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:33:14 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:33:14 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:48:16 cliObtenParametrosPost
+2024-01-09T08:48:16 sigAll:
+2024-01-09T08:48:16 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:48:16 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:48:16 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:48:16 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:48:16 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:48:16 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:53:35 cliObtenParametrosPost
+2024-01-09T08:53:35 sigAll:
+2024-01-09T08:53:35 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:53:35 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:53:35 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:53:35 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:53:35 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:53:35 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))
+2024-01-09T08:56:12 cliObtenParametrosPost
+2024-01-09T08:56:12 sigAll:
+2024-01-09T08:56:12 data|QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==
+2024-01-09T08:56:12 sigAll|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:56:12 datosJS:{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}
+2024-01-09T08:56:12 txtFirmadoComprobar|{"merchant_user_nr":25576,"buyer_user_nr":25576,"terminal_nr":1,"amount":6.0,"order_currency":"USD","amount_euros":5.48,"product":"Order number 240108200268","order_number":"240108200268","transaction_type":"P","merchant_name":"Caribeantravelweb","operation_id":"5d7cf21e867a4f25be887991d970a915","error":"OK","commission_charged_e":0.0300}|
+2024-01-09T08:56:12 Firma OK|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=|T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=
+2024-01-09T08:56:12 res:stdClass::__set_state(array(
+   'merchant_user_nr' => 25576,
+   'buyer_user_nr' => 25576,
+   'terminal_nr' => 1,
+   'amount' => 6,
+   'order_currency' => 'USD',
+   'amount_euros' => 5.4800000000000004,
+   'product' => 'Order number 240108200268',
+   'order_number' => '240108200268',
+   'transaction_type' => 'P',
+   'merchant_name' => 'Caribeantravelweb',
+   'operation_id' => '5d7cf21e867a4f25be887991d970a915',
+   'error' => 'OK',
+   'commission_charged_e' => 0.029999999999999999,
+))

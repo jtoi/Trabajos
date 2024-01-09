@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	fecha=08/01/2024 20:05:42<br> 141.94.195.231<br> Entra<br> data =
+	QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==<br>
+	sig = T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=<br> pasarela->EurocoinPay||<br>
+	desde-><br>
+	||<br> pasarela=248||<br> <br>Entra en
+	Eurocoinpay<br>data->QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA==<br>sig->T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ=<br>codi->tT4HloLltnctVWzHEikTzwDfpv8rsgslVR/uycaKXzs=<br>term->1<br><br>=||<br>
+	<br> firma=1||<br> <br> coderror=||<br> tipoerror=0<br>coderror=<br>id_error=<br>dserror=<br> <br>moneda= <br><br>
+	cambioRate=<br> iderror=<br> estado=4<br> errorAMF=<br>actmult=<br> select estado,
+	from_unixtime(fecha_mod,&#039;%d/%m/%Y %H:%i:%s&#039;) fe, codigo, idcomercio, directa, identificador, tipoPago from
+	tbl_transacciones where idtransaccion = &#039;&#039;<br> <br> Estado Op=<br> <br> Respuesta Directa=<br> select
+	count(idtransaccion) total from tbl_transacciones where idtransaccion = &#039;&#039; and estado != &#039;P&#039;<br>
+	<br> Se notifica al comercio<br> <br> select idtransaccion, t.idcomercio, identificador, codigo, idioma, fecha_mod,
+	valor, moneda, t.estado, c.nombre, c.url, t.tipoEntorno, t.valor/100 precio, c.url_llegada, p.nombre, (select
+	a.nombre
+	from tbl_agencias a where p.idagencia = a.id) comercio, (select idusrToken from tbl_usuarios u where u.idtransaccion
+	=
+	t.idtransaccion) usuario, (select nombre from tbl_reserva r where r.id_transaccion = t.idtransaccion) usr, t.sesion,
+	c.resp, t.bipayId, t.pasarela, t.id_tarjeta from tbl_transacciones t, tbl_comercio c, tbl_pasarela p where
+	t.idcomercio
+	= c.idcomercio and p.idPasarela = t.pasarela and idtransaccion = &#039;&#039;<br> select email from tbl_admin a,
+	tbl_colAdminComer c, tbl_comercio e where c.idAdmin = a.idadmin and e.id = c.idComerc and e.idcomercio =
+	&#039;&#039;
+	and a.activo = &#039;S&#039; and a.correoT = 1<br> <br> Correo Estado transaccion<br> select sms, telf, t.ip,
+	t.pasarela, p.LimMinOper, p.LimMaxOper, p.LimDiar, p.LimMens, p.LimAnual, p.LimOperIpDia, p.LimOperTarDia,
+	p.LimOperDia,
+	t.valor_inicial, p.nombre from tbl_comercio c, tbl_transacciones t, tbl_pasarela p where t.pasarela = p.idPasarela
+	and
+	t.idcomercio = c.idcomercio and t.idtransaccion = &#039;&#039;<br> <br> Pasarela:<br> <br> <br> <br><br> select
+	count(*)
+	total from tbl_reserva r, tbl_transacciones t where t.identificador = r.codigo and t.idtransaccion = &#039;&#039;
+	and
+	pMomento = &#039;S&#039;<br> Total=<br> tot=1
+</body>
+
+</html>

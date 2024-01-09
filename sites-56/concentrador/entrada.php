@@ -30,8 +30,8 @@ $firma = convierte($comercio, $trans, '3534', '978', 'P');
 </form>
 
 <form action="rep/llegada.php" method="POST">
-	data: <input type="text" name="data" value="W3wSCXNQeG+F++0zGCHkAC48H9dMu0HymVTXohgjKauD+HExVRRbRSdyVDjt9iQaotzZbO9nu3OamKZ9CmRhQZZcfzufDSqlyDEFMonegn/H82oTMJ/ieX56iPEBIDOv4ymOmX9oTRnLgKbPkN0/LhWYef5ltzZFx5qc9fy+mJgXilMGwlvQzvIA/usfSDevZRs1lO7A9CuBIDmzcC3TiME2pl+ISy21vAbgAdHKCNXX9jS+Dc0bETe9kDbLxFo39Qu6gaH8unjTxgFUyfyj0RT7EEkAj3z1cuFPO5bGKT3kEZjfiJPLoDRcEs6qC04leXcs72z1LpeJZP2QbD0Ev25wVkjf+6XVibAwinW0CC9cNJpzynEFOBCsgZb13zSg"><br />
-	sig: <input type="text" name="sig" value="oRA82z8FJe9YnVvq5xoMow==|mPPgPQ9vlIE31QxiAeSh7i7K+zkH04C8Yzq4+VGmyD0="><br />
+	data: <input type="text" name="data" value="QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA=="><br />
+	sig: <input type="text" name="sig" value="T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ="><br />
 	<input type="submit" value="Enviar">
 </form>
 
