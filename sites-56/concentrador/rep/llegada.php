@@ -1395,17 +1395,22 @@ $correoMi .=  "<br>\factmult=".$factmult;
 		}
 
         $q = "select fecha_mod, tipoEntorno, (valor*$factmult/100) val, idcomercio, identificador from tbl_transacciones where idtransaccion = '$idtrans'";
+		$correoMi .="<br>\n".$q;
         $temp->query($q);
 		$elcomercio = $temp->f('idcomercio');
+		$fechaMod = $temp->f('fecha_mod');
+		$tipoEntorno = $temp->f('tipoEntorno');
+		$val = $temp->f('val');
+		$identificador = $temp->f('identificador');
+		$correoMi .= "<br>\n" . $elcomercio . "<br>\n" . $fechaMod . "<br>\n" . $tipoEntorno . "<br>\n" . $val . "<br>\n" . $identificador . "\n<br><br>\n";
 
 //		if($estadoOp != 'A'){
 			$referencia = leeSetup('refOpPruebas');
 			if($temp->f('identificador') != $referencia) {
 				if($actualizaOp) {
 					//Actualiza la tabla de las reservas con el resultado de la transaccion
-					$query = "update tbl_reserva set id_transaccion = '" . $idtrans . "', bankId = '" . $codautorizacion . "', fechaPagada = " . $temp->f('fecha_mod') . ",
-								estado = '" . $estado . "', est_comer = '" . $temp->f('tipoEntorno') . "', valor = " . $temp->f('val') . "
-							where codigo = '" . $temp->f('identificador') . "' and estado in ($paseEst) and id_comercio = " . $temp->f('idcomercio');
+					$query = "update tbl_reserva set id_transaccion = '" . $idtrans . "', bankId = '" . $codautorizacion . "', fechaPagada = " . $fechaMod . ", estado = '" . $estado . "', est_comer = '" . $tipoEntorno . "', valor = " . $val . "
+							where codigo = '" . $identificador . "' and estado in ($paseEst) and id_comercio = " . $elcomercio;
 					//	echo $query;
 					$temp->query($query);
 					$correoMi .= "<br>\n" . $query . "\n<br><br>\n";

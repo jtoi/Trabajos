@@ -2908,7 +2908,10 @@ class inico {
 					$this->log .= "ecpc->eurocoinpay_url_notif = " . $ecpc->eurocoinpay_url_notif . "<br>";
 					$this->log .= "ecpc->eurocoinpay_url_ok = " . $ecpc->eurocoinpay_url_ok . "<br>";
 					$this->log .= "ecpc->eurocoinpay_url_fail = " . $ecpc->eurocoinpay_url_fail . "<br>";
-					$sndData = $ecpc->prepareDataForEcpServer($tr ,($this->imp / 100),  $moneda );
+					$this->log .= "transaccion = " . $tr . "<br>";
+					$this->log .= "importe = " . ($imp / 100) . "<br>";
+					$this->log .= "moneda = " . $moneda . "<br>";
+					$sndData = $ecpc->prepareDataForEcpServer($tr ,($imp / 100),  $moneda );
 
 					$this->log .= "salida = " . $sndData . "<br>";
 

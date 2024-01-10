@@ -30,8 +30,8 @@ $firma = convierte($comercio, $trans, '3534', '978', 'P');
 </form>
 
 <form action="rep/llegada.php" method="POST">
-	data: <input type="text" name="data" value="QL9iRK9XVvtjaJ63c4c9rJsbjY6EgP6zxmiBavM4PoB9FOw07uMS76w30cB2mvk5rQmgS7bSVmwpT3w39kn+xO7m3OCgyWryoTvBOUXmt6KAf57gmk22YRvXwHcigOIo92KTzfEHkRqnvuWTY3ceIE0Ae5r+XDwl57MvBAj+8ePR5ccNACTPT3eZ8A/BYDhzG9pElPKC+mcpHussiuYzBaJqkrxq+Vi07CxPLo5HYiVUXqy15J1u9slhQRDQ5Whq8VN5ljHt7Tp9Ux6j/Pa6GLF2PvbHsIi2c9dbyeJE7RW1HJCF/6iTnZcRgdwTmMB6LStqg0wwH0nruQBTvEGR809ZeMDNst8kiiR24lPlwCo5f+lmFWTGCuCgquL7CIfBHFo2Qz5TIrP1BpSpUoQXjwMe3KWfvt/lmBsBwgWEGxQ2r4a5cDlhJGBlENvTvgcEq8ZBbkPaPV35jOCJKuaXQA=="><br />
-	sig: <input type="text" name="sig" value="T2pUE05FkeYslIHUGqQ1Ww==|leXzzhXBn8OccgZ4drtnW5Js/xF2O9Eqn90MC/x2MAQ="><br />
+	data: <input type="text" name="data" value="XxoHZwAeZ1WfH+syl1C3f07JnL2y3WQz2Xc9cnlI7tUDk7RGuzOtNb9w2nd+25NoUweg+qIAXMF3gjuzPpC4wuWGd2Uav57wAk7MgcHgDSrdaeAllyeLx6lwf+SMPxrFCfxO6TxItxLQUZBSn+J4hz69rtkx+nTmHJPu/+DCwBEaLNy4MoQQfcEPgmtN/ibBAgbuRMXQtscFi7KNa8t0RTkhGf1Jwt8R4LWP1z7wJsRdzVRHc+dB95uATtX6keVClAJEndJfKBXrlPID48F3FK0RvEehNZG2ovD4gt87KHH2WnH3auZ7LvXj5Y6ru2ks8BD1rWtR0SR2Cv6Obqu6Eew5kpq6cAfedoJHH+r59dCesMmnu5xTS5Ujrs0xjFgdBm8tFiomnG2sNDBXBAA9Hed0GGqj+JLsztl6mb4KwMU="><br />
+	sig: <input type="text" name="sig" value="OQn7qHNt2n8n1RPeQ6lXKw==|8iDRCvSr38WBEQYW/MtwwBW1MGyjs1V2ARJU6d/xyRA="><br />
 	<input type="submit" value="Enviar">
 </form>
 
